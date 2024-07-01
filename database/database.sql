@@ -48,7 +48,7 @@ CREATE TABLE `data_rows` (
 
 LOCK TABLES `data_rows` WRITE;
 /*!40000 ALTER TABLE `data_rows` DISABLE KEYS */;
-INSERT INTO `data_rows` VALUES (1,1,'id','number','ID',1,0,0,0,0,0,NULL,1),(2,1,'name','text','Name',1,1,1,1,1,1,NULL,2),(3,1,'email','text','Email',1,1,1,1,1,1,NULL,3),(4,1,'password','password','Password',1,0,0,1,1,0,NULL,4),(5,1,'remember_token','text','Remember Token',0,0,0,0,0,0,NULL,5),(6,1,'created_at','timestamp','Created At',0,1,1,0,0,0,NULL,6),(7,1,'updated_at','timestamp','Updated At',0,0,0,0,0,0,NULL,7),(8,1,'avatar','image','Avatar',0,1,1,1,1,1,NULL,8),(9,1,'user_belongsto_role_relationship','relationship','Role',0,1,1,1,1,0,'{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsTo\",\"column\":\"role_id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"roles\",\"pivot\":0}',10),(10,1,'user_belongstomany_role_relationship','relationship','Roles',0,1,1,1,1,0,'{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"user_roles\",\"pivot\":\"1\",\"taggable\":\"0\"}',11),(11,1,'settings','hidden','Settings',0,0,0,0,0,0,NULL,12),(12,2,'id','number','ID',1,0,0,0,0,0,NULL,1),(13,2,'name','text','Name',1,1,1,1,1,1,NULL,2),(14,2,'created_at','timestamp','Created At',0,0,0,0,0,0,NULL,3),(15,2,'updated_at','timestamp','Updated At',0,0,0,0,0,0,NULL,4),(16,3,'id','number','ID',1,0,0,0,0,0,NULL,1),(17,3,'name','text','Name',1,1,1,1,1,1,NULL,2),(18,3,'created_at','timestamp','Created At',0,0,0,0,0,0,NULL,3),(19,3,'updated_at','timestamp','Updated At',0,0,0,0,0,0,NULL,4),(20,3,'display_name','text','Display Name',1,1,1,1,1,1,NULL,5),(21,1,'role_id','text','Role',1,1,1,1,1,1,NULL,9),(87,13,'id','text','Id',1,0,0,0,0,0,'{}',1),(88,13,'title','text','Title',1,1,1,1,1,1,'{}',3),(89,13,'body','rich_text_box','Body',0,0,1,1,1,1,'{}',8),(90,13,'image','image','Image',0,0,0,0,0,0,'{}',2),(91,13,'slug','text','Slug',1,1,1,1,1,1,'{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true}}',4),(92,13,'meta_description','text_area','Meta Description',0,0,1,1,1,1,'{}',5),(93,13,'meta_keywords','text_area','Meta Keywords',0,0,1,1,1,1,'{}',6),(94,13,'active','select_dropdown','Active',1,1,1,1,1,1,'{\"default\":\"1\",\"options\":{\"0\":\"Inactive\",\"1\":\"Active\"}}',7),(95,13,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',9),(96,13,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',10),(109,15,'id','text','Id',1,0,0,0,0,0,'{}',1),(110,15,'name','text','Name',0,1,1,1,1,1,'{}',2),(111,15,'url','text','Url',0,0,0,0,0,0,'{}',3),(112,15,'created_at','timestamp','Created At',0,1,1,1,0,1,'{}',4),(113,15,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',5),(114,16,'id','text','Id',1,0,0,0,0,0,'{}',1),(115,16,'name','text','Name',1,1,1,1,1,1,'{}',5),(116,16,'switch','text','Switch',1,1,1,1,1,1,'{}',6),(117,16,'price','number','Price ( Euro )',1,1,1,1,1,1,'{\"step\":0.001,\"min\":0,\"default\":0.001}',7),(118,16,'image','image','Image',1,1,1,1,1,1,'{}',2),(119,16,'map_id','hidden','Map Id',0,1,1,1,1,1,'{}',3),(120,16,'price_mad','hidden','Price Mad',1,0,0,0,1,1,'{\"step\":0.01,\"min\":0,\"default\":0.01}',8),(121,16,'price_usd','number','Price ( Usd )',1,1,1,1,1,1,'{\"step\":0.001,\"min\":0,\"default\":0.001}',9),(122,16,'price_buy','number','Price Buy',1,1,1,1,1,1,'{\"step\":0.001,\"min\":0,\"default\":0.001}',10),(123,16,'min','number','Min Quantity',0,1,1,1,1,1,'{\"min\":1,\"default\":1}',11),(124,16,'max','number','Max Qauntity',0,1,1,1,1,1,'{\"min\":1,\"default\":10}',12),(125,16,'active','checkbox','Status',1,1,1,1,1,1,'{\"on\":\"Disponible\",\"off\":\"Indisponible\",\"checked\":true}',13),(126,16,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',14),(127,16,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',15),(128,16,'server_belongsto_map_relationship','relationship','Map',0,1,1,1,1,1,'{\"model\":\"App\\\\Models\\\\Map\",\"table\":\"maps\",\"type\":\"belongsTo\",\"column\":\"map_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"data_rows\",\"pivot\":\"0\",\"taggable\":\"0\"}',4);
+INSERT INTO `data_rows` VALUES (1,1,'id','number','ID',1,0,0,0,0,0,NULL,1),(2,1,'name','text','Name',1,1,1,1,1,1,NULL,2),(3,1,'email','text','Email',1,1,1,1,1,1,NULL,3),(4,1,'password','password','Password',1,0,0,1,1,0,NULL,4),(5,1,'remember_token','text','Remember Token',0,0,0,0,0,0,NULL,5),(6,1,'created_at','timestamp','Created At',0,1,1,0,0,0,NULL,6),(7,1,'updated_at','timestamp','Updated At',0,0,0,0,0,0,NULL,7),(8,1,'avatar','image','Avatar',0,1,1,1,1,1,NULL,8),(9,1,'user_belongsto_role_relationship','relationship','Role',0,1,1,1,1,0,'{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsTo\",\"column\":\"role_id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"roles\",\"pivot\":0}',10),(10,1,'user_belongstomany_role_relationship','relationship','Roles',0,1,1,1,1,0,'{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"user_roles\",\"pivot\":\"1\",\"taggable\":\"0\"}',11),(11,1,'settings','hidden','Settings',0,0,0,0,0,0,NULL,12),(12,2,'id','number','ID',1,0,0,0,0,0,NULL,1),(13,2,'name','text','Name',1,1,1,1,1,1,NULL,2),(14,2,'created_at','timestamp','Created At',0,0,0,0,0,0,NULL,3),(15,2,'updated_at','timestamp','Updated At',0,0,0,0,0,0,NULL,4),(16,3,'id','number','ID',1,0,0,0,0,0,NULL,1),(17,3,'name','text','Name',1,1,1,1,1,1,NULL,2),(18,3,'created_at','timestamp','Created At',0,0,0,0,0,0,NULL,3),(19,3,'updated_at','timestamp','Updated At',0,0,0,0,0,0,NULL,4),(20,3,'display_name','text','Display Name',1,1,1,1,1,1,NULL,5),(21,1,'role_id','text','Role',1,1,1,1,1,1,NULL,9),(87,13,'id','text','Id',1,0,0,0,0,0,'{}',1),(88,13,'title','text','Title',1,1,1,1,1,1,'{}',3),(89,13,'body','rich_text_box','Body',0,0,1,1,1,1,'{}',8),(90,13,'image','image','Image',0,0,0,0,0,0,'{}',2),(91,13,'slug','text','Slug',1,1,1,1,1,1,'{\"slugify\":{\"origin\":\"title\",\"forceUpdate\":true}}',4),(92,13,'meta_description','text_area','Meta Description',0,0,1,1,1,1,'{}',5),(93,13,'meta_keywords','text_area','Meta Keywords',0,0,1,1,1,1,'{}',6),(94,13,'active','select_dropdown','Active',1,1,1,1,1,1,'{\"default\":\"1\",\"options\":{\"0\":\"Inactive\",\"1\":\"Active\"}}',7),(95,13,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',9),(96,13,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',10),(109,15,'id','text','Id',1,0,0,0,0,0,'{}',1),(110,15,'name','text','Name',0,1,1,1,1,1,'{}',2),(111,15,'url','text','Url',0,0,0,0,0,0,'{}',3),(112,15,'created_at','timestamp','Created At',0,1,1,1,0,1,'{}',4),(113,15,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',5),(114,16,'id','text','Id',1,0,0,0,0,0,'{}',1),(115,16,'name','text','Name',1,1,1,1,1,1,'{}',5),(117,16,'price','number','Price ( Euro )',1,1,1,1,1,1,'{\"step\":0.001,\"min\":0,\"default\":0.001}',7),(118,16,'image','image','Image',1,1,1,1,1,1,'{}',2),(119,16,'map_id','hidden','Map Id',0,1,1,1,1,1,'{}',3),(120,16,'price_mad','hidden','Price Mad',1,0,0,0,0,0,'{\"step\":0.01,\"min\":0,\"default\":0.01}',8),(121,16,'price_usd','number','Price ( Usd )',1,0,1,1,1,1,'{\"step\":0.001,\"min\":0,\"default\":0.001}',9),(122,16,'price_buy','number','Price Buy',1,0,1,1,1,1,'{\"step\":0.001,\"min\":0,\"default\":0.001}',10),(123,16,'min','number','Min Quantity',0,0,1,1,1,1,'{\"min\":1,\"default\":1}',11),(124,16,'max','number','Max Qauntity',0,0,1,1,1,1,'{\"min\":1,\"default\":10}',12),(125,16,'active','checkbox','Status',1,1,1,1,1,1,'{\"on\":\"Disponible\",\"off\":\"Indisponible\",\"checked\":true}',13),(126,16,'created_at','timestamp','Created At',0,0,0,0,0,0,'{}',14),(127,16,'updated_at','timestamp','Updated At',0,0,0,0,0,0,'{}',15),(128,16,'server_belongsto_map_relationship','relationship','Map',0,1,1,1,1,1,'{\"model\":\"App\\\\Models\\\\Map\",\"table\":\"maps\",\"type\":\"belongsTo\",\"column\":\"map_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"data_rows\",\"pivot\":\"0\",\"taggable\":\"0\"}',4);
 /*!40000 ALTER TABLE `data_rows` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +87,7 @@ CREATE TABLE `data_types` (
 
 LOCK TABLES `data_types` WRITE;
 /*!40000 ALTER TABLE `data_types` DISABLE KEYS */;
-INSERT INTO `data_types` VALUES (1,'users','users','User','Users','voyager-person','TCG\\Voyager\\Models\\User','TCG\\Voyager\\Policies\\UserPolicy','TCG\\Voyager\\Http\\Controllers\\VoyagerUserController','',1,0,NULL,'2024-05-16 19:49:29','2024-05-16 19:49:29'),(2,'menus','menus','Menu','Menus','voyager-list','TCG\\Voyager\\Models\\Menu',NULL,'','',1,0,NULL,'2024-05-16 19:49:29','2024-05-16 19:49:29'),(3,'roles','roles','Role','Roles','voyager-lock','TCG\\Voyager\\Models\\Role',NULL,'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController','',1,0,NULL,'2024-05-16 19:49:29','2024-05-16 19:49:29'),(13,'pages','pages','Page','Pages',NULL,'TCG\\Voyager\\Models\\Page',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-05-23 21:54:40','2024-05-23 22:00:36'),(15,'maps','maps','Map','Maps',NULL,'App\\Models\\Map',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-07-01 11:39:14','2024-07-01 13:15:04'),(16,'servers','servers','Server','Servers',NULL,'App\\Models\\Server',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-07-01 12:47:39','2024-07-01 16:48:17');
+INSERT INTO `data_types` VALUES (1,'users','users','User','Users','voyager-person','TCG\\Voyager\\Models\\User','TCG\\Voyager\\Policies\\UserPolicy','TCG\\Voyager\\Http\\Controllers\\VoyagerUserController','',1,0,NULL,'2024-05-16 19:49:29','2024-05-16 19:49:29'),(2,'menus','menus','Menu','Menus','voyager-list','TCG\\Voyager\\Models\\Menu',NULL,'','',1,0,NULL,'2024-05-16 19:49:29','2024-05-16 19:49:29'),(3,'roles','roles','Role','Roles','voyager-lock','TCG\\Voyager\\Models\\Role',NULL,'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController','',1,0,NULL,'2024-05-16 19:49:29','2024-05-16 19:49:29'),(13,'pages','pages','Page','Pages',NULL,'TCG\\Voyager\\Models\\Page',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-05-23 21:54:40','2024-05-23 22:00:36'),(15,'maps','maps','Map','Maps',NULL,'App\\Models\\Map',NULL,NULL,NULL,1,0,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-07-01 11:39:14','2024-07-01 13:15:04'),(16,'servers','servers','Server','Servers',NULL,'App\\Models\\Server',NULL,NULL,NULL,1,1,'{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}','2024-07-01 12:47:39','2024-07-01 18:43:33');
 /*!40000 ALTER TABLE `data_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,12 +103,12 @@ CREATE TABLE `exchanges` (
   `from_server` int unsigned NOT NULL,
   `to_server` int unsigned NOT NULL,
   `quantity` int unsigned NOT NULL,
-  `from_name` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `to_name` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` char(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `quantity_get` char(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `from_name` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `to_name` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `quantity_get` char(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint unsigned DEFAULT NULL,
-  `orderId` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `orderId` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -164,8 +164,8 @@ DROP TABLE IF EXISTS `maps`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `maps` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'NULL',
-  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'NULL',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT 'NULL',
+  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT 'NULL',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -279,11 +279,11 @@ DROP TABLE IF EXISTS `notifications`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `notifications` (
-  `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `notifiable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `notifiable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `notifiable_id` bigint unsigned NOT NULL,
-  `data` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `read_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -308,7 +308,7 @@ DROP TABLE IF EXISTS `offer_servers`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `offer_servers` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `active` tinyint NOT NULL DEFAULT '0',
   `price` decimal(8,3) DEFAULT NULL,
   `paypal_price` decimal(8,3) NOT NULL,
@@ -346,16 +346,16 @@ CREATE TABLE `offers` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint unsigned NOT NULL,
   `server_id` bigint unsigned NOT NULL,
-  `orderId` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `orderId` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `quantity` decimal(10,3) DEFAULT NULL,
   `total` decimal(8,3) DEFAULT NULL,
-  `game_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `payment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `payment_info` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `discord` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` enum('en cours','paye','annule') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'en cours',
+  `game_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `payment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `payment_info` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `discord` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` enum('en cours','paye','annule') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'en cours',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -384,25 +384,25 @@ DROP TABLE IF EXISTS `orders`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orders` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `orderId` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `orderId` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `quantity` int DEFAULT NULL,
   `total` decimal(8,3) DEFAULT NULL,
   `bonus` int DEFAULT NULL,
-  `type` enum('buy','sell') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'buy',
-  `game_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `payment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` enum('buy','sell') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'buy',
+  `game_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `payment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `payed` tinyint NOT NULL DEFAULT '0',
   `payment_verified` tinyint NOT NULL DEFAULT '0',
   `facturer` tinyint NOT NULL DEFAULT '0',
   `liviser` tinyint NOT NULL DEFAULT '0',
   `delivered` tinyint NOT NULL DEFAULT '0',
   `order_completed` tinyint NOT NULL DEFAULT '0',
-  `facturation_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `facturation_discrod` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `facturation_email` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `facturation_code` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `facturation_city` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `facturation_phone` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facturation_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facturation_discrod` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facturation_email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facturation_code` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facturation_city` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facturation_phone` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `facturation_agree` tinyint NOT NULL DEFAULT '0',
   `server_id` bigint unsigned DEFAULT NULL,
   `user_id` bigint unsigned DEFAULT NULL,
@@ -610,10 +610,9 @@ DROP TABLE IF EXISTS `servers`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `servers` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `switch` tinyint NOT NULL DEFAULT '1',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` decimal(12,3) NOT NULL,
-  `image` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default_server.png',
+  `image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default_server.png',
   `map_id` bigint unsigned DEFAULT NULL,
   `price_mad` decimal(12,2) NOT NULL,
   `price_usd` decimal(12,3) NOT NULL,
@@ -635,7 +634,7 @@ CREATE TABLE `servers` (
 
 LOCK TABLES `servers` WRITE;
 /*!40000 ALTER TABLE `servers` DISABLE KEYS */;
-INSERT INTO `servers` VALUES (1,'Oshimo',1,1.234,'servers/July2024/Jgc9a5YBDZtAETsRZw7F.jpg',NULL,0.01,1.559,1.003,100,1000,0,'2024-07-01 15:02:06','2024-07-01 15:02:06'),(2,'Herdgrize',1,2.123,'servers/July2024/BqjIkwEJuUkQhzuRGtKY.jpg',NULL,0.01,2.789,2.000,12,120,1,'2024-07-01 15:54:02','2024-07-01 15:54:02'),(5,'Boune',1,12.000,'servers/July2024/rVYjGnjN0rQrUcu1PE7N.jpg',1,0.01,14.000,10.000,99,999,1,'2024-07-01 16:48:56','2024-07-01 16:48:56'),(6,'Boune',1,12.000,'servers/July2024/InbDjF3KuMuQnXjgQGCo.jpg',3,0.01,14.000,10.000,99,999,1,'2024-07-01 16:49:10','2024-07-01 16:49:43');
+INSERT INTO `servers` VALUES (1,'Oshimo',1.234,'servers/July2024/Jgc9a5YBDZtAETsRZw7F.jpg',NULL,0.01,1.559,1.003,100,1000,0,'2024-07-01 15:02:06','2024-07-01 15:02:06'),(2,'Herdgrize',2.123,'servers/July2024/BqjIkwEJuUkQhzuRGtKY.jpg',NULL,0.01,2.789,2.000,12,120,1,'2024-07-01 15:54:02','2024-07-01 15:54:02'),(5,'Boune',12.000,'servers/July2024/rVYjGnjN0rQrUcu1PE7N.jpg',1,0.01,14.000,10.000,99,999,1,'2024-07-01 16:48:56','2024-07-01 16:48:56'),(6,'Boune',12.000,'servers/July2024/InbDjF3KuMuQnXjgQGCo.jpg',3,0.01,14.000,10.000,99,999,1,'2024-07-01 16:49:10','2024-07-01 16:49:43');
 /*!40000 ALTER TABLE `servers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -666,7 +665,7 @@ CREATE TABLE `settings` (
 
 LOCK TABLES `settings` WRITE;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` VALUES (1,'site.title','Site Title','Site Title','','text',1,'Site'),(2,'site.description','Site Description','Site Description','','text',2,'Site'),(3,'site.logo','Site Logo','','','image',3,'Site'),(4,'site.google_analytics_tracking_id','Google Analytics Tracking ID',NULL,'','text',4,'Site'),(5,'admin.bg_image','Admin Background Image','','','image',5,'Admin'),(6,'admin.title','Admin Title','Dashboard','','text',1,'Admin'),(7,'admin.description','Admin Description','Welcome to your dashboard','','text',2,'Admin'),(8,'admin.loader','Admin Loader','','','image',3,'Admin'),(9,'admin.icon_image','Admin Icon Image','','','image',4,'Admin'),(10,'admin.google_analytics_client_id','Google Analytics Client ID (used for admin dashboard)',NULL,'','text',1,'Admin');
+INSERT INTO `settings` VALUES (1,'site.title','Site Title','Site Title','','text',1,'Site'),(2,'site.description','Site Description','Site Description','','text',2,'Site'),(3,'site.logo','Site Logo','','','image',3,'Site'),(4,'site.google_analytics_tracking_id','Google Analytics Tracking ID',NULL,'','text',4,'Site'),(5,'admin.bg_image','Admin Background Image','','','image',5,'Admin'),(6,'admin.title','Admin Title','DropKamas','','text',1,'Admin'),(7,'admin.description','Admin Description','Welcome to your dashboard','','text',2,'Admin'),(8,'admin.loader','Admin Loader','','','image',3,'Admin'),(9,'admin.icon_image','Admin Icon Image','','','image',4,'Admin'),(10,'admin.google_analytics_client_id','Google Analytics Client ID (used for admin dashboard)',NULL,'','text',1,'Admin');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -679,15 +678,15 @@ DROP TABLE IF EXISTS `skrill_payments`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `skrill_payments` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `transaction_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mb_transaction_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `invoice_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `order_from` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `customer_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `customer_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `biller_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `currency` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `transaction_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mb_transaction_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `invoice_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `order_from` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `customer_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `customer_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `biller_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `currency` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -713,9 +712,9 @@ DROP TABLE IF EXISTS `subscription_items`;
 CREATE TABLE `subscription_items` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `subscription_id` bigint unsigned NOT NULL,
-  `stripe_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `stripe_product` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `stripe_price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stripe_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stripe_product` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stripe_price` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `quantity` int DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -742,10 +741,10 @@ DROP TABLE IF EXISTS `subscriptions`;
 CREATE TABLE `subscriptions` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint unsigned NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `stripe_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `stripe_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `stripe_price` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stripe_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stripe_status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stripe_price` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `quantity` int DEFAULT NULL,
   `trial_ends_at` timestamp NULL DEFAULT NULL,
   `ends_at` timestamp NULL DEFAULT NULL,
@@ -773,10 +772,10 @@ DROP TABLE IF EXISTS `testimonials`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `testimonials` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `job` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default',
-  `testimonial` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `job` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default',
+  `testimonial` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `active` tinyint NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -898,4 +897,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-07-01 18:22:44
+-- Dump completed on 2024-07-01 19:44:25

@@ -12,7 +12,6 @@ class CreateServersTable extends Migration
 
 			$table->id();
 			$table->string('name');
-			$table->tinyInteger('switch')->default(1);
 			$table->decimal('price',12,3);
 			$table->string('image',100)->default('default_server.png');
 			$table->bigInteger('map_id',)->unsigned()->nullable();
