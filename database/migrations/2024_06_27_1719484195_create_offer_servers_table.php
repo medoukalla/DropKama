@@ -11,6 +11,7 @@ class CreateOfferServersTable extends Migration
         Schema::create('offer_servers', function (Blueprint $table) {
 
 		$table->id();
+		$table->string('image',250)->default('default_server.png');
 		$table->string('name');
 		$table->tinyInteger('active')->default(0);
 		$table->decimal('price',8,3)->nullable();
