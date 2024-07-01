@@ -70,7 +70,11 @@
 
                                 <div class="form-group @if($row->type == 'hidden') hidden @endif col-md-{{ $display_options->width ?? 12 }} {{ $errors->has($row->field) ? 'has-error' : '' }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
                                     {{ $row->slugify }}
-                                    <label class="control-label" for="name">{{ $row->getTranslatedAttribute('display_name') }}</label>
+                                    @if ( $row->type == 'hidden' )
+                                    @else
+                                        <label class="control-label" for="name">{{ $row->getTranslatedAttribute('display_name') }}</label>
+                                    @endif
+                                    
                                     @include('voyager::multilingual.input-hidden-bread-edit-add')
                                     @if ($add && isset($row->details->view_add))
                                         @include($row->details->view_add, ['row' => $row, 'dataType' => $dataType, 'dataTypeContent' => $dataTypeContent, 'content' => $dataTypeContent->{$row->field}, 'view' => 'add', 'options' => $row->details])
@@ -218,5 +222,6 @@
     .toggle.btn.btn-default.off, 
     .toggle.btn.btn-primary {
         max-height: 36px !important;
+        margin-left: -36px !important;
     }
 </style>
