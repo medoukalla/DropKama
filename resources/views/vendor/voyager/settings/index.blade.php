@@ -214,7 +214,8 @@
         display: none !important;
     }
     .panel.new-setting-section form {
-    background-color: transparent !important;
+        background-color: transparent !important;
+        border-radius: 20px !important;
     }
 </style>    
 @stop

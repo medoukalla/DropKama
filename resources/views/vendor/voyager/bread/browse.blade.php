@@ -14,7 +14,7 @@
                 <div class="card-body">
                 <div class="d-flex align-items-start justify-content-between">
                     <div class="content-left">
-                    <span>Session</span>
+                    <span>{{ $dataType->getTranslatedAttribute('display_name_plural') }}</span>
                     <div class="d-flex align-items-center my-2">
                         <h3 class="mb-0 me-2">{{ $dataTypeContent->count() }}</h3>
                     </div>
