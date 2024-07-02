@@ -52,4 +52,14 @@ class FrontendController extends Controller
             'message' => $message,
         ]);
     }
+
+    // Achat ( step 3 - Payment )
+    public function achat_payment() {
+        $title = 'Acheter Kamas';
+        $message = 'Bonjour, Passez votre commande maintenant pour sécuriser votre achat !';
+        return view('frontend.achat-payment',[
+            'title' => $title,
+            'message' => $message,
+        ]);
+    }
 }

@@ -28,6 +28,8 @@ Route::get('echange', [FrontendController::class, 'echange'])->name('frontend.ec
 Route::get('achat', [FrontendController::class, 'achat'])->name('frontend.achat');
 // Achat step 2 ( quantity )
 Route::get('achat-quantity', [FrontendController::class, 'achat_quantity'])->name('frontend.achat.quantity');
+// Achat step 3 ( Payment )
+Route::get('achat/payment', [FrontendController::class, 'achat_payment'])->name('frontend.achat.payment');
 
 
 Route::group(['prefix' => 'admin'], function () {

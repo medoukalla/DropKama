@@ -111,7 +111,7 @@
                         <span style="font-weight: 700; font-size: 22px">Total</span>
                         <span style="font-size: 22px">€8.75</span>
                     </div>
-                    <a href="#" class="">
+                    <a href="{{ route('frontend.achat.payment') }}" class="">
                         <div class="main-btn mt-3">Suivant</div>
                     </a>
                 </div>
