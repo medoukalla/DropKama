@@ -10,8 +10,8 @@
                 </div>
                 <div class="server-name">Tiliwan</div>
                 <div class="currency-btn d-flex align-items-center justify-content-between">
-                    <div class="euro-btn">4.99 <span>€</span></div>
-                    <div class="usdt-btn">5.39 <span>$</span></div>
+                    <a href="{{ route('frontend.achat.quantity') }}" class="euro-btn">4.99 <span>€</span></a>
+                    <a href="{{ route('frontend.achat.quantity') }}" class="usdt-btn">5.39 <span>$</span></a>
                 </div>
             </div>
             <!-- Server -->
@@ -23,8 +23,8 @@
                 </div>
                 <div class="server-name">Herdegrize</div>
                 <div class="currency-btn d-flex align-items-center justify-content-between">
-                    <div class="euro-btn">4.99 <span>€</span></div>
-                    <div class="usdt-btn">5.39 <span>$</span></div>
+                    <a href="{{ route('frontend.achat.quantity') }}" class="euro-btn">4.99 <span>€</span></a>
+                    <a href="{{ route('frontend.achat.quantity') }}" class="usdt-btn">5.39 <span>$</span></a>
                 </div>
             </div>
             <!-- Server -->
@@ -36,8 +36,8 @@
                 </div>
                 <div class="server-name">Tiliwan-2</div>
                 <div class="currency-btn d-flex align-items-center justify-content-between">
-                    <div class="euro-btn">4.99 <span>€</span></div>
-                    <div class="usdt-btn">5.39 <span>$</span></div>
+                    <a href="{{ route('frontend.achat.quantity') }}" class="euro-btn">4.99 <span>€</span></a>
+                    <a href="{{ route('frontend.achat.quantity') }}" class="usdt-btn">5.39 <span>$</span></a>
                 </div>
             </div>
             <!-- Server -->
@@ -66,8 +66,8 @@
                 </div>
                 <div class="server-name">Talkasha</div>
                 <div class="currency-btn d-flex align-items-center justify-content-between">
-                    <div class="euro-btn">4.99 <span>€</span></div>
-                    <div class="usdt-btn">5.39 <span>$</span></div>
+                    <a href="{{ route('frontend.achat.quantity') }}" class="euro-btn">4.99 <span>€</span></a>
+                    <a href="{{ route('frontend.achat.quantity') }}" class="usdt-btn">5.39 <span>$</span></a>
                 </div>
             </div>
             <!-- Server -->
@@ -79,8 +79,8 @@
                 </div>
                 <div class="server-name">Tylezia</div>
                 <div class="currency-btn d-flex align-items-center justify-content-between">
-                    <div class="euro-btn">4.99 <span>€</span></div>
-                    <div class="usdt-btn">5.39 <span>$</span></div>
+                    <a href="{{ route('frontend.achat.quantity') }}" class="euro-btn">4.99 <span>€</span></a>
+                    <a href="{{ route('frontend.achat.quantity') }}" class="usdt-btn">5.39 <span>$</span></a>
                 </div>
             </div>
         </div>

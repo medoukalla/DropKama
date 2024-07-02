@@ -15,7 +15,9 @@
 
         <div class="row hero-banner align-items-star" style="z-index: 100">
             <div class="col-12 col-md-6">
-              <div class="page-title">Vendre Kamas</div>
+              <div class="page-title">
+                {{ $title }}
+              </div>
             </div>
             <div class="col-12 col-md-6">
               <div class="client-notifs">

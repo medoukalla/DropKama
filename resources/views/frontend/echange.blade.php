@@ -1,15 +1,5 @@
 @extends('layouts.frontend')
 
-@auth
-    @php
-        $message = 'Bonjour <span>User</span>,Veuillez vérifier les détails de votre commande ci-dessous. Si tout est correct, cliquez sur "Confirmer et Payer".';
-    @endphp
-@endauth
-@guest
-    @php
-        $message = 'Bonjour, pour acheter ou vendre des kamas vous devez se connecter ou bien créer un compte'
-    @endphp
-@endguest
-<x-frontend.min-header :message='$message' />
+<x-frontend.min-header message='{{ $message }}' title="{{ $title }}" />
 
 @livewire('echange')
