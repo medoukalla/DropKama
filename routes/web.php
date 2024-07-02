@@ -24,6 +24,9 @@ Route::get('vendre', [FrontendController::class, 'vendre'])->name('frontend.vend
 // Echange 
 Route::get('echange', [FrontendController::class, 'echange'])->name('frontend.echange');
 
+// Achat 
+Route::get('achat', [FrontendController::class, 'achat'])->name('frontend.achat');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

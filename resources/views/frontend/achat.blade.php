@@ -2,7 +2,7 @@
 
 @auth
     @php
-        $message = 'Bonjour <span>User</span>,Veuillez vérifier les détails de votre commande ci-dessous. Si tout est correct, cliquez sur "Confirmer et Payer".';
+        $message = 'Bonjour <span>User</span>';
     @endphp
 @endauth
 @guest
@@ -12,4 +12,6 @@
 @endguest
 <x-frontend.min-header :message='$message' />
 
-@livewire('echange')
+<x-frontend.game-section />
+
+@livewire('get-servers', ['map' => null])
