@@ -16,4 +16,9 @@ class FrontendController extends Controller
     public function vendre() {
         return view('frontend.vendre');
     }
+
+    // echange page 
+    public function echange() {
+        return view('frontend.echange');
+    }
 }

@@ -19,7 +19,10 @@ use Illuminate\Support\Facades\Route;
 route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 
 // vendre page 
-Route::get('/vendre', [FrontendController::class, 'vendre'])->name('frontend.vendre');
+Route::get('vendre', [FrontendController::class, 'vendre'])->name('frontend.vendre');
+
+// Echange 
+Route::get('echange', [FrontendController::class, 'echange'])->name('frontend.echange');
 
 
 Route::group(['prefix' => 'admin'], function () {

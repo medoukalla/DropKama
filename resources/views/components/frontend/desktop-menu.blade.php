@@ -7,7 +7,7 @@
         <li><a href="{{ route('frontend.index') }}">Accueil</a></li>
         <li><a href="/acheter.html">Acheter Kamas</a></li>
         <li><a href="{{ route('frontend.vendre') }}">Vendre Kamas</a></li>
-        <li><a href="#">Echanger Kamas</a></li>
+        <li><a href="{{ route('frontend.echange') }}">Echanger Kamas</a></li>
         <li><a href="{{ route('frontend.index') }}#procedure">Procedure</a></li>
         <li><a href="{{ route('frontend.index') }}#faq">FAQ</a></li>
       </ul>

@@ -20,8 +20,7 @@
             <div class="col-12 col-md-6">
               <div class="client-notifs">
                 <p>
-                  Bonjour <span>User</span> , merci de remplir les champs
-                  ci-dessous.
+                  Bonjour <span>User</span> , {{ $message }}
                 </p>
               </div>
             </div>
