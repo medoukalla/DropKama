@@ -10,4 +10,10 @@ class FrontendController extends Controller
     public function index() {
         return view('frontend.index');
     }
+
+
+    // vendre page 
+    public function vendre() {
+        return view('frontend.vendre');
+    }
 }

@@ -15,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// index page
 route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
+
+// vendre page 
+Route::get('/vendre', [FrontendController::class, 'vendre'])->name('frontend.vendre');
 
 
 Route::group(['prefix' => 'admin'], function () {
