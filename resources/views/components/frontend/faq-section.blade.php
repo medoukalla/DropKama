@@ -1,5 +1,5 @@
 <!-- FAQ section -->
-<section class="faq-section">
+<section class="faq-section" id="faq">
     <div class="container">
       <div class="faq-head text-center position-relative">
         <div class="section-headline">

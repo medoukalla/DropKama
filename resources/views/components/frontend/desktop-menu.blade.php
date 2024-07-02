@@ -8,8 +8,8 @@
         <li><a href="/acheter.html">Acheter Kamas</a></li>
         <li><a href="#">Vendre Kamas</a></li>
         <li><a href="#">Echanger Kamas</a></li>
-        <li><a href="#">Procedure</a></li>
-        <li><a href="#">FAQ</a></li>
+        <li><a href="{{ route('frontend.index') }}#procedure">Procedure</a></li>
+        <li><a href="{{ route('frontend.index') }}#faq">FAQ</a></li>
       </ul>
     </nav>
     <div class="auth d-flex align-items-center gap-3">
