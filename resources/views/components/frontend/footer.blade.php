@@ -28,7 +28,7 @@
           <div class="links">
             <div class="links-title">Liens utiles</div>
             <ul class="p-0">
-              <li><a href="#">Accueil</a></li>
+              <li><a href="{{ route('frontend.index') }}">Accueil</a></li>
               <li><a href="#">Acheter Kamas</a></li>
               <li><a href="#">Echange Kamas</a></li>
               <li><a href="#">Vendre Kamas</a></li>

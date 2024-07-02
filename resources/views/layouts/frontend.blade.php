@@ -1,7 +1,7 @@
-<x-head />
+<x-frontend.head />
 
 @yield('header')
 
 @yield('content')
 
-<x-footer />
+<x-frontend.footer />
