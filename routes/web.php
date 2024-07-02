@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 
 
 Route::group(['prefix' => 'admin'], function () {

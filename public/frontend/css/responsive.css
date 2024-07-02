@@ -1,0 +1,405 @@
+/* Responive design */
+/* Min-width 1440px */
+@media screen and (max-width: 1440px) {
+  .main-btn {
+    font-size: 16px !important;
+  }
+  .hero-section .menu ul {
+    gap: 12px;
+  }
+  .hero-section .menu a {
+    font-size: 17px;
+  }
+  .server-section .servers .server {
+    width: 300px !important;
+  }
+  .g-img-box {
+    width: 400px;
+  }
+}
+/* Min-wdith 1024px */
+@media screen and (min-width: 1024px) {
+  .hero-section .logo img {
+    height: 30px;
+  }
+  .hero-section .menu a {
+    font-size: 16px;
+  }
+  .hero-section .menu ul {
+    gap: 8px;
+  }
+  .auth {
+    gap: 0.25rem !important;
+  }
+  .hero-section .sign-up,
+  .hero-section .login {
+    font-size: 13px;
+  }
+  .hero-section .sign-up img,
+  .hero-section .login img {
+    height: 14px;
+  }
+  .main-btn {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+  .g-img-box {
+    width: 300px;
+    height: 160px;
+    margin-bottom: 0.9rem !important;
+  }
+  .hero-section .headline {
+    font-size: 38px;
+  }
+  .hero-section .subline {
+    font-size: 17px;
+  }
+  .games-section .games-notif p {
+    width: 55%;
+  }
+  .payment-box {
+    grid-template-columns: 128px 128px 128px;
+  }
+  .payment-box img {
+    height: 55px;
+  }
+  .section-headline-dark,
+  .section-headline {
+    font-size: 26px;
+  }
+  .section-subline-black,
+  .section-subline {
+    font-size: 15px;
+  }
+  .procedure ul li {
+    font-size: 14px;
+  }
+  .procedure-hint {
+    font-size: 15px;
+  }
+  .ship-box {
+    gap: 8px;
+    width: 350px;
+    height: 200px;
+  }
+  .ship-box h3 {
+    font-size: 16px;
+  }
+  .ship-box p {
+    font-size: 14px;
+  }
+  .procedure-img-box {
+    height: 350px;
+  }
+  footer .policies-links ul li,
+  footer .links ul li {
+    margin-bottom: 10px;
+  }
+  footer .policies-links ul li a,
+  footer .links ul li a {
+    font-size: 15px;
+  }
+  footer .links-title {
+    font-size: 20px;
+  }
+  footer .payment-box {
+    grid-template-columns: 62px 62px 62px 62px;
+  }
+  footer .payment-box img {
+    height: 28px;
+  }
+  .social-media img {
+    height: 26px;
+  }
+  footer .copyright {
+    font-size: 12px;
+  }
+  /* Order-details */
+  .payment-section .main-btn {
+    width: 50%;
+  }
+}
+/* Max-wdith 768px */
+@media screen and (max-width: 768px) {
+  header {
+    height: 50vh;
+  }
+  .hero-section .menu {
+    display: none !important;
+  }
+  .mobile-logo img {
+    height: 50px;
+  }
+  .mobile-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  .mobile-menu .mobile-nav .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 3px;
+  }
+  .mobile-menu .mobile-nav .hamburger-menu span {
+    background-color: var(--white-clr);
+    width: 50px;
+    height: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  .mobile-menu .mobile-nav .hamburger-menu span:first-child {
+    width: 30px;
+  }
+  .mobile-menu .mobile-nav .hamburger-menu span:nth-child(2) {
+    width: 40px;
+  }
+  .mobile-menu .mobile-nav .hamburger-menu:hover span {
+    width: 50px;
+  }
+  .games-flex {
+    flex-direction: column;
+  }
+  .games-flex .game {
+    margin-bottom: 1.25rem;
+  }
+  .garantee-section .section-subline-black {
+    width: 100%;
+  }
+  .games-section .games-notif p {
+    width: 87%;
+    font-size: 12px;
+  }
+  .hero-section .headline {
+    font-size: 29px;
+  }
+  .hero-section .subline {
+    font-size: 13px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.4rem !important;
+  }
+  .hero-buttons a {
+    width: 100%;
+  }
+  .payment-box {
+    grid-template-columns: 98px 98px 98px;
+  }
+  .payment-box img {
+    height: 45px;
+  }
+  .swiper-slide {
+    height: 200px;
+    width: 400px !important;
+  }
+  .swiper-slide .review-content {
+    font-size: 15px;
+  }
+  .profile-box {
+    height: 40px;
+    width: 40px;
+  }
+  .garantee-section .garantee-parts {
+    width: 100%;
+  }
+
+  header .page-title {
+    font-size: 40px;
+  }
+  header .client-notifs p {
+    font-size: 16px;
+  }
+  .client-notifs {
+    height: 150px;
+  }
+  .server-section .servers .server {
+    width: 300px;
+    height: 350px;
+  }
+  .server-section .servers .server .header {
+    height: 70%;
+  }
+  .server-section .servers .server .currency-btn {
+    height: 48px;
+  }
+  .server-section .servers .server .currency-btn .euro-btn,
+  .server-section .servers .server .currency-btn .usdt-btn {
+    font-size: 18px;
+  }
+  /* Acheter page */
+  .kamas-settings {
+    padding: 30px;
+  }
+  .acheter-processing .processing-heading {
+    font-size: 23px;
+  }
+  .processing-image {
+    height: 30rem;
+  }
+  .kamas-settings .selector ul li p,
+  .kamas-settings .selector #selectField p {
+    font-size: 15px;
+  }
+  .kamas-settings .selector label,
+  .kamas-settings .input label {
+    font-size: 15px;
+  }
+  .kamas-settings .selector #list .options {
+    padding: 10px;
+  }
+  .kamas-settings .input #inputField span {
+    font-size: 15px;
+  }
+  /* Order-details */
+  .payment-section .main-btn {
+    width: 50%;
+  }
+  /* Login page */
+  .authentication .auth-section {
+    width: 100%;
+  }
+  .authentication .auth-section .auth-heading {
+    font-size: 30px;
+  }
+  .authentication .auth-section p {
+    font-size: 12px;
+  }
+}
+/* Max-wdith 425px */
+@media screen and (max-width: 425px) {
+  .mobile-logo img {
+    height: 35px;
+  }
+  .mobile-menu {
+    margin-bottom: 40px;
+  }
+  .shine-light img {
+    height: 18rem;
+  }
+  .hero-background {
+    display: none !important;
+  }
+  .payment-box {
+    justify-content: center;
+  }
+  .payment-methods .row {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+  .procedure-img-box {
+    justify-content: center !important;
+  }
+  .swiper::before,
+  .swiper::after {
+    display: none;
+  }
+  .trustpilot {
+    flex-direction: column;
+  }
+  img.stars {
+    height: 20px;
+  }
+  .faq-section #faqQuestion {
+    right: -2%;
+  }
+  .faq-accordions li label {
+    font-size: 14px;
+  }
+  .logo-col {
+    margin-bottom: 20px;
+  }
+  .faq-accordions .acc-content {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  /* Acheter page */
+  header .page-title {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  .acheter-processing .processing-heading {
+    text-align: center;
+  }
+  .kamas-settings {
+    padding: 30px;
+  }
+  .order-heading p {
+    font-size: 14px;
+  }
+  .quantities {
+    font-size: 12px;
+    flex-direction: column;
+    gap: 20px;
+    font-weight: 700;
+  }
+  .payment-section .payment-total {
+    font-size: 14px;
+  }
+  .payment-section .main-btn {
+    width: 100%;
+    padding: 10px 0;
+  }
+  /* Login page */
+  .authentication .remember-me {
+    flex-direction: column;
+    align-items: start !important;
+  }
+  .authentication .acc-section .main-btn {
+    width: 100% !important;
+  }
+}
+/* Max-width 375px */
+@media screen and (max-width: 375px) {
+  .games-section .games-notif p {
+    width: 87%;
+    font-size: 11px;
+  }
+}
+/* Max-width 320px */
+@media screen and (max-width: 320px) {
+  .hero-section .headline {
+    font-size: 24px;
+  }
+  .shine-light {
+    display: none;
+  }
+  .garantee-section .section-subline-black {
+    width: 100%;
+  }
+  .games-section .games-notif p {
+    width: 100%;
+    font-size: 11px;
+  }
+  .garantee-part p {
+    font-size: 15px;
+  }
+  .procedure-img-box {
+    height: 260px;
+  }
+  .review-section {
+    display: none;
+  }
+  .procedure {
+    border-bottom: 1px solid rgb(161, 161, 161);
+  }
+  .faq-accordions li label {
+    font-size: 14px;
+  }
+  .faq-accordions li .acc-content {
+    font-size: 13px;
+  }
+  .faq-accordions li label::before {
+    font-size: 18px;
+  }
+  footer .payment-box {
+    margin-bottom: 20px;
+  }
+  /* Acheter page */
+  .kamas-settings {
+    padding: 10px;
+  }
+}
