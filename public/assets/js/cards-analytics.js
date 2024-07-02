@@ -11,8 +11,8 @@
             },
             bar: {
                 series1: config.colors.primary,
-                series2: "#7367F0CC",
-                series3: "#7367f099"
+                series2: "#e28a0cCC",
+                series3: "#e28a0c99"
             }
         },
         r = document.querySelector("#weeklyEarningReports"),
