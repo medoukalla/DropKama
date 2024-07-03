@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Payment extends Model
 {
     use HasFactory;
+
+    // function to get all method payments 
+    static function payments() {
+        return Payment::all();
+    }
 }

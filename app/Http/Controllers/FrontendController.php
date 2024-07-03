@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Map;
+use App\Models\Payment;
 use App\Models\Server;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -87,6 +89,8 @@ class FrontendController extends Controller
             'message' => $message,
             'server' => $server,
             'servers' => Server::servers(),
+            'maps' => Map::maps(),
+            'payments' => Payment::payments(),
         ]);
     }
 

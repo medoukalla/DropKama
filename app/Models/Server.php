@@ -22,4 +22,15 @@ class Server extends Model
             return Server::where('map_id', $map->id)->get();
         }
     }
+
+
+    /**
+     * Get the map that owns the Server
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function map()
+    {
+        return $this->belongsTo(Map::class, 'map_id');
+    }
 }

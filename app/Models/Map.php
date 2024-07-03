@@ -9,8 +9,8 @@ class Map extends Model
 {
     use HasFactory;
 
-    // function to get all maps
-    static function get_all_maps() {
+    // function to get all maps ( get_all_maps => maps )
+    static function maps() {
         return Map::orderBy('id', 'desc')->get();
     }
 
@@ -22,5 +22,7 @@ class Map extends Model
     public function servers() {
         return $this->hasMany(Server::class, 'map_id' );
     }
+
+    
 
 }
