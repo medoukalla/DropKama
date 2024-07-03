@@ -203,33 +203,17 @@
                     <span class="method">Retour</span>
                 </div>
                 <div class="payment-fees d-flex align-items-center gap-2">
-                    <img src="{{ asset('frontend/images/svg/logos_paypal.svg') }}" alt="" height="20" />
-                    Paypal
+                    <img src="{{ asset('frontend/images/payments/'.$payment->svg_name.'.svg') }}" alt="" height="20" />
+                    {{ $payment_name }}
                 </div>
             </div>
-            <div class="steps-line mt-5 mb-5">
-                <div class="step">
-                    <div class="step-head">
-                        Étape 1
-                    </div>
-                    <div class="step-content">
-                        Veuillez envoyer $ 187.86 (nos frais inclus) - cliquez ici pour recevoir les informations de
-                        paiement (un message automatique sera envoyé à notre support en ligne)
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-head">
-                        Étape 2
-                    </div>
-                    <div class="step-content">
-                        Veuillez envoyer $ 187.86 (nos frais inclus) - cliquez ici pour recevoir les informations de
-                        paiement (un message automatique sera envoyé à notre support en ligne)
-                    </div>
-                </div>
-            </div>
+
+            {{-- Include the payments steps  --}}
+            @include('components/frontend/payments//'.$payment->svg_name)
+
         </div>
         <div class="main-btn mt-3">Confirmer et Payer</div>
-        </a>
+        
     </div>
 
 </section>
