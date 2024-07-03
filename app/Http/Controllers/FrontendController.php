@@ -86,6 +86,7 @@ class FrontendController extends Controller
             'title' => $title,
             'message' => $message,
             'server' => $server,
+            'servers' => Server::servers(),
         ]);
     }
 

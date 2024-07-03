@@ -8,6 +8,7 @@ class AchatQuantity extends Component
 {
 
     public $server;
+    public $servers;
 
     public function render()
     {
