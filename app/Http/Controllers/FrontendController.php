@@ -85,6 +85,7 @@ class FrontendController extends Controller
         return view('frontend.achat-quantity',[
             'title' => $title,
             'message' => $message,
+            'server' => $server,
         ]);
     }
 
