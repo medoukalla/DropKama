@@ -1,5 +1,7 @@
-<section class="acheter-processing bg-not-white">
-    <div class="container">
+<section class="acheter-processing payment-section bg-not-white">
+
+    {{-- First step quantity  --}}
+    <div class="container @if ( $step != 'quantity' ) d-none @endif" >
         <div class="row">
             <div class="col-12 col-md-6">
                 <div class="sticky-top">
@@ -45,14 +47,14 @@
                         <div id="selectField" onclick="$('ul.serversList').toggle('slow'); $('.input-arrow-servers').toggleClass('active')">
                             
 
-                            @foreach ( $servers as $the_server )
-                                @if ( $the_server->map_id == $active_map_id && $the_server->id == $active_server_id )
+                            {{-- @foreach ( $servers as $the_server ) --}}
+                                @if ( $server->map_id == $active_map_id && $server->id == $active_server_id )
                                     <div class="d-flex align-items-center gap-3">
-                                        <img src="{{ asset('storage//'.$the_server->image )  }}" alt="" class="dofus-egg" />
-                                        <p id="selectText">{{ $the_server->name }}</p>
+                                        <img src="{{ asset('storage//'.$server->image )  }}" alt="" class="dofus-egg" />
+                                        <p id="selectText">{{ $server->name }}</p>
                                     </div>
                                 @endif
-                            @endforeach
+                            {{-- @endforeach --}}
 
                             <img src="{{ asset('frontend/images/svg/input-arrow.svg') }}" alt="Arrow" class="input-arrow input-arrow-servers" />
                         </div>
@@ -96,23 +98,23 @@
                     <div class="selector">
                         <label for="">Sélectionnez votre méthode de paiement</label>
                         <div id="selectField" onclick="$('ul.paymentsList').toggle('slow'); $('.input-arrow-payments').toggleClass('active')">
-                            @foreach ( $payments as $payment )
+                            {{-- @foreach ( $payments as $payment ) --}}
                                 @if ( $payment->id == $active_payment_id )
                                     <div class="d-flex align-items-center gap-3">
                                         <img src="{{ asset('frontend/images/payments/'.$payment->svg_name.'.svg') }}" alt="" class="currency ps-2" />
                                         <p id="selectText">{{ $payment->name}}</p>
                                     </div>
                                 @endif
-                            @endforeach
+                            {{-- @endforeach --}}
                             <img src="{{ asset('frontend/images/svg/input-arrow.svg') }}" alt="Arrow" class="input-arrow input-arrow-payments" />
                         </div>
                         <ul id="list" class="mt-3 paymentsList">
 
-                            @foreach ( $payments as $payment )
+                            @foreach ( $payments as $paym )
                                 
-                                <li class="options @if ( $payment->id == $active_payment_id ) d-none @endif" wire:click="change_payment({{ $payment->id }})">
-                                    <img src="{{ asset('frontend/images/payments/'.$payment->svg_name.'.svg') }}" alt="" class="currency" />
-                                    <p>{{ $payment->name}}</p>
+                                <li class="options @if ( $paym->id == $active_payment_id ) d-none @endif" wire:click="change_payment({{ $paym->id }})">
+                                    <img src="{{ asset('frontend/images/payments/'.$paym->svg_name.'.svg') }}" alt="" class="currency" />
+                                    <p>{{ $paym->name}}</p>
                                 </li>
 
                             @endforeach
@@ -128,13 +130,106 @@
                     <hr />
                     <div class="d-flex align-items-center justify-content-between">
                         <span style="font-weight: 700; font-size: 22px">Total</span>
-                        <span style="font-size: 22px">€{{ $total }}</span>
+                        <span style="font-size: 22px">€{{ $total_with_fees }}</span>
                     </div>
-                    <a href="{{ route('frontend.achat.payment') }}" class="">
-                        <div class="main-btn mt-3">Suivant</div>
+                    <a wire:click="confirm_quantity()" href="Javascript:;" class="">
+                        <div class="main-btn mt-3 w-100">Suivant</div>
                     </a>
                 </div>
             </div>
         </div>
     </div>
+
+    {{-- Second step the payment  --}}
+    <!-- Step A  -->
+    <div class="container @if ( $step != 'A') d-none @endif">
+        <div class="payment-heading">Payment</div>
+        <div class="payment-banner mt-3">
+            <div class="chosen-payment d-flex align-items-center justify-content-between">
+                <div class="ruturn-btn d-flex align-items-center gap-2" wire:click="back_to_quantity()">
+                    <img class="chosen-payment-img" src="{{ asset('frontend/images/svg/arrow-back.svg') }}" alt="arrow-back"
+                        height="10" />
+                    <span class="method">Retour</span>
+                </div>
+                <div class="chosen-method gap-3">
+                    <img class="chosen-payment-img" src="{{ asset('frontend/images/payment/'.$payment->svg_name.'.svg') }}" alt="Paypal"
+                        height="20" />
+                    <span class="method">{{ $payment_name }}</span>
+                </div>
+                <div class="payment-fees">{{ $fees }}% frais</div>
+            </div>
+            <div class="order-heading d-flex align-items-center gap-2 mt-4 mb-4">
+                <img src="{{ asset('frontend/images/svg/Oder-icon.svg') }}" alt="Order icon" class="oder-icon" height="30" />
+                <p>Récapitulatif de commande</p>
+            </div>
+            <div class="quantities d-flex align-items-center justify-content-between">
+                <p class="chosen-game">Dofus {{ $map->name }}</p>
+                <p class="kamas-quantities">{{ $quantity }} M Kamas</p>
+                <p class="kamas-total">€ {{ $total_with_fees }}</p>
+            </div>
+            <div class="mt-3">
+                <div class="r-payment d-flex align-items-center justify-content-between">
+                    <p class="subtotal">Sous-total</p>
+                    <p class="result">€ {{ $total }}</p>
+                </div>
+                <div class="r-payment d-flex align-items-center justify-content-between mt-2">
+                    <p class="fees-subtotal">Frais de paiement</p>
+                    <p class="result">€ {{ $fees_amount }}</p>
+                </div>
+                <div class="r-payment d-flex align-items-center justify-content-between mt-2">
+                    <p class="fees-service">Frais de service</p>
+                    <p class="result">Gratuit</p>
+                </div>
+            </div>
+        </div>
+        <div class="payment-total d-flex justify-content-between align-items-center mt-3">
+            <div>Total à payer</div>
+            <div>€ {{ $total_with_fees }}</div>
+        </div>
+        <a href="Javascript:;" wire:click="confirm_first_step()">
+            <div class="main-btn mt-3">Confirmer et Payer</div>
+        </a>
+    </div>
+
+
+    <!-- Step B -->
+    <div class="container @if ( $step != 'B') d-none @endif">
+        <div class="payment-heading">Payment</div>
+        <div class="payment-banner mt-3">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="ruturn-btn d-flex align-items-center gap-2" wire:click="back_to_first_step()">
+                    <img class="chosen-payment-img" src="{{ asset('frontend/images/svg/arrow-back.svg') }}" alt="arrow-back"
+                        height="10" />
+                    <span class="method">Retour</span>
+                </div>
+                <div class="payment-fees d-flex align-items-center gap-2">
+                    <img src="{{ asset('frontend/images/svg/logos_paypal.svg') }}" alt="" height="20" />
+                    Paypal
+                </div>
+            </div>
+            <div class="steps-line mt-5 mb-5">
+                <div class="step">
+                    <div class="step-head">
+                        Étape 1
+                    </div>
+                    <div class="step-content">
+                        Veuillez envoyer $ 187.86 (nos frais inclus) - cliquez ici pour recevoir les informations de
+                        paiement (un message automatique sera envoyé à notre support en ligne)
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-head">
+                        Étape 2
+                    </div>
+                    <div class="step-content">
+                        Veuillez envoyer $ 187.86 (nos frais inclus) - cliquez ici pour recevoir les informations de
+                        paiement (un message automatique sera envoyé à notre support en ligne)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-btn mt-3">Confirmer et Payer</div>
+        </a>
+    </div>
+
 </section>
