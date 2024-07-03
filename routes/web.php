@@ -27,8 +27,12 @@ Route::get('echange', [FrontendController::class, 'echange'])->name('frontend.ec
 
 // Achat 
 Route::get('achat', [FrontendController::class, 'achat'])->name('frontend.achat');
+Route::get('achat-classique', [FrontendController::class, 'achat_classique'])->name('frontend.achat.classique');
+Route::get('achat-touch', [FrontendController::class, 'achat_touch'])->name('frontend.achat.touch');
+Route::get('achat-retro', [FrontendController::class, 'achat_retro'])->name('frontend.achat.retro');
 // Achat step 2 ( quantity )
-Route::get('achat-quantity', [FrontendController::class, 'achat_quantity'])->name('frontend.achat.quantity');
+Route::get('achat/{server}/{name}', [FrontendController::class, 'achat_quantity'])->name('frontend.achat.quantity');
+
 // Achat step 3 ( Payment )
 Route::get('achat/payment', [FrontendController::class, 'achat_payment'])->name('frontend.achat.payment');
 

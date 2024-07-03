@@ -17,9 +17,9 @@ class CreateServersTable extends Migration
 			$table->bigInteger('map_id',)->unsigned()->nullable();
 			
 			
-			$table->decimal('price_mad',12,2);
+			$table->decimal('price_mad',12,2)->default(0);
 			$table->decimal('price_usd',12,3);
-			$table->decimal('price_buy',12,3)->default('0.000');
+			$table->decimal('price_buy',12,3)->default('0');
 			$table->integer('min',)->nullable();
 			$table->integer('max',)->nullable();
 			$table->tinyInteger('active')->default(1);

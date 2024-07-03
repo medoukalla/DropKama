@@ -24,13 +24,13 @@
               Acheter et vendre des kamas en toute sécurité rapidement.
             </p>
             <div class="hero-buttons d-flex align-items-center gap-3">
-              <a href="#">
+              <a href="{{ route('frontend.achat') }}">
                 <div class="main-btn">Acheter Kamas</div>
               </a>
-              <a href="#">
+              <a href="{{ route('frontend.vendre') }}">
                 <div class="main-btn">Vendre kamas</div>
               </a>
-              <a href="#">
+              <a href="{{ route('frontend.echange') }}">
                 <div class="main-btn">Echanger Kamas</div>
               </a>
             </div>

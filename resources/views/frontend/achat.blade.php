@@ -4,4 +4,4 @@
 
 <x-frontend.game-section />
 
-@livewire('get-servers', ['map' => null])
+@livewire('get-servers', ['map' => $map])

@@ -531,6 +531,17 @@ header .client-notifs span {
   font-weight: 600;
   border-radius: 6px;
 }
+.server-section .servers .server .header .indisponible {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  color: var(--white-clr);
+  background-color: var(--orange-dark-clr);
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+}
 .server-section .servers .server .server-name {
   color: var(--black-clr);
   font-size: 22px;

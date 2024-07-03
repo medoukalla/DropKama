@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Server;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,11 +41,45 @@ class FrontendController extends Controller
         return view('frontend.achat',[
             'title' => $title,
             'message' => $message,
+            'map' => null
+        ]);
+    }
+
+    // achat 
+    public function achat_classique() {
+        $title = 'Acheter Kamas';
+        $message = 'Bonjour, pour acheter ou vendre des kamas vous devez se connecter ou bien créer un compte';
+        return view('frontend.achat',[
+            'title' => $title,
+            'message' => $message,
+            'map' => 'classique'
+        ]);
+    }
+
+    // achat 
+    public function achat_touch() {
+        $title = 'Acheter Kamas';
+        $message = 'Bonjour, pour acheter ou vendre des kamas vous devez se connecter ou bien créer un compte';
+        return view('frontend.achat',[
+            'title' => $title,
+            'message' => $message,
+            'map' => 'touch'
+        ]);
+    }
+
+    // achat 
+    public function achat_retro() {
+        $title = 'Acheter Kamas';
+        $message = 'Bonjour, pour acheter ou vendre des kamas vous devez se connecter ou bien créer un compte';
+        return view('frontend.achat',[
+            'title' => $title,
+            'message' => $message,
+            'map' => 'retro'
         ]);
     }
 
     // achat ( step 2 - Quantity )
-    public function achat_quantity() {
+    public function achat_quantity( Server $server ) {
         $title = 'Acheter Kamas';
         $message = 'Bonjour, pour acheter ou vendre des kamas vous devez se connecter ou bien créer un compte';
         return view('frontend.achat-quantity',[
