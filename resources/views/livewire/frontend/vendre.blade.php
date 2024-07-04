@@ -55,28 +55,30 @@
                             @endforeach
 
                         </ul>
-                        <p class="w-75">
+                        
+                    </div>
+
+                    <div class="input mt-3">
+                        <label for="">Quantité de kamas :</label>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <input wire:model="quantity" type="number" min="1" step="0.1"  id="normalInput" placeholder="100M" />
+                        </div>
+                        <p class="w-75 mt-2">
                             Quantité de kamas | (en millions, par exemple
                             <span class="text-danger">10.3</span> =
                             <span class="text-danger">10 300 000</span> )
                         </p>
-                    </div>
-
-                    <div class="input mt-3">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <input wire:model="quantity" type="number" min="1" step="0.1"  id="normalInput" placeholder="100M" />
-                        </div>
                     </div>
                     <hr />
                     <div class="">
                         <p>
                             Prix par million : <span class="text-danger">{{ $server->price }} €</span>
                         </p>
-                        <p>Montant total : <span class="text-danger">{{ $server->price * $quantity }} €</span></p>
+                        <p>Montant total : <span class="text-danger">{{ $total }} €</span></p>
                     </div>
-                    <a href="#" class="">
-                        <div class="main-btn mt-3">Suivant</div>
-                    </a>
+
+                    <div wire:click="save_order()" class="main-btn mt-3 py-4">Suivant</div>
+
                 </div>
             </div>
             <div class="col-12 col-md-6">
@@ -111,6 +113,7 @@
                         @enderror
                     </div>
 
+                    {{-- Skrill  --}}
                     <div class="input @if ( $payment->name != 'Skrill' ) d-none @endif">
                         <label for="">Adresse e-mail Skrill :</label>
                         <div class="d-flex align-items-center justify-content-between">
@@ -121,6 +124,38 @@
                         @enderror
                     </div>
 
+                    {{-- Usdt  --}}
+                    <div class="input @if ( $payment->name != 'Usdt' ) d-none @endif">
+                        <label for="">Adresse usdt (TRX) :</label>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <input wire:model="usdt_adresse" type="text" id="normalInput" placeholder="Adresse usdt ..." />
+                        </div>
+                        @error('usdt_adresse')                        
+                            <div class="alert alert-danger mt-2 rounded-4">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    {{-- Virment bancaire --}}
+                    <div class="input @if ( $payment->name != 'Bank transfer' ) d-none @endif">
+                        <label for="">Le nom de votre banque :</label>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <input wire:model="bank_nom" type="text" id="normalInput" placeholder="Nom de banque ..." />
+                        </div>
+                        @error('bank_nom')                        
+                            <div class="alert alert-danger mt-2 rounded-4">{{ $message }}</div>
+                        @enderror
+
+                        <label for="">Votre numéro de compte bancaire :</label>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <input wire:model="bank_numero" type="number" id="normalInput" placeholder="Numéro de compte ..." />
+                        </div>
+                        @error('bank_numero')                        
+                            <div class="alert alert-danger mt-2 rounded-4">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+
+                    
 
                 </div>
             </div>

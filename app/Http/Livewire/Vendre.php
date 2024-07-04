@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Offer;
 use Livewire\Component;
 
 class Vendre extends Component
@@ -17,16 +18,25 @@ class Vendre extends Component
 
 
     public $nom_en_jeu;
-    public $quantity;
+    public $quantity = 1;
 
     // contact and payment info 
     public $email;
     public $nom_et_prenom;
     public $paypal_email;
     public $skrill_email;
-    public $usdt_address;
+    public $usdt_adresse;
     public $bank_nom;
     public $bank_numero;
+
+
+    public $total;
+
+    protected $rules = [
+        'nom_en_jeu' => 'required',
+        'nom_et_prenom' => 'required',
+        'email' => 'required|email',
+    ];
 
     public function mount() {
         $this->active_server_id = $this->servers->first()->id;
@@ -38,6 +48,9 @@ class Vendre extends Component
 
     public function render()
     {
+
+        $this->total = $this->quantity * $this->server->price;
+
         return view('livewire.frontend.vendre');
     }
 
@@ -52,5 +65,78 @@ class Vendre extends Component
     public function change_payment( $payment_id ) {
         $this->active_payment_id = $payment_id;
         $this->payment = $this->payments->where('id', $payment_id)->first();
+    }
+
+
+    // function to pass the vendre offer 
+    public function save_order() {
+        // validate the required inputs 
+        $this->validate();
+
+        // validate the inputs based on payment method 
+        // Validate paypal 
+        if ( $this->payment->name == 'Paypal') {
+            $validatedData = $this->validate([
+                'paypal_email' => 'required|email|max:100',
+            ]);
+        }
+
+        // Validate Skrill 
+        if ( $this->payment->name == 'Skrill') {
+            $validatedData = $this->validate([
+                'skrill_email' => 'required|email|max:100',
+            ]);
+        }
+
+        // Validate Usdt 
+        if ( $this->payment->name == 'Usdt') {
+            $validatedData = $this->validate([
+                'usdt_adresse' => 'required|max:250',
+            ]);
+        }
+
+        // Validate bank transfer 
+        if ( $this->payment->name == 'Bank transfer') {
+            $validatedData = $this->validate([
+                'bank_nom' => 'required|max:50',
+                'bank_numero' => 'required'
+            ]);
+        }
+
+        // everything is good now save the order in database
+        $offer = new Offer();
+        $offer->user_id = 1; // change it later to get logged in user id
+        $offer->server_id = $this->server->id;
+        $offer->orderId = 'ABC123'; // change it later to generate unique id
+        $offer->quantity = $this->quantity;
+        $offer->total = $this->quantity * $this->server->price;
+        $offer->game_id = $this->nom_en_jeu;
+        $offer->payment_id = $this->payment->id;
+        $offer->name = $this->nom_et_prenom;
+        $offer->email = $this->email;
+        $offer->discord = 'none'; // not using it for now
+
+        // payment info 
+        if ( $this->payment->name == 'Paypal') {
+            $offer->payment_info = $this->paypal_email;
+        }elseif ( $this->payment->name == 'Skrill' ) {
+            $offer->payment_info = $this->skrill_email;
+        }elseif ( $this->payment->name == "usdt" ) {
+            $offer->payment_info = $this->usdt_adresse;
+        }elseif ( $this->payment->name == "Bank transfer" ) {
+            $offer->payment_info = $this->bank_nom;
+            $offer->payment_info_b = $this->bank_numero;
+        }
+
+        if ( $offer->save() ) {
+            $this->reset_form();
+        }
+
+    }
+
+
+    // function to reset the form 
+    public function reset_form() {
+        $this->reset('quantity', 'nom_et_prenom', 'email', 'paypal_email', 'skrill_email', 'usdt_adresse', 'nom_en_jeu');
     }
 }
