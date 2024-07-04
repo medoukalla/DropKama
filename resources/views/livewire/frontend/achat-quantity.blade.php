@@ -152,7 +152,7 @@
                     <span class="method">Retour</span>
                 </div>
                 <div class="chosen-method gap-3">
-                    <img class="chosen-payment-img" src="{{ asset('frontend/images/payment/'.$payment->svg_name.'.svg') }}" alt="Paypal"
+                    <img class="chosen-payment-img" src="{{ asset('frontend/images/payments/'.$payment->svg_name.'.svg') }}" alt="Paypal"
                         height="20" />
                     <span class="method">{{ $payment_name }}</span>
                 </div>
