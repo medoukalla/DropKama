@@ -1,5 +1,5 @@
 <section class="acheter-processing bg-not-white">
-    <div class="container">
+    <div class="container @if ( $vendre_status == true ) d-none @endif">
         <div class="row">
             <div class="col-12 col-md-6">
                 <div class="kamas-settings">
@@ -77,7 +77,7 @@
                         <p>Montant total : <span class="text-danger">{{ $total }} €</span></p>
                     </div>
 
-                    <div wire:click="save_order()" class="main-btn mt-3 py-4">Suivant</div>
+                    <div wire:click="save_order()" class="main-btn mt-3 py-4" style="cursor: pointer">Suivant</div>
 
                 </div>
             </div>
@@ -161,4 +161,21 @@
             </div>
         </div>
     </div>
+
+    <div class="container @if ( $vendre_status == false ) d-none @endif">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2 ">
+                <div class="kamas-settings w-100 sticky-top">
+                    
+                    <h3>Message after succes shows here</h3>
+
+
+                    <div wire:click="confirm_vendre()" class="main-btn bg-success mt-3 py-4" style="cursor: pointer">Confirm</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 </section>

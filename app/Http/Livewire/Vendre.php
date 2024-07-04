@@ -31,6 +31,7 @@ class Vendre extends Component
 
 
     public $total;
+    public $vendre_status = false;
 
     protected $rules = [
         'nom_en_jeu' => 'required',
@@ -49,7 +50,7 @@ class Vendre extends Component
     public function render()
     {
 
-        $this->total = $this->quantity * $this->server->price;
+        $this->total = (int)$this->quantity * (int)$this->server->price;
 
         return view('livewire.frontend.vendre');
     }
@@ -129,11 +130,16 @@ class Vendre extends Component
         }
 
         if ( $offer->save() ) {
+            $this->vendre_status = true;
             $this->reset_form();
         }
 
     }
 
+    // function to confirm the vendre after it's submited 
+    public function confirm_vendre() {
+        $this->vendre_status = false;
+    }
 
     // function to reset the form 
     public function reset_form() {
