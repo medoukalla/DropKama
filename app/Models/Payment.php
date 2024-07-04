@@ -13,4 +13,11 @@ class Payment extends Model
     static function payments() {
         return Payment::all();
     }
+
+    // function to get method payments for vendre system 
+    static function vendre_payments() {
+        // allowed payment methods for vendre system 
+        $allowed = ['Paypal', 'Bank transfer', 'Usdt', 'Skrill'];
+        return Payment::whereIn('name', $allowed)->get();
+    }
 }

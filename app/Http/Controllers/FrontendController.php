@@ -23,6 +23,8 @@ class FrontendController extends Controller
         return view('frontend.vendre',[
             'title' => $title,
             'message' => $message,
+            'servers' => Server::servers(),
+            'payments' => Payment::vendre_payments(),
         ]);
     }
 
