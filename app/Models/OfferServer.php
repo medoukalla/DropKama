@@ -37,8 +37,25 @@ class OfferServer extends Model
     }
     
     // function to get the offerServer map
-    public function map($map_id){
-        return Map::where('id', $map_id)->first();
+    // public function map($map_id){
+    //     return Map::where('id', $map_id)->first();
+    // }
+
+
+    // function to get servers 
+    static function servers() {
+        return OfferServer::all();
     }
+
+    /**
+     * Get the map that owns the OfferServer
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function map()
+    {
+        return $this->belongsTo(Map::class, 'map_id');
+    }
+
 
 }

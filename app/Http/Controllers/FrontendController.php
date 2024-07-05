@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Map;
+use App\Models\OfferServer;
 use App\Models\Payment;
 use App\Models\Server;
 use Illuminate\Http\Request;
@@ -23,7 +24,7 @@ class FrontendController extends Controller
         return view('frontend.vendre',[
             'title' => $title,
             'message' => $message,
-            'servers' => Server::servers(),
+            'servers' => OfferServer::servers(),
             'payments' => Payment::vendre_payments(),
         ]);
     }
