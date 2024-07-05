@@ -35,6 +35,7 @@ class FrontendController extends Controller
         return view('frontend.echange',[
             'title' => $title,
             'message' => $message,
+            'servers' => Server::servers(),
         ]);
     }
 
