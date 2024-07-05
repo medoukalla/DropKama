@@ -1,5 +1,5 @@
 <section class="acheter-processing bg-not-white">
-  <div class="container">
+  <div class="container @if ( $echange_status == true ) d-none @endif ">
     <div class="row">
       <div class="col-12 col-md-6">
         <div class="kamas-settings w-100">
@@ -24,7 +24,7 @@
           <div class="input">
               <label for="">Quantité à donner <span>*</span></label>
               <div class="d-flex align-items-center justify-content-between">
-                <input wire:model="quantite_a_donner" type="number" min="0" step="0.1" id="normalInput" />
+                <input wire:model="quantite_a_donner" wire:change="calculate()" type="number" min="0" step="0.1" id="normalInput" />
               </div>
               @error('quantite_a_donner')                        
                   <div class="alert alert-danger mt-2 rounded-4">{{ $message }}</div>
@@ -69,11 +69,8 @@
           <div class="input mt-3">
               <label for="">Quantité à recevoir(Million) <span>*</span></label>
               <div class="d-flex align-items-center justify-content-between">
-                  <input wire:model="quantite_a_recevoir" type="text" id="normalInput" />
+                  <input wire:model="quantite_a_recevoir" type="text" id="normalInput" disabled />
               </div>
-              @error('quantite_a_recevoir')                        
-                  <div class="alert alert-danger mt-2 rounded-4">{{ $message }}</div>
-              @enderror
           </div>
           <hr />
           
@@ -82,5 +79,21 @@
       </div>
       <div class="col-12 col-md-6">Soon</div>
     </div>
+  </div>
+
+  <div class="container @if ( $echange_status == false ) d-none @endif">
+      <div class="row">
+          <div class="col-12 col-md-8 offset-md-2 ">
+              <div class="kamas-settings w-100 sticky-top">
+                  
+                  <h3>Message echange submited shows here</h3>
+
+
+                  <div wire:click="confirm_echange()" class="main-btn bg-success mt-3 py-4" style="cursor: pointer">Confirm</div>
+
+
+              </div>
+          </div>
+      </div>
   </div>
 </section>

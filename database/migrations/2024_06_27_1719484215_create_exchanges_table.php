@@ -16,7 +16,7 @@ class CreateExchangesTable extends Migration
 		$table->integer('quantity',)->unsigned();
 		$table->char('from_name',50);
 		$table->char('to_name',50);
-		$table->char('status',50);
+		$table->enum('status',['pending','progress','cancelled','completed'])->default('pending');
 		$table->char('quantity_get',250);
 		$table->bigInteger('user_id',)->unsigned()->nullable();
 		

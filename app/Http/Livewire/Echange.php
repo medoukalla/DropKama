@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Exchange;
 use App\Models\Server;
 use Livewire\Component;
 use Illuminate\Support\Arr;
@@ -19,6 +20,7 @@ class Echange extends Component
     public $nom_en_jeu;
     public $nom_en_jeu_deuxieme;
 
+    public $echange_status = false;
 
     protected $rules = [
         'quantite_a_donner' => 'required',
@@ -47,6 +49,9 @@ class Echange extends Component
         $this->server_from = $this->servers->where('id', $server_id)->first();
         $new_server = $this->servers->where('id', $server_id)->first();
         $this->server_from = $new_server;
+
+        // run the calculation
+        $this->calculate();
     }
 
     // function to change server ( TO )
@@ -54,11 +59,73 @@ class Echange extends Component
         $this->server_to = $this->servers->where('id', $server_id)->first();
         $new_server = $this->servers->where('id', $server_id)->first();
         $this->server_to = $new_server;
+
+        // run the calculation
+        $this->calculate();
     }
 
 
+    // function to run the calculation 
+    public function calculate() {
+        /**
+         * Calculate 
+         * 1 -> if server_from price > server_to price
+         * 2 -> if server_from price < server_to price
+         * 3 -> if server_from price = server_to price
+        */
+        if ( $this->server_from->price > $this->server_to->price ) {
+
+            $res = ( 1 / $this->server_from->price_buy ) * $this->server_to->price;
+            $quantity = $this->quantite_a_donner / $res;
+            $this->quantite_a_recevoir = floor( $quantity * 100 ) / 100;
+
+        }elseif ( $this->server_from->price < $this->server_to->price ) {
+
+            $res = $this->server_from->price_buy / $this->server_to->price;
+            $quantity = $this->quantite_a_donner * $res;
+            $this->quantite_a_recevoir = floor( $quantity * 100 ) / 100;
+            
+        }elseif ( $this->server_from->price == $this->server_to->price ) {
+            
+            $res = ( 1 / $this->server_from->price_buy ) * $this->server_to->price;
+            $quantity = $this->quantite_a_donner / $res;
+            $this->quantite_a_recevoir = floor( $quantity * 100 ) / 100;
+    
+        }
+    }
+
     // function to pass the echange order 
     public function save_echange() {
+
+        $this->calculate();
+
         $this->validate();
+
+        // save order
+        $echange = new Exchange();
+        $echange->from_server = $this->server_from->id;
+        $echange->to_server = $this->server_to->id;
+        $echange->quantity = $this->quantite_a_donner;
+        $echange->from_name = $this->nom_en_jeu;
+        $echange->to_name = $this->nom_en_jeu_deuxieme;
+        $echange->quantity_get = $this->quantite_a_recevoir;
+        $echange->orderId = 1; // will change it later
+        $echange->user_id = 1; // change it later to logged in user id
+
+        if ( $echange->save() ) {
+            $this->echange_status = true;
+            $this->reset_form();
+        }
+
+    }
+
+    // function to confirm the vendre after it's submited 
+    public function confirm_echange() {
+        $this->echange_status = false;
+    }
+
+    // function to reset the form 
+    public function reset_form() {
+        $this->reset('quantite_a_donner', 'nom_en_jeu', 'nom_en_jeu_deuxieme', 'quantite_a_recevoir');
     }
 }
