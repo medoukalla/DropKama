@@ -108,7 +108,6 @@ class Vendre extends Component
         $offer = new Offer();
         $offer->user_id = 1; // change it later to get logged in user id
         $offer->server_id = $this->server->id;
-        $offer->orderId = 'ABC123'; // change it later to generate unique id
         $offer->quantity = $this->quantity;
         $offer->total = $this->quantity * $this->server->price;
         $offer->game_id = $this->nom_en_jeu;
@@ -116,6 +115,17 @@ class Vendre extends Component
         $offer->name = $this->nom_et_prenom;
         $offer->email = $this->email;
         $offer->discord = 'none'; // not using it for now
+        
+        // generate id 
+        $correct = false;
+        do {
+            $ref = substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 6);
+            if ( Offer::where('orderId', $ref)->count() == 0 ) {
+                $correct = true;
+            }
+        } while ( $correct == false );
+
+        $offer->orderId = $ref;
 
         // payment info 
         if ( $this->payment->name == 'Paypal') {

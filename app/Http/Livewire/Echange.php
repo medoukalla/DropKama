@@ -109,8 +109,18 @@ class Echange extends Component
         $echange->from_name = $this->nom_en_jeu;
         $echange->to_name = $this->nom_en_jeu_deuxieme;
         $echange->quantity_get = $this->quantite_a_recevoir;
-        $echange->orderId = 1; // will change it later
         $echange->user_id = 1; // change it later to logged in user id
+        
+        // generate id 
+        $correct = false;
+        do {
+            $ref = substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 6);
+            if ( Exchange::where('orderId', $ref)->count() == 0 ) {
+                $correct = true;
+            }
+        } while ( $correct == false );
+
+        $echange->orderId = $ref;
 
         if ( $echange->save() ) {
             $this->echange_status = true;
