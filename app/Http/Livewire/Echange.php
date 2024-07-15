@@ -29,6 +29,9 @@ class Echange extends Component
     ];
 
 
+    public $bonus;
+    public $bonus_quantity;
+
     public function mount() {
         $servers = $this->servers->toArray();
         $server_from = reset($servers)['id'];
@@ -36,6 +39,8 @@ class Echange extends Component
 
         $this->server_from = $this->servers->where('id', $server_from)->first();
         $this->server_to = $this->servers->where('id', $server_to)->first();
+
+        $this->bonus = setting('plus-de-reglages.bonus-echange');
     }
 
     public function render()
@@ -43,6 +48,12 @@ class Echange extends Component
         return view('livewire.frontend.echange');
     }
 
+
+    // function to calculate and add the bonus to the final quantity 
+    public function add_bonus() {
+        $this->bonus_quantity = ( $this->quantite_a_recevoir * $this->bonus ) / 100 ;
+        $this->quantite_a_recevoir = $this->quantite_a_recevoir + $this->bonus_quantity;
+    }
 
     // function to change server ( FROM )
     public function change_server_from( $server_id ) {
@@ -92,6 +103,9 @@ class Echange extends Component
             $this->quantite_a_recevoir = floor( $quantity * 100 ) / 100;
     
         }
+
+        // add bonus if exists 
+        $this->add_bonus();
     }
 
     // function to pass the echange order 
