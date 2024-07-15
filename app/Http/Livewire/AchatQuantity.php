@@ -28,6 +28,10 @@ class AchatQuantity extends Component
     public $total_with_fees;
     public $fees_amount;
 
+
+    public $bonus;
+    public $bonus_quantity;
+
     public function mount() {
         $this->active_map_id = $this->server->map->id;
         $this->active_server_id = $this->server->id;
@@ -36,15 +40,29 @@ class AchatQuantity extends Component
         $this->fees = $this->payments->first()->fees;
         $this->payment_name = $this->payments->first()->name;
         $this->payment = $this->payments->first();
+
+        $this->bonus = setting('plus-de-reglages.bonus-achat');
     }
 
     public function render()
     {
         $this->calculate_total();
 
+        // if achat bonus exists 
+        if ( $this->bonus > 0 ) {
+            // add the bonus 
+            $this->add_bonus();
+        }
+
         return view('livewire.frontend.achat-quantity');
     }
 
+
+    // function to calculate and add the bonus to the final quantity 
+    public function add_bonus() {
+        $this->bonus_quantity = ( $this->quantity * $this->bonus ) / 100 ;
+        $this->quantity = $this->quantity + $this->bonus_quantity;
+    }
 
     // function to change maps 
     public function change_map( $map_id ) {

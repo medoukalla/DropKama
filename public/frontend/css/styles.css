@@ -688,7 +688,9 @@ header .client-notifs span {
   border-radius: var(--border-radius);
 }
 .kamas-settings .input #inputField input {
-  width: 40px;
+  width: 100%;
+  min-width: 40px;
+  max-width: 65px;
   background-color: var(--white-clr);
   border-radius: 8px;
   border: none;

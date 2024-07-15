@@ -43,7 +43,7 @@
                         </ul>
                     </div>
                     <div class="selector">
-                        <label for="">Sélectionnez le serveur</label>
+                        <label for="">Sélectionnez le serveur  -- ( {{ $bonus_quantity }} ) </label>
                         <div id="selectField" onclick="$('ul.serversList').toggle('slow'); $('.input-arrow-servers').toggleClass('active')">
                             
 
@@ -78,13 +78,16 @@
                                 <input wire:model="quantity" type="number" min="{{ $server->min }}" max="{{ $server->max }}" value="{{ $quantity }}" />
                                 <span>M Kamas</span>
                             </div>
-                            <span>+</span>
-                            <div id="inputField">
-                                <input type="text" placeholder="0" />
-                                <span>
-                                    <img src="{{ asset('frontend/images/svg/bonus-icon.svg') }}" alt="Bonus icon" class="bonus-icon" />
-                                </span>
-                            </div>
+                            @if ( $bonus > 0 )
+                                    
+                                <span>+</span>
+                                <div id="inputField">
+                                    <input wire:model="bonus_quantity" step="0.001" type="number" placeholder="0"  disabled />
+                                    <span>
+                                        <img src="{{ asset('frontend/images/svg/bonus-icon.svg') }}" alt="Bonus icon" class="bonus-icon" />
+                                    </span>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <div class="input">
