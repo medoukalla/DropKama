@@ -47,10 +47,9 @@
                         </ul>
                     </div>
                     <div class="selector">
-                        <label for="">Sélectionnez le serveur -- ( {{ $bonus_quantity }} ) </label>
-                        <div id="selectField"
-                            onclick="$('ul.serversList').toggle('slow'); $('.input-arrow-servers').toggleClass('active')">
-
+                        <label for="">Sélectionnez le serveur</label>
+                        <div id="selectField" onclick="$('ul.serversList').toggle('slow'); $('.input-arrow-servers').toggleClass('active')">
+                            
 
                             {{-- @foreach ($servers as $the_server) --}}
                             @if ($server->map_id == $active_map_id && $server->id == $active_server_id)
