@@ -2,54 +2,50 @@
 
 <div class="authentication signup-section">
     <div class="auth-body">
-      <div class="auth-section">
-        <div class="auth-logo">
-          <a href="{{ route('frontend.index') }}">
-            <img src="{{ asset('frontend/images/logo.png') }}" alt="" />
-          </a>
+        <div class="auth-section">
+            <div class="auth-logo">
+                <a href="{{ route('frontend.index') }}">
+                    <img src="{{ asset('frontend/images/logo.png') }}" alt="" />
+                </a>
+            </div>
+            <div class="auth-heading">S'inscrire</div>
+            <div class="auth-inputs">
+                <div class="email">
+                    <label for="">Nom du personnage *</label>
+                    <input type="text" class="mt-2 mb-3" />
+                </div>
+                <div class="email">
+                    <label for="">Nom et Prenom *</label>
+                    <input type="text" class="mt-2" />
+                </div>
+                <div class="email">
+                    <label for="">Email *</label>
+                    <input type="text" class="mt-2 mb-3" />
+                </div>
+                <div class="password">
+                    <label for="">Mot de passe *</label>
+                    <input type="password" class="mt-2" />
+                </div>
+                <div class="password">
+                    <label for="">Confirmez votre mot de passe*</label>
+                    <input type="password" class="mt-2" />
+                </div>
+            </div>
+            <div class="remember-me d-flex align-items-center justify-content-between w-100">
+                <div>
+                    <input type="radio" name="drone" checked />
+                    <label for="huey">J'ai lu les conditions de bookamas et je suis d'accord.</label>
+                </div>
+            </div>
+            <a href="#" class="w-50">
+                <div class="main-btn">S'INSCRIRE</div>
+            </a>
+            <a href="{{ route('login') }}">
+                <p class="create-acc">
+                    Vous avez déjà un compte ? Connectez-vous !
+                </p>
+            </a>
         </div>
-        <div class="auth-heading">S'inscrire</div>
-        <div class="auth-inputs">
-          <div class="email">
-            <label for="">Nom du personnage *</label>
-            <input type="text" class="mt-2 mb-3" />
-          </div>
-          <div class="email">
-            <label for="">Nom et Prenom *</label>
-            <input type="number" class="mt-2" />
-          </div>
-          <div class="email">
-            <label for="">Email *</label>
-            <input type="text" class="mt-2 mb-3" />
-          </div>
-          <div class="password">
-            <label for="">Mot de passe *</label>
-            <input type="password" class="mt-2" />
-          </div>
-          <div class="password">
-            <label for="">Confirmez votre mot de passe*</label>
-            <input type="password" class="mt-2" />
-          </div>
-        </div>
-        <div
-          class="remember-me d-flex align-items-center justify-content-between w-100"
-        >
-          <div>
-            <input type="radio" name="drone" checked />
-            <label for="huey"
-              >J'ai lu les conditions de bookamas et je suis d'accord.</label
-            >
-          </div>
-        </div>
-        <a href="#" class="w-50">
-          <div class="main-btn">S'INSCRIRE</div>
-        </a>
-        <a href="{{ route('login') }}">
-          <p class="create-acc">
-            Vous avez déjà un compte ? Connectez-vous !
-          </p>
-        </a>
-      </div>
     </div>
 </div>
 
