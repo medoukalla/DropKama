@@ -19,6 +19,9 @@
 }
 /* Min-wdith 1024px */
 @media screen and (max-width: 1024px) {
+    header .page-title {
+        font-size: 50px;
+    }
     .hero-section .logo img {
         height: 30px;
     }
@@ -40,8 +43,8 @@
         height: 14px;
     }
     .main-btn {
-        padding: 10px 18px;
-        font-size: 13px !important;
+        padding: 10px 18px !important;
+        width: 100% !important;
     }
     .g-img-box {
         width: 300px;
@@ -362,6 +365,10 @@
     }
     .social-media img {
         height: 30px;
+    }
+    /* Auth */
+    .authentication .auth-section {
+        padding: 60px 20px;
     }
 }
 /* Max-width 375px */
