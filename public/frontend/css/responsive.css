@@ -407,4 +407,13 @@
         width: 294px;
         height: 150px;
     }
+    /* Footer */
+    footer .payment-box {
+        grid-template-columns: 60px 60px 60px 60px;
+        column-gap: 5px;
+        justify-content: start;
+    }
+    footer .payment-box img {
+        height: 30px;
+    }
 }
