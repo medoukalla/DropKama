@@ -8,7 +8,7 @@
         gap: 12px;
     }
     .hero-section .menu a {
-        font-size: 17px;
+        font-size: 15px;
     }
     .server-section .servers .server {
         width: 300px !important;
@@ -18,12 +18,12 @@
     }
 }
 /* Min-wdith 1024px */
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 1024px) {
     .hero-section .logo img {
         height: 30px;
     }
     .hero-section .menu a {
-        font-size: 16px;
+        font-size: 13px;
     }
     .hero-section .menu ul {
         gap: 8px;
@@ -41,7 +41,7 @@
     }
     .main-btn {
         padding: 10px 18px;
-        font-size: 13px;
+        font-size: 13px !important;
     }
     .g-img-box {
         width: 300px;
@@ -122,7 +122,7 @@
 /* Max-wdith 768px */
 @media screen and (max-width: 768px) {
     header {
-        height: 50vh;
+        height: 80vh;
     }
     .hero-section .menu {
         display: none !important;
@@ -270,6 +270,9 @@
 }
 /* Max-wdith 425px */
 @media screen and (max-width: 425px) {
+    header {
+        height: 75vh;
+    }
     .mobile-logo img {
         height: 35px;
     }
@@ -284,6 +287,7 @@
     }
     .payment-box {
         justify-content: center;
+        margin-bottom: 2rem;
     }
     .payment-methods .row {
         flex-direction: column-reverse;
@@ -291,6 +295,7 @@
     }
     .procedure-img-box {
         justify-content: center !important;
+        height: 275px;
     }
     .swiper::before,
     .swiper::after {
@@ -351,12 +356,24 @@
     .authentication .acc-section .main-btn {
         width: 100% !important;
     }
+    /* Footer */
+    footer .social-media {
+        justify-content: center;
+    }
+    .social-media img {
+        height: 30px;
+    }
 }
 /* Max-width 375px */
 @media screen and (max-width: 375px) {
     .games-section .games-notif p {
         width: 87%;
         font-size: 11px;
+    }
+    /* Game section */
+    .g-img-box {
+        width: 294px;
+        height: 150px;
     }
 }
 /* Max-width 320px */
