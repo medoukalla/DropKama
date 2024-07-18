@@ -1,7 +1,7 @@
 <section class="acheter-processing payment-section bg-not-white">
 
     {{-- First step quantity  --}}
-    <div class="container @if ( $step != 'quantity' ) d-none @endif" >
+    <div class="container @if ($step != 'quantity') d-none @endif">
         <div class="row">
             <div class="col-12 col-md-6">
                 <div class="sticky-top">
@@ -20,22 +20,26 @@
                 <div class="kamas-settings">
                     <div class="selector">
                         <label for="" class="mt-0">Sélectionnez le jeu</label>
-                        <div id="selectField" onclick="$('ul.mapsList').toggle('slow'); $('.input-arrow-maps').toggleClass('active')">
-                            @foreach ( $maps as $map )
-                                @if ( $map->id == $active_map_id )
+                        <div id="selectField"
+                            onclick="$('ul.mapsList').toggle('slow'); $('.input-arrow-maps').toggleClass('active')">
+                            @foreach ($maps as $map)
+                                @if ($map->id == $active_map_id)
                                     <div class="d-flex align-items-center gap-3">
-                                        <img src="{{ asset('frontend/images/svg/dofus-egg.svg')  }}" alt="" class="dofus-egg" />
+                                        <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt=""
+                                            class="dofus-egg" />
                                         <p id="selectText">Dofus {{ $map->name }}</p>
                                     </div>
                                 @endif
                             @endforeach
-                            <img src="{{ asset('frontend/images/svg/input-arrow.svg') }}" alt="Arrow" class="input-arrow input-arrow-maps" />
+                            <img src="{{ asset('frontend/images/svg/input-arrow.svg') }}" alt="Arrow"
+                                class="input-arrow input-arrow-maps" />
                         </div>
                         <ul id="list" class="mt-3 mapsList">
-                            @foreach ( $maps as $map )
-                                @if ( $map->id != $active_map_id )
+                            @foreach ($maps as $map)
+                                @if ($map->id != $active_map_id)
                                     <li class="options" wire:click="change_map({{ $map->id }})">
-                                        <img src="{{ asset('frontend/images/svg/dofus-egg.svg')  }}" alt="" class="dofus-egg" />
+                                        <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt=""
+                                            class="dofus-egg" />
                                         <p>Dofus {{ $map->name }}</p>
                                     </li>
                                 @endif
@@ -43,48 +47,54 @@
                         </ul>
                     </div>
                     <div class="selector">
-                        <label for="">Sélectionnez le serveur  -- ( {{ $bonus_quantity }} ) </label>
-                        <div id="selectField" onclick="$('ul.serversList').toggle('slow'); $('.input-arrow-servers').toggleClass('active')">
-                            
+                        <label for="">Sélectionnez le serveur -- ( {{ $bonus_quantity }} ) </label>
+                        <div id="selectField"
+                            onclick="$('ul.serversList').toggle('slow'); $('.input-arrow-servers').toggleClass('active')">
 
-                            {{-- @foreach ( $servers as $the_server ) --}}
-                                @if ( $server->map_id == $active_map_id && $server->id == $active_server_id )
-                                    <div class="d-flex align-items-center gap-3">
-                                        <img src="{{ asset('storage//'.$server->image )  }}" alt="" class="dofus-egg" />
-                                        <p id="selectText">{{ $server->name }}</p>
-                                    </div>
-                                @endif
+
+                            {{-- @foreach ($servers as $the_server) --}}
+                            @if ($server->map_id == $active_map_id && $server->id == $active_server_id)
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="{{ asset('storage//' . $server->image) }}" alt=""
+                                        class="dofus-egg" />
+                                    <p id="selectText">{{ $server->name }}</p>
+                                </div>
+                            @endif
                             {{-- @endforeach --}}
 
-                            <img src="{{ asset('frontend/images/svg/input-arrow.svg') }}" alt="Arrow" class="input-arrow input-arrow-servers" />
+                            <img src="{{ asset('frontend/images/svg/input-arrow.svg') }}" alt="Arrow"
+                                class="input-arrow input-arrow-servers" />
                         </div>
                         <ul id="list" class="mt-3 serversList">
 
-                            @foreach ( $servers as $the_server )
-                                @if ( $the_server->map_id == $active_map_id && $the_server->id != $active_server_id )
+                            @foreach ($servers as $the_server)
+                                @if ($the_server->map_id == $active_map_id && $the_server->id != $active_server_id)
                                     <li class="options" wire:click="change_server({{ $the_server->id }})">
-                                        <img src="{{ asset('storage//'.$the_server->image )  }}" alt="" class="dofus-egg" />
+                                        <img src="{{ asset('storage//' . $the_server->image) }}" alt=""
+                                            class="dofus-egg" />
                                         <p>{{ $the_server->name }}</p>
                                     </li>
                                 @endif
                             @endforeach
-                            
+
                         </ul>
                     </div>
                     <div class="input">
                         <label for="">Combien de kamas avez-vous besoin ?</label>
                         <div class="d-flex align-items-center justify-content-start gap-3">
                             <div id="inputField">
-                                <input wire:model="quantity" type="number" min="{{ $server->min }}" max="{{ $server->max }}" value="{{ $quantity }}" />
+                                <input wire:model="quantity" type="number" min="{{ $server->min }}"
+                                    max="{{ $server->max }}" value="{{ $quantity }}" />
                                 <span>M Kamas</span>
                             </div>
-                            @if ( $bonus > 0 )
-                                    
+                            @if ($bonus > 0)
                                 <span>+</span>
                                 <div id="inputField">
-                                    <input wire:model="bonus_quantity" step="0.001" type="number" placeholder="0"  disabled />
+                                    <input wire:model="bonus_quantity" step="0.001" type="number" placeholder="0"
+                                        disabled />
                                     <span>
-                                        <img src="{{ asset('frontend/images/svg/bonus-icon.svg') }}" alt="Bonus icon" class="bonus-icon" />
+                                        <img src="{{ asset('frontend/images/svg/bonus-icon.svg') }}" alt="Bonus icon"
+                                            class="bonus-icon" />
                                     </span>
                                 </div>
                             @endif
@@ -92,7 +102,8 @@
                     </div>
                     <div class="input">
                         <label for="">Votre nom dans le jeu
-                            <img src="{{ asset('frontend/images/svg/aide-icon.svg') }}" alt="aide-icon" class="aide-icon" />
+                            <img src="{{ asset('frontend/images/svg/aide-icon.svg') }}" alt="aide-icon"
+                                class="aide-icon" />
                         </label>
                         <div class="d-flex align-items-center justify-content-between">
                             <input type="text" id="normalInput" />
@@ -100,26 +111,29 @@
                     </div>
                     <div class="selector">
                         <label for="">Sélectionnez votre méthode de paiement</label>
-                        <div id="selectField" onclick="$('ul.paymentsList').toggle('slow'); $('.input-arrow-payments').toggleClass('active')">
-                            {{-- @foreach ( $payments as $payment ) --}}
-                                @if ( $payment->id == $active_payment_id )
-                                    <div class="d-flex align-items-center gap-3">
-                                        <img src="{{ asset('frontend/images/payments/'.$payment->svg_name.'.svg') }}" alt="" class="currency ps-2" />
-                                        <p id="selectText">{{ $payment->name}}</p>
-                                    </div>
-                                @endif
+                        <div id="selectField" class="mb-2"
+                            onclick="$('ul.paymentsList').toggle('slow'); $('.input-arrow-payments').toggleClass('active')">
+                            {{-- @foreach ($payments as $payment) --}}
+                            @if ($payment->id == $active_payment_id)
+                                <div class="d-flex align-items-center gap-3">
+                                    <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}"
+                                        alt="" class="currency ps-2" />
+                                    <p id="selectText">{{ $payment->name }}</p>
+                                </div>
+                            @endif
                             {{-- @endforeach --}}
-                            <img src="{{ asset('frontend/images/svg/input-arrow.svg') }}" alt="Arrow" class="input-arrow input-arrow-payments" />
+                            <img src="{{ asset('frontend/images/svg/input-arrow.svg') }}" alt="Arrow"
+                                class="input-arrow input-arrow-payments" />
                         </div>
                         <ul id="list" class="mt-3 paymentsList">
 
-                            @foreach ( $payments as $paym )
-                                
-                                <li class="options @if ( $paym->id == $active_payment_id ) d-none @endif" wire:click="change_payment({{ $paym->id }})">
-                                    <img src="{{ asset('frontend/images/payments/'.$paym->svg_name.'.svg') }}" alt="" class="currency" />
-                                    <p>{{ $paym->name}}</p>
+                            @foreach ($payments as $paym)
+                                <li class="options @if ($paym->id == $active_payment_id) d-none @endif"
+                                    wire:click="change_payment({{ $paym->id }})">
+                                    <img src="{{ asset('frontend/images/payments/' . $paym->svg_name . '.svg') }}"
+                                        alt="" class="currency" />
+                                    <p>{{ $paym->name }}</p>
                                 </li>
-
                             @endforeach
 
                         </ul>
@@ -145,24 +159,26 @@
 
     {{-- Second step the payment  --}}
     <!-- Step A  -->
-    <div class="container @if ( $step != 'A') d-none @endif">
+    <div class="container @if ($step != 'A') d-none @endif">
         <div class="payment-heading">Payment</div>
         <div class="payment-banner mt-3">
             <div class="chosen-payment d-flex align-items-center justify-content-between">
                 <div class="ruturn-btn d-flex align-items-center gap-2" wire:click="back_to_quantity()">
-                    <img class="chosen-payment-img" src="{{ asset('frontend/images/svg/arrow-back.svg') }}" alt="arrow-back"
-                        height="10" />
+                    <img class="chosen-payment-img" src="{{ asset('frontend/images/svg/arrow-back.svg') }}"
+                        alt="arrow-back" height="10" />
                     <span class="method">Retour</span>
                 </div>
                 <div class="chosen-method gap-3">
-                    <img class="chosen-payment-img" src="{{ asset('frontend/images/payments/'.$payment->svg_name.'.svg') }}" alt="Paypal"
+                    <img class="chosen-payment-img"
+                        src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}" alt="Paypal"
                         height="20" />
                     <span class="method">{{ $payment_name }}</span>
                 </div>
                 <div class="payment-fees">{{ $fees }}% frais</div>
             </div>
             <div class="order-heading d-flex align-items-center gap-2 mt-4 mb-4">
-                <img src="{{ asset('frontend/images/svg/Oder-icon.svg') }}" alt="Order icon" class="oder-icon" height="30" />
+                <img src="{{ asset('frontend/images/svg/Oder-icon.svg') }}" alt="Order icon" class="oder-icon"
+                    height="30" />
                 <p>Récapitulatif de commande</p>
             </div>
             <div class="quantities d-flex align-items-center justify-content-between">
@@ -196,27 +212,28 @@
 
 
     <!-- Step B -->
-    <div class="container @if ( $step != 'B') d-none @endif">
+    <div class="container @if ($step != 'B') d-none @endif">
         <div class="payment-heading">Payment</div>
         <div class="payment-banner mt-3">
             <div class="d-flex align-items-center justify-content-between">
                 <div class="ruturn-btn d-flex align-items-center gap-2" wire:click="back_to_first_step()">
-                    <img class="chosen-payment-img" src="{{ asset('frontend/images/svg/arrow-back.svg') }}" alt="arrow-back"
-                        height="10" />
+                    <img class="chosen-payment-img" src="{{ asset('frontend/images/svg/arrow-back.svg') }}"
+                        alt="arrow-back" height="10" />
                     <span class="method">Retour</span>
                 </div>
                 <div class="payment-fees d-flex align-items-center gap-2">
-                    <img src="{{ asset('frontend/images/payments/'.$payment->svg_name.'.svg') }}" alt="" height="20" />
+                    <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}" alt=""
+                        height="20" />
                     {{ $payment_name }}
                 </div>
             </div>
 
             {{-- Include the payments steps  --}}
-            @include('components/frontend/payments//'.$payment->svg_name)
+            @include('components/frontend/payments//' . $payment->svg_name)
 
         </div>
         <div class="main-btn mt-3">Confirmer et Payer</div>
-        
+
     </div>
 
 </section>

@@ -244,7 +244,7 @@ header {
     row-gap: 20px;
 }
 .payment-box img {
-    height: 85px;
+    height: 63px;
 }
 
 /* Procedure section style */
@@ -624,8 +624,8 @@ header .client-notifs span {
 .kamas-settings .input label {
     font-size: 18px;
     font-weight: 500;
-    margin-bottom: 20px;
-    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
 .kamas-settings .selector #selectField {
     display: flex;
@@ -737,7 +737,7 @@ header .client-notifs span {
     width: 100%;
 }
 .payment-section .chosen-method .method {
-    font-weight: 700;
+    font-weight: 600;
 }
 .payment-section .chosen-payment .payment-fees {
     color: #1877f2;

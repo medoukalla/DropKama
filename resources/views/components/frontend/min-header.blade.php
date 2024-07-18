@@ -2,33 +2,33 @@
 <div class="shine-light">
     <img src="{{ asset('frontend/images/svg/shine-light.svg') }}" alt="Shine light" />
 </div>
-<header>
+<header class="second-header">
     <div class="container">
-      <div class="hero-section">
+        <div class="hero-section">
 
-        <!-- Mobile menu -->
-        <x-frontend.mobile-menu />
+            <!-- Mobile menu -->
+            <x-frontend.mobile-menu />
 
-        <!-- Desktop menu -->
-        <x-frontend.desktop-menu />
+            <!-- Desktop menu -->
+            <x-frontend.desktop-menu />
 
 
-        <div class="row hero-banner align-items-star" style="z-index: 100">
-            <div class="col-12 col-md-6">
-              <div class="page-title">
-                {{ $title }}
-              </div>
+            <div class="row hero-banner align-items-star" style="z-index: 100">
+                <div class="col-12 col-md-6">
+                    <div class="page-title">
+                        {{ $title }}
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="client-notifs">
+                        <p>
+                            {!! $message !!}
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="col-12 col-md-6">
-              <div class="client-notifs">
-                <p>
-                  {!! $message !!}
-                </p>
-              </div>
-            </div>
+
         </div>
-        
-      </div>
     </div>
 </header>
 <!-- End section -->
