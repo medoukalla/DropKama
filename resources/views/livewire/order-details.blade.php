@@ -1,58 +1,73 @@
 <section class="acheter-processing bg-not-white">
     <div class="container">
       <div class="row">
+        
         <div class="col-12 col-md-6">
           <div class="product-line bg-component-white sticky-top">
             <div class="line">
               <div class="h-step active">
                 <div class="i-step">
-                  <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt="" height="30" class="not-ready">
-                  <!-- <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="" height="30" class="ready"> -->
+                    <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="" height="30" class="ready">
                 </div>
                 <div class="t-step">
                   Traitement du paiement en attente
                 </div>
               </div>
-              <div class="h-step">
+              <div class="h-step @if ( $order->payed == true && $order->payment_verified == true ) active @endif">
                 <div class="i-step">
-                  <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt="" height="30" class="not-ready">
-                  <!-- <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="" height="30" class="ready"> -->
+                  @if ( $order->payed == true && $order->payment_verified == false )                    
+                    <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt="" height="30" class="not-ready">
+                  @elseif ( $order->payed == true && $order->payment_verified == true )
+                    <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="" height="30" class="ready">
+                  @endif
                 </div>
                 <div class="t-step">
                   Confirmation du paiement
                 </div>
               </div>
-              <div class="h-step">
+              <div class="h-step @if ( $order->payment_verified == true && $order->facturer == true ) active @endif">
                 <div class="i-step">
-                  <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt="" height="30" class="not-ready">
-                  <!-- <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="" height="30" class="ready"> -->
+                  @if ( $order->payment_verified == true && $order->facturer == false )                    
+                    <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt="" height="30" class="not-ready">
+                  @elseif ( $order->payment_verified == true && $order->facturer == true )
+                    <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="" height="30" class="ready">
+                  @endif
                 </div>
                 <div class="t-step">
                   Coordonnées de facturation
                 </div>
               </div>
-              <div class="h-step">
+              <div class="h-step @if ( $order->facturer == true && $order->liviser == true ) active @endif">
                 <div class="i-step">
-                  <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt="" height="30" class="not-ready">
-                  <!-- <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="" height="30" class="ready"> -->
+                  @if ( $order->facturer == true && $order->liviser == false )                    
+                    <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt="" height="30" class="not-ready">
+                  @elseif ( $order->facturer == true && $order->liviser == true )
+                    <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="" height="30" class="ready">
+                  @endif
                 </div>
                 <div class="t-step">
                   Détails de livraison
                 </div>
               </div>
-              <div class="h-step">
+              <div class="h-step @if ( $order->liviser == true && $order->delivered == true ) active @endif">
                 <div class="i-step">
-                  <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt="" height="30" class="not-ready">
-                  <!-- <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="" height="30" class="ready"> -->
+                  @if ( $order->liviser == true && $order->delivered == false )                    
+                    <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt="" height="30" class="not-ready">
+                  @elseif ( $order->liviser == true && $order->delivered == true )
+                    <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="" height="30" class="ready">
+                  @endif
                 </div>
                 <div class="t-step">
                   Livraison en cours
                 </div>
               </div>
-              <div class="h-step">
+              <div class="h-step @if ( $order->delivered == true ) active @endif">
                 <div class="i-step">
-                  <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt="" height="30" class="not-ready">
-                  <!-- <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="" height="30" class="ready"> -->
+                  @if ( $order->delivered == false )                    
+                    <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt="" height="30" class="not-ready">
+                  @elseif ( $order->delivered == true )
+                    <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="" height="30" class="ready">
+                  @endif
                 </div>
                 <div class="t-step">
                   Livré
@@ -61,6 +76,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-12 col-md-6 d-flex flex-column">
           <!-- OPEN ------------------------>
           <!-- Vérification du paiement Head -->
