@@ -36,6 +36,9 @@ Route::get('achat/{server}/{name}', [FrontendController::class, 'achat_quantity'
 // Achat step 3 ( Payment )
 Route::get('achat/payment', [FrontendController::class, 'achat_payment'])->name('frontend.achat.payment');
 
+// Order details 
+Route::get('order_details/{ref}', [FrontendController::class, 'order_details'])->name('frontend.order.details');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

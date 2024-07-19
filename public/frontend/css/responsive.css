@@ -398,6 +398,10 @@
         padding: 60px 20px;
     }
 }
+  /* Last steps */
+  .product-line {
+    margin-bottom: 20px;
+  }
 /* Max-width 375px */
 @media screen and (max-width: 375px) {
     .games-section .games-notif p {

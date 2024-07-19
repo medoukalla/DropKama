@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Order;
 use App\Models\Server;
 use Livewire\Component;
 
@@ -32,6 +33,8 @@ class AchatQuantity extends Component
     public $bonus;
     public $bonus_quantity;
 
+    public $nom_dans_jeu;
+
     public function mount() {
         $this->active_map_id = $this->server->map->id;
         $this->active_server_id = $this->server->id;
@@ -57,6 +60,40 @@ class AchatQuantity extends Component
         return view('livewire.frontend.achat-quantity');
     }
 
+
+    // function to save the order
+    public function save_order() {
+        // save the order in database 
+        $order = new Order();
+        $correct = false;
+        do {
+            $ref = substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 6);
+            if ( Order::where('reference', $ref)->count() == 0 ) {
+                $correct = true;
+            }
+        } while ( $correct == false );
+
+        $order->reference = $ref;
+
+        $order->quantity = $this->quantity;
+        $order->total = $this->total_with_fees;
+        $order->bonus = $this->bonus_quantity;
+        $order->payment_id = $this->payment->id;
+        $order->server_id = $this->server->id;
+        $order->payed = true;
+
+        $order->user_id = 1; // change it later to logged in user id
+
+        if ( $order->save() ) {
+
+            // change personnage for user 
+            
+
+            return redirect()->route('frontend.order.details', $ref);
+        }
+
+        // redirect user to order_details page
+    }
 
     // function to calculate and add the bonus to the final quantity 
     public function add_bonus() {
@@ -112,7 +149,9 @@ class AchatQuantity extends Component
     // function to confirm the quantity form and move to payment form 
     public function confirm_quantity() {
         // do the logic here 
-
+        $validatedData = $this->validate([
+            'nom_dans_jeu' => 'required'
+        ]);
         // show the next step 
         $this->step = 'A';
     }

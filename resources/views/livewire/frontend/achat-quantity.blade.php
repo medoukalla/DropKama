@@ -86,17 +86,15 @@
                                     max="{{ $server->max }}" value="{{ $quantity }}" />
                                 <span>M Kamas</span>
                             </div>
-                            @if ($bonus > 0)
-                                <span>+</span>
-                                <div id="inputField">
-                                    <input wire:model="bonus_quantity" step="0.001" type="number" placeholder="0"
-                                        disabled />
-                                    <span>
-                                        <img src="{{ asset('frontend/images/svg/bonus-icon.svg') }}" alt="Bonus icon"
-                                            class="bonus-icon" />
-                                    </span>
-                                </div>
-                            @endif
+                              
+                            <span>+</span>
+                            <div id="inputField">
+                                <input wire:model="bonus_quantity" step="0.001" type="number" placeholder="0" @if ( $bonus > 0 ) value="0" @endif  disabled />
+                                <span>
+                                    <img src="{{ asset('frontend/images/svg/bonus-icon.svg') }}" alt="Bonus icon" class="bonus-icon" />
+                                </span>
+                            </div>
+
                         </div>
                     </div>
                     <div class="input">
@@ -105,8 +103,11 @@
                                 class="aide-icon" />
                         </label>
                         <div class="d-flex align-items-center justify-content-between">
-                            <input type="text" id="normalInput" />
+                            <input wire:model="nom_dans_jeu" type="text" id="normalInput" />
                         </div>
+                        @error('nom_dans_jeu')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="selector">
                         <label for="">Sélectionnez votre méthode de paiement</label>
@@ -229,8 +230,10 @@
             @include('components/frontend/payments//' . $payment->svg_name)
 
         </div>
-        <div class="main-btn mt-3">Confirmer et Payer</div>
-
+        <a href="Javascript:;" wire:click="save_order()">
+            <div class="main-btn mt-3">Confirmer et Payer</div>
+        </a>
+        
     </div>
 
 </section>
