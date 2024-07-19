@@ -30,14 +30,7 @@ Route::get('achat', [FrontendController::class, 'achat'])->name('frontend.achat'
 Route::get('achat-classique', [FrontendController::class, 'achat_classique'])->name('frontend.achat.classique');
 Route::get('achat-touch', [FrontendController::class, 'achat_touch'])->name('frontend.achat.touch');
 Route::get('achat-retro', [FrontendController::class, 'achat_retro'])->name('frontend.achat.retro');
-// Achat step 2 ( quantity )
-Route::get('achat/{server}/{name}', [FrontendController::class, 'achat_quantity'])->name('frontend.achat.quantity');
 
-// Achat step 3 ( Payment )
-Route::get('achat/payment', [FrontendController::class, 'achat_payment'])->name('frontend.achat.payment');
-
-// Order details 
-Route::get('order_details/{ref}', [FrontendController::class, 'order_details'])->name('frontend.order.details');
 
 
 Route::group(['prefix' => 'admin'], function () {
@@ -61,6 +54,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+
+
+    // Achat step 2 ( quantity )
+    Route::get('achat/{server}/{name}', [FrontendController::class, 'achat_quantity'])->name('frontend.achat.quantity');
+
+    // Achat step 3 ( Payment )
+    Route::get('achat/payment', [FrontendController::class, 'achat_payment'])->name('frontend.achat.payment');
+
+    // Order details 
+    Route::get('order_details/{ref}', [FrontendController::class, 'order_details'])->name('frontend.order.details');
 });
 
 require __DIR__.'/auth.php';

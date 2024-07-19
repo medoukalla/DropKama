@@ -74,7 +74,17 @@
           </div>
           <hr />
           
-          <div class="main-btn mt-3 py-4" wire:click="save_echange()">Échangez la demande</div>
+          @auth
+              <div class="main-btn mt-3 py-4" wire:click="save_echange()">Échangez la demande</div>
+          @endauth
+          @guest
+            <div class="alert alert-warning mt-2">
+                <b>
+                    Veuillez vous <a href="{{ route('login') }}">connecter</a> ou <a href="{{ route('register') }}">créer un compte</a> pour terminer cet échange immédiatement!
+                </b>
+            </div>
+          @endguest
+
         </div>
       </div>
       <div class="col-12 col-md-6">Soon</div>
