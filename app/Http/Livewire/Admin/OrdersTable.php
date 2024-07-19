@@ -15,16 +15,44 @@ class OrdersTable extends Component
     public $active_order = false;
     public $selected_order = null;
 
+
+    // for search 
+    public $key; // field
+    public $filter; // ( contains || = )
+    public $s; // value
+
     public function mount() {
         // $this->orders = Order::where('payed', true)->orderBy('id', 'desc')->paginate(2);
     }
 
     public function render()
     {
-        // dd( $this->data );
-        return view('livewire.admin.orders-table',[
-            'orders' => Order::where('payed', true)->orderBy('id', 'desc')->paginate(10)
-        ]);
+
+        // if filter found and value us (=)
+        if ( $this->filter != '' ) {
+            switch ( $this->filter ) {
+                case 'equals':
+                    $filter = '=';
+                    break;
+                case 'more':
+                    $filter = '>';
+                    break;
+                case 'less':
+                    $filter = '<';
+                    break;
+                
+            }
+            return view('livewire.admin.orders-table',[
+                'orders' => Order::where('payed', true)->where($this->key, $filter, $this->s)->orderBy('id', 'desc')->paginate(10)
+            ]);
+        }else {
+            
+            
+            return view('livewire.admin.orders-table',[
+                'orders' => Order::where('payed', true)->orderBy('id', 'desc')->paginate(10)
+            ]);
+        }
+
     }
 
 

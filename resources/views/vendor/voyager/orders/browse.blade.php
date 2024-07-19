@@ -46,8 +46,10 @@
                     </div>
                     <div class="col user_plan">
                         <select id="filter" name="filter" class="form-select text-capitalize">
-                            <option value="contains" @if($search->filter == "contains") selected @endif>{{ __('voyager::generic.contains') }}</option>
+                            {{-- <option value="contains" @if($search->filter == "contains") selected @endif>{{ __('voyager::generic.contains') }}</option> --}}
                             <option value="equals" @if($search->filter == "equals") selected @endif>=</option>
+                            <option value="more" @if($search->filter == "more") selected @endif>></option>
+                            <option value="less" @if($search->filter == "less") selected @endif><</option>
                         </select>
                     </div>
                     <div class="col user_status">
@@ -70,22 +72,15 @@
             </form>
         </div>
 
+        @php
+            $key = \Request::input('key');
+            $filter = \Request::input('filter');
+            $s = \Request::input('s');
+        @endphp
 
-        @livewire('admin.orders-table' )
+        @livewire('admin.orders-table', ['key' => $key, 'filter' => $filter, 's' => $s ])
         
-        {{-- <div class="card-datatable table-responsive">
-            <table class="datatables-users table">
-                <thead class="border-top">
-                    
-                </thead>
-
-                <tbody>
-                   
-                </tbody>
-            </table>
-        </div> --}}
-
-
+ 
     </div>
 
 
