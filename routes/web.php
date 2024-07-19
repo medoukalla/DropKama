@@ -33,7 +33,8 @@ Route::get('achat-retro', [FrontendController::class, 'achat_retro'])->name('fro
 
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'dashboard'], function () {
+    
     Voyager::routes();
 
     Route::get('{user}/profile', [backendController::class, 'profile'])->name('seller.profile');
@@ -46,9 +47,10 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+//     // return redirect()->route('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -69,3 +71,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('admin', function() {
+    return redirect('dashboard');
+});
