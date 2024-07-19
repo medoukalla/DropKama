@@ -69,58 +69,22 @@
                 </div>
             </form>
         </div>
+
+
+        @livewire('admin.orders-table' )
         
-        <div class="card-datatable table-responsive">
+        {{-- <div class="card-datatable table-responsive">
             <table class="datatables-users table">
                 <thead class="border-top">
-                    <tr>
-                        @foreach($dataType->browseRows as $row)
-                        <th>
-                            @if ($isServerSide && in_array($row->field, $sortableColumns))
-                                <a href="{{ $row->sortByUrl($orderBy, $sortOrder) }}">
-                            @endif
-                            {{ $row->getTranslatedAttribute('display_name') }}
-                            @if ($isServerSide)
-                                @if ($row->isCurrentSortField($orderBy))
-                                    @if ($sortOrder == 'asc')
-                                        <i class="voyager-angle-up pull-right"></i>
-                                    @else
-                                        <i class="voyager-angle-down pull-right"></i>
-                                    @endif
-                                @endif
-                                </a>
-                            @endif
-                        </th>
-                        @endforeach
-                        <th class="actions text-end dt-not-orderable">{{ __('voyager::generic.actions') }}</th>
-                    </tr>
+                    
                 </thead>
 
                 <tbody>
-                    @foreach($dataTypeContent as $data)
-                        <tr>
-                            @livewire('admin.orders-table', ['dataType' => $dataType, 'data' => $data, 'actions' => $actions] )
-                        </tr>
-                    @endforeach
+                   
                 </tbody>
-
-
             </table>
-        </div>
+        </div> --}}
 
-        @if ($isServerSide)
-            <div class="pull-left px-3">
-                <div role="status" class="show-res" aria-live="polite">{{ trans_choice(
-                    'voyager::generic.showing_entries', $dataTypeContent->total(), [
-                        'from' => $dataTypeContent->firstItem(),
-                        'to' => $dataTypeContent->lastItem(),
-                        'all' => $dataTypeContent->total()
-                    ]) }}</div>
-            </div>
-            <div class="pull-right mt-3 px-3">
-                {{ $dataTypeContent->links('vendor.pagination.bootstrap-4') }}
-            </div>
-        @endif
 
     </div>
 

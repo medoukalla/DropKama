@@ -12,7 +12,7 @@ class CreateOrdersTable extends Migration
 
 		$table->id();
 		$table->char('reference',36);
-		$table->integer('quantity',)->nullable();
+		$table->decimal('quantity',25,6)->nullable();
 		$table->decimal('total',8,3)->nullable();
 		$table->integer('bonus',)->nullable();
 		$table->integer('payment_id');
