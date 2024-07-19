@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Map;
 use App\Models\OfferServer;
+use App\Models\Order;
 use App\Models\Payment;
 use App\Models\Server;
 use Illuminate\Http\Request;
@@ -105,6 +106,23 @@ class FrontendController extends Controller
         return view('frontend.achat-payment',[
             'title' => $title,
             'message' => $message,
+        ]);
+    }
+
+
+    // Order details
+    public function order_details( $ref ) {
+        $order = Order::where('reference', $ref);
+        if ( !$order->exists() ) {
+            abort(404);
+        }
+
+        $title = 'Order details';
+        $message = 'Bonjour, Passez votre commande maintenant pour sécuriser votre achat !';
+        return view('frontend.order-details',[
+            'title' => $title,
+            'message' => $message,
+            'order' => $order->first(),
         ]);
     }
 }
