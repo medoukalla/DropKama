@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Order;
 use App\Models\Server;
+use Auth;
 use Livewire\Component;
 
 class AchatQuantity extends Component
@@ -87,7 +88,9 @@ class AchatQuantity extends Component
         if ( $order->save() ) {
 
             // change personnage for user 
-            
+            $user = Auth::user();
+            $user->username = $this->nom_dans_jeu;
+            $user->save();
 
             return redirect()->route('frontend.order.details', $ref);
         }
