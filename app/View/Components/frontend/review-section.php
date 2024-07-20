@@ -2,10 +2,13 @@
 
 namespace App\View\Components\frontend;
 
+use App\Models\Testimonial;
 use Illuminate\View\Component;
 
-class review-section extends Component
+class reviewSection extends Component
 {
+
+    public $testimonials;
     /**
      * Create a new component instance.
      *
@@ -13,7 +16,7 @@ class review-section extends Component
      */
     public function __construct()
     {
-        //
+        $this->testimonials = Testimonial::where('active', true)->get();
     }
 
     /**

@@ -7,6 +7,7 @@ use App\Models\OfferServer;
 use App\Models\Order;
 use App\Models\Payment;
 use App\Models\Server;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +15,10 @@ class FrontendController extends Controller
 {
     // index page 
     public function index() {
-        return view('frontend.index');
+        $testimonials = Testimonial::where('active', true)->get();
+        return view('frontend.index',[
+            'testimonials' => $testimonials,
+        ]);
     }
 
 

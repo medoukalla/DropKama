@@ -8,7 +8,7 @@
 
 <x-frontend.procedure />
 
-<x-frontend.review-section />
+<x-frontend.review-section :testimonials="$testimonials" />
 
 <x-frontend.garantee-section />
 
