@@ -113,6 +113,7 @@
                     }
                 @endphp
                 {!! $selected_order_status !!}
+                <hr>
                 <br>
 
                 @if ( Auth::user()->role->id == 1 )
@@ -122,10 +123,10 @@
                     
                     
                     {{-- button to skip the facturation and livraison steps for an order  --}}
-                    <button wire:click="skip_facturation_livraison()" class="btn btn-label-info w-100 mb-3 @if ( $selected_order->payment_verified == true && $selected_order->facturer == false ) @else d-none @endif " title="Cliquez pour évitez les étapes de facturation et de livraison">Vérifier facturation & livraison</button>
+                    <button wire:click="skip_facturation_livraison()" class="btn btn-info w-100 mb-3 @if ( $selected_order->payment_verified == true && $selected_order->facturer == false ) @else d-none @endif " title="Cliquez pour évitez les étapes de facturation et de livraison">Vérifier facturation & livraison</button>
                     
                     {{-- button to finish the order  --}}
-                    <button wire:click="finish_order()" class="btn btn-label-success w-100 mb-3 @if ( $selected_order->liviser == true && $selected_order->delivered == false ) @else d-none @endif" title="Cliquez pour fermer cette commande lorsqu'elle est terminée">Terminez cette commande</button>
+                    <button wire:click="finish_order()" class="btn btn-success w-100 mb-3 @if ( $selected_order->liviser == true && $selected_order->delivered == false ) @else d-none @endif" title="Cliquez pour fermer cette commande lorsqu'elle est terminée">Terminez cette commande</button>
                     
                     
                     <button wire:click="cancel_order()" class="btn btn-danger w-100 mb-3 @if ( $selected_order->delivered == true || !is_null( $selected_order->deleted_at ) ) d-none @endif " title="Cliquez pour rejeter cette commande">Rejeter cette commande</button>

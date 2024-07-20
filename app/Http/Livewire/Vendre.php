@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Offer;
 use Livewire\Component;
+use Auth;
 
 class Vendre extends Component
 {
@@ -106,7 +107,7 @@ class Vendre extends Component
 
         // everything is good now save the order in database
         $offer = new Offer();
-        $offer->user_id = 1; // change it later to get logged in user id
+        $offer->user_id = Auth::user()->id;
         $offer->server_id = $this->server->id;
         $offer->quantity = $this->quantity;
         $offer->total = $this->quantity * $this->server->price;

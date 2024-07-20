@@ -72,13 +72,32 @@ class Offer extends Model
 
 
     // function to get the owner of order
-    public function user($user_id) {
-        return User::where('id', $user_id)->first();
+    // public function user($user_id) {
+    //     return User::where('id', $user_id)->first();
+    // }
+
+    /**
+     * Get the user that owns the Offer
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     // function to get server by id
-    public function server($id) {
-        return Server::where('id', $id)->first();
+    // public function server($id) {
+    //     return Server::where('id', $id)->first();
+    // }
+    /**
+     * Get the server that owns the Offer
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function server()
+    {
+        return $this->belongsTo(OfferServer::class, 'server_id');
     }
 
 
@@ -123,5 +142,16 @@ class Offer extends Model
         return $this->belongsTo(OfferServer::class, 'server_id');
     }
 
+
+
+    /**
+     * Get the payment that owns the Offer
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class, 'payment_id');
+    }
 
 }
