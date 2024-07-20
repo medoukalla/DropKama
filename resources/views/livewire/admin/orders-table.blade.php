@@ -1,5 +1,5 @@
 <div>
-
+    
     <div class="card-datatable table-responsive">
         <table class="datatables-users table">
             <thead class="border-top">
@@ -41,7 +41,7 @@
                         <td>{{ $order->server->map->name }} / {{ $order->server->name }}</td>
                         <td>{{ $order->quantity }} M</td>
                         <td>{{ $order->total }} $</td>
-                        <td>{{ $order->user->username }}</td>
+                        <td>{{ $order->username }}</td>
                         <td>{{ $order->payment->name }}</td>
                         <td>{!! $status !!}</td>
                         <td>
@@ -115,18 +115,22 @@
                 {!! $selected_order_status !!}
                 <br>
 
-                {{-- button to verify the payment  --}}
-                <button wire:click="verify_payment()" class="btn btn-success w-100 mb-3 @if ( $selected_order->payed == true && $selected_order->payment_verified == false && is_null( $selected_order->deleted_at ) ) @else d-none @endif " title="Cliquez pour vérifier le paiement de l'utilisateur">Vérifier le paiement</button>
-                
-                
-                {{-- button to skip the facturation and livraison steps for an order  --}}
-                <button wire:click="skip_facturation_livraison()" class="btn btn-label-info w-100 mb-3 @if ( $selected_order->payment_verified == true && $selected_order->facturer == false ) @else d-none @endif " title="Cliquez pour évitez les étapes de facturation et de livraison">Vérifier facturation & livraison</button>
-                
-                {{-- button to finish the order  --}}
-                <button wire:click="finish_order()" class="btn btn-label-success w-100 mb-3 @if ( $selected_order->liviser == true && $selected_order->delivered == false ) @else d-none @endif" title="Cliquez pour fermer cette commande lorsqu'elle est terminée">Terminez cette commande</button>
-                
-                
-                <button wire:click="cancel_order()" class="btn btn-danger w-100 mb-3 @if ( $selected_order->delivered == true || !is_null( $selected_order->deleted_at ) ) d-none @endif " title="Cliquez pour rejeter cette commande">Rejeter cette commande</button>
+                @if ( Auth::user()->role->id == 1 )
+                    
+                    {{-- button to verify the payment  --}}
+                    <button wire:click="verify_payment()" class="btn btn-success w-100 mb-3 @if ( $selected_order->payed == true && $selected_order->payment_verified == false && is_null( $selected_order->deleted_at ) ) @else d-none @endif " title="Cliquez pour vérifier le paiement de l'utilisateur">Vérifier le paiement</button>
+                    
+                    
+                    {{-- button to skip the facturation and livraison steps for an order  --}}
+                    <button wire:click="skip_facturation_livraison()" class="btn btn-label-info w-100 mb-3 @if ( $selected_order->payment_verified == true && $selected_order->facturer == false ) @else d-none @endif " title="Cliquez pour évitez les étapes de facturation et de livraison">Vérifier facturation & livraison</button>
+                    
+                    {{-- button to finish the order  --}}
+                    <button wire:click="finish_order()" class="btn btn-label-success w-100 mb-3 @if ( $selected_order->liviser == true && $selected_order->delivered == false ) @else d-none @endif" title="Cliquez pour fermer cette commande lorsqu'elle est terminée">Terminez cette commande</button>
+                    
+                    
+                    <button wire:click="cancel_order()" class="btn btn-danger w-100 mb-3 @if ( $selected_order->delivered == true || !is_null( $selected_order->deleted_at ) ) d-none @endif " title="Cliquez pour rejeter cette commande">Rejeter cette commande</button>
+
+                @endif
                 <button  wire:click="close_order()" type="reset" class="btn btn-label-secondary w-100" >Fermer la fenêtre</button>
 
 

@@ -82,16 +82,11 @@ class AchatQuantity extends Component
         $order->payment_id = $this->payment->id;
         $order->server_id = $this->server->id;
         $order->payed = true;
+        $order->username = $this->nom_dans_jeu;
 
-        $order->user_id = 1; // change it later to logged in user id
+        $order->user_id = Auth::user()->id;
 
         if ( $order->save() ) {
-
-            // change personnage for user 
-            $user = Auth::user();
-            $user->username = $this->nom_dans_jeu;
-            $user->save();
-
             return redirect()->route('frontend.order.details', $ref);
         }
 

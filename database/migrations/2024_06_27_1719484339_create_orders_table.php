@@ -16,6 +16,7 @@ class CreateOrdersTable extends Migration
 		$table->decimal('total',8,3)->nullable();
 		$table->integer('bonus',)->nullable();
 		$table->integer('payment_id');
+		$table->char('username', 50);
 		
 		$table->boolean('payed')->default(false);
 		$table->boolean('payment_verified')->default(false);

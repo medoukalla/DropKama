@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Notifications\ConfirmFacturation;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Notifications\Notifiable;
+use Auth;
 use Livewire\Component;
 
 class OrderDetails extends Component
@@ -17,7 +18,7 @@ class OrderDetails extends Component
     public $order;
 
     public $validation_code;
-    public $email = 'email@gmail.com';
+    public $email;
     public $nom_et_prenom;
     public $telephone;
     public $ville;
@@ -30,6 +31,7 @@ class OrderDetails extends Component
         // generate a verification code 
         $ref = substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 6);
         $this->validation_code = $ref;
+        $this->email = Auth::user()->email;
     }
 
     public function render()
@@ -41,7 +43,7 @@ class OrderDetails extends Component
     // function to hundle the facturation 
     public function send_validation() {
         // send validation code to email 
-        $user = User::where('id', 4)->first();
+        $user = Auth::user();
         try {
             $user->notify( new ConfirmFacturation($this->validation_code, $this->order));
             $this->facturation_steps = 2;

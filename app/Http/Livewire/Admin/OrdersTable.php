@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Order;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -21,8 +22,11 @@ class OrdersTable extends Component
     public $filter; // ( contains || = )
     public $s; // value
 
+    public $user;
+
     public function mount() {
         // $this->orders = Order::where('payed', true)->orderBy('id', 'desc')->paginate(2);
+        $this->user = Auth::user();
     }
 
     public function render()
@@ -42,14 +46,27 @@ class OrdersTable extends Component
                     break;
                 
             }
+
+            if ( Auth::user()->role->id == 1 ) {
+                $orders = Order::where('payed', true)->where($this->key, $filter, $this->s)->orderBy('id', 'desc')->paginate(10);
+            }else {
+                $orders = Order::where( 'user_id', Auth::user()->id )->where('payed', true)->where($this->key, $filter, $this->s)->orderBy('id', 'desc')->paginate(10);
+            }
+
+            
             return view('livewire.admin.orders-table',[
-                'orders' => Order::where('payed', true)->where($this->key, $filter, $this->s)->orderBy('id', 'desc')->paginate(10)
+                'orders' => $orders
             ]);
         }else {
             
+            if ( Auth::user()->role->id == 1 ) {
+                $orders = Order::where('payed', true)->orderBy('id', 'desc')->paginate(10);
+            }else {
+                $orders = Order::where('user_id', Auth::user()->id)->where('payed', true)->orderBy('id', 'desc')->paginate(10);
+            }
             
             return view('livewire.admin.orders-table',[
-                'orders' => Order::where('payed', true)->orderBy('id', 'desc')->paginate(10)
+                'orders' => $orders
             ]);
         }
 
