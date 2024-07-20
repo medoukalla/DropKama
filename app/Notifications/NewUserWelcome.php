@@ -43,7 +43,7 @@ class NewUserWelcome extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('Bienvenue sur Bookamas')
+            ->subject('Bienvenue sur DropKamas')
             ->markdown('mail.newUserNotification', [
                 'useremail' => $this->user->email,
                 'username' => $this->user->name

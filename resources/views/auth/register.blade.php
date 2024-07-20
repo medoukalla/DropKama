@@ -40,7 +40,7 @@
           <div class="remember-me d-flex align-items-center justify-content-between w-100">
             <div>
               <input type="radio" name="drone" checked />
-              <label for="huey">J'ai lu les conditions de bookamas et je suis d'accord.</label>
+              <label for="huey">J'ai lu les conditions de DropKamas et je suis d'accord.</label>
             </div>
           </div>
 

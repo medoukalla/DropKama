@@ -151,10 +151,10 @@
                                                                 <tr>
                                                                     <td style="padding-right: 0px;padding-left: 0px;"
                                                                         align="center">
-                                                                        <a href="https://bookamas.com/" target="_blank">
+                                                                        <a href="https://dropkamas.com/" target="_blank">
                                                                             <img align="center" border="0"
-                                                                                src="https://bookamas.com/img/logo.png"
-                                                                                alt="Bookamas" title="Bookamas"
+                                                                                src="https://dropkamas.com/logo.png"
+                                                                                alt="DropKamas" title="DropKamas"
                                                                                 style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 150px;"
                                                                                 width="45" />
                                                                         </a>
@@ -227,8 +227,8 @@
 
                                                             <!--[if mso]><style>.v-button {background: transparent !important;}</style><![endif]-->
                                                             <div align="center">
-                                                                <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://bookamas.com/" style="height:49px; v-text-anchor:middle; width:158px;" arcsize="0%"  stroke="f" fillcolor="#f48500"><w:anchorlock/><center style="color:#FFFFFF;font-family:'Montserrat',sans-serif;"><![endif]-->
-                                                                <a href="https://bookamas.com/" target="_blank"
+                                                                <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://dropkamas.com/" style="height:49px; v-text-anchor:middle; width:158px;" arcsize="0%"  stroke="f" fillcolor="#f48500"><w:anchorlock/><center style="color:#FFFFFF;font-family:'Montserrat',sans-serif;"><![endif]-->
+                                                                <a href="https://dropkamas.com/" target="_blank"
                                                                     class="v-button"
                                                                     style="box-sizing: border-box;display: inline-block;font-family:'Montserrat',sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #f48500; border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
                                                                     <span
@@ -293,10 +293,10 @@
                                                                             <tr style="vertical-align: top">
                                                                                 <td align="left" valign="middle"
                                                                                     style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://discord.gg/egvJGknPHT"
+                                                                                    <a href="https://discord.gg"
                                                                                         title="Discord"
                                                                                         target="_blank">
-                                                                                        <img src="https://bookamas.com/img/discord.svg"
+                                                                                        <img src="https://dropkamas.com/img/discord.svg"
                                                                                             alt="Discord"
                                                                                             title="Discord"
                                                                                             width="32"
@@ -317,10 +317,10 @@
                                                                             <tr style="vertical-align: top">
                                                                                 <td align="left" valign="middle"
                                                                                     style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://www.facebook.com/Boukamas"
+                                                                                    <a href="https://www.facebook.com/"
                                                                                         title="Messenger"
                                                                                         target="_blank">
-                                                                                        <img src="https://bookamas.com/img/facebook.svg"
+                                                                                        <img src="https://dropkamas.com/img/facebook.svg"
                                                                                             alt="Messenger"
                                                                                             title="Messenger"
                                                                                             width="32"
@@ -341,10 +341,10 @@
                                                                             <tr style="vertical-align: top">
                                                                                 <td align="left" valign="middle"
                                                                                     style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
-                                                                                    <a href="https://bookamas.com/"
+                                                                                    <a href="https://dropkamas.com/"
                                                                                         title="Live Chat"
                                                                                         target="_blank">
-                                                                                        <img src="https://bookamas.com/img/Support.svg"
+                                                                                        <img src="https://dropkamas.com/img/Support.svg"
                                                                                             alt="Live Chat"
                                                                                             title="Live Chat"
                                                                                             width="32"
@@ -377,7 +377,7 @@
                                                                 style="line-height: 140%; text-align: left; word-wrap: break-word;">
                                                                 <p style="font-size: 14px; line-height: 140%;"><span
                                                                         style="color: #444444; font-size: 10px; line-height: 14px;">©
-                                                                        2022 Bookamas.</span></p>
+                                                                        2022 DropKamas.</span></p>
                                                                 <p style="font-size: 14px; line-height: 140%;"><span
                                                                         style="color: #444444; font-size: 10px; line-height: 14px;">71-75
                                                                         Shelton Street Covent Garden London WC2H 9JQ,
@@ -385,11 +385,11 @@
                                                                 <p style="font-size: 14px; line-height: 140%;"><span
                                                                         style="color: #444444; font-size: 10px; line-height: 14px;"><a
                                                                             rel="noopener"
-                                                                            href="https://bookamas.com/cgu"
+                                                                            href="https://dropkamas.com/cgu"
                                                                             target="_blank">CGU</a> <a rel="noopener"
-                                                                            href="https://bookamas.com/cgv"
+                                                                            href="https://dropkamas.com/cgv"
                                                                             target="_blank">CGV</a> <a rel="noopener"
-                                                                            href="https://bookamas.com/"
+                                                                            href="https://dropkamas.com/"
                                                                             target="_blank">Contactez-nous</a><br /></span>
                                                                 </p>
                                                                 <p style="font-size: 14px; line-height: 140%;"> </p>
@@ -397,7 +397,7 @@
                                                                         style="color: #444444; font-size: 10px; line-height: 14px;">Cet
                                                                         email a été envoyé à: <span
                                                                             style="color: #f48500; font-size: 10px; line-height: 14px;">{{ $useremail }}</span>
-                                                                        par Bookamas, Si vous avez des questions
+                                                                        par DropKamas, Si vous avez des questions
                                                                         ou avez besoin d'aide, n'hésitez pas
                                                                     </span><span
                                                                         style="color: #444444; font-size: 10px; line-height: 14px;">à

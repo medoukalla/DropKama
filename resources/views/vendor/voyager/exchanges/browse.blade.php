@@ -59,11 +59,11 @@
                         <button class="btn btn-secondary add-new btn-primary waves-effect waves-light" type="submit" >
                             <span><i class="ti ti-search me-0 me-sm-1 ti-xs"></i></span>
                         </button>
-                        @if ( Auth::user()->role->id == 2 )
-                            <a class="btn btn-secondary add-new btn-primary waves-effect waves-light" href="{{ route('frontend.vendre') }}" target="_blanck">
+                        @if ( Auth::user()->role->id == 2 )    
+                            <a class="btn btn-secondary add-new btn-primary waves-effect waves-light" href="{{ route('frontend.echange') }}" target="_blanck">
                                 <span>
                                     <i class="ti ti-plus me-0 me-sm-1 ti-xs"></i>
-                                    <span class="d-none d-sm-inline-block">Nouvelle offre</span>
+                                    <span class="d-none d-sm-inline-block">Nouvel échange</span>
                                 </span>
                             </a>
                         @endif
@@ -80,7 +80,7 @@
             $s = \Request::input('s');
         @endphp
 
-        @livewire('admin.offers-table', ['key' => $key, 'filter' => $filter, 's' => $s ])
+        @livewire('admin.echanges-table', ['key' => $key, 'filter' => $filter, 's' => $s ])
         
  
     </div>

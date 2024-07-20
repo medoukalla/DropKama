@@ -41,6 +41,26 @@ class Exchange extends Model
         return $this->belongsTo(Server::class, 'from_server');
     }
 
+    /**
+     * Get the server_from that owns the Exchange
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function server_from()
+    {
+        return $this->belongsTo(Server::class, 'from_server');
+    }
+
+
+    /**
+     * Get the server_to that owns the Exchange
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function server_to()
+    {
+        return $this->belongsTo(Server::class, 'to_server');
+    }
 
     public function from_server( $server_id ) {
         return Server::where('id', $server_id)->first();

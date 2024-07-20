@@ -59,18 +59,11 @@
                         <button class="btn btn-secondary add-new btn-primary waves-effect waves-light" type="submit" >
                             <span><i class="ti ti-search me-0 me-sm-1 ti-xs"></i></span>
                         </button>
-                        @if ( Auth::user()->role->id == 1 )
-                            <button class="btn btn-secondary add-new btn-primary waves-effect waves-light" tabindex="0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAddUser">
-                                <span>
-                                    <i class="ti ti-plus me-0 me-sm-1 ti-xs"></i>
-                                    <span class="d-none d-sm-inline-block">Add New {{ $dataType->getTranslatedAttribute('display_name_singular') }}</span>
-                                </span>
-                            </button> 
-                        @else
+                        @if ( Auth::user()->role->id == 2 )
                             <a class="btn btn-secondary add-new btn-primary waves-effect waves-light" href="{{ route('frontend.achat') }}" target="_blanck">
                                 <span>
                                     <i class="ti ti-plus me-0 me-sm-1 ti-xs"></i>
-                                    <span class="d-none d-sm-inline-block">Add New {{ $dataType->getTranslatedAttribute('display_name_singular') }}</span>
+                                    <span class="d-none d-sm-inline-block">Nouvelle commande</span>
                                 </span>
                             </a>
                         @endif

@@ -13,7 +13,7 @@
                     <th scope="col">Mode de paiement</th>
 
                     <th scope="col">Statut</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
     
@@ -44,29 +44,6 @@
                             <button wire:click="open_offer({{ $offer->id }})" class="btn btn-sm btn-label-warning waves-effect  pull-right view">
                                 Afficher
                             </button>
-                            <div>
-                                {{-- @if ($offer->status != 'annule')
-                                    <button type="button" class="btn_dark btn-sm showOrderBtn mb-1"
-                                        orderId="{{ $offer->id }}" data-toggle="modal"
-                                        data-target=".bd-example-modal-lg" data-name="{{ $offer->name }}"
-                                        data-email="{{ $offer->email }}"
-                                        data-quantity="{{ $offer->quantity . '.000.000M' }}"
-                                        data-discord="{{ $offer->discord }}"
-                                        data-payment="{{ $offer->payment }}"
-                                        data-payment_info="{{ $offer->payment_info }}"
-                                        data-gameid="{{ $offer->game_id }}"
-                                        data-server="###"
-                                        data-route="{{ route('offer_delivered', $offer->id) }}">Afficher</button>
-
-                                    @if ($offer->status == 'en cours')
-                                        <a href="{{ route('offer.cancel', $offer) }}"
-                                            title="{{ __('main.offer_click_cancel') }}">
-                                            <button type="button" class="btn_dark btn-sm">Annuler</button>
-                                        </a>
-                                    @endif
-                                @endif --}}
-
-                            </div>
 
 
                         </td>
@@ -102,7 +79,7 @@
                 <hr>
 
 
-                <h4>Statut de la commande</h4>
+                <h4>Statut de l'offre</h4>
                 @php
                     if ( $selected_offer->status == 'pending' ) {
                         $selected_offer_status = '<span class="badge mb-3 w-100 fs-5  bg-label-warning">En attente</span>';
@@ -123,10 +100,10 @@
                     
 
                     {{-- button to finish the order  --}}
-                    <button wire:click="finish_offer()" class="btn btn-success w-100 mb-3 @if ( $selected_offer->status == 'cancelled' || $selected_offer->status == 'completed' ) d-none @endif" title="Cliquez pour fermer cette commande lorsqu'elle est terminée">Terminez cette commande</button>
+                    <button wire:click="finish_offer()" class="btn btn-success w-100 mb-3 @if ( $selected_offer->status == 'cancelled' || $selected_offer->status == 'completed' ) d-none @endif" title="Cliquez pour fermer cette offre lorsqu'elle est terminée">Terminez cette offre</button>
                     
                     
-                    <button wire:click="cancel_offer()" class="btn btn-danger w-100 mb-3 @if ( $selected_offer->status == 'cancelled' || $selected_offer->status == 'completed' ) ) d-none @endif " title="Cliquez pour rejeter cette commande">Rejeter cette commande</button>
+                    <button wire:click="cancel_offer()" class="btn btn-danger w-100 mb-3 @if ( $selected_offer->status == 'cancelled' || $selected_offer->status == 'completed' ) ) d-none @endif " title="Cliquez pour rejeter cette offre">Rejeter cette offre</button>
 
                 @endif
 

@@ -217,10 +217,10 @@
                                                                                 padding-left: 0px;
                                                                             "
                                                                         align="center">
-                                                                        <a href="https://bookamas.com/" target="_blank">
+                                                                        <a href="https://dropkamas.com/" target="_blank">
                                                                             <img align="center" border="0"
-                                                                                src="https://bookamas.com/img/logo.png"
-                                                                                alt="Bookamas" title="Bookamas"
+                                                                                src="https://dropkamas.com/logo.png"
+                                                                                alt="DropKamas" title="DropKamas"
                                                                                 style="
                                                                                         outline: none;
                                                                                         text-decoration: none;
@@ -376,7 +376,7 @@
                                                                     </style><!
                                                                 [endif]-->
                                                             <div align="center">
-                                                                <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://bookamas.com/password/reset/" style="height:49px; v-text-anchor:middle; width:348px;" arcsize="0%"  stroke="f" fillcolor="#f48500"><w:anchorlock/><center style="color:#FFFFFF;font-family:'Montserrat',sans-serif;"><![endif]-->
+                                                                <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://dropkamas.com/password/reset/" style="height:49px; v-text-anchor:middle; width:348px;" arcsize="0%"  stroke="f" fillcolor="#f48500"><w:anchorlock/><center style="color:#FFFFFF;font-family:'Montserrat',sans-serif;"><![endif]-->
                                                                 <a href="{{ $route }}"
                                                                     target="_blank" class="v-button"
                                                                     style="
@@ -609,10 +609,10 @@
                                                                                             border-collapse: collapse !important;
                                                                                             vertical-align: top;
                                                                                         ">
-                                                                                    <a href="https://discord.gg/egvJGknPHT"
+                                                                                    <a href="https://discord.gg"
                                                                                         title="Discord"
                                                                                         target="_blank">
-                                                                                        <img src="https://bookamas.com/img/discord.svg"
+                                                                                        <img src="https://dropkamas.com/img/discord.svg"
                                                                                             alt="Discord"
                                                                                             title="Discord"
                                                                                             width="32"
@@ -661,10 +661,10 @@
                                                                                             border-collapse: collapse !important;
                                                                                             vertical-align: top;
                                                                                         ">
-                                                                                    <a href="https://www.facebook.com/Boukamas"
+                                                                                    <a href="https://www.facebook.com/"
                                                                                         title="Messenger"
                                                                                         target="_blank">
-                                                                                        <img src="https://bookamas.com/img/facebook.svg"
+                                                                                        <img src="https://dropkamas.com/img/facebook.svg"
                                                                                             alt="Messenger"
                                                                                             title="Messenger"
                                                                                             width="32"
@@ -713,10 +713,10 @@
                                                                                             border-collapse: collapse !important;
                                                                                             vertical-align: top;
                                                                                         ">
-                                                                                    <a href="https://bookamas.com/"
+                                                                                    <a href="https://dropkamas.com/"
                                                                                         title="Live Chat"
                                                                                         target="_blank">
-                                                                                        <img src="https://bookamas.com/img/Support.svg"
+                                                                                        <img src="https://dropkamas.com/img/Support.svg"
                                                                                             alt="Live Chat"
                                                                                             title="Live Chat"
                                                                                             width="32"
@@ -783,7 +783,7 @@
                                                                                 line-height: 14px;
                                                                             ">©
                                                                         2022
-                                                                        Bookamas.</span>
+                                                                        DropKamas.</span>
                                                                 </p>
                                                                 <p
                                                                     style="
@@ -819,12 +819,12 @@
                                                                                 line-height: 14px;
                                                                             "><a
                                                                             rel="noopener"
-                                                                            href="https://bookamas.com/cgu"
+                                                                            href="https://dropkamas.com/cgu"
                                                                             target="_blank">CGU</a>
                                                                         <a rel="noopener"
-                                                                            href="https://bookamas.com/cgv"
+                                                                            href="https://dropkamas.com/cgv"
                                                                             target="_blank">CGV</a>
-                                                                        <a rel="noopener" href="https://bookamas.com/"
+                                                                        <a rel="noopener" href="https://dropkamas.com/"
                                                                             target="_blank">Contactez-nous</a><br /></span>
                                                                 </p>
                                                             </div>
