@@ -76,9 +76,15 @@
         <div class="col-12 col-md-8">
           <div class="links-title">Contactez-nous</div>
           <div class="social-media">
-            <img src="{{ asset('frontend/images/svg/whatsapp.svg') }}" alt="whatsapp" />
-            <img src="{{ asset('frontend/images/svg/facebook.svg') }}" alt="facebook" />
-            <img src="{{ asset('frontend/images/svg/discord.svg') }}" alt="discord" />
+            <a href="{{  setting('site.whatsapp') }}" target="_blanck">
+              <img src="{{ asset('frontend/images/svg/whatsapp.svg') }}" alt="whatsapp" />
+            </a>
+            <a href="{{ setting('site.facebook') }}" target="_blanck">
+              <img src="{{ asset('frontend/images/svg/facebook.svg') }}" alt="facebook" />
+            </a>
+            <a href="{{ setting('site.discord') }}" target="_blanck">
+              <img src="{{ asset('frontend/images/svg/discord.svg') }}" alt="discord" />
+            </a>
           </div>
         </div>
       </div>
@@ -86,7 +92,7 @@
       <div class="row mt-1">
         <div class="copyright">
           <p class="text-center">
-            © 2024 <span>Dropkamas</span>. All rights reserved.
+            © 2024 <span><a style="color: var(--orange-clr)" href="{{ route('frontend.index') }}">Dropkamas</a></span>. All rights reserved.
           </p>
         </div>
       </div>

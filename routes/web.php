@@ -65,8 +65,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-
-
     // Achat step 2 ( quantity )
     Route::get('achat/{server}/{name}', [FrontendController::class, 'achat_quantity'])->name('frontend.achat.quantity');
 
