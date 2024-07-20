@@ -257,13 +257,13 @@
             <div class="d-flex align-items-center justify-content-between mb-3">
               <div class="info-component">{{ $order->server->name }} {{ $order->quantity }} M pour : {{ $order->user->username }}</div>
               <div class="info-component">
-                {{ $order->total }} EUR
+                {{ $order->total }} {{ strtoupper(Session::get('currency'))}}
               </div>
             </div>
             <div class="d-flex align-items-center justify-content-between">
               <div class="info-component bg-orange">Total</div>
               <div class="info-component bg-orange">
-                {{ $order->total }} EUR
+                {{ $order->total }} {{ strtoupper(Session::get('currency'))}}
               </div>
             </div>
           </div>

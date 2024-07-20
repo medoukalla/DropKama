@@ -147,7 +147,7 @@
                     <hr />
                     <div class="d-flex align-items-center justify-content-between">
                         <span style="font-weight: 700; font-size: 22px">Total</span>
-                        <span style="font-size: 22px">€{{ $total_with_fees }}</span>
+                        <span style="font-size: 22px">{{ $currency_symb }}{{ $total_with_fees }}</span>
                     </div>
                     <a wire:click="confirm_quantity()" href="Javascript:;" class="">
                         <div class="main-btn mt-3 w-100">Suivant</div>
@@ -183,16 +183,16 @@
             <div class="quantities d-flex align-items-center justify-content-between">
                 <p class="chosen-game">Dofus {{ $map->name }}</p>
                 <p class="kamas-quantities">{{ $quantity }} M Kamas</p>
-                <p class="kamas-total">€ {{ $total_with_fees }}</p>
+                <p class="kamas-total">{{ $currency_symb }} {{ $total_with_fees }}</p>
             </div>
             <div class="mt-3">
                 <div class="r-payment d-flex align-items-center justify-content-between">
                     <p class="subtotal">Sous-total</p>
-                    <p class="result">€ {{ $total }}</p>
+                    <p class="result">{{ $currency_symb }} {{ $total }}</p>
                 </div>
                 <div class="r-payment d-flex align-items-center justify-content-between mt-2">
                     <p class="fees-subtotal">Frais de paiement</p>
-                    <p class="result">€ {{ $fees_amount }}</p>
+                    <p class="result">{{ $currency_symb }} {{ $fees_amount }}</p>
                 </div>
                 <div class="r-payment d-flex align-items-center justify-content-between mt-2">
                     <p class="fees-service">Frais de service</p>
@@ -202,7 +202,7 @@
         </div>
         <div class="payment-total d-flex justify-content-between align-items-center mt-3">
             <div>Total à payer</div>
-            <div>€ {{ $total_with_fees }}</div>
+            <div>{{ $currency_symb }} {{ $total_with_fees }}</div>
         </div>
         <a href="Javascript:;" wire:click="confirm_first_step()">
             <div class="main-btn mt-3">Confirmer et Payer</div>

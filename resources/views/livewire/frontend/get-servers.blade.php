@@ -16,10 +16,10 @@
                     <div class="server-name">{{ $server->name }}</div>
 
                     <div class="currency-btn d-flex align-items-center justify-content-between">
-                        <a href="{{ route('frontend.achat.quantity',[$server, $server->name]) }}" class="euro-btn">
+                        <a  @if ( $server->active == true ) onclick="$.get({url:'/euro',type:'GET',dataType:'json'})" href="{{ route('frontend.achat.quantity',[$server, $server->name]) }}" @else href="javascript:;" title="Indisponible" @endif class="euro-btn">
                             {{ floor( $server->price * 100 ) / 100 }} <span>€</span>
                         </a>
-                        <a href="{{ route('frontend.achat.quantity',[$server, $server->name]) }}" class="usdt-btn">
+                        <a  @if ( $server->active == true ) onclick="$.get({url:'/usd',type:'GET',dataType:'json'})" href="{{ route('frontend.achat.quantity',[$server, $server->name]) }}" @else href="javascript:;" title="Indisponible" @endif class="usdt-btn">
                             {{ floor( $server->price_usd * 100 ) / 100 }} <span>$</span>
                         </a>
                     </div>

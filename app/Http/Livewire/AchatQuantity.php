@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Order;
 use App\Models\Server;
 use Auth;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
 class AchatQuantity extends Component
@@ -36,6 +37,11 @@ class AchatQuantity extends Component
 
     public $nom_dans_jeu;
 
+
+    // currency ( usd or euro ) // euro par default
+    public $currency = 'euro';
+    public $currency_symb = '€';
+
     public function mount() {
         $this->active_map_id = $this->server->map->id;
         $this->active_server_id = $this->server->id;
@@ -46,6 +52,14 @@ class AchatQuantity extends Component
         $this->payment = $this->payments->first();
 
         $this->bonus = setting('plus-de-reglages.bonus-achat');
+        
+        // set up the currency and symbol
+        $this->currency = Session::get('currency');
+        if ( $this->currency == 'euro') {
+            $this->currency_symb = '€';
+        }else {
+            $this->currency_symb = '$';
+        }
     }
 
     public function render()
@@ -85,6 +99,8 @@ class AchatQuantity extends Component
         $order->username = $this->nom_dans_jeu;
 
         $order->user_id = Auth::user()->id;
+
+        $order->currency = Session::get('currency');
 
         if ( $order->save() ) {
             return redirect()->route('frontend.order.details', $ref);
@@ -135,7 +151,11 @@ class AchatQuantity extends Component
     // function to calculate the total include the fess
     public function calculate_total() {
         $quantity = $this->quantity;
-        $price = $this->server->price;
+        if ( $this->currency == 'usd' ) {
+            $price = $this->server->price_usd;
+        }else {
+            $price = $this->server->price;
+        }
         $fees = $this->fees;
         // floor( $total_with_fees * 1000 ) / 1000
         $this->total = floor( ( $quantity * $price) * 1000 ) / 1000; 

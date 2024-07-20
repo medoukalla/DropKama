@@ -4,6 +4,7 @@ use App\Http\Controllers\backendController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,4 +80,16 @@ require __DIR__.'/auth.php';
 
 Route::get('admin', function() {
     return redirect('dashboard');
+});
+
+
+// route to change  currency to usd
+Route::get('usd', function(){
+    Session::forget('currency');
+    Session::put('currency', 'usd');
+});
+// route to change  currency to euro
+Route::get('euro', function(){
+    Session::forget('currency');
+    Session::put('currency', 'euro');
 });
