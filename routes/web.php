@@ -32,6 +32,13 @@ Route::get('achat-touch', [FrontendController::class, 'achat_touch'])->name('fro
 Route::get('achat-retro', [FrontendController::class, 'achat_retro'])->name('frontend.achat.retro');
 
 
+// CONDITIONS GÉNÉRAL D'UTILISATION
+Route::get('conditions_general_utilisation', [FrontendController::class, 'cgu'])->name('frontend.cgu');
+// CONDITIONS GÉNÉRALES DE VENTE
+Route::get('conditions_general_de_vente', [FrontendController::class, 'cgv'])->name('frontend.cgv');
+// POLITIQUE DE CONFIDENTIALITÉ
+Route::get('politique_de_confidentialite', [FrontendController::class, 'politique'])->name('frontend.politique');
+
 
 Route::group(['prefix' => 'dashboard'], function () {
     

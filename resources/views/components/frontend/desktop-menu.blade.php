@@ -15,17 +15,30 @@
         </ul>
     </nav>
     <div class="auth d-flex align-items-center gap-3">
+      @guest
+          
         <a href="{{ route('register') }}">
-            <div class="sign-up">
-                <img src="{{ asset('frontend/images/svg/signup.svg') }}" alt="" />
-                S'inscrire
-            </div>
+          <div class="sign-up">
+            <img src="{{ asset('frontend/images/svg/signup.svg') }}" alt="" />
+            S'inscrire
+          </div>
         </a>
         <a href="{{ route('login') }}">
-            <div class="login">
-                <img src="{{ asset('frontend/images/svg/login.svg') }}" alt="" />
-                Connexion
-            </div>
+          <div class="login">
+            <img src="{{ asset('frontend/images/svg/login.svg') }}" alt="" />
+            Connexion
+          </div>
         </a>
+
+      @endguest
+        <a href="{{ route('voyager.dashboard') }}">
+          <div class="sign-up">
+            {{-- <img src="{{ asset('frontend/images/svg/signup.svg') }}" alt="" /> --}}
+            Tableau de bord
+          </div>
+        </a>
+      @auth
+          
+      @endauth
     </div>
 </div>

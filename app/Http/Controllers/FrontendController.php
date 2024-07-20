@@ -132,4 +132,34 @@ class FrontendController extends Controller
             'order' => $order->first(),
         ]);
     }
+
+
+    // CGU
+    public function cgu() {
+        $title = "Les conditions générales d'utilisation";
+        $message = 'Bonjour, Passez votre commande maintenant pour sécuriser votre achat !';
+        return view('frontend.cgu',[
+            'title' => $title,
+            'message' => $message
+        ]);
+    }
+    // CGV
+    public function cgv() {
+        $title = 'CONDITIONS GÉNÉRALES DE VENTE';
+        $message = 'Bonjour, Passez votre commande maintenant pour sécuriser votre achat !';
+        return view('frontend.cgv',[
+            'title' => $title,
+            'message' => $message
+        ]);
+    }
+    // politique 
+    public function politique() {
+        $title = 'POLITIQUE DE CONFIDENTIALITÉ';
+        $message = 'Bonjour, Passez votre commande maintenant pour sécuriser votre achat !';
+        return view('frontend.politique',[
+            'title' => $title,
+            'message' => $message
+        ]);
+    }
+
 }

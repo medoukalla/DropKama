@@ -71,7 +71,7 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
             <li>
-              <a class="dropdown-item" href="pages-account-settings-account.html">
+              <a class="dropdown-item" href="{{ route('voyager.dashboard') }}">
                 <div class="d-flex">
                   <div class="flex-shrink-0 me-3">
                     <div class="avatar avatar-online">
@@ -89,12 +89,16 @@
               <div class="dropdown-divider"></div>
             </li>
             
-            <li>
-              <a class="dropdown-item" href="{{ route('voyager.settings.index') }}">
-                <i class="ti ti-settings me-2 ti-sm"></i>
-                <span class="align-middle">Settings</span>
-              </a>
-            </li>
+            @if ( Auth::user()->role->id != 2 )
+                
+              <li>
+                <a class="dropdown-item" href="{{ route('voyager.settings.index') }}">
+                  <i class="ti ti-settings me-2 ti-sm"></i>
+                  <span class="align-middle">Settings</span>
+                </a>
+              </li>
+              
+            @endif
             <li>
               <div class="dropdown-divider"></div>
             </li>

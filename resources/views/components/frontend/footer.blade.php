@@ -41,9 +41,9 @@
           <div class="policies-links">
             <div class="links-title">Aide</div>
             <ul class="p-0">
-              <li><a href="#">CONDITIONS GÉNÉRAL D'UTILISATION</a></li>
-              <li><a href="#">CONDITIONS GÉNÉRALES DE VENTE</a></li>
-              <li><a href="#">POLITIQUE DE CONFIDENTIALITÉ</a></li>
+              <li><a href="{{ route('frontend.cgu') }}">CONDITIONS GÉNÉRAL D'UTILISATION</a></li>
+              <li><a href="{{ route('frontend.cgv') }}">CONDITIONS GÉNÉRALES DE VENTE</a></li>
+              <li><a href="{{ route('frontend.politique') }}">POLITIQUE DE CONFIDENTIALITÉ</a></li>
             </ul>
           </div>
         </div>
