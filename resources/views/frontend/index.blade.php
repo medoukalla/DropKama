@@ -12,6 +12,6 @@
 
 <x-frontend.garantee-section />
 
-<x-frontend.faq-section />
+<x-frontend.faq-section :faqs="$faqs" />
 
 <x-frontend.shipping-section />

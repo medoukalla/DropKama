@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\faq;
 use App\Models\Map;
 use App\Models\OfferServer;
 use App\Models\Order;
@@ -16,8 +17,10 @@ class FrontendController extends Controller
     // index page 
     public function index() {
         $testimonials = Testimonial::where('active', true)->get();
+        $faqs = faq::get();
         return view('frontend.index',[
             'testimonials' => $testimonials,
+            'faqs' => $faqs
         ]);
     }
 
