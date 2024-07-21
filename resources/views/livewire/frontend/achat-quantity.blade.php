@@ -162,18 +162,20 @@
     <div class="container @if ($step != 'A') d-none @endif">
         <div class="payment-heading">Payment</div>
         <div class="payment-banner mt-3">
-            <div class="chosen-payment d-flex align-items-center justify-content-between">
+            <div class="top-banner">
                 <div class="ruturn-btn d-flex align-items-center gap-2" wire:click="back_to_quantity()">
                     <img class="chosen-payment-img" src="{{ asset('frontend/images/svg/arrow-back.svg') }}"
                         alt="arrow-back" height="10" />
                     <span class="method">Retour</span>
                 </div>
-                <div class="chosen-method gap-3">
-                    <img class="chosen-payment-img"
-                        src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}" alt="Paypal"
-                        height="30" />
+                <div class="chosen-payment d-flex align-items-center justify-content-between">
+                    <div class="chosen-method gap-3">
+                        <img class="chosen-payment-img"
+                            src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}"
+                            alt="Paypal" height="30" />
+                    </div>
+                    <div class="payment-fees">{{ $fees }}% frais</div>
                 </div>
-                <div class="payment-fees">{{ $fees }}% frais</div>
             </div>
             <div class="order-heading d-flex align-items-center gap-2 mt-4 mb-4">
                 <img src="{{ asset('frontend/images/svg/Oder-icon.svg') }}" alt="Order icon" class="oder-icon"
@@ -222,7 +224,7 @@
                 </div>
                 <div class="payment-fees d-flex align-items-center gap-2">
                     <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}" alt=""
-                        height="30" style="border-radius: 10px; border: 1px solid #0000001f" />
+                        height="40" style="border-radius: 10px; border: 1px solid #0000001f" />
                 </div>
             </div>
 

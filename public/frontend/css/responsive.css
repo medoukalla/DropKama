@@ -397,6 +397,13 @@
     .authentication .auth-section {
         padding: 60px 20px;
     }
+    .payment-banner .top-banner {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .top-banner .ruturn-btn {
+        width: 100%;
+    }
 }
 /* Max-width 375px */
 @media screen and (max-width: 375px) {

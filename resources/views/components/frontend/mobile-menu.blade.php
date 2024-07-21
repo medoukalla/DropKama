@@ -13,7 +13,7 @@
     </div>
 </div>
 {{-- Overlay menu --}}
-<div class="mobile-menu-overlay active">
+<div class="mobile-menu-overlay">
     <div class="close-btn">
         <img src="{{ asset('frontend/images/black-close-btn.svg') }}" alt="Close button">
     </div>
