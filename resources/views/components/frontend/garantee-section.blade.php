@@ -15,7 +15,7 @@
           <div class="garantee-part mb-3">
             <div class="part-headline mb-2">Meilleurs prix du marché</div>
             <p>
-              Bookamas vous garantit que nos prix sont et seront toujours les
+              DropKamas vous garantit que nos prix sont et seront toujours les
               meilleurs du marché sur tous les serveurs du jeu, défiant toute
               concurrence, accompagné de plusieurs offres et bonus pour
               assurer la profitabilité de nos clients.
@@ -32,7 +32,7 @@
           <div class="garantee-part">
             <div class="part-headline mb-2">Livraison rapide</div>
             <p>
-              Bookamas est disponible du matin à minuit, garantissant le
+              DropKamas est disponible du matin à minuit, garantissant le
               service pour nos clients, tout en assurant la rapidité de
               livraison de vos commandes en quelques minutes.
             </p>

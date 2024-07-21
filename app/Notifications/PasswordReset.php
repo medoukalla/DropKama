@@ -52,7 +52,7 @@ class PasswordReset extends Notification
         return ( new MailMessage )
             ->subject("Réinitialiser votre mot de passe")
             ->markdown('mail.ResetPasswordNotification', [
-                'route' => url('password/reset', $this->token),
+                'route' => route('password.reset', $this->token ),
             ]);
     }
 

@@ -15,13 +15,21 @@
                 </p>
                 <div class="auth-inputs">
                     <div class="email">
-                        <label for="">{{ __('Email') }}</label>
-                        <input type="email" id="email" name="email" :value="old('email')" required autofocus class="mt-2 mb-3" />
+                        <x-input-label for="email"  />
+                        <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"  required autofocus autocomplete="username" />
+                        <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger" />
                     </div>
                 </div>
                 <div class="alert alert-danger w-100 @if ( $errors->count() == 0 ) d-none @endif ">
                     {{ $errors->first() }}
                 </div>
+
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
+
                 <button class="main-btn px-0 py-4 w-50" role="button" type="submit">
                     {{ __('Email Password Reset Link') }}
                 </button>
@@ -33,3 +41,4 @@
         </form>
     </div>
 </div>
+<x-frontend.footer />

@@ -2,18 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\faq;
 use App\Models\Map;
 use App\Models\OfferServer;
+use App\Models\Order;
 use App\Models\Payment;
 use App\Models\Server;
+use App\Models\Testimonial;
+use App\Notifications\OrderPaymentConfirmed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class FrontendController extends Controller
 {
     // index page 
     public function index() {
-        return view('frontend.index');
+        $testimonials = Testimonial::where('active', true)->get();
+        $faqs = faq::get();
+        return view('frontend.index',[
+            'testimonials' => $testimonials,
+            'faqs' => $faqs
+        ]);
     }
 
 
@@ -107,4 +117,75 @@ class FrontendController extends Controller
             'message' => $message,
         ]);
     }
+
+
+    // Order details
+    public function order_details( $ref ) {
+        $order = Order::where('reference', $ref);
+        if ( !$order->exists() ) {
+            abort(404);
+        }
+        $order = $order->first();
+
+
+        // if session payment exists
+        if ( Session::has('order_reference') && Session::has('payment_success') && $ref == $order->reference ) {
+            $order->payed = true;
+            $order->payment_verified = true;
+            
+            if ( $order->save() ) {
+
+                Session::forget('order_reference');
+                Session::forget('payment_success');
+
+                $user = $order->user;
+                try {
+                    $user->notify( new OrderPaymentConfirmed($user, $order));
+                } catch (\Throwable $th) {
+                    // throw $th;
+                }  
+            }
+
+
+        }
+
+
+        $title = 'Order details';
+        $message = 'Bonjour, Passez votre commande maintenant pour sécuriser votre achat !';
+        return view('frontend.order-details',[
+            'title' => $title,
+            'message' => $message,
+            'order' => $order,
+        ]);
+    }
+
+
+    // CGU
+    public function cgu() {
+        $title = "Les conditions générales d'utilisation";
+        $message = 'Bonjour, Passez votre commande maintenant pour sécuriser votre achat !';
+        return view('frontend.cgu',[
+            'title' => $title,
+            'message' => $message
+        ]);
+    }
+    // CGV
+    public function cgv() {
+        $title = 'CONDITIONS GÉNÉRALES DE VENTE';
+        $message = 'Bonjour, Passez votre commande maintenant pour sécuriser votre achat !';
+        return view('frontend.cgv',[
+            'title' => $title,
+            'message' => $message
+        ]);
+    }
+    // politique 
+    public function politique() {
+        $title = 'POLITIQUE DE CONFIDENTIALITÉ';
+        $message = 'Bonjour, Passez votre commande maintenant pour sécuriser votre achat !';
+        return view('frontend.politique',[
+            'title' => $title,
+            'message' => $message
+        ]);
+    }
+
 }

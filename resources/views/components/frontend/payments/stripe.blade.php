@@ -4,8 +4,7 @@
             Étape 1
         </div>
         <div class="step-content">
-            Veuillez envoyer € {{ $total_with_fees }} (nos frais inclus) - cliquez ici pour recevoir les informations de
-            paiement (un message automatique sera envoyé à notre support en ligne)
+            Veuillez preparer votre carte bancaire pour effectuer le paiement
         </div>
     </div>
     <div class="step">
@@ -13,8 +12,16 @@
             Étape 2
         </div>
         <div class="step-content">
-            Veuillez envoyer € {{ $total_with_fees }} (nos frais inclus) - cliquez ici pour recevoir les informations de
-            paiement (un message automatique sera envoyé à notre support en ligne)
+            Veuillez cliquer sur le lien ci-dessous pour passer à Stripe et effectuer le paiement.
+        </div>
+    </div>
+
+    <div class="step">
+        <div class="step-head">
+            Étape 3
+        </div>
+        <div class="step-content">
+            Une fois le paiement terminé, veuillez suivre les etapes pour se faire livrer le plutôt possible, merci.
         </div>
     </div>
 </div>

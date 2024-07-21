@@ -1,119 +1,38 @@
 <div>
 
     <div class="row g-4 mb-4">
-        <div class="col-sm-6 col-xl-3">
+      <div class="col-sm-6 col-xl-3">
           <div class="card">
-            <div class="card-body">
+              <div class="card-body">
               <div class="d-flex align-items-start justify-content-between">
-                <div class="content-left">
+                  <div class="content-left">
                   <span>Session</span>
                   <div class="d-flex align-items-center my-2">
-                    <h3 class="mb-0 me-2">21,459</h3>
-                    <p class="text-success mb-0">(+29%)</p>
+                      <h3 class="mb-0 me-2">{{ $users->count() }}</h3>
                   </div>
-                  <p class="mb-0">Total Users</p>
-                </div>
-                <div class="avatar">
+                  <p class="mb-0">Total users</p>
+                  </div>
+                  <div class="avatar">
                   <span class="avatar-initial rounded bg-label-primary">
-                    <i class="ti ti-user ti-sm"></i>
+                      <i class="ti ti-user ti-sm"></i>
                   </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex align-items-start justify-content-between">
-                <div class="content-left">
-                  <span>Paid Users</span>
-                  <div class="d-flex align-items-center my-2">
-                    <h3 class="mb-0 me-2">4,567</h3>
-                    <p class="text-success mb-0">(+18%)</p>
                   </div>
-                  <p class="mb-0">Last week analytics </p>
-                </div>
-                <div class="avatar">
-                  <span class="avatar-initial rounded bg-label-danger">
-                    <i class="ti ti-user-plus ti-sm"></i>
-                  </span>
-                </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex align-items-start justify-content-between">
-                <div class="content-left">
-                  <span>Active Users</span>
-                  <div class="d-flex align-items-center my-2">
-                    <h3 class="mb-0 me-2">19,860</h3>
-                    <p class="text-danger mb-0">(-14%)</p>
-                  </div>
-                  <p class="mb-0">Last week analytics</p>
-                </div>
-                <div class="avatar">
-                  <span class="avatar-initial rounded bg-label-success">
-                    <i class="ti ti-user-check ti-sm"></i>
-                  </span>
-                </div>
               </div>
-            </div>
           </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex align-items-start justify-content-between">
-                <div class="content-left">
-                  <span>Pending Users</span>
-                  <div class="d-flex align-items-center my-2">
-                    <h3 class="mb-0 me-2">237</h3>
-                    <p class="text-success mb-0">(+42%)</p>
-                  </div>
-                  <p class="mb-0">Last week analytics</p>
-                </div>
-                <div class="avatar">
-                  <span class="avatar-initial rounded bg-label-warning">
-                    <i class="ti ti-user-exclamation ti-sm"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
+      </div>
+  </div>
 
     <div class="card">
         <div class="card-header border-bottom">
-            <h5 class="row me-2 border-0 px-3 py-2">Search Filter</h5>
+            <h5 class="row me-2 border-0 px-3 py-2">Filtre de recherche</h5>
             <div class="d-flex justify-content-between align-items-center row pb-2 gap-3 gap-md-0">
                 <div class="col-md-4 user_role">
                 <select wire:model="role_filter" id="UserRole" class="form-select text-capitalize">
-                    <option value=""> Select Role </option>
+                    <option value=""> Sélectionnez un rôle </option>
                     @foreach ( $roles as $role )
                         <option value="{{ $role->id }}">{{ $role->display_name }}</option>
                     @endforeach
-                </select>
-                </div>
-                <div class="col-md-4 user_plan">
-                <select wire:model="plan_filter" id="UserPlan" class="form-select text-capitalize">
-                    <option value=""> Select Plan </option>
-                    <option value="Basic">Basic</option>
-                    <option value="Company">Company</option>
-                    <option value="Enterprise">Enterprise</option>
-                    <option value="Team">Team</option>
-                </select>
-                </div>
-                <div class="col-md-4 user_status">
-                <select wire:model="status_filter" id="FilterTransaction" class="form-select text-capitalize">
-                    <option value=""> Select Status </option>
-                    <option value="Pending" class="text-capitalize">Pending</option>
-                    <option value="Active" class="text-capitalize">Active</option>
-                    <option value="Inactive" class="text-capitalize">Inactive</option>
                 </select>
                 </div>
             </div>
@@ -128,7 +47,7 @@
                 <div class="dt-action-buttons text-xl-end text-lg-start text-md-end text-start d-flex align-items-center justify-content-end flex-md-row flex-column mb-3 mb-md-0">
                 {{-- <div id="DataTables_Table_0_filter" class="dataTables_filter"><label><input type="search" class="form-control" placeholder="Search.." aria-controls="DataTables_Table_0"></label></div> --}}
                 <div class="dt-buttons btn-group flex-wrap">
-                    <div class="btn-group"><button class="btn btn-secondary buttons-collection dropdown-toggle btn-label-secondary mx-3 waves-effect waves-light" tabindex="0" aria-controls="DataTables_Table_0" type="button" aria-haspopup="dialog" aria-expanded="false"><span><i class="ti ti-screen-share me-1 ti-xs"></i>Export</span></button></div>
+                    {{-- <div class="btn-group"><button class="btn btn-secondary buttons-collection dropdown-toggle btn-label-secondary mx-3 waves-effect waves-light" tabindex="0" aria-controls="DataTables_Table_0" type="button" aria-haspopup="dialog" aria-expanded="false"><span><i class="ti ti-screen-share me-1 ti-xs"></i>Export</span></button></div> --}}
                     <button class="btn btn-secondary add-new btn-primary waves-effect waves-light" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAddUser"><span><i class="ti ti-plus me-0 me-sm-1 ti-xs"></i><span class="d-none d-sm-inline-block">Add New User</span></span></button> 
                 </div>
                 </div>
@@ -139,12 +58,10 @@
         <table class="datatables-users table">
             <thead class="border-top">
             <tr>
-                <th>User</th>
-                <th>Role</th>
-                <th>Plan</th>
-                <th>Status</th>
-                <th>Register at</th>
-                <th>Actions</th>
+                <th>Utilisateur</th>
+                <th>Rôle</th>
+                <th>Statut</th>
+                <th>Inscrivez-vous à</th>
             </tr>
             </thead>
             <tbody>
@@ -157,7 +74,7 @@
                         <td class="sorting_1">
                             <div class="d-flex justify-content-start align-items-center user-name">
                                 <div class="avatar-wrapper">
-                                    <div class="avatar me-3"><img src="{{ asset('assets/img/avatars/1.png') }}" alt="Avatar" class="rounded-circle"></div>
+                                    <div class="avatar me-3"><img src="http://localhost/storage/settings/July2024/qAj5LrvZ12VszJbMKfmV.png" alt="Avatar" class="rounded-circle"></div>
                                 </div>
                                 <div class="d-flex flex-column">
                                     <a href="{{ route('seller.profile', $user) }}" class="text-body text-truncate">
@@ -176,22 +93,19 @@
                             </span>
                         </td>
                         <td>
-                            <span class="fw-medium">Basic</span>
-                        </td>
-                        <td>
                             <span class="badge bg-label-success" text-capitalized="">Active</span>
                         </td>
                         <td>
                             <span class="fw-medium">{{ $user->created_at->diffForHumans() }}</span>
                         </td>
-                        <td>
+                        {{-- <td>
                             <div class="d-flex align-items-center">
                                 <a href="javascript:;" class="text-body">
                                     <i class="ti ti-edit ti-sm me-2"></i>
                                 </a>
-                                {{-- <a href="javascript:;" class="text-body delete-record">
+                                <a href="javascript:;" class="text-body delete-record">
                                     <i class="ti ti-trash ti-sm mx-2"></i>
-                                </a> --}}
+                                </a>
                                 <a href="javascript:;" class="text-body dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                     <i class="ti ti-dots-vertical ti-sm mx-1"></i>
                                 </a>
@@ -201,7 +115,7 @@
                                     </a>
                                 </div>
                             </div>
-                        </td>
+                        </td> --}}
                     </tr>
 
                 @endforeach

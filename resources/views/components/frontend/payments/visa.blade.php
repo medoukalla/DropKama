@@ -4,7 +4,7 @@
             Étape 1
         </div>
         <div class="step-content">
-            Veuillez envoyer € {{ $total_with_fees }} (nos frais inclus) - cliquez ici pour recevoir les informations de
+            Veuillez envoyer {{ $currency_symb }} {{ $total_with_fees }} (nos frais inclus) - cliquez ici pour recevoir les informations de
             paiement (un message automatique sera envoyé à notre support en ligne)
         </div>
     </div>
@@ -13,7 +13,7 @@
             Étape 2
         </div>
         <div class="step-content">
-            Veuillez envoyer € {{ $total_with_fees }} (nos frais inclus) - cliquez ici pour recevoir les informations de
+            Veuillez envoyer {{ $currency_symb }} {{ $total_with_fees }} (nos frais inclus) - cliquez ici pour recevoir les informations de
             paiement (un message automatique sera envoyé à notre support en ligne)
         </div>
     </div>

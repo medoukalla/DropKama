@@ -47,10 +47,9 @@
                         </ul>
                     </div>
                     <div class="selector">
-                        <label for="">Sélectionnez le serveur -- ( {{ $bonus_quantity }} ) </label>
-                        <div id="selectField"
-                            onclick="$('ul.serversList').toggle('slow'); $('.input-arrow-servers').toggleClass('active')">
-
+                        <label for="">Sélectionnez le serveur</label>
+                        <div id="selectField" onclick="$('ul.serversList').toggle('slow'); $('.input-arrow-servers').toggleClass('active')">
+                            
 
                             {{-- @foreach ($servers as $the_server) --}}
                             @if ($server->map_id == $active_map_id && $server->id == $active_server_id)
@@ -87,17 +86,15 @@
                                     max="{{ $server->max }}" value="{{ $quantity }}" />
                                 <span>M Kamas</span>
                             </div>
-                            @if ($bonus > 0)
-                                <span>+</span>
-                                <div id="inputField">
-                                    <input wire:model="bonus_quantity" step="0.001" type="number" placeholder="0"
-                                        disabled />
-                                    <span>
-                                        <img src="{{ asset('frontend/images/svg/bonus-icon.svg') }}" alt="Bonus icon"
-                                            class="bonus-icon" />
-                                    </span>
-                                </div>
-                            @endif
+                              
+                            <span>+</span>
+                            <div id="inputField">
+                                <input wire:model="bonus_quantity" step="0.001" type="number" placeholder="0" @if ( $bonus > 0 ) value="0" @endif  disabled />
+                                <span>
+                                    <img src="{{ asset('frontend/images/svg/bonus-icon.svg') }}" alt="Bonus icon" class="bonus-icon" />
+                                </span>
+                            </div>
+
                         </div>
                     </div>
                     <div class="input">
@@ -106,8 +103,11 @@
                                 class="aide-icon" />
                         </label>
                         <div class="d-flex align-items-center justify-content-between">
-                            <input type="text" id="normalInput" />
+                            <input wire:model="nom_dans_jeu" type="text" id="normalInput" />
                         </div>
+                        @error('nom_dans_jeu')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="selector">
                         <label for="">Sélectionnez votre méthode de paiement</label>
@@ -147,7 +147,7 @@
                     <hr />
                     <div class="d-flex align-items-center justify-content-between">
                         <span style="font-weight: 700; font-size: 22px">Total</span>
-                        <span style="font-size: 22px">€{{ $total_with_fees }}</span>
+                        <span style="font-size: 22px">{{ $currency_symb }}{{ $total_with_fees }}</span>
                     </div>
                     <a wire:click="confirm_quantity()" href="Javascript:;" class="">
                         <div class="main-btn mt-3 w-100">Suivant</div>
@@ -185,16 +185,16 @@
             <div class="quantities d-flex align-items-center justify-content-between">
                 <p class="chosen-game">Dofus {{ $map->name }}</p>
                 <p class="kamas-quantities">{{ $quantity }} M Kamas</p>
-                <p class="kamas-total">€ {{ $total_with_fees }}</p>
+                <p class="kamas-total">{{ $currency_symb }} {{ $total_with_fees }}</p>
             </div>
             <div class="mt-3">
                 <div class="r-payment d-flex align-items-center justify-content-between">
                     <p class="subtotal">Sous-total</p>
-                    <p class="result">€ {{ $total }}</p>
+                    <p class="result">{{ $currency_symb }} {{ $total }}</p>
                 </div>
                 <div class="r-payment d-flex align-items-center justify-content-between mt-2">
                     <p class="fees-subtotal">Frais de paiement</p>
-                    <p class="result">€ {{ $fees_amount }}</p>
+                    <p class="result">{{ $currency_symb }} {{ $fees_amount }}</p>
                 </div>
                 <div class="r-payment d-flex align-items-center justify-content-between mt-2">
                     <p class="fees-service">Frais de service</p>
@@ -204,7 +204,7 @@
         </div>
         <div class="payment-total d-flex justify-content-between align-items-center mt-3">
             <div>Total à payer</div>
-            <div>€ {{ $total_with_fees }}</div>
+            <div>{{ $currency_symb }} {{ $total_with_fees }}</div>
         </div>
         <a href="Javascript:;" wire:click="confirm_first_step()">
             <div class="main-btn mt-3">Confirmer et Payer</div>
@@ -232,7 +232,10 @@
             @include('components/frontend/payments//' . $payment->svg_name)
 
         </div>
-        <div class="main-btn mt-3">Confirmer et Payer</div>
+
+        <a href="Javascript:;" wire:click="save_order()">
+            <div class="main-btn mt-3">Confirmer et Payer</div>
+        </a>
 
     </div>
 

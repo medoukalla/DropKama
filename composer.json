@@ -11,6 +11,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.12",
+        "stripe/stripe-php": "^15.3",
         "tcg/voyager": "*"
     },
     "require-dev": {

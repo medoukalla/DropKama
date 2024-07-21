@@ -61,9 +61,9 @@ class NewOrder extends Notification
                     ->subject("Vous avez une nouvelle commande de : ".$this->user->name)
                     ->line('User name : '.$this->user->name)
                     ->line('User email : '.$this->user->email)
-                    ->line('Reference : '.$this->order->orderId)
+                    ->line('Reference : '.$this->order->reference)
                     ->line('Server name : '.$this->serverName)
-                    ->line('Quantity : '.$this->order->quantity.'.000.000')
+                    ->line('Quantity : '.$this->order->quantity')
                     ->line('Currency : '.$this->currency)
                     ->action('Aller au tableau de bord', route('orders.index'));
     }

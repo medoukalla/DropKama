@@ -118,12 +118,43 @@ class Order extends Model
 
 
     // function to get the owner of order
-    public function user($user_id) {
-        return User::where('id', $user_id)->first();
+    // public function user($user_id) {
+    //     return User::where('id', $user_id)->first();
+    // }
+    /**
+     * Get the user that owns the Order
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function server($id) {
-        return Server::where('id', $id)->first();
+    // public function server($id) {
+    //     return Server::where('id', $id)->first();
+    // }
+
+    /**
+     * Get the server that owns the Order
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function server()
+    {
+        return $this->belongsTo(Server::class, 'server_id');
+    }
+
+
+    // function to get payment 
+    /**
+     * Get the payment that owns the Order
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class, 'payment_id');
     }
 
 

@@ -3,7 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Models\Offer;
+use App\Notifications\NewOffer;
 use Livewire\Component;
+use Auth;
 
 class Vendre extends Component
 {
@@ -44,6 +46,11 @@ class Vendre extends Component
         $this->active_payment_id = $this->payments->first()->id;
         $this->server = $this->servers->first();
         $this->payment = $this->payments->first();
+        
+        if ( Auth::check() ) {
+            $this->email = Auth::user()->email;
+            $this->nom_et_prenom = Auth::user()->name;
+        }
     }
 
 
@@ -106,7 +113,7 @@ class Vendre extends Component
 
         // everything is good now save the order in database
         $offer = new Offer();
-        $offer->user_id = 1; // change it later to get logged in user id
+        $offer->user_id = Auth::user()->id;
         $offer->server_id = $this->server->id;
         $offer->quantity = $this->quantity;
         $offer->total = $this->quantity * $this->server->price;
@@ -142,6 +149,12 @@ class Vendre extends Component
         if ( $offer->save() ) {
             $this->vendre_status = true;
             $this->reset_form();
+
+            try {
+                Auth::user()->notify( new NewOffer($offer));
+            } catch (\Throwable $th) {
+                // throw $th;
+            }  
         }
 
     }

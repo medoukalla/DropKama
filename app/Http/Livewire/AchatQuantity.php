@@ -2,7 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Order;
 use App\Models\Server;
+use App\Notifications\NewFreshOrder;
+use Auth;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
 class AchatQuantity extends Component
@@ -32,6 +36,13 @@ class AchatQuantity extends Component
     public $bonus;
     public $bonus_quantity;
 
+    public $nom_dans_jeu;
+
+
+    // currency ( usd or euro ) // euro par default
+    public $currency = 'euro';
+    public $currency_symb = '€';
+
     public function mount() {
         $this->active_map_id = $this->server->map->id;
         $this->active_server_id = $this->server->id;
@@ -42,6 +53,15 @@ class AchatQuantity extends Component
         $this->payment = $this->payments->first();
 
         $this->bonus = setting('plus-de-reglages.bonus-achat');
+        
+        // set up the currency and symbol
+        $this->currency = Session::get('currency');
+        if ( $this->currency == 'euro') {
+            $this->currency_symb = '€';
+        }else {
+            $this->currency = "usd";
+            $this->currency_symb = '$';
+        }
     }
 
     public function render()
@@ -57,6 +77,66 @@ class AchatQuantity extends Component
         return view('livewire.frontend.achat-quantity');
     }
 
+
+    // function to save the order
+    public function save_order() {
+        // save the order in database 
+        $order = new Order();
+        $correct = false;
+        do {
+            $ref = substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 6);
+            if ( Order::where('reference', $ref)->count() == 0 ) {
+                $correct = true;
+            }
+        } while ( $correct == false );
+
+        $order->reference = $ref;
+
+        $order->quantity = $this->quantity;
+        $order->total = $this->total_with_fees;
+        $order->bonus = $this->bonus_quantity;
+        $order->payment_id = $this->payment->id;
+        $order->server_id = $this->server->id;
+        $order->payed = true;
+        $order->username = $this->nom_dans_jeu;
+
+        $order->user_id = Auth::user()->id;
+
+        $order->currency = $this->currency;
+
+        if ( $order->save() ) {
+
+            // if client wana pay with stripe
+            $this->check_payment( $order ); 
+
+            
+        }
+
+        // redirect user to order_details page
+    }
+
+
+    // function to check if user wana pay with stripe or not 
+    public function check_payment( $order ) {
+        // stripe allowed 
+        $stripe = array('bancontact', 'ideal', 'giropay', 'visa', 'mastercard', 'revolute', 'lydia', 'stripe');
+        if ( in_array( $order->payment->svg_name , $stripe) == true ) {
+            
+            // redirect user to stripe checkout page
+            return redirect()->route('frontend.stripe.checkout', ['ref' => $order->reference]);
+
+
+        }else {
+            // send email to client 
+            try {
+                Auth::user()->notify( new NewFreshOrder($order));
+            } catch (\Throwable $th) {
+                // throw $th;
+            } 
+
+            return redirect()->route('frontend.order.details', $order->reference);
+        }
+    }
 
     // function to calculate and add the bonus to the final quantity 
     public function add_bonus() {
@@ -100,7 +180,11 @@ class AchatQuantity extends Component
     // function to calculate the total include the fess
     public function calculate_total() {
         $quantity = $this->quantity;
-        $price = $this->server->price;
+        if ( $this->currency == 'usd' ) {
+            $price = $this->server->price_usd;
+        }else {
+            $price = $this->server->price;
+        }
         $fees = $this->fees;
         // floor( $total_with_fees * 1000 ) / 1000
         $this->total = floor( ( $quantity * $price) * 1000 ) / 1000; 
@@ -112,7 +196,9 @@ class AchatQuantity extends Component
     // function to confirm the quantity form and move to payment form 
     public function confirm_quantity() {
         // do the logic here 
-
+        $validatedData = $this->validate([
+            'nom_dans_jeu' => 'required'
+        ]);
         // show the next step 
         $this->step = 'A';
     }

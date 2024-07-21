@@ -85,8 +85,16 @@
                         <p>Montant total : <span class="text-danger">{{ $total }} €</span></p>
                     </div>
 
-                    <div wire:click="save_order()" class="main-btn v-desktop mt-3 py-4" style="cursor: pointer">Suivant
-                    </div>
+                    @auth
+                        <div wire:click="save_order()" class="main-btn mt-3 py-4" style="cursor: pointer">Suivant</div>
+                    @endauth
+                    @guest
+                        <div class="alert alert-warning mt-2">
+                            <b>
+                                Veuillez vous <a href="{{ route('login') }}">connecter</a> ou <a href="{{ route('register') }}">créer un compte</a> pour vendre vos kamas immédiatement!
+                            </b>
+                        </div>
+                    @endguest
 
                 </div>
             </div>
@@ -184,9 +192,9 @@
 
                     <h3>Message after succes shows here</h3>
 
-
-                    <div wire:click="confirm_vendre()" class="main-btn bg-success mt-3 py-4" style="cursor: pointer">
-                        Confirm</div>
+                    <a href="{{ route('voyager.offers.index') }}">
+                        <div wire:click="confirm_vendre()" class="main-btn bg-success mt-3 py-4" style="cursor: pointer">Confirm</div>
+                    </a>
 
 
                 </div>

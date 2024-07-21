@@ -19,8 +19,8 @@ class VoyagerUserController extends VoyagerBaseController
             $route = route('voyager.'.$dataType->slug.'.edit', Auth::user()->getKey());
         }
 
-        return Voyager::view('vendor.voyager.users.profile', compact('route', 'user'));
-        // return Voyager::view('voyager::profile', compact('route'));
+        // return Voyager::view('vendor.voyager.users.profile', compact('route', 'user'));
+        return Voyager::view('voyager::profile', compact('route'));
     }
 
     // POST BR(E)AD

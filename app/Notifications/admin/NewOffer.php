@@ -58,7 +58,7 @@ class NewOffer extends Notification
                     ->line('Server name : '.$this->serverName)
                     ->line('Quantity : '.$this->offer->quantity.'.000.000')
                     ->line('Currency : '.$this->currency)
-                    ->action('Aller au tableau de bord', route('user.offers'));
+                    ->action('Aller au tableau de bord', route('voyager.offers.index'));
     }
 
     /**

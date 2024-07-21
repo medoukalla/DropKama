@@ -74,7 +74,17 @@
           </div>
           <hr />
           
-          <div class="main-btn mt-3 py-4" wire:click="save_echange()">Échangez la demande</div>
+          @auth
+              <div class="main-btn mt-3 py-4" style="cursor: pointer;" wire:click="save_echange()">Échangez la demande</div>
+          @endauth
+          @guest
+            <div class="alert alert-warning mt-2">
+                <b>
+                    Veuillez vous <a href="{{ route('login') }}">connecter</a> ou <a href="{{ route('register') }}">créer un compte</a> pour terminer cet échange immédiatement!
+                </b>
+            </div>
+          @endguest
+
         </div>
       </div>
       <div class="col-12 col-md-6">Soon</div>
@@ -86,10 +96,12 @@
           <div class="col-12 col-md-8 offset-md-2 ">
               <div class="kamas-settings w-100 sticky-top">
                   
-                  <h3>Message echange submited shows here</h3>
+                <h3>Message echange submited shows here</h3>
 
 
-                  <div wire:click="confirm_echange()" class="main-btn bg-success mt-3 py-4" style="cursor: pointer">Confirm</div>
+                <a href="{{ route('voyager.exchanges.index') }}">
+                    <div wire:click="confirm_echange()" class="main-btn bg-success mt-3 py-4" style="cursor: pointer">Confirm</div>
+                </a>
 
 
               </div>

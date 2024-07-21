@@ -76,16 +76,16 @@ class OrderDilivered extends Notification
                         ->markdown('mail.OrderDeliveredNotification', [
                             'username'   => $this->user->name,
                             'useremail' => $this->user->email,
-                            'reference'   => $this->order->orderId,
+                            'reference'   => $this->order->reference,
                             'date'  => $this->order->created_at,
                             'servername' => $this->serverName,
                             'mod_payment' => $this->order->payment,
-                            'quantity'  => $this->order->quantity.'.000.000',
+                            'quantity'  => $this->order->quantity,
                             'total' => $this->order->total,
                             'currency' => $this->currency,
                             'status' => $this->status,
-                            'orders_route' => route('user.orders'),
-                            'new_order' => route('acheter')
+                            'orders_route' => route('voyager.orders.index'),
+                            'new_order' => route('frontend.achat')
                         ]);
     }
 
@@ -98,7 +98,7 @@ class OrderDilivered extends Notification
     public function toArray($notifiable)
     {
         return [
-            'order_ref' => $this->order->orderId,
+            'order_ref' => $this->order->reference,
             'total'     => $this->order->total,
             'type'      => "Achat",
             'date'      => $this->order->created_at,

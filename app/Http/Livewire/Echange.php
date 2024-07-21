@@ -7,6 +7,7 @@ use App\Models\Server;
 use Livewire\Component;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
+use Auth;
 
 class Echange extends Component
 {
@@ -123,7 +124,7 @@ class Echange extends Component
         $echange->from_name = $this->nom_en_jeu;
         $echange->to_name = $this->nom_en_jeu_deuxieme;
         $echange->quantity_get = $this->quantite_a_recevoir;
-        $echange->user_id = 1; // change it later to logged in user id
+        $echange->user_id = Auth::user()->id;
         
         // generate id 
         $correct = false;
