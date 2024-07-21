@@ -3,6 +3,7 @@
 use App\Http\Controllers\backendController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StripeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 
@@ -74,6 +75,13 @@ Route::middleware('auth')->group(function () {
 
     // Order details 
     Route::get('order_details/{ref}', [FrontendController::class, 'order_details'])->name('frontend.order.details');
+
+    //stripe success
+    Route::get('stripe_success/{ref}', [StripeController::class, 'success'])->name('frontend.stripe.success');
+
+    // stripe checkout
+    Route::get('stripe_checkout/{ref}', [StripeController::class, 'checkout'])->name('frontend.stripe.checkout');
+
 });
 
 require __DIR__.'/auth.php';

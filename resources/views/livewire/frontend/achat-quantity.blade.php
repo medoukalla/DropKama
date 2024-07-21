@@ -230,10 +230,11 @@
             @include('components/frontend/payments//' . $payment->svg_name)
 
         </div>
+
         <a href="Javascript:;" wire:click="save_order()">
             <div class="main-btn mt-3">Confirmer et Payer</div>
         </a>
-        
+
     </div>
 
 </section>

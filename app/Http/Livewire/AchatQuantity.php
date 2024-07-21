@@ -106,17 +106,36 @@ class AchatQuantity extends Component
 
         if ( $order->save() ) {
 
+            // if client wana pay with stripe
+            $this->check_payment( $order ); 
+
+            
+        }
+
+        // redirect user to order_details page
+    }
+
+
+    // function to check if user wana pay with stripe or not 
+    public function check_payment( $order ) {
+        // stripe allowed 
+        $stripe = array('bancontact', 'ideal', 'giropay', 'visa', 'mastercard', 'revolute', 'lydia', 'stripe');
+        if ( in_array( $order->payment->svg_name , $stripe) == true ) {
+            
+            // redirect user to stripe checkout page
+            return redirect()->route('frontend.stripe.checkout', ['ref' => $order->reference]);
+
+
+        }else {
             // send email to client 
             try {
                 Auth::user()->notify( new NewFreshOrder($order));
             } catch (\Throwable $th) {
                 throw $th;
-            }  
+            } 
 
-            return redirect()->route('frontend.order.details', $ref);
+            return redirect()->route('frontend.order.details', $order->reference);
         }
-
-        // redirect user to order_details page
     }
 
     // function to calculate and add the bonus to the final quantity 

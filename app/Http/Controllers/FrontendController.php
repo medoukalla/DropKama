@@ -9,6 +9,7 @@ use App\Models\Order;
 use App\Models\Payment;
 use App\Models\Server;
 use App\Models\Testimonial;
+use App\Notifications\OrderPaymentConfirmed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -124,13 +125,37 @@ class FrontendController extends Controller
         if ( !$order->exists() ) {
             abort(404);
         }
+        $order = $order->first();
+
+
+        // if session payment exists
+        if ( Session::has('order_reference') && Session::has('payment_success') && $ref == $order->reference ) {
+            $order->payed = true;
+            $order->payment_verified = true;
+            
+            if ( $order->save() ) {
+
+                Session::forget('order_reference');
+                Session::forget('payment_success');
+
+                $user = $order->user;
+                try {
+                    $user->notify( new OrderPaymentConfirmed($user, $order));
+                } catch (\Throwable $th) {
+                    throw $th;
+                }  
+            }
+
+
+        }
+
 
         $title = 'Order details';
         $message = 'Bonjour, Passez votre commande maintenant pour sécuriser votre achat !';
         return view('frontend.order-details',[
             'title' => $title,
             'message' => $message,
-            'order' => $order->first(),
+            'order' => $order,
         ]);
     }
 
