@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+<x-frontend.head />
 
 <x-frontend.min-header message='{{ $message }}' :title="$title" />
 
@@ -21,3 +21,6 @@
     </div>
 
 </section>
+
+
+<x-frontend.footer />

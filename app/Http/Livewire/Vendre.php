@@ -47,8 +47,10 @@ class Vendre extends Component
         $this->server = $this->servers->first();
         $this->payment = $this->payments->first();
         
-        $this->email = Auth::user()->email;
-        $this->nom_et_prenom = Auth::user()->name;
+        if ( Auth::check() ) {
+            $this->email = Auth::user()->email;
+            $this->nom_et_prenom = Auth::user()->name;
+        }
     }
 
 

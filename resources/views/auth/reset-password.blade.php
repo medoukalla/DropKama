@@ -58,3 +58,4 @@
     </div>
 </div>
 
+<x-frontend.footer />

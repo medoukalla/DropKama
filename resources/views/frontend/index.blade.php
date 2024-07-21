@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+<x-frontend.head />
 
 <x-frontend.header />
 
@@ -15,3 +15,5 @@
 <x-frontend.faq-section :faqs="$faqs" />
 
 <x-frontend.shipping-section />
+
+<x-frontend.footer />
