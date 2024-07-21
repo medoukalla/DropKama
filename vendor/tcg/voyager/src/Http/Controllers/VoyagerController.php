@@ -2,6 +2,9 @@
 
 namespace TCG\Voyager\Http\Controllers;
 
+use App\Models\Exchange;
+use App\Models\Offer;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -15,7 +18,33 @@ class VoyagerController extends Controller
 {
     public function index()
     {
-        return Voyager::view('voyager::index');
+        // total completed orders 
+        $total_orders_completed = Order::where('order_completed', true)->count();
+        // total completed offers 
+        $total_offers_completed = Offer::where('status', 'completed')->count();
+        // total completed echanges
+        $total_echange_completed = Exchange::where('status', 'completed')->count();
+
+        // total not completed orders 
+        $total_orders_waiting = Order::where([['order_completed', false], ['payed', true]])->count();
+        // total not completed offers 
+        $total_offers_waiting = Offer::where([['status', '!=', 'completed'], ['status', '!=', 'cancelled']])->count();
+        // total not completed echanges
+        $total_echange_waiting = Exchange::where([['status', '!=', 'completed'], ['status', '!=', 'canceled']])->count();
+
+        // get last 4 orders 
+        $last_orders = Order::orderBy('id', 'desc')->where('payed', true)->limit(4)->get();
+
+        return Voyager::view('voyager::index',[
+            'total_orders_completed' => $total_orders_completed,
+            'total_offers_completed' => $total_offers_completed,
+            'total_echange_completed' => $total_echange_completed,
+            'last_orders' => $last_orders,
+            'total_orders_waiting' => $total_orders_waiting,
+            'total_offers_waiting' => $total_offers_waiting,
+            'total_echange_waiting' => $total_echange_waiting,
+        ]);
+
     }
 
     public function logout()

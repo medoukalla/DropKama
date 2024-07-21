@@ -39,7 +39,7 @@
                     <tr>
                         <td>{{ $order->reference }}</td>
                         <td>{{ $order->server->map->name }} / {{ $order->server->name }}</td>
-                        <td>{{ $order->quantity }} M</td>
+                        <td>{{ $order->quantity / 1 }} M</td>
                         <td>{{ $order->total }} $</td>
                         <td>{{ $order->username }}</td>
                         <td>{{ $order->payment->name }}</td>
@@ -87,7 +87,7 @@
                 <h4>Informations de livraison</h4>
                 <h5>Game id : {{ $selected_order->user->game_id }}</h5>
                 <h5>Map / Serveur : {{ $selected_order->server->map->name.' / '.$selected_order->server->name }}</h5>
-                <h5>Quantité : {{ $selected_order->quantity }} M</h5>
+                <h5>Quantité : {{ $selected_order->quantity / 1 }} M</h5>
                 <h5>Mode de paiement : {{ $selected_order->payment->name }}</h5>
 
                 <hr>
