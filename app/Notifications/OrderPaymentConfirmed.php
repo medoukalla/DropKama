@@ -75,15 +75,15 @@ class OrderPaymentConfirmed extends Notification
                     ->markdown('mail.OrderPaymentConfirmedNotification', [
                         'username'   => $this->user->name,
                         'useremail' => $this->user->email,
-                        'reference'   => $this->order->orderId,
+                        'reference'   => $this->order->reference,
                         'date'  => $this->order->created_at,
                         'servername' => $this->serverName,
                         'mod_payment' => $this->order->payment,
-                        'quantity'  => $this->order->quantity.'.000.000',
+                        'quantity'  => $this->order->quantity,
                         'total' => $this->order->total,
                         'currency' => $this->currency,
                         'status' => $this->status,
-                        'route' => route('order_details', $this->order)
+                        'route' => route('frontend.order.details', ['ref'=>$this->order->reference])
                     ]);
     }
 

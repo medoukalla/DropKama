@@ -64,8 +64,8 @@ class OfferCancelled extends Notification
                     'reference'   => $this->offer->orderId,
                     'date'  => $this->offer->created_at,
                     'servername' => $this->serverName,
-                    'mod_payment' => $this->offer->payment,
-                    'quantity'  => $this->offer->quantity.'.000.000',
+                    'mod_payment' => $this->offer->payment->name,
+                    'quantity'  => $this->offer->quantity,
                     'total' => $this->offer->total,
                     'currency' => $this->currency
                 ]);

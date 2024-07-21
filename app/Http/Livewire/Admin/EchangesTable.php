@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Admin;
 
 use App\Http\Livewire\Echange;
 use App\Models\Exchange;
+use App\Notifications\EchangeCancelled;
+use App\Notifications\EchangeCompleted;
 use Livewire\Component;
 use Auth;
 use Livewire\WithPagination;
@@ -87,6 +89,13 @@ class EchangesTable extends Component
     public function cancel_echange() {
         $this->selected_echange->status = 'canceled';
         $this->selected_echange->save();
+
+        $user = $this->selected_echange->user;
+        try {
+            $user->notify( new EchangeCancelled($this->selected_echange));
+        } catch (\Throwable $th) {
+            throw $th;
+        } 
     }
 
 
@@ -94,5 +103,12 @@ class EchangesTable extends Component
     public function finish_echange() {
         $this->selected_echange->status = 'completed';
         $this->selected_echange->save();
+
+        $user = $this->selected_echange->user;
+        try {
+            $user->notify( new EchangeCompleted($user, $this->selected_echange));
+        } catch (\Throwable $th) {
+            throw $th;
+        }  
     }
 }

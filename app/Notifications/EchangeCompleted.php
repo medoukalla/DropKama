@@ -2,20 +2,17 @@
 
 namespace App\Notifications;
 
-use App\Models\OfferServer;
-use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class NewOffer extends Notification
+class EchangeCompleted extends Notification
 {
     use Queueable;
 
-
-    public $offer;
     public $user;
+    public $echange;
     public $serverName;
     public $status;
     public $currency = '€';
@@ -25,11 +22,18 @@ class NewOffer extends Notification
      *
      * @return void
      */
-    public function __construct($offer)
+    public function __construct($user,$echange)
     {
-        $this->offer = $offer;
-        $this->user = User::where('id', $offer->user_id)->first();
-        $this->serverName = OfferServer::select('name')->where('id', $offer->server_id)->first()->name;
+        $this->user = $user;
+        $this->echange = $echange;
+
+        $this->echange = $echange;
+        $this->serverName = '';
+
+        // set currency 
+        if ( $echange->payment == 'cih' ) {
+            $this->currency = 'MAD';
+        }
     }
 
     /**
@@ -52,18 +56,18 @@ class NewOffer extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject("Votre commande de vente a bien été prise en compte")
-                    ->markdown('mail.NewOfferNotification', [
+                    ->subject("Votre echange et terminé")
+                    ->markdown('mail.EchangeCompletedNotification', [
                         'username'   => $this->user->name,
                         'useremail' => $this->user->email,
-                        'reference'   => $this->offer->orderId,
-                        'date'  => $this->offer->created_at,
+                        'reference'   => $this->echange->orderId,
+                        'date'  => $this->echange->created_at,
                         'servername' => $this->serverName,
-                        'mod_payment' => $this->offer->payment->name,
-                        'quantity'  => $this->offer->quantity,
-                        'total' => $this->offer->total,
+                        'mod_payment' => '',
+                        'quantity'  => $this->echange->quantity,
+                        'total' => $this->echange->total,
                         'currency' => $this->currency,
-                        'route' => route('voyager.offers.index')
+                        'route' => route('voyager.exchanges.index')
                     ]);
     }
 
@@ -76,11 +80,12 @@ class NewOffer extends Notification
     public function toArray($notifiable)
     {
         return [
-            'order_ref' => $this->offer->orderId,
-            'total'     => $this->offer->total,
-            'type'      => 'Vendre',
-            'date'      => $this->offer->created_at,
-            'status'    => 'en cours'
+            'order_ref' => $this->echange->orderId,
+            'total'     => $this->echange->total,
+            'type'      => "Vendre",
+            'date'      => $this->echange->created_at,
+            'status'    => 'paye',
+            'route'     => route('voyager.exchanges.index')
         ];
     }
 }

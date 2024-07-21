@@ -3,6 +3,10 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Order;
+use App\Notifications\newOrder;
+use App\Notifications\OrderCancelled;
+use App\Notifications\OrderDilivered;
+use App\Notifications\OrderPaymentConfirmed;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -90,6 +94,13 @@ class OrdersTable extends Component
     public function verify_payment() {
         $this->selected_order->payment_verified = true;
         $this->selected_order->save();
+
+        $user = $this->selected_order->user;
+        try {
+            $user->notify( new OrderPaymentConfirmed($user, $this->selected_order));
+        } catch (\Throwable $th) {
+            throw $th;
+        }  
     }
 
     // function to verify ( skip ) facturation and livraison steps 
@@ -103,6 +114,13 @@ class OrdersTable extends Component
     public function cancel_order() {
         $this->selected_order->deleted_at = Carbon::now();
         $this->selected_order->save();
+
+        $user = $this->selected_order->user;
+        try {
+            $user->notify( new OrderCancelled($this->selected_order));
+        } catch (\Throwable $th) {
+            throw $th;
+        }  
     }
 
 
@@ -111,5 +129,12 @@ class OrdersTable extends Component
         $this->selected_order->delivered = true;
         $this->selected_order->order_completed = true;
         $this->selected_order->save();
+
+        $user = $this->selected_order->user;
+        try {
+            $user->notify( new OrderDilivered($user, $this->selected_order));
+        } catch (\Throwable $th) {
+            throw $th;
+        } 
     }
 }

@@ -31,14 +31,14 @@
         </a>
 
       @endguest
+      @auth
+      
         <a href="{{ route('voyager.dashboard') }}">
           <div class="sign-up">
             {{-- <img src="{{ asset('frontend/images/svg/signup.svg') }}" alt="" /> --}}
             Tableau de bord
           </div>
         </a>
-      @auth
-          
       @endauth
     </div>
 </div>

@@ -66,6 +66,11 @@
             @php $page_title = setting('titres-des-pages-seo.politique') @endphp
         @break
 
+
+        @default
+            @php $page_title = setting('titres-des-pages-seo.index') @endphp
+        @break
+
     @endswitch
 
     <title>{{ $page_title }}</title>

@@ -1,42 +1,41 @@
 <?php
 
-namespace App\Notifications\admin;
+namespace App\Notifications;
 
-use App\Models\Server;
-use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use App\Models\OfferServer;
+use App\Models\User;
 
-class NewOrder extends Notification
+class EchangeCancelled extends Notification
 {
     use Queueable;
 
-
-    public $order;
     public $user;
+    public $echange;
     public $serverName;
-    public $status;
     public $currency = '€';
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($order)
+    public function __construct($echange)
     {
-        $this->order = $order;
-        $this->user = User::where('id', $order->user_id)->first();
-        $this->serverName = Server::select('name')->where('id', $order->server_id)->first()->name;
+        $this->echange = $echange;
+        $this->user  = User::where('id', $echange->user_id)->first();
 
-        $this->status = 'Vérification du paiement';
+        $this->serverName = '';
 
         // set currency
-        if ( $order->payment == 'cih' ) {
+        if ( $echange->payment == 'cih' ) {
             $this->currency = 'MAD';
         }
     }
+
 
     /**
      * Get the notification's delivery channels.
@@ -58,14 +57,18 @@ class NewOrder extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject("Vous avez une nouvelle commande de : ".$this->user->name)
-                    ->line('User name : '.$this->user->name)
-                    ->line('User email : '.$this->user->email)
-                    ->line('Reference : '.$this->order->reference)
-                    ->line('Server name : '.$this->serverName)
-                    ->line('Quantity : '.$this->order->quantity')
-                    ->line('Currency : '.$this->currency)
-                    ->action('Aller au tableau de bord', route('orders.index'));
+            ->subject("Votre échange n'est pas acceptée")
+            ->markdown('mail.EchangeCancelledNotification', [
+                'username'   => $this->user->name,
+                'useremail' => $this->user->email,
+                'reference'   => $this->echange->orderId,
+                'date'  => $this->echange->created_at,
+                'servername' => $this->serverName,
+                'mod_payment' => '',
+                'quantity'  => $this->echange->quantity,
+                'total' => $this->echange->total,
+                'currency' => $this->currency
+            ]);
     }
 
     /**

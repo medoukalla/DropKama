@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Order;
 use App\Models\Server;
+use App\Notifications\NewFreshOrder;
 use Auth;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
@@ -58,6 +59,7 @@ class AchatQuantity extends Component
         if ( $this->currency == 'euro') {
             $this->currency_symb = '€';
         }else {
+            $this->currency = "usd";
             $this->currency_symb = '$';
         }
     }
@@ -100,9 +102,17 @@ class AchatQuantity extends Component
 
         $order->user_id = Auth::user()->id;
 
-        $order->currency = Session::get('currency');
+        $order->currency = $this->currency;
 
         if ( $order->save() ) {
+
+            // send email to client 
+            try {
+                Auth::user()->notify( new NewFreshOrder($order));
+            } catch (\Throwable $th) {
+                throw $th;
+            }  
+
             return redirect()->route('frontend.order.details', $ref);
         }
 

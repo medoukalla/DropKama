@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Offer;
+use App\Notifications\OfferCancelled;
+use App\Notifications\OfferDilivered;
 use Livewire\Component;
 use Auth;
 use Livewire\WithPagination;
@@ -89,6 +91,13 @@ class OffersTable extends Component
     public function cancel_offer() {
         $this->selected_offer->status = 'cancelled';
         $this->selected_offer->save();
+
+        $user = $this->selected_offer->user;
+        try {
+            $user->notify( new OfferCancelled($this->selected_offer));
+        } catch (\Throwable $th) {
+            throw $th;
+        }  
     }
 
 
@@ -96,5 +105,13 @@ class OffersTable extends Component
     public function finish_offer() {
         $this->selected_offer->status = 'completed';
         $this->selected_offer->save();
+
+
+        $user = $this->selected_offer->user;
+        try {
+            $user->notify( new OfferDilivered($user, $this->selected_offer));
+        } catch (\Throwable $th) {
+            throw $th;
+        }  
     }
 }
