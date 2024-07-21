@@ -1141,3 +1141,10 @@ footer .copyright span {
     text-decoration: underline;
     cursor: pointer;
 }
+
+
+
+/* Add this line only for politique pages  */
+.terms__conditions_container * {
+  line-height: 28px;
+}

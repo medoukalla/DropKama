@@ -4,8 +4,9 @@
 
 @section('content')
 
-    <p class="mb-4">A role provided access to predefined menus and features so that depending on <br> assigned role an administrator can have access to what user needs.</p>
-
+    <p class="mb-5 mt-4">
+        Un rôle permettait d'accéder à des menus et à des fonctionnalités prédéfinis afin qu'en fonction du rôle attribué, un administrateur puisse avoir accès à ce dont l'utilisateur a besoin.
+    </p>
     <!-- Role cards -->
     <div class="row g-4">
 

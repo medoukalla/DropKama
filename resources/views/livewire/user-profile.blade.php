@@ -14,7 +14,7 @@
                   <div class="user-info text-center">
                     <h4 class="mb-2">{{ $user->name }}</h4>
                     <span class="badge bg-label-secondary mt-1">
-                      {{ $user->role->display_name }}
+                      {{-- {{ $user->role->display_name }} --}}
                     </span>
                   </div>
                 </div>

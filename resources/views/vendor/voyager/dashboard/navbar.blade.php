@@ -10,52 +10,10 @@
 
     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
 
-      
-      <!-- Search -->
-      <div class="navbar-nav align-items-center">
-        <div class="nav-item navbar-search-wrapper mb-0">
-          <a class="nav-item nav-link search-toggler d-flex align-items-center px-0" href="javascript:void(0);">
-            <i class="ti ti-search ti-md me-2"></i>
-            <span class="d-none d-md-inline-block text-muted">Search (Ctrl+/)</span>
-          </a>
-        </div>
-      </div>
-      <!-- /Search -->
-      
-      
-
-      
+    
 
       <ul class="navbar-nav flex-row align-items-center ms-auto">
-        
-        <!-- Style Switcher -->
-        {{-- <li class="nav-item dropdown-style-switcher dropdown me-2 me-xl-0">
-          
-          <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-            <i class='ti  rounded-circle ti-brightness-half'></i>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end dropdown-styles">
-            <li>
-              <a class="dropdown-item" href="javascript:void(0);" data-theme="light">
-                <span class="align-middle"><i class='ti ti-sun me-2'></i>Light</span>
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="javascript:void(0);" data-theme="dark">
-                <span class="align-middle"><i class="ti ti-moon me-2"></i>Dark</span>
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="javascript:void(0);" data-theme="system">
-                <span class="align-middle"><i class="ti ti-device-desktop me-2"></i>System</span>
-              </a>
-            </li>
-          </ul>
-        </li> --}}
-        <!-- / Style Switcher-->
-        
-        
-
+     
         <!-- Notification -->
         @if ( Auth::user()->role->id == 1 )
           @livewire('notifications')
@@ -71,7 +29,7 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
             <li>
-              <a class="dropdown-item" href="{{ route('voyager.dashboard') }}">
+              <a class="dropdown-item" href="{{ route('voyager.profile') }}">
                 <div class="d-flex">
                   <div class="flex-shrink-0 me-3">
                     <div class="avatar avatar-online">
@@ -94,7 +52,7 @@
               <li>
                 <a class="dropdown-item" href="{{ route('voyager.settings.index') }}">
                   <i class="ti ti-settings me-2 ti-sm"></i>
-                  <span class="align-middle">Settings</span>
+                  <span class="align-middle">Paramètres</span>
                 </a>
               </li>
               
