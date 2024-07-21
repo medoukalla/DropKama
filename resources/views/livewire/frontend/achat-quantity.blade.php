@@ -171,8 +171,7 @@
                 <div class="chosen-method gap-3">
                     <img class="chosen-payment-img"
                         src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}" alt="Paypal"
-                        height="20" />
-                    <span class="method">{{ $payment_name }}</span>
+                        height="30" />
                 </div>
                 <div class="payment-fees">{{ $fees }}% frais</div>
             </div>
@@ -223,8 +222,7 @@
                 </div>
                 <div class="payment-fees d-flex align-items-center gap-2">
                     <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}" alt=""
-                        height="20" />
-                    {{ $payment_name }}
+                        height="30" style="border-radius: 10px; border: 1px solid #0000001f" />
                 </div>
             </div>
 

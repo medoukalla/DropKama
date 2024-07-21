@@ -92,6 +92,13 @@ input {
     background-color: var(--orange-dark-clr);
 }
 
+.v-mobile {
+    display: none;
+}
+.v-desktop {
+    display: block;
+}
+
 /* Styles */
 body {
     background-color: var(--body-clr);
@@ -239,9 +246,10 @@ header {
 /* Payment methods section style */
 .payment-box {
     display: grid;
-    grid-template-columns: 200px 200px 200px;
+    grid-template-columns: 132px 132px 132px;
     justify-items: center;
     row-gap: 20px;
+    column-gap: 20px;
 }
 .payment-box img {
     height: 63px;
@@ -915,12 +923,12 @@ footer .links ul li a:hover {
 }
 footer .payment-box {
     display: grid;
-    grid-template-columns: 90px 90px 90px 90px;
+    grid-template-columns: 64px 64px 64px 64px;
     justify-items: center;
     row-gap: 5px;
 }
 footer .payment-box img {
-    height: 40px;
+    height: 30px;
 }
 footer .social-media {
     display: flex;

@@ -277,6 +277,13 @@
 }
 /* Max-wdith 425px */
 @media screen and (max-width: 425px) {
+    .v-mobile {
+        display: block;
+    }
+    .v-desktop {
+        display: none;
+    }
+
     header {
         height: 75vh;
     }
@@ -342,6 +349,7 @@
     }
     .kamas-settings {
         padding: 30px;
+        margin-bottom: 20px;
     }
     .order-heading p {
         font-size: 14px;
