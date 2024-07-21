@@ -193,7 +193,9 @@
         width: 100%;
     }
     .payment-box {
-        grid-template-columns: 98px 98px 98px;
+        grid-template-columns: 50px 50px 50px;
+        column-gap: 50px;
+        row-gap: 5px;
     }
     .payment-box img {
         height: 45px;
