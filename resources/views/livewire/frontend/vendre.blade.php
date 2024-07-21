@@ -192,9 +192,9 @@
 
                     <h3>Message after succes shows here</h3>
 
-
-                    <div wire:click="confirm_vendre()" class="main-btn bg-success mt-3 py-4" style="cursor: pointer">
-                        Confirm</div>
+                    <a href="{{ route('voyager.offers.index') }}">
+                        <div wire:click="confirm_vendre()" class="main-btn bg-success mt-3 py-4" style="cursor: pointer">Confirm</div>
+                    </a>
 
 
                 </div>
