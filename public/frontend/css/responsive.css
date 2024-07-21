@@ -275,8 +275,19 @@
         font-size: 12px;
     }
 }
+/* Min-width 768px */
+@media screen and (min-width: 768px) {
+    /* Mobile menu */
+    .mobile-menu-overlay {
+        width: 50%;
+    }
+}
 /* Max-wdith 425px */
 @media screen and (max-width: 425px) {
+    /* Mobile menu */
+    .mobile-menu-overlay {
+        width: 100%;
+    }
     .v-mobile {
         display: block;
     }
