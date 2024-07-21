@@ -5,7 +5,7 @@
             @csrf
 
 
-            
+
             <div class="auth-section">
                 <div class="auth-logo">
                     <a href="{{ route('frontend.index') }}">
@@ -13,19 +13,21 @@
                     </a>
                 </div>
                 <div class="auth-heading">Se connecter</div>
-                    
+
                 <div class="auth-inputs">
                     <div class="email">
                         <label for="">Email</label>
-                        <input type="email" id="email" name="email" :value="old('email')" required autofocus class="mt-2 mb-3" />
+                        <input type="email" id="email" name="email" :value="old('email')" required autofocus
+                            class="mt-2 mb-3" />
                     </div>
                     <div class="password">
                         <label for="">Password</label>
-                        <input id="password" type="password" name="password" required autocomplete="current-password" class="mt-2" />
+                        <input id="password" type="password" name="password" required autocomplete="current-password"
+                            class="mt-2" />
                     </div>
                 </div>
 
-                <div class="alert alert-danger w-100 @if ( $errors->count() == 0 ) d-none @endif ">
+                <div class="alert alert-danger w-100 @if ($errors->count() == 0) d-none @endif ">
                     {{ $errors->first() }}
                 </div>
 
@@ -33,8 +35,8 @@
                     <div>
                         <input id="remember_me" type="checkbox" name="remember" checked />
                         <label for="huey">Se souvenir de moi</label>
-                    </div>   
-                    @if (Route::has('password.request')) 
+                    </div>
+                    @if (Route::has('password.request'))
                         <a href="{{ route('password.request') }}" class="forgot-pass">
                             <p>Vous avez oublié votre mot de passe ?</p>
                         </a>
@@ -45,10 +47,10 @@
                     SE CONNECTER
                 </button>
 
-                
 
 
-                <a href="{{ route('register') }}" >
+
+                <a href="{{ route('register') }}">
                     <p class="create-acc">Pas de compte ? Créez-en un</p>
                 </a>
 
@@ -57,5 +59,3 @@
         </form>
     </div>
 </div>
-
-<x-frontend.footer />

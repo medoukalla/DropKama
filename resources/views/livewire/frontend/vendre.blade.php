@@ -90,9 +90,8 @@
                     @endauth
                     @guest
                         <div class="alert alert-warning mt-2">
-                            <b>
-                                Veuillez vous <a href="{{ route('login') }}">connecter</a> ou <a href="{{ route('register') }}">créer un compte</a> pour vendre vos kamas immédiatement!
-                            </b>
+                            Veuillez vous <a href="{{ route('login') }}">connecter</a> ou <a
+                                href="{{ route('register') }}">créer un compte</a> pour vendre vos kamas immédiatement!
                         </div>
                     @endguest
 
@@ -193,7 +192,8 @@
                     <h3>Message after succes shows here</h3>
 
                     <a href="{{ route('voyager.offers.index') }}">
-                        <div wire:click="confirm_vendre()" class="main-btn bg-success mt-3 py-4" style="cursor: pointer">Confirm</div>
+                        <div wire:click="confirm_vendre()" class="main-btn bg-success mt-3 py-4"
+                            style="cursor: pointer">Confirm</div>
                     </a>
 
 
