@@ -26,7 +26,7 @@ class StripeController extends Controller
         // set data
         $name = $server->name;
         $description = $server->name.' - '.$order->quantity. ' M';
-        $image = 'https://i.ibb.co/NCqMt4z/Logo.png';
+        $image = 'https://i.ibb.co/XDVt7fJ/android-chrome-512x512.png';
 
         $amount = (number_format($order->total, 2, '.', '') * 100);
 
