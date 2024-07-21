@@ -48,7 +48,7 @@ class RegisteredUserController extends Controller
         try {
             $user->notify( new NewUserWelcome($user));
         } catch (\Throwable $th) {
-            throw $th;
+            // throw $th;
         }  
 
         event(new Registered($user));

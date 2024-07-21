@@ -151,7 +151,7 @@ class Vendre extends Component
             try {
                 Auth::user()->notify( new NewOffer($offer));
             } catch (\Throwable $th) {
-                throw $th;
+                // throw $th;
             }  
         }
 

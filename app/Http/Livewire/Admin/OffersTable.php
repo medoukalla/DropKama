@@ -96,7 +96,7 @@ class OffersTable extends Component
         try {
             $user->notify( new OfferCancelled($this->selected_offer));
         } catch (\Throwable $th) {
-            throw $th;
+            // throw $th;
         }  
     }
 
@@ -111,7 +111,7 @@ class OffersTable extends Component
         try {
             $user->notify( new OfferDilivered($user, $this->selected_offer));
         } catch (\Throwable $th) {
-            throw $th;
+            // throw $th;
         }  
     }
 }

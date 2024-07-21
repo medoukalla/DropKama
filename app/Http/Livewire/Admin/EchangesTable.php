@@ -94,7 +94,7 @@ class EchangesTable extends Component
         try {
             $user->notify( new EchangeCancelled($this->selected_echange));
         } catch (\Throwable $th) {
-            throw $th;
+            // throw $th;
         } 
     }
 
@@ -108,7 +108,7 @@ class EchangesTable extends Component
         try {
             $user->notify( new EchangeCompleted($user, $this->selected_echange));
         } catch (\Throwable $th) {
-            throw $th;
+            // throw $th;
         }  
     }
 }

@@ -99,7 +99,7 @@ class OrdersTable extends Component
         try {
             $user->notify( new OrderPaymentConfirmed($user, $this->selected_order));
         } catch (\Throwable $th) {
-            throw $th;
+            // throw $th;
         }  
     }
 
@@ -119,7 +119,7 @@ class OrdersTable extends Component
         try {
             $user->notify( new OrderCancelled($this->selected_order));
         } catch (\Throwable $th) {
-            throw $th;
+            // throw $th;
         }  
     }
 
@@ -134,7 +134,7 @@ class OrdersTable extends Component
         try {
             $user->notify( new OrderDilivered($user, $this->selected_order));
         } catch (\Throwable $th) {
-            throw $th;
+            // throw $th;
         } 
     }
 }

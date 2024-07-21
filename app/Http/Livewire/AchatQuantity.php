@@ -131,7 +131,7 @@ class AchatQuantity extends Component
             try {
                 Auth::user()->notify( new NewFreshOrder($order));
             } catch (\Throwable $th) {
-                throw $th;
+                // throw $th;
             } 
 
             return redirect()->route('frontend.order.details', $order->reference);

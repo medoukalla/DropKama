@@ -142,7 +142,7 @@ class FrontendController extends Controller
                 try {
                     $user->notify( new OrderPaymentConfirmed($user, $order));
                 } catch (\Throwable $th) {
-                    throw $th;
+                    // throw $th;
                 }  
             }
 

@@ -48,7 +48,7 @@ class OrderDetails extends Component
             $user->notify( new ConfirmFacturation($this->validation_code, $this->order));
             $this->facturation_steps = 2;
         } catch (\Throwable $th) {
-            throw $th;
+            // throw $th;
         }   
     }
 
