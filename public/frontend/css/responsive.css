@@ -150,6 +150,7 @@
         align-items: flex-end;
         justify-content: center;
         gap: 3px;
+        cursor: pointer;
     }
     .mobile-menu .mobile-nav .hamburger-menu span {
         background-color: var(--white-clr);
