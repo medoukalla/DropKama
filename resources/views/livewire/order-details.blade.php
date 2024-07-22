@@ -313,6 +313,12 @@
                             {{ $order->total }} {{ strtoupper(Session::get('currency')) }}
                         </div>
                     </div>
+                    <div class="d-flex align-items-center justify-content-between mb-3 gap-3">
+                        <div class="info-component">Référence</div>
+                        <div class="info-component">
+                            {{ $order->reference }}
+                        </div>
+                    </div>
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="info-component bg-orange">Total</div>
                         <div class="info-component bg-orange">
