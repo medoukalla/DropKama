@@ -144,13 +144,6 @@ input {
     background-color: var(--orange-dark-clr);
 }
 
-.v-mobile {
-    display: none;
-}
-.v-desktop {
-    display: block;
-}
-
 /* Styles */
 body {
     background-color: var(--body-clr);

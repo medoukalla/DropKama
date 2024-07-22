@@ -85,16 +85,6 @@
                         <p>Montant total : <span class="text-danger">{{ $total }} €</span></p>
                     </div>
 
-                    @auth
-                        <div wire:click="save_order()" class="main-btn v-desktop mt-3 py-4" style="cursor: pointer">Suivant
-                        </div>
-                    @endauth
-                    @guest
-                        <div class="alert alert-warning mt-2">
-                            Veuillez vous <a href="{{ route('login') }}">connecter</a> ou <a
-                                href="{{ route('register') }}">créer un compte</a> pour vendre vos kamas immédiatement!
-                        </div>
-                    @endguest
 
                 </div>
             </div>
@@ -177,9 +167,17 @@
                             <div class="alert alert-danger mt-2 rounded-4">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div wire:click="save_order()" class="main-btn v-mobile mt-3 py-4" style="cursor: pointer">
-                        Suivant
-                    </div>
+
+                    @auth
+                        <div wire:loading.remove  wire:click="save_order()" class="main-btn mt-3 py-4" style="cursor: pointer">Suivant</div>
+                        <div wire:loading wire:target="save_order" class="main-btn mt-3 py-4 w-100" style="cursor: pointer">Loading</div>
+                    @endauth
+                    @guest
+                        <div class="alert alert-warning mt-2">
+                            Veuillez vous <a href="{{ route('login') }}">connecter</a> ou <a
+                                href="{{ route('register') }}">créer un compte</a> pour vendre vos kamas immédiatement!
+                        </div>
+                    @endguest
                 </div>
             </div>
         </div>
@@ -275,9 +273,3 @@
     </div>
 
 </section>
-
-
-{{-- <a href="{{ route('voyager.offers.index') }}">
-    <div wire:click="confirm_vendre()" class="main-btn bg-success mt-3 py-4"
-        style="cursor: pointer">Confirm</div>
-</a> --}}

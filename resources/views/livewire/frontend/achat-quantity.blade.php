@@ -149,9 +149,23 @@
                         <span style="font-weight: 700; font-size: 22px">Total</span>
                         <span style="font-size: 22px">{{ $currency_symb }}{{ $total_with_fees }}</span>
                     </div>
-                    <a wire:click="confirm_quantity()" href="Javascript:;" class="">
-                        <div class="main-btn mt-3 w-100">Suivant</div>
-                    </a>
+
+                    @auth
+                        <a wire:loading.remove wire:click="confirm_quantity()" href="Javascript:;" class="">
+                            <div class="main-btn mt-3 w-100">Suivant</div>
+                        </a>
+                        <a wire:loading wire:target="confirm_quantity"  href="Javascript:;" class="w-100">
+                            <div class="main-btn mt-3 w-100">Loading</div>
+                        </a>
+                    @endauth
+                    @guest
+                        <div class="alert alert-warning mt-2">
+                            Veuillez vous <a href="{{ route('login') }}">connecter</a> ou <a
+                                href="{{ route('register') }}">créer un compte</a> pour achater vos kamas immédiatement!
+                        </div>
+                    @endguest
+
+                    
                 </div>
             </div>
         </div>
