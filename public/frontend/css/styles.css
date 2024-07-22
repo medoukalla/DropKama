@@ -21,6 +21,20 @@
     /* Font */
     --font-poppins: "Poppins", sans-serif;
 }
+.red,
+.green,
+.blue {
+    font-weight: 700;
+}
+.red {
+    color: #e74c3c;
+}
+.green {
+    color: #1faf38;
+}
+.blue {
+    color: #2980b9;
+}
 /* .container {
   border-right: 2px red solid;
   border-left: 2px red solid;
@@ -1159,6 +1173,14 @@ header .client-notifs span {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+/* After exchange procedure */
+.after-echange ul li {
+    list-style: decimal;
+}
+.after-echange img {
+    margin: auto;
+    width: 100%;
 }
 /* Footer section style */
 footer .logo-col .footer-logo {

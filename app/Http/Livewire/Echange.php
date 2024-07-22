@@ -21,7 +21,7 @@ class Echange extends Component
     public $nom_en_jeu;
     public $nom_en_jeu_deuxieme;
 
-    public $echange_status = false;
+    public $echange_status = true;
 
     protected $rules = [
         'quantite_a_donner' => 'required',
@@ -50,7 +50,7 @@ class Echange extends Component
     }
 
 
-    // function to calculate and add the bonus to the final quantity 
+    // function to calculate and add the bonus to the final quantity
     public function add_bonus() {
         $this->bonus_quantity = ( $this->quantite_a_recevoir * $this->bonus ) / 100 ;
         $this->quantite_a_recevoir = $this->quantite_a_recevoir + $this->bonus_quantity;
@@ -77,10 +77,10 @@ class Echange extends Component
     }
 
 
-    // function to run the calculation 
+    // function to run the calculation
     public function calculate() {
         /**
-         * Calculate 
+         * Calculate
          * 1 -> if server_from price > server_to price
          * 2 -> if server_from price < server_to price
          * 3 -> if server_from price = server_to price
@@ -96,20 +96,20 @@ class Echange extends Component
             $res = $this->server_from->price_buy / $this->server_to->price;
             $quantity = $this->quantite_a_donner * $res;
             $this->quantite_a_recevoir = floor( $quantity * 100 ) / 100;
-            
+
         }elseif ( $this->server_from->price == $this->server_to->price ) {
-            
+
             $res = ( 1 / $this->server_from->price_buy ) * $this->server_to->price;
             $quantity = $this->quantite_a_donner / $res;
             $this->quantite_a_recevoir = floor( $quantity * 100 ) / 100;
-    
+
         }
 
-        // add bonus if exists 
+        // add bonus if exists
         $this->add_bonus();
     }
 
-    // function to pass the echange order 
+    // function to pass the echange order
     public function save_echange() {
 
         $this->calculate();
@@ -125,8 +125,8 @@ class Echange extends Component
         $echange->to_name = $this->nom_en_jeu_deuxieme;
         $echange->quantity_get = $this->quantite_a_recevoir;
         $echange->user_id = Auth::user()->id;
-        
-        // generate id 
+
+        // generate id
         $correct = false;
         do {
             $ref = substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 6);
@@ -144,12 +144,12 @@ class Echange extends Component
 
     }
 
-    // function to confirm the vendre after it's submited 
+    // function to confirm the vendre after it's submited
     public function confirm_echange() {
         $this->echange_status = false;
     }
 
-    // function to reset the form 
+    // function to reset the form
     public function reset_form() {
         $this->reset('quantite_a_donner', 'nom_en_jeu', 'nom_en_jeu_deuxieme', 'quantite_a_recevoir');
     }

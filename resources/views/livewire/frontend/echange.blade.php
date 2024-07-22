@@ -132,14 +132,33 @@
     <div class="container @if ($echange_status == false) d-none @endif">
         <div class="row">
             <div class="col-12 col-md-8 offset-md-2 ">
-                <div class="kamas-settings w-100 sticky-top">
+                <div class="kamas-settings after-echange w-100 sticky-top">
+                    <h3 class="mb-2"><span style="color: #e74c3c">Attention :</span> vigilance
+                        face aux faux comptes !</h3>
+                    <img src="{{ asset('frontend/images/svg/red-danger-icon.svg') }}" alt="Red Danger Icon"
+                        class="mb-2" height="40">
+                    <ul>
+                        <li>Connectez-vous sur <span class="blue">#UserFrom</span>, allez à <span
+                                class="blue">#RENDEZ_VOUS</span> et attendez
+                            notre livreur qui vous
+                            contactera avec le code d'échange. Remettez-lui (<span class="red">100M kama</span>).
+                            S'il n'est pas sur
+                            la MAP,
+                            patientez un moment.
+                        </li>
+                        <li>
+                            Ensuite, connectez-vous sur <span class="blue">#userto</span> et attendez le livreur à
+                            <span class="blue">#LIVREURA</span>. Il vous remettra
+                            (<span class="red">150M kama</span>). S'il n'est pas sur la MAP, patientez un moment.
+                        </li>
+                    </ul>
 
-                    <h3>Message echange submited shows here</h3>
 
 
                     <a href="{{ route('voyager.exchanges.index') }}">
-                        <div wire:click="confirm_echange()" class="main-btn bg-success mt-3 py-4"
-                            style="cursor: pointer">Confirm</div>
+                        <div wire:click="confirm_echange()" class="main-btn mt-3 py-4" style="cursor: pointer">
+                            Confirm
+                        </div>
                     </a>
 
 
