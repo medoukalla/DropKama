@@ -120,7 +120,7 @@
                     <img style=" max-width: 20%; text-align: center; " src="{{ asset('loading.gif')}}" alt="">
                 </div>
 
-                @if ( Auth::user()->role->id == 1 )
+                @if ( Auth::user()->role->id != 2 )
                     
                     {{-- button to verify the payment  --}}
                     <button wire:click="verify_payment()" class="btn btn-success w-100 mb-3 @if ( $selected_order->payed == true && $selected_order->payment_verified == false && is_null( $selected_order->deleted_at ) ) @else d-none @endif " title="Cliquez pour vérifier le paiement de l'utilisateur">Vérifier le paiement</button>
