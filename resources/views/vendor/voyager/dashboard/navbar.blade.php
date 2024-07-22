@@ -10,7 +10,16 @@
 
     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
 
-    
+      <!-- Search -->
+      <div class="navbar-nav align-items-center">
+        <div class="nav-item navbar-search-wrapper mb-0">
+          <a class="nav-item nav-link  d-flex align-items-center px-0" style=" color: #e48c0d; font-weight: 500; " href="{{ route('frontend.index') }}" target="_blanck" >
+            <i class="menu-icon tf-icons ti ti-brand-google-home"></i>
+            Page d'accueil
+          </a>
+        </div>
+      </div>
+      <!-- /Search -->
 
       <ul class="navbar-nav flex-row align-items-center ms-auto">
      
