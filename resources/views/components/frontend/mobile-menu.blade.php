@@ -33,20 +33,20 @@
         </ul>
     </nav>
     <div class="mobile-auth">
-        {{-- @guest
+        @guest
             <a href="{{ route('register') }}">
                 <div class="sign-up">Inscrire</div>
             </a>
             <a href="{{ route('login') }}">
                 <div class="login">Connexion</div>
             </a>
-        @endguest --}}
-        {{-- @auth --}}
+        @endguest
+        @auth
         <a href="{{ route('login') }}">
             <div class="dash-btn">Tableau de bord
                 <img src="{{ asset('frontend/images/svg/dashboard.svg') }}" alt="Dashboard icon" height="15">
             </div>
         </a>
-        {{-- @endauth --}}
+        @endauth
     </div>
 </div>
