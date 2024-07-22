@@ -22,6 +22,7 @@ class Echange extends Component
     public $nom_en_jeu_deuxieme;
 
     public $echange_status = false;
+    public $exchange = null;
 
     protected $rules = [
         'quantite_a_donner' => 'required',
@@ -140,6 +141,7 @@ class Echange extends Component
         $echange->orderId = $ref;
 
         if ( $echange->save() ) {
+            $this->exchange = $echange;
             $this->echange_status = true;
             $this->reset_form();
         }

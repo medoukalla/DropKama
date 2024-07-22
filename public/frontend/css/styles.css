@@ -1198,6 +1198,7 @@ footer .logo-col .footer-logo {
 }
 footer .logo-col input {
     background-color: #e2890c20;
+    color: var(--white-clr);
     border: 0;
     border-bottom: 1px solid var(--orange-clr);
     margin-top: 20px;
@@ -1211,6 +1212,7 @@ footer .logo-col .input img {
     position: absolute;
     top: 50%;
     right: 0;
+    cursor: pointer;
 }
 footer .links-title {
     font-size: 25px;

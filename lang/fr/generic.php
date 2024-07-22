@@ -23,5 +23,6 @@ return [
     'reset' => 'Réinitialiser',
     'reset-password' => 'Réinitialiser le mot de passe',
     'set-new-password' => 'Définissez votre nouveau mot de passe',
+    'Contains' => 'Contient',
 
 ];

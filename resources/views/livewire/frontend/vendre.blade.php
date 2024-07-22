@@ -174,10 +174,10 @@
                             style="cursor: pointer">Suivant</div>
                         <div wire:loading wire:target="save_order" class="main-btn mt-3 py-4 w-100"
                             style="cursor: pointer">
-                            <div class="loading-animation">
-                                <img src="{{ asset('frontend/images/svg/loading-animation.svg') }}"
-                                    alt="Loading animation">
-                            </div>
+                                <div class="loading-animation">
+                                    <img src="{{ asset('frontend/images/svg/loading-animation.svg') }}"
+                                        alt="Loading animation">
+                                </div>
                         </div>
                     @endauth
                     @guest
