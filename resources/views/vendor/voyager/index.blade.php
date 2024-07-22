@@ -79,7 +79,7 @@
             
             <div class="row">
                 
-                <div class="col-lg-6">
+                <div class="col-12 col-md-6 mt-3">
                     <div class="card h-100">
                         <div class="card-header pb-0 d-flex justify-content-between">
                             <div class="card-title mb-0">
@@ -135,7 +135,7 @@
                     </div>
                 </div>
         
-                <div class="col-xxl-6">
+                <div class="col-12 col-md-6 mt-3">
                     <div class="card">
                         
                         <div class="card-datatable table-responsive">

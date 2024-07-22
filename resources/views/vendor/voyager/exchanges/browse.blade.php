@@ -63,7 +63,7 @@
                             <a class="btn btn-secondary add-new btn-primary waves-effect waves-light" href="{{ route('frontend.echange') }}" target="_blanck">
                                 <span>
                                     <i class="ti ti-plus me-0 me-sm-1 ti-xs"></i>
-                                    <span class="d-none d-sm-inline-block">Nouvel échange</span>
+                                    <span class="d-none d-sm-inline-block">Nouvelle</span>
                                 </span>
                             </a>
                         @endif
