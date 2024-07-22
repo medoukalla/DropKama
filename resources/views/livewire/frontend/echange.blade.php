@@ -122,7 +122,7 @@
                     </div>
                     <div class="get-support">
                         <span>Avez-vous le moindre problème ? Contactez-nous! ...</span>
-                        <a href="#">
+                        <a href="javascript:void(Tawk_API.toggle())">
                             <div class="main-btn">
                                 Besoin d'aide
                             </div>
