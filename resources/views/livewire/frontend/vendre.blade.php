@@ -260,7 +260,7 @@
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
                                     required checked disabled />
                                 <label class="form-check-label" for="flexCheckDefault">
-                                    J'ai lu les etapes de bookamas et je suis d'accord.
+                                    J'ai lu les etapes de dropkamas et je suis d'accord.
                                 </label>
                             </div>
                         </form>
