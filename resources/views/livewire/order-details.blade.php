@@ -16,13 +16,15 @@
                         </div>
                         <div class="h-step @if ($order->payed == true && $order->payment_verified == true) active @endif">
                             <div class="i-step">
-                                @if ($order->payed == true && $order->payment_verified == false)
+                                {{-- @if ($order->payed == true && $order->payment_verified == false)
                                     <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt=""
                                         height="30" class="not-ready">
                                 @elseif ($order->payed == true && $order->payment_verified == true)
                                     <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt=""
                                         height="30" class="ready">
-                                @endif
+                                @endif --}}
+                                <img src="{{ asset('frontend/images/svg/reject-icon.svg') }}" alt=""
+                                    height="30" class="rejecting">
                             </div>
                             <div class="t-step">
                                 Confirmation du paiement

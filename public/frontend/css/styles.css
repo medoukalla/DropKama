@@ -9,6 +9,7 @@
 :root {
     --body-clr: #0d0d0d;
     --orange-clr: #f49c14;
+    --red-clr: #c0392b;
     --orange-dark-clr: #e28a0c;
     --grey-dark-clr: #34373e;
     --black-clr: #000000;
@@ -1058,6 +1059,7 @@ header .client-notifs span {
     border-radius: var(--border-radius);
     color: var(--black-clr);
     font-weight: 600;
+    font-size: 15px;
 }
 .product-line {
     height: 100%;
@@ -1101,6 +1103,9 @@ header .client-notifs span {
 }
 .h-step.active .t-step {
     background-color: var(--orange-clr);
+}
+.h-step.rejected .t-step {
+    background-color: var(--red-clr);
 }
 .kamas-settings .infos {
     font-weight: 600;
