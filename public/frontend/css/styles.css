@@ -908,7 +908,7 @@ header .client-notifs span {
 /* Acheter order details page end */
 /* Acheter, steps page */
 .payment-section .ruturn-btn {
-    background-color: var(--white-dark-clr);
+    background-color: var(--orange-clr);
     padding: 10px 20px;
     border-radius: var(--border-radius);
     cursor: pointer;
