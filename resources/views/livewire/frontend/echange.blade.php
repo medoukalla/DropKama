@@ -117,37 +117,39 @@
     <div class="container @if ($echange_status == false) d-none @endif">
         <div class="row">
             <div class="col-12 col-md-8 offset-md-2 ">
-                <div class="kamas-settings after-echange w-100 sticky-top">
-                    <h3 class="mb-2"><span style="color: #e74c3c">Attention :</span> vigilance
-                        face aux faux comptes !</h3>
-                    <img src="{{ asset('frontend/images/svg/red-danger-icon.svg') }}" alt="Red Danger Icon"
-                        class="mb-2" height="40">
-                    <ul>
-                        <li>Connectez-vous sur <span class="blue">#UserFrom</span>, allez à <span
-                                class="blue">#RENDEZ_VOUS</span> et attendez
-                            notre livreur qui vous
-                            contactera avec le code d'échange. Remettez-lui (<span class="red">100M kama</span>).
-                            S'il n'est pas sur
-                            la MAP,
-                            patientez un moment.
-                        </li>
-                        <li>
-                            Ensuite, connectez-vous sur <span class="blue">#userto</span> et attendez le livreur à
-                            <span class="blue">#LIVREURA</span>. Il vous remettra
-                            (<span class="red">150M kama</span>). S'il n'est pas sur la MAP, patientez un moment.
-                        </li>
-                    </ul>
+                @if ( !is_null( $exchange ))    
+                    <div class="kamas-settings after-echange w-100 sticky-top">
+                        <h3 class="mb-2"><span style="color: #e74c3c">Attention :</span> vigilance
+                            face aux faux comptes !</h3>
+                        <img src="{{ asset('frontend/images/svg/red-danger-icon.svg') }}" alt="Red Danger Icon"
+                            class="mb-2" height="40">
+                        <ul>
+                            <li>Connectez-vous sur <span class="blue">{{ $exchange->exchange_from->name }} ({{ $exchange->from_name }})</span>, allez à <span
+                                    class="blue">{{ setting('localisation-dans-le-jeu.echange-localisation-first') }}</span> et attendez
+                                notre livreur qui vous
+                                contactera avec le code d'échange. Remettez-lui (<span class="red">{{ $exchange->quantity}}M kama</span>).
+                                S'il n'est pas sur
+                                la MAP,
+                                patientez un moment.
+                            </li>
+                            <li>
+                                Ensuite, connectez-vous sur <span class="blue">{{ $exchange->exchange_to->name }} ({{ $exchange->to_name }})</span> et attendez le livreur à
+                                <span class="blue">{{ setting('localisation-dans-le-jeu.echange-localisation-second') }}</span>. Il vous remettra
+                                (<span class="red">{{ $exchange->quantity_get }}M kama</span>). S'il n'est pas sur la MAP, patientez un moment.
+                            </li>
+                        </ul>
 
 
 
-                    <a href="{{ route('voyager.exchanges.index') }}">
-                        <div wire:click="confirm_echange()" class="main-btn mt-3 py-4" style="cursor: pointer">
-                            Confirm
-                        </div>
-                    </a>
+                        <a href="{{ route('voyager.exchanges.index') }}">
+                            <div wire:click="confirm_echange()" class="main-btn mt-3 py-4" style="cursor: pointer">
+                                Confirm
+                            </div>
+                        </a>
 
 
-                </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
