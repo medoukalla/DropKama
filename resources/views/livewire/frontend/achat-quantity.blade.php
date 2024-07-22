@@ -155,7 +155,12 @@
                             <div class="main-btn mt-3 w-100">Suivant</div>
                         </a>
                         <a wire:loading wire:target="confirm_quantity"  href="Javascript:;" class="w-100">
-                            <div class="main-btn mt-3 w-100">Loading</div>
+                            <div class="main-btn mt-3 w-100">
+                                <div class="loading-animation">
+                                    <img src="{{ asset('frontend/images/svg/loading-animation.svg') }}"
+                                        alt="Loading animation">
+                                </div>
+                            </div>
                         </a>
                     @endauth
                     @guest
@@ -248,12 +253,17 @@
         </div>
 
         @auth
-            <a wire:loading.remove href="Javascript:;" wire:click="save_order()">
+            <a wire:loading.remove href="Javascript:;" wire:click="save_order()" class="w-25">
                 <div class="main-btn mt-3">Confirmer et Payer</div>
             </a>
 
-            <a wire:loading wire:target="save_order"  href="Javascript:;" class="w-100">
-                <div class="main-btn mt-3">Confirmer et Payer</div>
+            <a wire:loading wire:target="save_order"  href="Javascript:;" class="w-25">
+                <div class="main-btn mt-3 w-100">
+                    <div class="loading-animation">
+                        <img src="{{ asset('frontend/images/svg/loading-animation.svg') }}"
+                            alt="Loading animation">
+                    </div>
+                </div>
             </a>
         @endauth
         @guest
