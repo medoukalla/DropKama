@@ -107,4 +107,6 @@ return [
     'whoopsie'               => 'Oups !',
     'yes'                    => 'Oui',
     'yes_please'             => 'Oui SVP',
+    'contains'               => 'Contient',
+
 ];
