@@ -1,6 +1,6 @@
 <section class="acheter-processing bg-not-white">
     <div class="container">
-        <div class="row">
+        <div class="row" wire:poll.keep-alive>
 
             <div class="col-12 col-md-6">
                 <div class="product-line bg-component-white sticky-top">
