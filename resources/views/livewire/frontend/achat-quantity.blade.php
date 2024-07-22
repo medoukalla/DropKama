@@ -103,7 +103,7 @@
                                 class="aide-icon" />
                         </label>
                         <div class="d-flex align-items-center justify-content-between">
-                            <input wire:model="nom_dans_jeu" type="text" id="normalInput" />
+                            <input wire:model="nom_dans_jeu" type="text" id="normalInput" onkeydown="return /[a-zA-Z\-]/i.test(event.key)" />
                         </div>
                         @error('nom_dans_jeu')
                             <div class="alert alert-danger mt-2">{{ $message }}</div>

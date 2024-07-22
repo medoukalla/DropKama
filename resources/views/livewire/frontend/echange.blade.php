@@ -33,7 +33,7 @@
           <div class="input mt-3">
               <label for="">Nom de personnage sur ({{ $server_from->name }}) <span>*</span></label>
               <div class="d-flex align-items-center justify-content-between">
-                <input wire:model="nom_en_jeu" type="text" id="normalInput" />
+                <input wire:model="nom_en_jeu" type="text" id="normalInput" onkeydown="return /[a-zA-Z\-]/i.test(event.key)" />
               </div>
               @error('nom_en_jeu')                        
                   <div class="alert alert-danger mt-2 rounded-4">{{ $message }}</div>
@@ -60,7 +60,7 @@
           <div class="input mt-3">
               <label for="">Nom de personnage sur ({{ $server_to->name }}) <span>*</span></label>
               <div class="d-flex align-items-center justify-content-between">
-                <input wire:model="nom_en_jeu_deuxieme" type="text" id="normalInput" />
+                <input wire:model="nom_en_jeu_deuxieme" type="text" id="normalInput" onkeydown="return /[a-zA-Z\-]/i.test(event.key)" />
               </div>
               @error('nom_en_jeu_deuxieme')                        
                   <div class="alert alert-danger mt-2 rounded-4">{{ $message }}</div>

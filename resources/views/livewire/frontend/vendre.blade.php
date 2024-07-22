@@ -31,7 +31,7 @@
                     <div class="input">
                         <label for="">Nom en jeu : </label>
                         <div class="d-flex align-items-center justify-content-between">
-                            <input wire:model="nom_en_jeu" type="text" id="normalInput" /> <br>
+                            <input wire:model="nom_en_jeu" type="text" id="normalInput" onkeydown="return /[a-zA-Z\-]/i.test(event.key)" /> <br>
                         </div>
                         @error('nom_en_jeu')
                             <div class="alert alert-danger mt-2 rounded-4">{{ $message }}</div>
