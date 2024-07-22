@@ -4,7 +4,7 @@
             <img src="{{ asset('frontend/images/logo.png') }}" alt="Mobile logo" />
         </div>
     </a>
-    <div class="mobile-nav">
+    <div class="mobile-nav" onclick="$('.mobile-menu-overlay').slideDown(500)" >
         <div class="hamburger-menu">
             <span></span>
             <span></span>
@@ -13,15 +13,15 @@
     </div>
 </div>
 {{-- Overlay menu --}}
-<div class="mobile-menu-overlay">
+<div class="mobile-menu-overlay ">
     <div class="close-btn">
-        <img src="{{ asset('frontend/images/black-close-btn.svg') }}" alt="Close button">
+        <img onclick="$('.mobile-menu-overlay').slideUp(500)" src="{{ asset('frontend/images/black-close-btn.svg') }}" alt="Close button">
     </div>
-    <a href="{{ route('frontend.index') }}">
-        <div class="overlay-mobile-logo">
+    <div class="overlay-mobile-logo">
+            <a href="{{ route('frontend.index') }}">
             <img src="{{ asset('frontend/images/logo.png') }}" alt="Mobile logo" />
-        </div>
-    </a>
+        </a>
+    </div>
     <nav>
         <ul class="mb-0">
             <li><a href="{{ route('frontend.index') }}">Accueil</a></li>
