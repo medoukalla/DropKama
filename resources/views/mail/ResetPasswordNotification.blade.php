@@ -219,7 +219,7 @@
                                                                         align="center">
                                                                         <a href="https://dropkamas.com/" target="_blank">
                                                                             <img align="center" border="0"
-                                                                                src="https://dropkamas.com/logo.png"
+                                                                                src="https://dropkamas.com/img/logo.png"
                                                                                 alt="DropKamas" title="DropKamas"
                                                                                 style="
                                                                                         outline: none;
@@ -716,7 +716,7 @@
                                                                                     <a href="https://dropkamas.com/"
                                                                                         title="Live Chat"
                                                                                         target="_blank">
-                                                                                        <img src="https://dropkamas.com/img/Support.svg"
+                                                                                        <img src="https://dropkamas.com/img/support.svg"
                                                                                             alt="Live Chat"
                                                                                             title="Live Chat"
                                                                                             width="32"
