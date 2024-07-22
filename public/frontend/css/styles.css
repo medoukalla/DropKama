@@ -1087,6 +1087,41 @@ header .client-notifs span {
     font-weight: 600;
 }
 
+/* After vendre page */
+.vendre-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+}
+.vendre-step {
+    background-color: var(--orange-clr);
+    color: white;
+    border-radius: 20px;
+    height: 327px;
+}
+.vendre-step .number {
+    background-color: var(--body-clr);
+    text-align: center;
+    border-bottom: 1px solid;
+    padding: 20px 50px;
+    font-size: 62px;
+}
+.vendre-paragraph p {
+    padding: 20px 50px;
+}
+.confirmation {
+    padding: 50px 20px;
+}
+.confirmation_title {
+    margin-bottom: 20px;
+}
+.confirmation p {
+    margin-bottom: 20px;
+}
+.confirmation form {
+    margin-bottom: 10px;
+}
 /* Footer section style */
 footer .logo-col .footer-logo {
     width: 225px;

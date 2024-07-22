@@ -186,20 +186,97 @@
 
     <div class="container @if ($vendre_status == false) d-none @endif">
         <div class="row">
-            <div class="col-12 col-md-8 offset-md-2 ">
-                <div class="kamas-settings w-100 sticky-top">
-
-                    <h3>Message after succes shows here</h3>
-
-                    <a href="{{ route('voyager.offers.index') }}">
-                        <div wire:click="confirm_vendre()" class="main-btn bg-success mt-3 py-4"
-                            style="cursor: pointer">Confirm</div>
-                    </a>
-
-
+            <div class="col-12 col-md-6 col-lg-6">
+                <div class="vendre-steps">
+                    <div class="vendre-step">
+                        <div class="number">
+                            1
+                        </div>
+                        <div class="vendre-paragraph">
+                            <p>
+                                Une fois votre demande de vendre des kamas a été passé sur le site
+                                avec succès, connecter vous sur le jeu et patientez entre 10 à 15 minutes.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="vendre-step">
+                        <div class="number">
+                            2
+                        </div>
+                        <div class="vendre-paragraph">
+                            <p>
+                                Après 10-15 minutes, un de nos agents va vous contacter en jeu
+                                avec un message qui indique la position de l’échange et le numéro
+                                de votre commande. Veuillez bien vérifier le numéro de commande
+                                reçu, et faite bien attention aux arnaqueurs.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="vendre-step">
+                        <div class="number">
+                            3
+                        </div>
+                        <div class="vendre-paragraph">
+                            <p>
+                                Dans le cas où vous n’avez pas reçu un message sur le jeu,
+                                contacter nous via le Live Chat ou bien rejoignez le Discord
+                                <a href="https://discord.gg/egvJGknPHT" target="_blank"><span>Dropkamas</span></a> et
+                                ouvrir un
+                                ticket au salon Support et envoyer un message avec le numéro de votre commande.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="vendre-step">
+                        <div class="number">
+                            4
+                        </div>
+                        <div class="vendre-paragraph">
+                            <p>
+                                Nous vous payons avec la solution que vous désirez apres la confirmation de votre
+                                demande et la
+                                reception de vos kamas
+                                Nous vous payons dans <span>30 Min</span> jusqu'a <span>4 heures</span> après la prise
+                                de vos
+                                kamas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+                <div class="vendre-steps sticky-top">
+                    <div class="confirmation">
+                        <div class="confirmation_title">
+                            <h2>Confirmation</h2>
+                        </div>
+                        <p>
+                            Il est important que vous lisiez attentivement les étapes d'une
+                            transaction afin que vous ne rencontriez aucun soucis lors de la
+                            vente de vos kamas.
+                        </p>
+                        <form>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+                                    required checked disabled />
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    J'ai lu les etapes de bookamas et je suis d'accord.
+                                </label>
+                            </div>
+                        </form>
+                        <a href="{{ route('voyager.offers.index') }}">
+                            <div wire:click="confirm_vendre()" class="main-btn mt-3 py-4" style="cursor: pointer">
+                                Confirm</div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
 </section>
+
+
+{{-- <a href="{{ route('voyager.offers.index') }}">
+    <div wire:click="confirm_vendre()" class="main-btn bg-success mt-3 py-4"
+        style="cursor: pointer">Confirm</div>
+</a> --}}
