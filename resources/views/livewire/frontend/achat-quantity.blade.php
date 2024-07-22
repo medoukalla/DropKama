@@ -247,9 +247,23 @@
 
         </div>
 
-        <a href="Javascript:;" wire:click="save_order()">
-            <div class="main-btn mt-3">Confirmer et Payer</div>
-        </a>
+        @auth
+            <a wire:loading.remove href="Javascript:;" wire:click="save_order()">
+                <div class="main-btn mt-3">Confirmer et Payer</div>
+            </a>
+
+            <a wire:loading wire:target="save_order"  href="Javascript:;" class="w-100">
+                <div class="main-btn mt-3">Confirmer et Payer</div>
+            </a>
+        @endauth
+        @guest
+            <div class="alert alert-warning mt-2">
+                Veuillez vous <a href="{{ route('login') }}">connecter</a> ou <a
+                    href="{{ route('register') }}">créer un compte</a> pour achater vos kamas immédiatement!
+            </div>
+        @endguest
+        
+        
 
     </div>
 
