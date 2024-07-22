@@ -406,11 +406,24 @@
     .top-banner .ruturn-btn {
         width: 100%;
     }
+    /* After vendre page */
+    .vendre-step {
+        height: fit-content;
+    }
+    .vendre-step .number {
+        font-size: 42px;
+    }
+    .vendre-paragraph p {
+        font-size: 15px;
+    }
+    .confirmation {
+        text-align: center;
+    }
 }
-  /* Last steps */
-  .product-line {
+/* Last steps */
+.product-line {
     margin-bottom: 20px;
-  }
+}
 /* Max-width 375px */
 @media screen and (max-width: 375px) {
     .games-section .games-notif p {

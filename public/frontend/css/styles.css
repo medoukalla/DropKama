@@ -1092,13 +1092,13 @@ header .client-notifs span {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    overflow: hidden;
 }
 .vendre-step {
     background-color: var(--orange-clr);
     color: white;
     border-radius: 20px;
     height: 327px;
+    overflow: hidden;
 }
 .vendre-step .number {
     background-color: var(--body-clr);

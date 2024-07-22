@@ -86,7 +86,8 @@
                     </div>
 
                     @auth
-                        <div wire:click="save_order()" class="main-btn mt-3 py-4" style="cursor: pointer">Suivant</div>
+                        <div wire:click="save_order()" class="main-btn v-desktop mt-3 py-4" style="cursor: pointer">Suivant
+                        </div>
                     @endauth
                     @guest
                         <div class="alert alert-warning mt-2">
