@@ -178,8 +178,8 @@
 
     {{-- Second step the payment  --}}
     <!-- Step A  -->
-    <div class="container @if ($step != 'A') d-none @endif">
-        <div class="payment-heading">Payment</div>
+    <div class="container @if ($step != 'A') d-none @endif" >
+        <div class="payment-heading" id="stepA">Payment</div>
         <div class="payment-banner mt-3">
             <div class="top-banner">
                 <div class="ruturn-btn d-flex align-items-center gap-2" wire:click="back_to_quantity()">
@@ -228,12 +228,22 @@
         <a href="Javascript:;" wire:click="confirm_first_step()">
             <div class="main-btn mt-3">Confirmer et Payer</div>
         </a>
+
+        @if ( $step == 'A' )
+            <script>
+                $(document).ready(function() {
+                    $('html, body').animate({
+                        scrollTop: $("div#stepA").offset().top
+                    }, 250);
+                })
+            </script>
+        @endif
     </div>
 
 
     <!-- Step B -->
-    <div class="container @if ($step != 'B') d-none @endif">
-        <div class="payment-heading">Payment</div>
+    <div class="container @if ($step != 'B') d-none @endif" >
+        <div class="payment-heading" id="stepB">Payment</div>
         <div class="payment-banner mt-3">
             <div class="d-flex align-items-center justify-content-between">
                 <div class="ruturn-btn d-flex align-items-center gap-2" wire:click="back_to_first_step()">
@@ -273,7 +283,15 @@
             </div>
         @endguest
         
-        
+        @if ( $step == 'B' )
+            <script>
+                $(document).ready(function() {
+                    $('html, body').animate({
+                        scrollTop: $("div#stepB").offset().top
+                    }, 250);
+                })
+            </script>
+        @endif
 
     </div>
 
