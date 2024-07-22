@@ -31,7 +31,8 @@
                     <div class="input">
                         <label for="">Nom en jeu : </label>
                         <div class="d-flex align-items-center justify-content-between">
-                            <input wire:model="nom_en_jeu" type="text" id="normalInput" onkeydown="return /[a-zA-Z\-]/i.test(event.key)" /> <br>
+                            <input wire:model="nom_en_jeu" type="text" id="normalInput"
+                                onkeydown="return /[a-zA-Z\-]/i.test(event.key)" /> <br>
                         </div>
                         @error('nom_en_jeu')
                             <div class="alert alert-danger mt-2 rounded-4">{{ $message }}</div>
@@ -169,8 +170,15 @@
                     </div>
 
                     @auth
-                        <div wire:loading.remove  wire:click="save_order()" class="main-btn mt-3 py-4" style="cursor: pointer">Suivant</div>
-                        <div wire:loading wire:target="save_order" class="main-btn mt-3 py-4 w-100" style="cursor: pointer">Loading</div>
+                        <div wire:loading.remove wire:click="save_order()" class="main-btn mt-3 py-4"
+                            style="cursor: pointer">Suivant</div>
+                        <div wire:loading wire:target="save_order" class="main-btn mt-3 py-4 w-100"
+                            style="cursor: pointer">
+                            <div class="loading-animation">
+                                <img src="{{ asset('frontend/images/svg/loading-animation.svg') }}"
+                                    alt="Loading animation">
+                            </div>
+                        </div>
                     @endauth
                     @guest
                         <div class="alert alert-warning mt-2">

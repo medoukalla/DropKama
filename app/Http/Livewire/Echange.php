@@ -98,13 +98,13 @@ class Echange extends Component
             $res = $this->server_from->price_buy / $this->server_to->price;
             $quantity = $this->quantite_a_donner * $res;
             $this->quantite_a_recevoir = $quantity;
-            
+
         }elseif ( $this->server_from->price == $this->server_to->price ) {
 
             $res = ( 1 / $this->server_from->price_buy ) * $this->server_to->price;
             $quantity = $this->quantite_a_donner / $res;
             $this->quantite_a_recevoir = $quantity;
-    
+
         }
 
         // add bonus if exists

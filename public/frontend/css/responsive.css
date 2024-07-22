@@ -374,6 +374,10 @@
         gap: 20px;
         font-weight: 700;
     }
+    .payment-section .payment-banner .quantities {
+        height: fit-content;
+        padding: 20px;
+    }
     .payment-section .payment-total {
         font-size: 14px;
     }
