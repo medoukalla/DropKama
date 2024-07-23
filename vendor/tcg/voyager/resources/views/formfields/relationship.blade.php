@@ -24,7 +24,8 @@
             @else
 
                 @php
-                    // dd($row)
+                    // dd($view)
+                    // dd( $options->column )
                 @endphp
                 <select
                     class="form-control select2-ajax" name="{{ $options->column }}"
@@ -44,9 +45,9 @@
                     @if(!$row->required)
                         <option value="">{{__('voyager::generic.none')}}</option>
                     @endif
-
+                    
                     @foreach($query as $relationshipData)
-                        <option value="{{ $relationshipData->{$options->key} }}" >{{ $relationshipData->{$options->label} }}</option>
+                        <option @if ( $dataTypeContent->{$options->column} == $relationshipData->{$options->key} ) selected @endif value="{{ $relationshipData->{$options->key} }}" >{{ $relationshipData->{$options->label} }}</option>
                         {{-- <option value="{{ $relationshipData->{$options->key} }}" @if(old($options->column, $dataTypeContent->{$options->column}) == $relationshipData->{$options->key}) selected="selected" @endif>{{ $relationshipData->{$options->label} }}</option> --}}
                     @endforeach
                 </select>
