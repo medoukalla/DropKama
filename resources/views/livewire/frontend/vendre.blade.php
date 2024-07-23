@@ -48,7 +48,7 @@
                             <div class="d-flex align-items-center gap-3">
                                 <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}"
                                     alt="" class="currency ps-2" />
-                                @if ( $payment->svg_name = 'cih'  ) 
+                                @if ( $payment->svg_name == 'cih'  ) 
                                     <p id="selectText">CIH</p>
                                 @else
                                     <p id="selectText">{{ $payment->name }}</p>
@@ -65,7 +65,7 @@
                                     wire:click="change_payment({{ $paym->id }})">
                                     <img src="{{ asset('frontend/images/payments/' . $paym->svg_name . '.svg') }}"
                                         alt="" class="currency" />
-                                    @if ( $paym->svg_name = 'cih'  ) 
+                                    @if ( $paym->svg_name == 'cih'  ) 
                                         <p>CIH</p>
                                     @else
                                         <p>{{ $paym->name }}</p>
@@ -91,7 +91,7 @@
                     </div>
                     <hr />
 
-                    @if ( $payment->svg_name == 'bank-transfer'  )
+                    @if ( $payment->svg_name == 'cih'  )
                         <div class="">
                             <p>
                                 Prix par million : <span class="text-danger">{{ $server->cih_price }} DH</span>

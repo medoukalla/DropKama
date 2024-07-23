@@ -425,6 +425,10 @@
     .confirmation {
         text-align: center;
     }
+
+    .all-ventes-tables .kamas-settings .table-content {
+        overflow: scroll;
+    }
 }
 /* Last steps */
 .product-line {
