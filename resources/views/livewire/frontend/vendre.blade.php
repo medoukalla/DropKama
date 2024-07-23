@@ -174,10 +174,10 @@
                             style="cursor: pointer">Suivant</div>
                         <div wire:loading wire:target="save_order" class="main-btn mt-3 py-4 w-100"
                             style="cursor: pointer">
-                                <div class="loading-animation">
-                                    <img src="{{ asset('frontend/images/svg/loading-animation.svg') }}"
-                                        alt="Loading animation">
-                                </div>
+                            <div class="loading-animation">
+                                <img src="{{ asset('frontend/images/svg/loading-animation.svg') }}"
+                                    alt="Loading animation">
+                            </div>
                         </div>
                     @endauth
                     @guest
@@ -279,5 +279,180 @@
             </div>
         </div>
     </div>
+
+    {{-- Tables start --}}
+    <div class="container mt-4">
+        <div class="row">
+            {{-- Classique --}}
+            <div class="all-ventes-tables col-12 col-md-12 col-lg-12">
+                <div class="kamas-settings mb-3">
+                    <div class="table-title">
+                        Classique
+                    </div>
+                    <table class="table table-responsive table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Server</th>
+                                <th scope="col">Paypal</th>
+                                <th scope="col">Skrill</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Draconiro</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="incomplet">Incomplet</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Hellmina</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="incomplet">Incomplet</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Imagiro</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="complet">Complet</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">talkasha</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="incomplet">Incomplet</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">tylezia</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="incomplet">Incomplet</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ombre</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="incomplet">Incomplet</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {{-- Touch --}}
+            <div class="all-ventes-tables col-12 col-md-12 col-lg-12">
+                <div class="kamas-settings mb-3">
+                    <div class="table-title">
+                        Touch
+                    </div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Server</th>
+                                <th scope="col">Paypal</th>
+                                <th scope="col">Skrill</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Draconiro</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="incomplet">Incomplet</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Hellmina</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="incomplet">Incomplet</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Imagiro</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="complet">Complet</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">talkasha</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="incomplet">Incomplet</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">tylezia</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="incomplet">Incomplet</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ombre</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="incomplet">Incomplet</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {{-- Retro --}}
+            <div class="all-ventes-tables col-12 col-md-12 col-lg-12">
+                <div class="kamas-settings mb-3">
+                    <div class="table-title">
+                        Retro
+                    </div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Server</th>
+                                <th scope="col">Paypal</th>
+                                <th scope="col">Skrill</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Draconiro</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="incomplet">Incomplet</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Hellmina</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="incomplet">Incomplet</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Imagiro</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="complet">Complet</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">talkasha</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="incomplet">Incomplet</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">tylezia</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="incomplet">Incomplet</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ombre</th>
+                                <td>0.446€</td>
+                                <td>0.455$</td>
+                                <td class="incomplet">Incomplet</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- Tablas end --}}
 
 </section>

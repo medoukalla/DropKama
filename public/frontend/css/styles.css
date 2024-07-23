@@ -1146,39 +1146,58 @@ header .client-notifs span {
 .confirmation form {
     margin-bottom: 10px;
 }
+.all-ventes-tables .kamas-settings {
+    width: 100%;
+}
+.all-ventes-tables .kamas-settings .table .incomplet {
+    color: var(--green-dark-clr);
+}
+.all-ventes-tables .kamas-settings .table .complet {
+    color: var(--red-clr);
+}
+.all-ventes-tables .kamas-settings .table-title {
+    padding: 20px;
+    text-align: center;
+    background-color: var(--body-clr);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--grey-dark-clr);
+    color: var(--orange-clr);
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
 /* Exchange style */
-.echnage-infos {
-    background-color: #05ed00;
+.echange-infos {
     border-radius: var(--border-radius);
     overflow: hidden;
 }
-.echnage-infos .hint {
+.echange-infos .hint {
     position: relative;
     background-color: var(--orange-clr);
     padding: 20px 50px;
     color: var(--white-clr);
 }
-.echnage-infos .hint img {
+.echange-infos .hint img {
     height: 55px;
     position: absolute;
     top: 5px;
     left: 10px;
     transform: rotate(-25deg);
 }
-.echnage-infos .info-danger {
+.echange-infos .info-danger {
     position: relative;
     background-color: #e74c3c;
     padding: 20px 50px;
     color: var(--white-clr);
 }
-.echnage-infos .info-danger img {
+.echange-infos .info-danger img {
     height: 25px;
     position: absolute;
     top: 10px;
     right: 10px;
     transform: rotate(25deg);
 }
-.echnage-infos-side .get-support {
+.echange-infos-side .get-support {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
