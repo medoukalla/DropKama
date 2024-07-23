@@ -65,10 +65,10 @@
                 </a>
               </li>
               
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
             @endif
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
             
             <li>
               <form action="{{ route('voyager.logout') }}" method="POST">

@@ -8,9 +8,9 @@
                   <div class="content-left">
                   <span>Session</span>
                   <div class="d-flex align-items-center my-2">
-                      <h3 class="mb-0 me-2">{{ $users->count() }}</h3>
+                      <h3 class="mb-0 me-2">{{ \App\Models\User::count() }}</h3>
                   </div>
-                  <p class="mb-0">Total users</p>
+                  <p class="mb-0">Nombre total d'utilisateurs</p>
                   </div>
                   <div class="avatar">
                   <span class="avatar-initial rounded bg-label-primary">
@@ -28,173 +28,140 @@
             <h5 class="row me-2 border-0 px-3 py-2">Filtre de recherche</h5>
             <div class="d-flex justify-content-between align-items-center row pb-2 gap-3 gap-md-0">
                 <div class="col-md-4 user_role">
-                <select wire:model="role_filter" id="UserRole" class="form-select text-capitalize">
-                    <option value=""> Sélectionnez un rôle </option>
-                    @foreach ( $roles as $role )
-                        <option value="{{ $role->id }}">{{ $role->display_name }}</option>
-                    @endforeach
-                </select>
+                    <select wire:model="role_filter" id="UserRole" class="form-select text-capitalize">
+                        <option value=""> Sélectionnez un rôle </option>
+                        @foreach ( $roles as $role )
+                            <option value="{{ $role->id }}">{{ $role->display_name }}</option>
+                        @endforeach
+                    </select>
                 </div>
+
+                <div class="col-md-8">
+                    <div class="dt-action-buttons text-xl-end text-lg-start text-md-end text-start d-flex align-items-center justify-content-end flex-md-row flex-column mb-3 mb-md-0">
+                    <div class="dt-buttons btn-group flex-wrap">
+                        <button class="btn btn-secondary add-new btn-primary waves-effect waves-light" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAddUser"><span><i class="ti ti-plus me-0 me-sm-1 ti-xs"></i><span class="d-none d-sm-inline-block">Nouveau</span></span></button> 
+                    </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     
-        <div class="row me-2 border-0 px-3 py-2">
-            <div class="col-md-2">
-                <div class="me-3">
-                </div>
-            </div>
-            <div class="col-md-10">
-                <div class="dt-action-buttons text-xl-end text-lg-start text-md-end text-start d-flex align-items-center justify-content-end flex-md-row flex-column mb-3 mb-md-0">
-                {{-- <div id="DataTables_Table_0_filter" class="dataTables_filter"><label><input type="search" class="form-control" placeholder="Search.." aria-controls="DataTables_Table_0"></label></div> --}}
-                <div class="dt-buttons btn-group flex-wrap">
-                    {{-- <div class="btn-group"><button class="btn btn-secondary buttons-collection dropdown-toggle btn-label-secondary mx-3 waves-effect waves-light" tabindex="0" aria-controls="DataTables_Table_0" type="button" aria-haspopup="dialog" aria-expanded="false"><span><i class="ti ti-screen-share me-1 ti-xs"></i>Export</span></button></div> --}}
-                    <button class="btn btn-secondary add-new btn-primary waves-effect waves-light" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAddUser"><span><i class="ti ti-plus me-0 me-sm-1 ti-xs"></i><span class="d-none d-sm-inline-block">Add New User</span></span></button> 
-                </div>
-                </div>
-            </div>
-        </div>
+
         <div class="card-datatable table-responsive">
     
-        <table class="datatables-users table">
-            <thead class="border-top">
-            <tr>
-                <th>Utilisateur</th>
-                <th>Rôle</th>
-                <th>Statut</th>
-                <th>Inscrivez-vous à</th>
-            </tr>
-            </thead>
-            <tbody>
-                @foreach ( $users as $user )
-                    
-                    <tr class="odd 
-                        @if( $role_filter != "" && $user->role_id != $role_filter ) d-none @endif 
-                        @if( $role_filter != "" && $user->role_id != $role_filter ) d-none @endif 
-                        @if( $plan_filter != "" && $user->role_id != $plan_filter ) d-none @endif  " >
-                        <td class="sorting_1">
-                            <div class="d-flex justify-content-start align-items-center user-name">
-                                <div class="avatar-wrapper">
-                                    <div class="avatar me-3"><img src="http://localhost/storage/settings/July2024/qAj5LrvZ12VszJbMKfmV.png" alt="Avatar" class="rounded-circle"></div>
+            <table class="datatables-users table">
+                <thead class="border-top">
+                <tr>
+                    <th>Utilisateur</th>
+                    <th>Rôle</th>
+                    <th>Statut</th>
+                    <th>Inscrivez-vous à</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach ( $users as $user )
+                        
+                        <tr class="odd 
+                            @if( $role_filter != "" && $user->role_id != $role_filter ) d-none @endif 
+                            @if( $role_filter != "" && $user->role_id != $role_filter ) d-none @endif 
+                            @if( $plan_filter != "" && $user->role_id != $plan_filter ) d-none @endif  " >
+                            <td class="sorting_1">
+                                <div class="d-flex justify-content-start align-items-center user-name">
+                                    <div class="avatar-wrapper">
+                                        <div class="avatar me-3"><img src="{{ asset('storage/'.Voyager::setting('admin.icon_image'))}}" alt="Avatar" class="rounded-circle"></div>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <a href="{{ route('seller.profile', $user) }}" class="text-body text-truncate">
+                                            <span class="fw-medium">{{ $user->name }}</span>
+                                        </a>
+                                        <small class="text-muted">{{ $user->email }}</small>
+                                    </div>
                                 </div>
-                                <div class="d-flex flex-column">
-                                    <a href="{{ route('seller.profile', $user) }}" class="text-body text-truncate">
-                                        <span class="fw-medium">{{ $user->name }}</span>
-                                    </a>
-                                    <small class="text-muted">{{ $user->email }}</small>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <span class="text-truncate d-flex align-items-center">
-                                <span class="badge badge-center rounded-pill bg-label-primary w-px-30 h-px-30 me-2">
-                                    <i class="ti ti-chart-pie-2 ti-sm"></i>
+                            </td>
+                            <td>
+                                <span class="text-truncate d-flex align-items-center">
+                                    <span class="badge badge-center rounded-pill bg-label-primary w-px-30 h-px-30 me-2">
+                                        <i class="ti ti-chart-pie-2 ti-sm"></i>
+                                    </span>
+                                    {{ $user->role->display_name }}
                                 </span>
-                                {{ $user->role->display_name }}
-                            </span>
-                        </td>
-                        <td>
-                            <span class="badge bg-label-success" text-capitalized="">Active</span>
-                        </td>
-                        <td>
-                            <span class="fw-medium">{{ $user->created_at->diffForHumans() }}</span>
-                        </td>
-                        {{-- <td>
-                            <div class="d-flex align-items-center">
-                                <a href="javascript:;" class="text-body">
-                                    <i class="ti ti-edit ti-sm me-2"></i>
-                                </a>
-                                <a href="javascript:;" class="text-body delete-record">
-                                    <i class="ti ti-trash ti-sm mx-2"></i>
-                                </a>
-                                <a href="javascript:;" class="text-body dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                    <i class="ti ti-dots-vertical ti-sm mx-1"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end m-0">
-                                    <a href="{{ route('seller.profile', $user) }}" class="dropdown-item">
-                                        Profile
+                            </td>
+                            <td>
+                                <span class="badge bg-label-success" text-capitalized="">Active</span>
+                            </td>
+                            <td>
+                                <span class="fw-medium">{{ $user->created_at->diffForHumans() }}</span>
+                            </td>
+                            {{-- <td>
+                                <div class="d-flex align-items-center">
+                                    <a href="javascript:;" class="text-body">
+                                        <i class="ti ti-edit ti-sm me-2"></i>
                                     </a>
+                                    <a href="javascript:;" class="text-body delete-record">
+                                        <i class="ti ti-trash ti-sm mx-2"></i>
+                                    </a>
+                                    <a href="javascript:;" class="text-body dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="ti ti-dots-vertical ti-sm mx-1"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end m-0">
+                                        <a href="{{ route('seller.profile', $user) }}" class="dropdown-item">
+                                            Profile
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        </td> --}}
-                    </tr>
+                            </td> --}}
+                        </tr>
 
-                @endforeach
-            </tbody>
-        </table>
+                    @endforeach
+                </tbody>
+            </table>
+            
         </div>
     
         <div wire:ignore.self class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAddUser" aria-labelledby="offcanvasAddUserLabel">
             <div class="offcanvas-header">
-            <h5 id="offcanvasAddUserLabel" class="offcanvas-title">Add User</h5>
+            <h5 id="offcanvasAddUserLabel" class="offcanvas-title">Ajouter un nouvel utilisateur</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body mx-0 flex-grow-0 pt-0 h-100">
             <form class="add-new-user pt-0"  >
                 <div class="mb-3">
-                    <label class="form-label" for="add-user-fullname">Full Name</label>
+                    <label class="form-label" for="add-user-fullname">Nom et prénom</label>
                     <input wire:model.lazy="user_name" type="text" class="form-control" placeholder="Full name" />
                     @error('user_name')
                         <div class="alert alert-danger" role="alert">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="add-user-email">Email</label>
+                    <label class="form-label" for="add-user-email">E-mail</label>
                     <input wire:model.lazy="user_email" type="text" class="form-control" placeholder="john.doe@example.com" aria-label="user@example.com" />
                     @error('user_email')
                         <div class="alert alert-danger" role="alert">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="add-user-email">Password</label>
+                    <label class="form-label" for="add-user-email">Mot de passe</label>
                     <input wire:model.lazy="password" type="password" class="form-control" placeholder="********" />
                     @error('password')
                         <div class="alert alert-danger" role="alert">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="add-user-contact">Phone number</label>
+                    <label class="form-label" for="add-user-contact">Numéro de téléphone</label>
                     <input wire:model.lazy="user_phone" type="number" class="form-control phone-mask" placeholder="+1 (609) 988-44-11" />
                     @error('user_phone')
                         <div class="alert alert-danger" role="alert">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="add-user-company">Store name</label>
-                    <input wire:model.lazy="user_store" type="text" class="form-control" placeholder="Store name"  />
+                    <label class="form-label" for="add-user-company">Nom d'utilisateur dans le jeu</label>
+                    <input wire:model.lazy="user_store" type="text" class="form-control" placeholder="Nom d'utilisateur dans le jeu" onkeydown="return /[a-zA-Z\-]/i.test(event.key)"  />
                     @error('user_store')
                         <div class="alert alert-danger" role="alert">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="mb-3">
-                <label class="form-label" for="country">Country</label>
-                <select wire:model="user_country"  class="select2 form-select">
-                    <option value="">Select</option>
-                    <option value="Australia">Australia</option>
-                    <option value="Bangladesh">Bangladesh</option>
-                    <option value="Belarus">Belarus</option>
-                    <option value="Brazil">Brazil</option>
-                    <option value="Canada">Canada</option>
-                    <option value="China">China</option>
-                    <option value="France">France</option>
-                    <option value="Germany">Germany</option>
-                    <option value="India">India</option>
-                    <option value="Indonesia">Indonesia</option>
-                    <option value="Israel">Israel</option>
-                    <option value="Italy">Italy</option>
-                    <option value="Japan">Japan</option>
-                    <option value="Korea">Korea, Republic of</option>
-                    <option value="Mexico">Mexico</option>
-                    <option value="Philippines">Philippines</option>
-                    <option value="Russia">Russian Federation</option>
-                    <option value="South Africa">South Africa</option>
-                    <option value="Thailand">Thailand</option>
-                    <option value="Turkey">Turkey</option>
-                    <option value="Ukraine">Ukraine</option>
-                    <option value="United Arab Emirates">United Arab Emirates</option>
-                    <option value="United Kingdom">United Kingdom</option>
-                    <option value="United States">United States</option>
-                </select>
-                </div>
+                
                 <div class="mb-3">
                 <label class="form-label" for="user-role">User Role</label>
                 <select wire:model="user_role_id" class="form-select">
@@ -203,15 +170,7 @@
                     @endforeach
                 </select>
                 </div>
-                <div class="mb-4">
-                <label class="form-label" for="user-plan">Select Plan</label>
-                <select wire:model="user_plan" class="form-select">
-                    <option value="basic">Basic</option>
-                    <option value="enterprise">Enterprise</option>
-                    <option value="company">Company</option>
-                    <option value="team">Team</option>
-                </select>
-                </div>
+                
 
                 @if ( !is_null( $status ) )
                     <div class="alert alert-{{ $status }} alert-dismissible mt-2" role="alert">

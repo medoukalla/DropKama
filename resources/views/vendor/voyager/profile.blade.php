@@ -40,7 +40,7 @@
             {{ csrf_field() }}
 
             <div class="row mt-5">
-                <div class="col-12 col-md-8 offset-2">
+                <div class="col-12 col-md-8 offset-md-2">
                     <div class="panel panel-bordered">
                     {{-- <div class="panel"> --}}
                         @if (count($errors) > 0)
@@ -100,7 +100,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-md-8 offset-2 mt-4s">
+                <div class="col-12 col-md-8 offset-md-2 mt-4s">
 
                     <button type="submit" class="btn btn-primary pull-right save">
                         {{ __('voyager::generic.save') }}

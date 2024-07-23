@@ -92,20 +92,24 @@
                             style="cursor: pointer;">Échangez la demande</div>
                         <div wire:loading wire:target="save_echange" class="main-btn mt-3 py-4 w-100"
                             style="cursor: pointer;">
+                        <div wire:loading.remove wire:click="save_echange()" class="main-btn mt-3 py-4"
+                            style="cursor: pointer;">Échangez la demande</div>
+                        <div wire:loading wire:target="save_echange" class="main-btn mt-3 py-4 w-100"
+                            style="cursor: pointer;">
                             <div class="loading-animation">
                                 <img src="{{ asset('frontend/images/svg/loading-animation.svg') }}"
                                     alt="Loading animation">
                             </div>
-                        @endauth
-                        @guest
-                            <div class="alert alert-warning mt-2">
-                                Veuillez vous <a href="{{ route('login') }}">connecter</a> ou <a
-                                    href="{{ route('register') }}">créer un compte</a> pour terminer cet échange
-                                immédiatement!
-                            </div>
-                        @endguest
+                    @endauth
 
+                    @guest
+                    <div class="alert alert-warning mt-2">
+                        Veuillez vous <a href="{{ route('login') }}">connecter</a> ou <a
+                            href="{{ route('register') }}">créer un compte</a> pour terminer cet échange
+                        immédiatement!
                     </div>
+                    @endguest
+
                 </div>
             </div>
             <div class="col-12 col-md-6">

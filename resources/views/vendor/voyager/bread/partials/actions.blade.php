@@ -6,10 +6,10 @@
     @endphp
     @can ($action->getPolicy(), $data)
         @if ($action->shouldActionDisplayOnRow($data))
-            @if ($action->getTitle() == 'Delete' )
-            <button class="btn btn-sm btn-danger deleteResourceBtn" data-route="{{ route('voyager.'.$dataType->slug.'.destroy', $data->id) }}" data-id="{{ $data->id }}"  type="button" data-bs-toggle="offcanvas" data-bs-target="#deleteConvas" aria-controls="deleteConvas">
-                {{ $action->getTitle() }}
-            </button>
+            @if ($action->getTitle() == 'Delete' || $action->getTitle() == 'Supprimer' )
+                <button class="btn btn-sm btn-danger deleteResourceBtn" data-route="{{ route('voyager.'.$dataType->slug.'.destroy', $data->id) }}" data-id="{{ $data->id }}"  type="button" data-bs-toggle="offcanvas" data-bs-target="#deleteConvas" aria-controls="deleteConvas">
+                    {{ $action->getTitle() }}
+                </button>
             @else
                 <a href="{{ $action->getRoute($dataType->name) }}" title="{{ $action->getTitle() }}" {!! $action->convertAttributesToHtml() !!}>
                     <i class="{{ $action->getIcon() }}"></i> <span class="hidden-xs hidden-sm">{{ $action->getTitle() }}</span>
@@ -25,5 +25,3 @@
         <input type="hidden" name="ids" value="" class="selected_ids">
     </form>
 @endif
-{{-- alert({{ route('voyager.'.$dataType->slug.'.destroy', 1) }});$('form#delete_form').attr('action', 1) --}}
-{{-- {{ route('voyager.servers.destroy', $data->id) }} --}}

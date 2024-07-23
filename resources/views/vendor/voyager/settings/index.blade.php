@@ -263,24 +263,28 @@
                                 <h3 class="panel-title">
                                     {{ $setting->display_name }} @if(config('voyager.show_dev_tips'))<code>setting('{{ $setting->key }}')</code>@endif
                                 </h3>
-                                <div class="panel-actions">
-                                    <a href="{{ route('voyager.settings.move_up', $setting->id) }}">
-                                        <i class="sort-icons voyager-sort-asc"></i>
-                                    </a>
-                                    <a href="{{ route('voyager.settings.move_down', $setting->id) }}">
-                                        <i class="sort-icons voyager-sort-desc"></i>
-                                    </a>
-                                    @can('delete', Voyager::model('Setting'))
-                                    <i class="voyager-trash"
-                                       data-id="{{ $setting->id }}"
-                                       data-display-key="{{ $setting->key }}"
-                                       data-display-name="{{ $setting->display_name }}"></i>
-                                    @endcan
-                                </div>
+                                @if ( Auth::user()->role->id == 3 )
+                                    
+                                    <div class="panel-actions">
+                                        <a href="{{ route('voyager.settings.move_up', $setting->id) }}">
+                                            <i class="sort-icons voyager-sort-asc"></i>
+                                        </a>
+                                        <a href="{{ route('voyager.settings.move_down', $setting->id) }}">
+                                            <i class="sort-icons voyager-sort-desc"></i>
+                                        </a>
+                                        @can('delete', Voyager::model('Setting'))
+                                        <i class="voyager-trash"
+                                        data-id="{{ $setting->id }}"
+                                        data-display-key="{{ $setting->key }}"
+                                        data-display-name="{{ $setting->display_name }}"></i>
+                                        @endcan
+                                    </div>
+
+                                @endif
                             </div>
 
                             <div class="panel-body no-padding-left-right">
-                                <div class="col-md-10 no-padding-left-right">
+                                <div class="@if ( Auth::user()->role->id == 3 ) col-md-10 @else col-md-12  @endif  no-padding-left-right">
                                     @if ($setting->type == "text")
                                         <input type="text" class="form-control" name="{{ $setting->key }}" value="{{ $setting->value }}">
                                     @elseif($setting->type == "text_area")
@@ -351,13 +355,15 @@
                                         @endif
                                     @endif
                                 </div>
-                                <div class="col-md-2 no-padding-left-right">
-                                    <select class="form-control group_select" name="{{ $setting->key }}_group">
-                                        @foreach($groups as $group)
-                                        <option value="{{ $group }}" {!! $setting->group == $group ? 'selected' : '' !!}>{{ $group }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                @if ( Auth::user()->role->id == 3 )
+                                    <div class="col-md-2 no-padding-left-right">
+                                        <select class="form-control group_select" name="{{ $setting->key }}_group">
+                                            @foreach($groups as $group)
+                                            <option value="{{ $group }}" {!! $setting->group == $group ? 'selected' : '' !!}>{{ $group }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                @endif
                             </div>
                             @if(!$loop->last)
                                 <hr>
@@ -369,73 +375,75 @@
                 </div>
 
             </div>
-            <button type="submit" class="btn btn-primary pull-right">{{ __('voyager::settings.save') }}</button>
+            <button type="submit" class="btn btn-secondary add-new btn-warning text-white waves-effect waves-light pull-right">{{ __('voyager::settings.save') }}</button>
         </form>
 
         <div style="clear:both"></div>
 
         @can('add', Voyager::model('Setting'))
-        <div class="panel new-setting-section" style="margin-top:10px;">
-            {{-- <div class="panel-heading new-setting">
-                <hr>
-                <h3 class="panel-title"></h3>
-            </div> --}}
-            <div class="panel-body">
-                <form action="{{ route('voyager.settings.store') }}" method="POST">
-                    {{ csrf_field() }}
-                    <input type="hidden" name="setting_tab" class="setting_tab" value="{{ $active }}" />
-                    <div class="col-md-3">
-                        <label for="display_name">{{ __('voyager::generic.name') }}</label>
-                        <input type="text" class="form-control" name="display_name" placeholder="{{ __('voyager::settings.help_name') }}" required="required">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="key">{{ __('voyager::generic.key') }}</label>
-                        <input type="text" class="form-control" name="key" placeholder="{{ __('voyager::settings.help_key') }}" required="required">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="type">{{ __('voyager::generic.type') }}</label>
-                        <select name="type" class="form-control" required="required">
-                            <option value="">{{ __('voyager::generic.choose_type') }}</option>
-                            <option value="text">{{ __('voyager::form.type_textbox') }}</option>
-                            <option value="text_area">{{ __('voyager::form.type_textarea') }}</option>
-                            <option value="rich_text_box">{{ __('voyager::form.type_richtextbox') }}</option>
-                            <option value="markdown_editor">{{ __('voyager::form.type_markdowneditor') }}</option>
-                            <option value="code_editor">{{ __('voyager::form.type_codeeditor') }}</option>
-                            <option value="checkbox">{{ __('voyager::form.type_checkbox') }}</option>
-                            <option value="radio_btn">{{ __('voyager::form.type_radiobutton') }}</option>
-                            <option value="select_dropdown">{{ __('voyager::form.type_selectdropdown') }}</option>
-                            <option value="file">{{ __('voyager::form.type_file') }}</option>
-                            <option value="image">{{ __('voyager::form.type_image') }}</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="group">{{ __('voyager::settings.group') }}</label>
-                        <select class="form-control group_select group_select_new" name="group">
-                            @foreach($groups as $group)
-                                <option value="{{ $group }}">{{ $group }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col-md-12">
-                        <a id="toggle_options"><i class="voyager-double-down"></i> {{ mb_strtoupper(__('voyager::generic.options')) }}</a>
-                        <div class="new-settings-options">
-                            <label for="options">{{ __('voyager::generic.options') }}
-                                <small>{{ __('voyager::settings.help_option') }}</small>
-                            </label>
-                            <div id="options_editor" class="form-control min_height_200" data-language="json"></div>
-                            <textarea id="options_textarea" name="details" class="hidden"></textarea>
-                            <div id="valid_options" class="alert-success alert" style="display:none">{{ __('voyager::json.valid') }}</div>
-                            <div id="invalid_options" class="alert-danger alert" style="display:none">{{ __('voyager::json.invalid') }}</div>
+        @if ( Auth::user()->role->id == 3)    
+            <div class="panel new-setting-section" style="margin-top:10px;">
+                {{-- <div class="panel-heading new-setting">
+                    <hr>
+                    <h3 class="panel-title"></h3>
+                </div> --}}
+                <div class="panel-body">
+                    <form action="{{ route('voyager.settings.store') }}" method="POST">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="setting_tab" class="setting_tab" value="{{ $active }}" />
+                        <div class="col-md-3">
+                            <label for="display_name">{{ __('voyager::generic.name') }}</label>
+                            <input type="text" class="form-control" name="display_name" placeholder="{{ __('voyager::settings.help_name') }}" required="required">
                         </div>
-                    </div>
-                    <div style="clear:both"></div>
-                    <button type="submit" class="btn btn-primary pull-right new-setting-btn">
-                        <i class="voyager-plus"></i> {{ __('voyager::settings.add_new') }}
-                    </button>
-                    <div style="clear:both"></div>
-                </form>
+                        <div class="col-md-3">
+                            <label for="key">{{ __('voyager::generic.key') }}</label>
+                            <input type="text" class="form-control" name="key" placeholder="{{ __('voyager::settings.help_key') }}" required="required">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="type">{{ __('voyager::generic.type') }}</label>
+                            <select name="type" class="form-control" required="required">
+                                <option value="">{{ __('voyager::generic.choose_type') }}</option>
+                                <option value="text">{{ __('voyager::form.type_textbox') }}</option>
+                                <option value="text_area">{{ __('voyager::form.type_textarea') }}</option>
+                                <option value="rich_text_box">{{ __('voyager::form.type_richtextbox') }}</option>
+                                <option value="markdown_editor">{{ __('voyager::form.type_markdowneditor') }}</option>
+                                <option value="code_editor">{{ __('voyager::form.type_codeeditor') }}</option>
+                                <option value="checkbox">{{ __('voyager::form.type_checkbox') }}</option>
+                                <option value="radio_btn">{{ __('voyager::form.type_radiobutton') }}</option>
+                                <option value="select_dropdown">{{ __('voyager::form.type_selectdropdown') }}</option>
+                                <option value="file">{{ __('voyager::form.type_file') }}</option>
+                                <option value="image">{{ __('voyager::form.type_image') }}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="group">{{ __('voyager::settings.group') }}</label>
+                            <select class="form-control group_select group_select_new" name="group">
+                                @foreach($groups as $group)
+                                    <option value="{{ $group }}">{{ $group }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+                            <a id="toggle_options"><i class="voyager-double-down"></i> {{ mb_strtoupper(__('voyager::generic.options')) }}</a>
+                            <div class="new-settings-options">
+                                <label for="options">{{ __('voyager::generic.options') }}
+                                    <small>{{ __('voyager::settings.help_option') }}</small>
+                                </label>
+                                <div id="options_editor" class="form-control min_height_200" data-language="json"></div>
+                                <textarea id="options_textarea" name="details" class="hidden"></textarea>
+                                <div id="valid_options" class="alert-success alert" style="display:none">{{ __('voyager::json.valid') }}</div>
+                                <div id="invalid_options" class="alert-danger alert" style="display:none">{{ __('voyager::json.invalid') }}</div>
+                            </div>
+                        </div>
+                        <div style="clear:both"></div>
+                        <button type="submit" class="btn btn-primary pull-right new-setting-btn">
+                            <i class="voyager-plus"></i> {{ __('voyager::settings.add_new') }}
+                        </button>
+                        <div style="clear:both"></div>
+                    </form>
+                </div>
             </div>
-        </div>
+        @endif
         @endcan
     </div>
 

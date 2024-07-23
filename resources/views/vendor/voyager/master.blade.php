@@ -63,6 +63,13 @@
     
     @livewireStyles
 
+    <style>
+        /* Loading animation */
+        .loading-animation img {
+            animation: loading 1s ease-in-out infinite;
+        }
+    </style>
+
 </head>
 
 <?php

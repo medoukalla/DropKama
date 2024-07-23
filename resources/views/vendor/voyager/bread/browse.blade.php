@@ -35,7 +35,7 @@
         {{-- Search  --}}
         <div class="card-header border-bottom">
             <form method="get" class="form-search">
-                <h5 class="row me-2 border-0 px-3 py-2">Search Filter</h5>
+                <h5 class="row me-2 border-0 px-3 py-2">Filtre de recherche</h5>
                 <div class="d-flex justify-content-between align-items-center row pb-2 gap-3 gap-md-0">
                     <div class="col user_role">
                         <select id="search_key" name="key" class="form-select text-capitalize">
@@ -60,7 +60,7 @@
                         <button class="btn btn-secondary add-new btn-primary waves-effect waves-light" tabindex="0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAddUser">
                             <span>
                                 <i class="ti ti-plus me-0 me-sm-1 ti-xs"></i>
-                                <span class="d-none d-sm-inline-block">Add New {{ $dataType->getTranslatedAttribute('display_name_singular') }}</span>
+                                <span class="d-none d-sm-inline-block">Nouveau</span>
                             </span>
                         </button> 
                     </div>
@@ -303,7 +303,7 @@
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAddUser" aria-labelledby="offcanvasAddUserLabel">
         <div class="offcanvas-header">
-        <h5 id="offcanvasAddUserLabel" class="offcanvas-title">Add new {{ $dataType->getTranslatedAttribute('display_name_plural') }}</h5>
+        <h5 id="offcanvasAddUserLabel" class="offcanvas-title">Nouveau</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body mx-0 flex-grow-0 pt-0 h-100">
