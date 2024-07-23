@@ -31,7 +31,7 @@
     </div>
     <hr />
     <div class="row mt-5">
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-6 col-lg-4">
         <div class="links-title">Solutions de paiement</div>
         <div class="payment-box">
           <img src="{{ asset('frontend/images/payments/skrill.svg') }}" alt="skrill" />
@@ -48,7 +48,7 @@
           <img src="{{ asset('frontend/images/payments/visa.svg') }}" alt="visa" />
         </div>
       </div>
-      <div class="col-12 col-md-8">
+      <div class="col-12 col-md-6 col-lg-8">
         <div class="links-title">Contactez-nous</div>
         <div class="social-media">
           <a href="{{  setting('site.whatsapp') }}" target="_blanck">

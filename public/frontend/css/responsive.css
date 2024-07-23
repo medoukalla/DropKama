@@ -195,7 +195,7 @@
     }
     .payment-box {
         grid-template-columns: 50px 50px 50px;
-        column-gap: 50px;
+        column-gap: 5px;
         row-gap: 5px;
     }
     .payment-box img {
@@ -314,9 +314,10 @@
         display: none !important;
     }
     .payment-box {
-        justify-content: center;
         margin-bottom: 2rem;
+        column-gap: 5px;
     }
+    
     .payment-methods .row {
         flex-direction: column-reverse;
         gap: 20px;

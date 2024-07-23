@@ -3,13 +3,13 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <div class="kamas-settings">
-                    <div class="selector">
+                    <div class="selector" id="formule">
                         <label for="" class="mt-0">Serveur :</label>
                         <div id="selectField"
                             onclick="$('ul.serversList').toggle('slow'); $('.input-arrow-servers').toggleClass('active')">
 
                             <div class="d-flex align-items-center gap-3">
-                                <img src="{{ asset('storage//' . $server->image) }}" alt="" class="dofus-egg" />
+                                <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt="" class="dofus-egg" />
                                 <p id="selectText">{{ $server->name }} - ( {{ $server->map->name }} )</p>
                             </div>
                             <img src="{{ asset('frontend/images/svg/input-arrow.svg') }}" alt="Arrow"
@@ -20,7 +20,7 @@
                             @foreach ($servers as $the_server)
                                 <li class="options @if ($the_server->id == $server->id) d-none @endif"
                                     wire:click="change_server({{ $the_server->id }})">
-                                    <img src="{{ asset('storage//' . $the_server->image) }}" alt=""
+                                    <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt=""
                                         class="dofus-egg" />
                                     <p>{{ $the_server->name }} - ( {{ $the_server->map->name }} )</p>
                                 </li>
@@ -289,54 +289,33 @@
                     <div class="table-title">
                         Classique
                     </div>
-                    <table class="table table-responsive table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">Server</th>
-                                <th scope="col">Paypal</th>
-                                <th scope="col">Skrill</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">Draconiro</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="incomplet">Incomplet</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Hellmina</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="incomplet">Incomplet</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Imagiro</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="complet">Complet</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">talkasha</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="incomplet">Incomplet</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">tylezia</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="incomplet">Incomplet</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Ombre</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="incomplet">Incomplet</td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+                    <div class="table-content" >
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Server</th>
+                                    <th scope="col">Paypal</th>
+                                    <th scope="col">Skrill</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ( $servers->where('map_id', 1) as $server )    
+                                    <tr style="cursor:pointer;" wire:click="change_server({{ $server->id }})" onclick="$('html, body').animate({scrollTop: $('div#formule').offset().top}, 50);" >
+                                        <th scope="row">{{ $server->name }} </th>
+                                        <td>{{ $server->paypal_price }}€</td>
+                                        <td>{{ $server->skrill_price }}$</td>
+                                        @if ( $server->active == true )
+                                            <td class="incomplet">Incomplet</td>
+                                        @else 
+                                            <td class="complet">Complété</td>
+                                        @endif
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             {{-- Touch --}}
@@ -345,54 +324,33 @@
                     <div class="table-title">
                         Touch
                     </div>
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">Server</th>
-                                <th scope="col">Paypal</th>
-                                <th scope="col">Skrill</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">Draconiro</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="incomplet">Incomplet</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Hellmina</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="incomplet">Incomplet</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Imagiro</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="complet">Complet</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">talkasha</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="incomplet">Incomplet</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">tylezia</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="incomplet">Incomplet</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Ombre</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="incomplet">Incomplet</td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+                    <div class="table-content" >
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Server</th>
+                                    <th scope="col">Paypal</th>
+                                    <th scope="col">Skrill</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ( $servers->where('map_id', 2) as $server )    
+                                    <tr style="cursor:pointer;" wire:click="change_server({{ $server->id }})" onclick="$('html, body').animate({scrollTop: $('div#formule').offset().top}, 50);" >
+                                        <th scope="row">{{ $server->name }} </th>
+                                        <td>{{ $server->paypal_price }}€</td>
+                                        <td>{{ $server->skrill_price }}$</td>
+                                        @if ( $server->active == true )
+                                            <td class="incomplet">Incomplet</td>
+                                        @else 
+                                            <td class="complet">Complété</td>
+                                        @endif
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             {{-- Retro --}}
@@ -401,54 +359,33 @@
                     <div class="table-title">
                         Retro
                     </div>
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">Server</th>
-                                <th scope="col">Paypal</th>
-                                <th scope="col">Skrill</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">Draconiro</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="incomplet">Incomplet</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Hellmina</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="incomplet">Incomplet</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Imagiro</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="complet">Complet</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">talkasha</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="incomplet">Incomplet</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">tylezia</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="incomplet">Incomplet</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Ombre</th>
-                                <td>0.446€</td>
-                                <td>0.455$</td>
-                                <td class="incomplet">Incomplet</td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+                    <div class="table-content" >
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Server</th>
+                                    <th scope="col">Paypal</th>
+                                    <th scope="col">Skrill</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ( $servers->where('map_id', 3) as $server )    
+                                    <tr style="cursor:pointer;" wire:click="change_server({{ $server->id }})" onclick="$('html, body').animate({scrollTop: $('div#formule').offset().top}, 50);" >
+                                        <th scope="row">{{ $server->name }} </th>
+                                        <td>{{ $server->paypal_price }}€</td>
+                                        <td>{{ $server->skrill_price }}$</td>
+                                        @if ( $server->active == true )
+                                            <td class="incomplet">Incomplet</td>
+                                        @else 
+                                            <td class="complet">Complété</td>
+                                        @endif
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
