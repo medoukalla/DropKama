@@ -9,7 +9,7 @@
                             onclick="$('ul.serversList').toggle('slow'); $('.input-arrow-servers').toggleClass('active')">
 
                             <div class="d-flex align-items-center gap-3">
-                                <img src="{{ asset('storage//' . $server->image) }}" alt="" class="dofus-egg" />
+                                <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt="" class="dofus-egg" />
                                 <p id="selectText">{{ $server->name }} - ( {{ $server->map->name }} )</p>
                             </div>
                             <img src="{{ asset('frontend/images/svg/input-arrow.svg') }}" alt="Arrow"
@@ -20,7 +20,7 @@
                             @foreach ($servers as $the_server)
                                 <li class="options @if ($the_server->id == $server->id) d-none @endif"
                                     wire:click="change_server({{ $the_server->id }})">
-                                    <img src="{{ asset('storage//' . $the_server->image) }}" alt=""
+                                    <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt=""
                                         class="dofus-egg" />
                                     <p>{{ $the_server->name }} - ( {{ $the_server->map->name }} )</p>
                                 </li>

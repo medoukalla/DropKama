@@ -8,7 +8,7 @@
                         <div id="selectField"
                             onclick="$('ul.fromList').toggle('slow'); $('.input-arrow-servers-from').toggleClass('active')">
                             <div class="d-flex align-items-center gap-3">
-                                <img src="{{ asset('storage//' . $server_from->image) }}" alt=""
+                                <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt=""
                                     class="dofus-egg" />
                                 <p id="selectText">{{ $server_from->name }} - ( {{ $server_from->map->name }} )</p>
                             </div>
@@ -19,7 +19,7 @@
                             @foreach ($servers as $the_server)
                                 <li class="options @if ($the_server->id == $server_from->id || $the_server->id == $server_to->id) d-none @endif"
                                     wire:click="change_server_from({{ $the_server->id }})">
-                                    <img src="{{ asset('storage//' . $the_server->image) }}" alt=""
+                                    <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt=""
                                         class="dofus-egg" />
                                     <p>{{ $the_server->name }} - ( {{ $the_server->map->name }} )</p>
                                 </li>
@@ -51,7 +51,7 @@
                         <div id="selectField"
                             onclick="$('ul.toList').toggle('slow'); $('.input-arrow-servers-to').toggleClass('active')">
                             <div class="d-flex align-items-center gap-3">
-                                <img src="{{ asset('storage//' . $server_to->image) }}" alt=""
+                                <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt=""
                                     class="dofus-egg" />
                                 <p id="selectText">{{ $server_to->name }} - ( {{ $server_to->map->name }} )</p>
                             </div>
@@ -62,7 +62,7 @@
                             @foreach ($servers as $the_server)
                                 <li class="options @if ($the_server->id == $server_to->id || $the_server->id == $server_from->id) d-none @endif"
                                     wire:click="change_server_to({{ $the_server->id }})">
-                                    <img src="{{ asset('storage//' . $the_server->image) }}" alt=""
+                                    <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt=""
                                         class="dofus-egg" />
                                     <p>{{ $the_server->name }} - ( {{ $the_server->map->name }} )</p>
                                 </li>

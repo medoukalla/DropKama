@@ -10,12 +10,11 @@
 
                 @php
                     $relationshipData = (isset($data)) ? $data : $dataTypeContent;
-                    // dd( $relationshipData );
                     $model = app($options->model);
                     $query = $model::where($options->key,$relationshipData->{$options->column})->first();
                 @endphp
 
-                @if(isset($query))
+                @if(isset($query))  
                     <p>{{ $query->{$options->label} }}</p>
                 @else
                     <p>{{ __('voyager::generic.no_results') }}</p>
@@ -23,10 +22,6 @@
 
             @else
 
-                @php
-                    // dd($view)
-                    // dd( $options->column )
-                @endphp
                 <select
                     class="form-control select2-ajax" name="{{ $options->column }}"
                     data-get-items-route="{{route('voyager.' . $dataType->slug.'.relation')}}"
@@ -47,7 +42,7 @@
                     @endif
                     
                     @foreach($query as $relationshipData)
-                        <option @if ( $dataTypeContent->{$options->column} == $relationshipData->{$options->key} ) selected @endif value="{{ $relationshipData->{$options->key} }}" >{{ $relationshipData->{$options->label} }}</option>
+                        <option @if ( @$dataTypeContent->{$options->column} == @$relationshipData->{$options->key} ) selected @endif value="{{ $relationshipData->{$options->key} }}" >{{ $relationshipData->{$options->label} }}</option>
                         {{-- <option value="{{ $relationshipData->{$options->key} }}" @if(old($options->column, $dataTypeContent->{$options->column}) == $relationshipData->{$options->key}) selected="selected" @endif>{{ $relationshipData->{$options->label} }}</option> --}}
                     @endforeach
                 </select>
