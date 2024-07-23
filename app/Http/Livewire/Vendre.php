@@ -56,8 +56,15 @@ class Vendre extends Component
 
     public function render()
     {
-
-        $this->total = (int)$this->quantity * (int)$this->server->price;
+        if ( $this->payment->svg_name == 'bank-transfer'  ) {
+            $this->total = (int)$this->quantity * (int)$this->server->cih_price;
+        }elseif ( $this->payment->svg_name == 'paypal' ) {
+            $this->total = (int)$this->quantity * (int)$this->server->paypal_price;
+        }elseif ( $this->payment->svg_name == 'skrill' ) {
+            $this->total = (int)$this->quantity * (int)$this->server->skrill_price;
+        }else {
+            $this->total = (int)$this->quantity * (int)$this->server->price;
+        }
 
         return view('livewire.frontend.vendre');
     }

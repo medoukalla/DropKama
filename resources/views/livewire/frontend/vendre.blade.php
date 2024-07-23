@@ -40,12 +40,19 @@
                     </div>
                     <div class="selector">
                         <label for="">Methodes de paiement :</label>
+
+                        
+
                         <div id="selectField"
                             onclick="$('ul.paymentsList').toggle('slow'); $('.input-arrow-payments').toggleClass('active')">
                             <div class="d-flex align-items-center gap-3">
                                 <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}"
                                     alt="" class="currency ps-2" />
-                                <p id="selectText">{{ $payment->name }}</p>
+                                @if ( $payment->svg_name = 'cih'  ) 
+                                    <p id="selectText">CIH</p>
+                                @else
+                                    <p id="selectText">{{ $payment->name }}</p>
+                                @endif
                             </div>
                             <img src="{{ asset('frontend/images/svg/input-arrow.svg') }}" alt="Arrow"
                                 class="input-arrow input-arrow-payments" />
@@ -58,7 +65,11 @@
                                     wire:click="change_payment({{ $paym->id }})">
                                     <img src="{{ asset('frontend/images/payments/' . $paym->svg_name . '.svg') }}"
                                         alt="" class="currency" />
-                                    <p>{{ $paym->name }}</p>
+                                    @if ( $paym->svg_name = 'cih'  ) 
+                                        <p>CIH</p>
+                                    @else
+                                        <p>{{ $paym->name }}</p>
+                                    @endif
                                 </li>
                             @endforeach
 
@@ -79,13 +90,36 @@
                         </p>
                     </div>
                     <hr />
-                    <div class="">
-                        <p>
-                            Prix par million : <span class="text-danger">{{ $server->price }} €</span>
-                        </p>
-                        <p>Montant total : <span class="text-danger">{{ $total }} €</span></p>
-                    </div>
 
+                    @if ( $payment->svg_name == 'bank-transfer'  )
+                        <div class="">
+                            <p>
+                                Prix par million : <span class="text-danger">{{ $server->cih_price }} DH</span>
+                            </p>
+                            <p>Montant total : <span class="text-danger">{{ $total }} DH</span></p>
+                        </div>
+                    @elseif ( $payment->svg_name == 'paypal' )
+                        <div class="">
+                            <p>
+                                Prix par million : <span class="text-danger">{{ $server->paypal_price }} €</span>
+                            </p>
+                            <p>Montant total : <span class="text-danger">{{ $total }} €</span></p>
+                        </div>
+                    @elseif ( $payment->svg_name == 'skrill' )
+                        <div class="">
+                            <p>
+                                Prix par million : <span class="text-danger">{{ $server->skrill_price }} $</span>
+                            </p>
+                            <p>Montant total : <span class="text-danger">{{ $total }} $</span></p>
+                        </div>
+                    @else
+                        <div class="">
+                            <p>
+                                Prix par million : <span class="text-danger">{{ $server->price }} $</span>
+                            </p>
+                            <p>Montant total : <span class="text-danger">{{ $total }} $</span></p>
+                        </div>
+                    @endif
 
                 </div>
             </div>
@@ -297,6 +331,7 @@
                                     <th scope="col">Server</th>
                                     <th scope="col">Paypal</th>
                                     <th scope="col">Skrill</th>
+                                    <th scope="col">Cih</th>
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
@@ -306,6 +341,7 @@
                                         <th scope="row">{{ $server->name }} </th>
                                         <td>{{ $server->paypal_price }}€</td>
                                         <td>{{ $server->skrill_price }}$</td>
+                                        <td>{{ $server->cih_price }}dh</td>
                                         @if ( $server->active == true )
                                             <td class="incomplet">Incomplet</td>
                                         @else 
@@ -332,6 +368,7 @@
                                     <th scope="col">Server</th>
                                     <th scope="col">Paypal</th>
                                     <th scope="col">Skrill</th>
+                                    <th scope="col">Cih</th>
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
@@ -341,6 +378,7 @@
                                         <th scope="row">{{ $server->name }} </th>
                                         <td>{{ $server->paypal_price }}€</td>
                                         <td>{{ $server->skrill_price }}$</td>
+                                        <td>{{ $server->cih_price }}dh</td>
                                         @if ( $server->active == true )
                                             <td class="incomplet">Incomplet</td>
                                         @else 
@@ -367,6 +405,7 @@
                                     <th scope="col">Server</th>
                                     <th scope="col">Paypal</th>
                                     <th scope="col">Skrill</th>
+                                    <th scope="col">Cih</th>
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
@@ -376,6 +415,7 @@
                                         <th scope="row">{{ $server->name }} </th>
                                         <td>{{ $server->paypal_price }}€</td>
                                         <td>{{ $server->skrill_price }}$</td>
+                                        <td>{{ $server->cih_price }}dh</td>
                                         @if ( $server->active == true )
                                             <td class="incomplet">Incomplet</td>
                                         @else 
