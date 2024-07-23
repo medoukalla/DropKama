@@ -217,7 +217,8 @@
                                                                                 padding-left: 0px;
                                                                             "
                                                                         align="center">
-                                                                        <a href="https://dropkamas.com/" target="_blank">
+                                                                        <a href="https://dropkamas.com/"
+                                                                            target="_blank">
                                                                             <img align="center" border="0"
                                                                                 src="https://dropkamas.com/img/logo.png"
                                                                                 alt="DropKamas" title="DropKamas"
@@ -377,8 +378,8 @@
                                                                 [endif]-->
                                                             <div align="center">
                                                                 <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://dropkamas.com/password/reset/" style="height:49px; v-text-anchor:middle; width:348px;" arcsize="0%"  stroke="f" fillcolor="#f48500"><w:anchorlock/><center style="color:#FFFFFF;font-family:'Montserrat',sans-serif;"><![endif]-->
-                                                                <a href="{{ $route }}"
-                                                                    target="_blank" class="v-button"
+                                                                <a href="{{ $route }}" target="_blank"
+                                                                    class="v-button"
                                                                     style="
                                                                             box-sizing: border-box;
                                                                             display: inline-block;
@@ -719,7 +720,7 @@
                                                                                         <img src="https://dropkamas.com/img/support.svg"
                                                                                             alt="Live Chat"
                                                                                             title="Live Chat"
-                                                                                            width="32"
+                                                                                            width="28"
                                                                                             style="
                                                                                                     outline: none;
                                                                                                     text-decoration: none;
@@ -824,7 +825,8 @@
                                                                         <a rel="noopener"
                                                                             href="https://dropkamas.com/cgv"
                                                                             target="_blank">CGV</a>
-                                                                        <a rel="noopener" href="https://dropkamas.com/"
+                                                                        <a rel="noopener"
+                                                                            href="https://dropkamas.com/"
                                                                             target="_blank">Contactez-nous</a><br /></span>
                                                                 </p>
                                                             </div>

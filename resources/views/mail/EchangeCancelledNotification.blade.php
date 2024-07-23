@@ -151,7 +151,8 @@
                                                                 <tr>
                                                                     <td style="padding-right: 0px;padding-left: 0px;"
                                                                         align="center">
-                                                                        <a href="https://dropkamas.com/" target="_blank">
+                                                                        <a href="https://dropkamas.com/"
+                                                                            target="_blank">
                                                                             <img align="center" border="0"
                                                                                 src="https://dropkamas.com/img/logo.png"
                                                                                 alt="DropKamas" title="DropKamas"
@@ -316,7 +317,7 @@
                                                                                         <img src="https://dropkamas.com/img/support.svg"
                                                                                             alt="Live Chat"
                                                                                             title="Live Chat"
-                                                                                            width="32"
+                                                                                            width="28"
                                                                                             style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
                                                                                     </a>
                                                                                 </td>
