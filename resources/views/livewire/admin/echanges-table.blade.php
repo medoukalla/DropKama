@@ -111,7 +111,7 @@
                     <img style=" max-width: 20%; text-align: center; " src="{{ asset('loading.gif')}}" alt="">
                 </div>
 
-                @if ( Auth::user()->role->id == 1 )
+                @if ( Auth::user()->role->id != 2 )
                     
 
                     {{-- button to finish the order  --}}

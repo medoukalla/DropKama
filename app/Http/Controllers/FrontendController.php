@@ -129,7 +129,7 @@ class FrontendController extends Controller
 
 
         // if session payment exists
-        if ( Session::has('order_reference') && Session::has('payment_success') && $ref == $order->reference ) {
+        if ( Session::has('order_reference') && Session::has('payment_success') && $ref == Session::get('order_reference') ) {
             $order->payed = true;
             $order->payment_verified = true;
             
