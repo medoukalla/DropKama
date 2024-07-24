@@ -138,7 +138,7 @@ class Vendre extends Component
             $offer->payment_info = $this->skrill_email;
         }elseif ( $this->payment->name == "usdt" ) {
             $offer->payment_info = $this->usdt_adresse;
-        }elseif ( $this->payment->name == "Bank transfer" ) {
+        }elseif ( $this->payment->name == "Bank transfer" || $this->payment->name == 'cih' ) {
             $offer->payment_info = $this->bank_nom;
             $offer->payment_info_b = $this->bank_numero;
         }
