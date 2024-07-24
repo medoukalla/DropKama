@@ -91,33 +91,35 @@
                     </div>
                     <hr />
 
+                    {{ $payment->svg_name }}
+
                     @if ( $payment->svg_name == 'cih'  )
                         <div class="">
                             <p>
                                 Prix par million : <span class="text-danger">{{ $server->cih_price }} DH</span>
                             </p>
-                            <p>Montant total : <span class="text-danger">{{ $total }} DH</span></p>
+                            <p>Montant total : <span class="text-danger">{{ $quantity * $server->cih_price }} DH</span></p>
                         </div>
                     @elseif ( $payment->svg_name == 'paypal' )
                         <div class="">
                             <p>
                                 Prix par million : <span class="text-danger">{{ $server->paypal_price }} €</span>
                             </p>
-                            <p>Montant total : <span class="text-danger">{{ $total }} €</span></p>
+                            <p>Montant total : <span class="text-danger">{{ $quantity * $server->paypal_price }} €</span></p>
                         </div>
                     @elseif ( $payment->svg_name == 'skrill' )
                         <div class="">
                             <p>
                                 Prix par million : <span class="text-danger">{{ $server->skrill_price }} $</span>
                             </p>
-                            <p>Montant total : <span class="text-danger">{{ $total }} $</span></p>
+                            <p>Montant total : <span class="text-danger">{{ $quantity * $server->skrill_price }} $</span></p>
                         </div>
                     @else
                         <div class="">
                             <p>
                                 Prix par million : <span class="text-danger">{{ $server->price }} $</span>
                             </p>
-                            <p>Montant total : <span class="text-danger">{{ $total }} $</span></p>
+                            <p>Montant total : <span class="text-danger">{{ $quantity * $server->price }} $</span></p>
                         </div>
                     @endif
 
@@ -315,7 +317,7 @@
     </div>
 
     {{-- Tables start --}}
-    <div class="container mt-4">
+    <div class="container mt-4 @if ($vendre_status == true ) d-none @endif">
         <div class="row">
             {{-- Classique --}}
             <div class="all-ventes-tables col-12 col-md-12 col-lg-12">
