@@ -62,10 +62,6 @@
             @php $page_title = setting('titres-des-pages-seo.cgv') @endphp
         @break
 
-        @case('politique_de_confidentialite')
-            @php $page_title = setting('titres-des-pages-seo.politique') @endphp
-        @break
-
 
         @default
             @php $page_title = setting('titres-des-pages-seo.index') @endphp

@@ -39,7 +39,7 @@ Route::get('conditions_general_utilisation', [FrontendController::class, 'cgu'])
 // CONDITIONS GÉNÉRALES DE VENTE
 Route::get('conditions_general_de_vente', [FrontendController::class, 'cgv'])->name('frontend.cgv');
 // POLITIQUE DE CONFIDENTIALITÉ
-Route::get('politique_de_confidentialite', [FrontendController::class, 'politique'])->name('frontend.politique');
+// Route::get('politique_de_confidentialite', [FrontendController::class, 'politique'])->name('frontend.politique');
 
 
 Route::group(['prefix' => 'dashboard'], function () {
