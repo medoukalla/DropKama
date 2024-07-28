@@ -83,6 +83,9 @@
                             <input wire:model="quantity" type="number" min="1" step="0.1" id="normalInput"
                                 placeholder="100M" />
                         </div>
+                        @error('quantity')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
                         <p class="w-75 mt-2">
                             Quantité de kamas | (en millions, par exemple
                             <span class="text-danger">10.3</span> =

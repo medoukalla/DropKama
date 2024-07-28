@@ -39,7 +39,7 @@ class Vendre extends Component
         'nom_en_jeu' => 'required',
         'nom_et_prenom' => 'required',
         'email' => 'required|email',
-        'quantite_a_donner' => 'required|numeric|min:1'
+        'quantity' => 'required|numeric|min:1'
     ];
     
     public function mount() {
