@@ -4,8 +4,9 @@
             Étape 1
         </div>
         <div class="step-content">
-            Veuillez envoyer {{ $currency_symb }} {{ $total_with_fees }} (nos frais inclus) - cliquez ici pour recevoir les informations de
-            paiement (un message automatique sera envoyé à notre support en ligne)
+            Veuillez envoyer le montant <span>{{ $total_with_fees }} Euro</span> ( <span>frais inclus</span> ) clique
+            ici pour voir les information
+            bancaire
         </div>
     </div>
     <div class="step">
@@ -13,8 +14,9 @@
             Étape 2
         </div>
         <div class="step-content">
-            Veuillez envoyer {{ $currency_symb }} {{ $total_with_fees }} (nos frais inclus) - cliquez ici pour recevoir les informations de
-            paiement (un message automatique sera envoyé à notre support en ligne)
+            Une fois le paiement terminé, veuillez cliquer sur le bouton ci-dessous. Un de nos agents examinera votre
+            paiement et traitera votre commande, merci.
+            J'ai effectué le paiement
         </div>
     </div>
 </div>

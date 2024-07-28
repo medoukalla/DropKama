@@ -4,8 +4,8 @@
             Étape 1
         </div>
         <div class="step-content">
-            Veuillez envoyer {{ $currency_symb }} {{ $total_with_fees }} (nos frais inclus) - cliquez ici pour recevoir les informations de
-            paiement (un message automatique sera envoyé à notre support en ligne)
+            Veuillez effectuer le paiement du montant <span>€ {{ $total_with_fees }}</span> ( <span>frais inclus</span>
+            )
         </div>
     </div>
     <div class="step">
@@ -13,8 +13,7 @@
             Étape 2
         </div>
         <div class="step-content">
-            Veuillez envoyer {{ $currency_symb }} {{ $total_with_fees }} (nos frais inclus) - cliquez ici pour recevoir les informations de
-            paiement (un message automatique sera envoyé à notre support en ligne)
+            clique sur le bouton ci-dessous pour passer a stripe et effectuer le paiement.
         </div>
     </div>
 </div>

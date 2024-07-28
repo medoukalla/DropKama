@@ -32,6 +32,7 @@
         <hr />
         <div class="row mt-5">
             <div class="col-12 col-md-6 col-lg-4">
+
                 <div class="links-title">Solutions de paiement</div>
                 <div class="payment-box">
                     <img src="{{ asset('frontend/images/payments/skrill.svg') }}" alt="skrill" />

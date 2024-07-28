@@ -12,10 +12,9 @@
             Étape 2
         </div>
         <div class="step-content">
-            Veuillez cliquer sur le lien ci-dessous pour passer à Stripe et effectuer le paiement.
+            Veuillez cliquer sur le bouton ci-dessous pour passer à Stripe et effectuer le paiement.
         </div>
     </div>
-
     <div class="step">
         <div class="step-head">
             Étape 3
