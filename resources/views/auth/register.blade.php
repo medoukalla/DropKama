@@ -18,7 +18,7 @@
                 <div class="auth-inputs">
                     <div class="email">
                         <label for="">Nom du personnage *</label>
-                        <input name="username" type="text" class="mt-2 mb-3" value="{{ old('username') }}" />
+                        <input name="username" type="text" class="mt-2 mb-3" value="{{ old('username') }}" onkeydown="return /[a-zA-Z\-]/i.test(event.key)" />
                     </div>
                     <div class="email">
                         <label for="">Nom et Prenom *</label>
@@ -41,7 +41,7 @@
                 </div>
                 <div class="remember-me d-flex align-items-center justify-content-between w-100">
                     <div>
-                        <input type="radio" name="drone" checked />
+                        <input id="remember_me" type="checkbox" name="remember" checked required />
                         <label for="huey">J'ai lu les conditions de DropKamas et je suis d'accord.</label>
                     </div>
                 </div>

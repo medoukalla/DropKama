@@ -1175,9 +1175,9 @@ header .client-notifs span {
     font-weight: 600;
     margin-bottom: 20px;
 }
-.all-ventes-tables .kamas-settings .table-content {
+/* .all-ventes-tables .kamas-settings .table-content {
     overflow: scroll;
-}
+} */
 /* Exchange style */
 .echange-infos {
     border-radius: var(--border-radius);

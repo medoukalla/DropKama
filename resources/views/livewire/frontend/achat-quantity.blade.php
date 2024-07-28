@@ -137,8 +137,13 @@
                             @foreach ($payments as $paym)
                                 <li class="options @if ($paym->id == $active_payment_id) d-none @endif"
                                     wire:click="change_payment({{ $paym->id }})">
-                                    <img src="{{ asset('frontend/images/payments/' . $paym->svg_name . '.svg') }}"
+                                    @if ( $paym->svg_name == 'cih' )
+                                        <img src="{{ asset('frontend/images/payments/bank-transfer.svg') }}"
                                         alt="" class="currency" />
+                                    @else
+                                        <img src="{{ asset('frontend/images/payments/' . $paym->svg_name . '.svg') }}"
+                                            alt="" class="currency" />
+                                            @endif
                                     <p>{{ $paym->name }}</p>
                                 </li>
                             @endforeach
