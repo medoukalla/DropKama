@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\Server;
 use App\Notifications\NewFreshOrder;
 use Auth;
+use Error;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
@@ -185,6 +186,10 @@ class AchatQuantity extends Component
     // function to calculate the total include the fess
     public function calculate_total() {
 
+        if ( $this->quantity < 1 ) {
+            return $this->addError('quantity', 'Quantity requiried');
+        }
+
         // if payment is cih 
         if ( $this->payment->name == 'Bank transfer' ) {
             $price = $this->server->price_mad;
@@ -209,7 +214,7 @@ class AchatQuantity extends Component
     public function confirm_quantity() {
         // do the logic here 
         $validatedData = $this->validate([
-            'nom_dans_jeu' => 'required'
+            'nom_dans_jeu' => 'required',
         ]);
         // show the next step 
         $this->step = 'A';

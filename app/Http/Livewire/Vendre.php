@@ -39,8 +39,9 @@ class Vendre extends Component
         'nom_en_jeu' => 'required',
         'nom_et_prenom' => 'required',
         'email' => 'required|email',
+        'quantite_a_donner' => 'required|numeric|min:1'
     ];
-
+    
     public function mount() {
         $this->active_server_id = $this->servers->first()->id;
         $this->active_payment_id = $this->payments->first()->id;

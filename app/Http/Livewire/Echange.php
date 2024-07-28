@@ -82,6 +82,11 @@ class Echange extends Component
 
     // function to run the calculation
     public function calculate() {
+
+        $validatedData = $this->validate([
+            'quantite_a_donner' => 'required|numeric|min:1'
+        ]);
+
         /**
          * Calculate
          * 1 -> if server_from price > server_to price

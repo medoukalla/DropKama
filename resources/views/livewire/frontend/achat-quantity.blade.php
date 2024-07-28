@@ -107,6 +107,9 @@
                             </div>
 
                         </div>
+                        @error('quantity')
+                            <div class="alert alert-danger mt-3 @if ( $quantity > 0 ) d-none @endif ">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="input">
                         <label for="">Votre nom dans le jeu
