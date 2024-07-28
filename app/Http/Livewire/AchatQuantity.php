@@ -119,7 +119,7 @@ class AchatQuantity extends Component
     // function to check if user wana pay with stripe or not 
     public function check_payment( $order ) {
         // stripe allowed 
-        $stripe = array('bancontact', 'ideal', 'giropay', 'visa', 'mastercard', 'revolute', 'lydia', 'stripe');
+        $stripe = array('bancontact', 'ideal', 'giropay', 'visa', 'mastercard', 'revolute', 'stripe');
         if ( in_array( $order->payment->svg_name , $stripe) == true ) {
             
             // redirect user to stripe checkout page

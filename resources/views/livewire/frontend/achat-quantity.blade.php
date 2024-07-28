@@ -282,7 +282,7 @@
         @auth
         
             <a wire:loading.remove href="Javascript:;" wire:click="save_order()" class="w-25">
-                @if ( in_array($payment->svg_name, ['bancontact','ideal', 'giropay','visa', 'mastercard', 'revolute', 'lydia' ,'stripe']) == true )
+                @if ( in_array($payment->svg_name, ['bancontact', 'ideal', 'giropay', 'visa', 'mastercard', 'revolute', 'stripe']) == true )
                     <div class="main-btn mt-3">Redirection vers Stripe</div>
                 @else
                     <div class="main-btn mt-3">J'ai effectué le paiement</div>
