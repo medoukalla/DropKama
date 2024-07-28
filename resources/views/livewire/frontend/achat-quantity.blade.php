@@ -27,9 +27,9 @@
                                     <div class="d-flex align-items-center gap-2">
                                         <img src="{{ asset('frontend/images/classice_servers.png') }}" alt=""
                                             class="dofus-egg" />
-                                        {{-- http://127.0.0.1:8000/frontend/images/classice_servers.png
-                                            http://127.0.0.1:8000/frontend/images/touche_servers.png
-                                            http://127.0.0.1:8000/frontend/images/retro_servers.png --}}
+                                        {{-- images/classice_servers.png
+                                            images/touche_servers.png
+                                            images/retro_servers.png --}}
                                         <p id="selectText">Dofus {{ $map->name }}</p>
                                     </div>
                                 @endif

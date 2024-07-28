@@ -1193,6 +1193,10 @@ header .client-notifs span {
     padding: 20px 50px;
     color: var(--white-clr);
 }
+.echange-infos .info-danger span {
+    font-weight: 600;
+    text-decoration: underline;
+}
 .echange-infos .info-danger img {
     height: 25px;
     position: absolute;
@@ -1200,7 +1204,7 @@ header .client-notifs span {
     right: 10px;
     transform: rotate(25deg);
 }
-.echange-infos-side .get-support {
+.echnage-infos-side .get-support {
     margin-top: 20px;
     display: flex;
     flex-direction: column;

@@ -115,14 +115,15 @@
                         <div class="hint">
                             <img src="{{ asset('frontend/images/svg/question_animation.svg') }}"
                                 alt="Question animation">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque quae ullam,
-                            excepturi eligendi tenetur repellat doloremque nihil voluptas iste obcaecati.
+                            Nous vous enverrons un message privé en jeu contenant le numéro de référence de l'échange
+                            généré automatiquement par notre système. Ceci afin de confirmer que le destinataire avec
+                            lequel vous échangez fait bien partie de notre équipe.
                         </div>
                         <div class="info-danger">
                             <img src="{{ asset('frontend/images/svg/danger-icon.svg') }}" alt="Danger icon">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa recusandae dolore sequi
-                            illo
-                            laudantium aliquam?
+                            <span>Attention:</span> Ne dites à personne d'autre votre Code. Si quelqu'un vous donne un
+                            Code
+                            incorrecte, bloquez le!!
                         </div>
                     </div>
                     <div class="get-support">
