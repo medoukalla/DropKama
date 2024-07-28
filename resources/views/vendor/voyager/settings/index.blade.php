@@ -263,7 +263,6 @@
                                 <h3 class="panel-title">
                                     {{ $setting->display_name }} @if(config('voyager.show_dev_tips'))<code>setting('{{ $setting->key }}')</code>@endif
                                 </h3>
-                                @if ( Auth::user()->role->id == 3 )
                                     
                                     <div class="panel-actions">
                                         <a href="{{ route('voyager.settings.move_up', $setting->id) }}">
@@ -279,8 +278,6 @@
                                         data-display-name="{{ $setting->display_name }}"></i>
                                         @endcan
                                     </div>
-
-                                @endif
                             </div>
 
                             <div class="panel-body no-padding-left-right">
@@ -355,15 +352,14 @@
                                         @endif
                                     @endif
                                 </div>
-                                @if ( Auth::user()->role->id == 3 )
-                                    <div class="col-md-2 no-padding-left-right">
-                                        <select class="form-control group_select" name="{{ $setting->key }}_group">
-                                            @foreach($groups as $group)
-                                            <option value="{{ $group }}" {!! $setting->group == $group ? 'selected' : '' !!}>{{ $group }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                @endif
+                                
+                                <div class="col-md-2 no-padding-left-right @if ( Auth::user()->role->id != 3 ) d-none @endif">
+                                    <select class="form-control group_select" name="{{ $setting->key }}_group">
+                                        @foreach($groups as $group)
+                                        <option value="{{ $group }}" {!! $setting->group == $group ? 'selected' : '' !!}>{{ $group }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             @if(!$loop->last)
                                 <hr>
