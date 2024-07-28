@@ -194,13 +194,15 @@
         width: 100%;
     }
     .payment-box {
-        grid-template-columns: 50px 50px 50px;
+        grid-template-columns: 70px 70px 70px;
         column-gap: 5px;
         row-gap: 5px;
     }
     .payment-box img {
         height: 45px;
+        max-width: 100%;
     }
+    
     .swiper-slide {
         height: 200px;
         width: 400px !important;
@@ -316,6 +318,10 @@
     .payment-box {
         margin-bottom: 2rem;
         column-gap: 5px;
+    }
+
+    .payment-box img {
+        max-width: 100%;
     }
     
     .payment-methods .row {
