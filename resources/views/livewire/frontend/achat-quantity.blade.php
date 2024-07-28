@@ -24,9 +24,12 @@
                             onclick="$('ul.mapsList').toggle('slow'); $('.input-arrow-maps').toggleClass('active')">
                             @foreach ($maps as $map)
                                 @if ($map->id == $active_map_id)
-                                    <div class="d-flex align-items-center gap-3">
-                                        <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt=""
+                                    <div class="d-flex align-items-center gap-2">
+                                        <img src="{{ asset('frontend/images/classice_servers.png') }}" alt=""
                                             class="dofus-egg" />
+                                        {{-- http://127.0.0.1:8000/frontend/images/classice_servers.png
+                                            http://127.0.0.1:8000/frontend/images/touche_servers.png
+                                            http://127.0.0.1:8000/frontend/images/retro_servers.png --}}
                                         <p id="selectText">Dofus {{ $map->name }}</p>
                                     </div>
                                 @endif
@@ -48,8 +51,9 @@
                     </div>
                     <div class="selector">
                         <label for="">Sélectionnez le serveur</label>
-                        <div id="selectField" onclick="$('ul.serversList').toggle('slow'); $('.input-arrow-servers').toggleClass('active')">
-                            
+                        <div id="selectField"
+                            onclick="$('ul.serversList').toggle('slow'); $('.input-arrow-servers').toggleClass('active')">
+
 
                             {{-- @foreach ($servers as $the_server) --}}
                             @if ($server->map_id == $active_map_id && $server->id == $active_server_id)
@@ -86,12 +90,14 @@
                                     max="{{ $server->max }}" value="{{ $quantity }}" />
                                 <span>M Kamas</span>
                             </div>
-                              
+
                             <span>+</span>
                             <div id="inputField">
-                                <input wire:model="bonus_quantity" step="0.001" type="number" placeholder="0" @if ( $bonus > 0 ) value="0" @endif  disabled />
+                                <input wire:model="bonus_quantity" step="0.001" type="number" placeholder="0"
+                                    @if ($bonus > 0) value="0" @endif disabled />
                                 <span>
-                                    <img src="{{ asset('frontend/images/svg/bonus-icon.svg') }}" alt="Bonus icon" class="bonus-icon" />
+                                    <img src="{{ asset('frontend/images/svg/bonus-icon.svg') }}" alt="Bonus icon"
+                                        class="bonus-icon" />
                                 </span>
                             </div>
 
@@ -103,7 +109,8 @@
                                 class="aide-icon" />
                         </label>
                         <div class="d-flex align-items-center justify-content-between">
-                            <input wire:model="nom_dans_jeu" type="text" id="normalInput" onkeydown="return /[a-zA-Z\-]/i.test(event.key)" />
+                            <input wire:model="nom_dans_jeu" type="text" id="normalInput"
+                                onkeydown="return /[a-zA-Z\-]/i.test(event.key)" />
                         </div>
                         @error('nom_dans_jeu')
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -154,7 +161,7 @@
                         <a wire:loading.remove wire:click="confirm_quantity()" href="Javascript:;" class="">
                             <div class="main-btn mt-3 w-100">Suivant</div>
                         </a>
-                        <a wire:loading wire:target="confirm_quantity"  href="Javascript:;" class="w-100">
+                        <a wire:loading wire:target="confirm_quantity" href="Javascript:;" class="w-100">
                             <div class="main-btn mt-3 w-100">
                                 <div class="loading-animation">
                                     <img src="{{ asset('frontend/images/svg/loading-animation.svg') }}"
@@ -170,7 +177,7 @@
                         </div>
                     @endguest
 
-                    
+
                 </div>
             </div>
         </div>
@@ -178,7 +185,7 @@
 
     {{-- Second step the payment  --}}
     <!-- Step A  -->
-    <div class="container @if ($step != 'A') d-none @endif" >
+    <div class="container @if ($step != 'A') d-none @endif">
         <div class="payment-heading" id="stepA">Payment</div>
         <div class="payment-banner mt-3">
             <div class="top-banner">
@@ -229,7 +236,7 @@
             <div class="main-btn mt-3">Confirmer et Payer</div>
         </a>
 
-        @if ( $step == 'A' )
+        @if ($step == 'A')
             <script>
                 $(document).ready(function() {
                     $('html, body').animate({
@@ -242,7 +249,7 @@
 
 
     <!-- Step B -->
-    <div class="container @if ($step != 'B') d-none @endif" >
+    <div class="container @if ($step != 'B') d-none @endif">
         <div class="payment-heading" id="stepB">Payment</div>
         <div class="payment-banner mt-3">
             <div class="d-flex align-items-center justify-content-between">
@@ -267,23 +274,22 @@
                 <div class="main-btn mt-3">Confirmer et Payer</div>
             </a>
 
-            <a wire:loading wire:target="save_order"  href="Javascript:;" class="w-25">
+            <a wire:loading wire:target="save_order" href="Javascript:;" class="w-25">
                 <div class="main-btn mt-3 w-100">
                     <div class="loading-animation">
-                        <img src="{{ asset('frontend/images/svg/loading-animation.svg') }}"
-                            alt="Loading animation">
+                        <img src="{{ asset('frontend/images/svg/loading-animation.svg') }}" alt="Loading animation">
                     </div>
                 </div>
             </a>
         @endauth
         @guest
             <div class="alert alert-warning mt-2">
-                Veuillez vous <a href="{{ route('login') }}">connecter</a> ou <a
-                    href="{{ route('register') }}">créer un compte</a> pour achater vos kamas immédiatement!
+                Veuillez vous <a href="{{ route('login') }}">connecter</a> ou <a href="{{ route('register') }}">créer un
+                    compte</a> pour achater vos kamas immédiatement!
             </div>
         @endguest
-        
-        @if ( $step == 'B' )
+
+        @if ($step == 'B')
             <script>
                 $(document).ready(function() {
                     $('html, body').animate({
