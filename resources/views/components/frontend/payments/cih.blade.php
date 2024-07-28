@@ -4,7 +4,7 @@
             Étape 1
         </div>
         <div class="step-content">
-            Veuillez envoyer le montant <span>{{ $total_with_fees }} Euro</span> ( <span>frais inclus</span> )
+            Veuillez envoyer le montant <span>{{ $total_with_fees }} dh</span> ( <span>frais inclus</span> )
             <span role="button" data-bs-toggle="modal" data-bs-target="#infoModal">clique ici</span> pour voir les information
             bancaire
         </div>

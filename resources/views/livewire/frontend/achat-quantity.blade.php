@@ -164,7 +164,11 @@
                     <hr />
                     <div class="d-flex align-items-center justify-content-between">
                         <span style="font-weight: 700; font-size: 22px">Total</span>
-                        <span style="font-size: 22px">{{ $currency_symb }}{{ $total_with_fees }}</span>
+                        @if ( $payment->name == 'Bank transfer' )
+                            <span style="font-size: 22px">{{ $total_with_fees }} {{ $currency_symb }}</span>
+                        @else
+                            <span style="font-size: 22px">{{ $currency_symb }}{{ $total_with_fees }}</span>
+                        @endif
                     </div>
 
                     @auth
@@ -221,16 +225,28 @@
             <div class="quantities d-flex align-items-center justify-content-between">
                 <p class="chosen-game">Dofus {{ $map->name }}</p>
                 <p class="kamas-quantities">{{ $quantity }} M Kamas</p>
-                <p class="kamas-total">{{ $currency_symb }} {{ $total_with_fees }}</p>
+                @if ( $payment->name == 'Bank transfer' )
+                    <p class="kamas-total">{{ $total_with_fees }} {{ $currency_symb }}</p>
+                @else
+                    <p class="kamas-total">{{ $currency_symb }} {{ $total_with_fees }}</p>
+                @endif
             </div>
             <div class="mt-3">
                 <div class="r-payment d-flex align-items-center justify-content-between">
                     <p class="subtotal">Sous-total</p>
-                    <p class="result">{{ $currency_symb }} {{ $total }}</p>
+                    @if ( $payment->name == 'Bank transfer' )
+                        <p class="result">{{ $total }} {{ $currency_symb }}</p>
+                    @else
+                        <p class="result">{{ $currency_symb }} {{ $total }}</p>
+                    @endif
                 </div>
                 <div class="r-payment d-flex align-items-center justify-content-between mt-2">
                     <p class="fees-subtotal">Frais de paiement</p>
-                    <p class="result">{{ $currency_symb }} {{ $fees_amount }}</p>
+                    @if ( $payment->name == 'Bank transfer' )
+                        <p class="result">{{ $fees_amount }} {{ $currency_symb }}</p>
+                    @else
+                        <p class="result">{{ $currency_symb }} {{ $fees_amount }}</p>
+                    @endif
                 </div>
                 <div class="r-payment d-flex align-items-center justify-content-between mt-2">
                     <p class="fees-service">Frais de service</p>
@@ -240,7 +256,12 @@
         </div>
         <div class="payment-total d-flex justify-content-between align-items-center mt-3">
             <div>Total à payer</div>
-            <div>{{ $currency_symb }} {{ $total_with_fees }}</div>
+            @if ( $payment->name == 'Bank transfer' )
+                <div>{{ $total_with_fees }} {{ $currency_symb }}</div>
+            @else
+                <div>{{ $currency_symb }} {{ $total_with_fees }}</div>
+            @endif
+            
         </div>
         <a href="Javascript:;" wire:click="confirm_first_step()">
             <div class="main-btn mt-3">Suivant</div>

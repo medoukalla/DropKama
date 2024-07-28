@@ -56,16 +56,21 @@ class AchatQuantity extends Component
         
         // set up the currency and symbol
         $this->currency = Session::get('currency');
-        if ( $this->currency == 'euro') {
-            $this->currency_symb = '€';
-        }else {
-            $this->currency = "usd";
-            $this->currency_symb = '$';
-        }
     }
 
     public function render()
     {
+        if ( $this->payment->name == 'Bank transfer' ){
+            $this->currency_symb = 'DH';
+        }else {
+            if ( $this->currency == 'euro') {
+                $this->currency_symb = '€';
+            }else {
+                $this->currency = "usd";
+                $this->currency_symb = '$';
+            }
+        }
+        
         $this->calculate_total();
 
         // if achat bonus exists 
@@ -179,18 +184,25 @@ class AchatQuantity extends Component
 
     // function to calculate the total include the fess
     public function calculate_total() {
-        $quantity = $this->quantity;
-        if ( $this->currency == 'usd' ) {
-            $price = $this->server->price_usd;
+
+        // if payment is cih 
+        if ( $this->payment->name == 'Bank transfer' ) {
+            $price = $this->server->price_mad;
         }else {
-            $price = $this->server->price;
+            if ( $this->currency == 'usd' ) {
+                $price = $this->server->price_usd;
+            }else {
+                $price = $this->server->price;
+            }
         }
+        
+        $quantity = $this->quantity;
         $fees = $this->fees;
         // floor( $total_with_fees * 1000 ) / 1000
         $this->total = floor( ( $quantity * $price) * 1000 ) / 1000; 
         $this->fees_amount = floor( ( ( $this->total * $fees ) / 100 ) * 1000 ) / 1000;
         $this->total_with_fees = floor( ( $this->total + $this->fees_amount ) * 1000 ) / 1000;
-    }
+        }
 
 
     // function to confirm the quantity form and move to payment form 
