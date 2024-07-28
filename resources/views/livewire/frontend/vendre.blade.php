@@ -333,7 +333,7 @@
                                     <th scope="col">Server</th>
                                     <th scope="col">Paypal</th>
                                     <th scope="col">Skrill</th>
-                                    <th scope="col">Cih</th>
+                                    <th scope="col">Mad</th>
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
@@ -370,7 +370,7 @@
                                     <th scope="col">Server</th>
                                     <th scope="col">Paypal</th>
                                     <th scope="col">Skrill</th>
-                                    <th scope="col">Cih</th>
+                                    <th scope="col">Mad</th>
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
@@ -407,7 +407,7 @@
                                     <th scope="col">Server</th>
                                     <th scope="col">Paypal</th>
                                     <th scope="col">Skrill</th>
-                                    <th scope="col">Cih</th>
+                                    <th scope="col">Mad</th>
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
