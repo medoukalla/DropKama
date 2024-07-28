@@ -25,11 +25,13 @@
                             @foreach ($maps as $map)
                                 @if ($map->id == $active_map_id)
                                     <div class="d-flex align-items-center gap-2">
-                                        <img src="{{ asset('frontend/images/classice_servers.png') }}" alt=""
-                                            class="dofus-egg" />
-                                        {{-- images/classice_servers.png
-                                            images/touche_servers.png
-                                            images/retro_servers.png --}}
+                                        @if ( $map->name == 'Classique' || $map->name == 'classique' )
+                                            <img src="{{ asset('frontend/images/classice_servers.png') }}" alt="" class="dofus-egg" />
+                                        @elseif ( $map->name == 'Retro' || $map->name == 'retro' )
+                                            <img src="{{ asset('frontend/images/retro_servers.png') }}" alt="" class="dofus-egg" />
+                                        @elseif ( $map->name == 'Touch' || $map->name == 'touch')
+                                            <img src="{{ asset('frontend/images/touche_servers.png') }}" alt="" class="dofus-egg" />
+                                        @endif
                                         <p id="selectText">Dofus {{ $map->name }}</p>
                                     </div>
                                 @endif
@@ -41,8 +43,13 @@
                             @foreach ($maps as $map)
                                 @if ($map->id != $active_map_id)
                                     <li class="options" wire:click="change_map({{ $map->id }})">
-                                        <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt=""
-                                            class="dofus-egg" />
+                                        @if ( $map->name == 'Classique' || $map->name == 'classique' )
+                                            <img src="{{ asset('frontend/images/classice_servers.png') }}" alt="" class="dofus-egg" />
+                                        @elseif ( $map->name == 'Retro' || $map->name == 'retro' )
+                                            <img src="{{ asset('frontend/images/retro_servers.png') }}" alt="" class="dofus-egg" />
+                                        @elseif ( $map->name == 'Touch' || $map->name == 'touch')
+                                            <img src="{{ asset('frontend/images/touche_servers.png') }}" alt="" class="dofus-egg" />
+                                        @endif
                                         <p>Dofus {{ $map->name }}</p>
                                     </li>
                                 @endif
@@ -58,8 +65,7 @@
                             {{-- @foreach ($servers as $the_server) --}}
                             @if ($server->map_id == $active_map_id && $server->id == $active_server_id)
                                 <div class="d-flex align-items-center gap-3">
-                                    <img src="{{ asset('storage//' . $server->image) }}" alt=""
-                                        class="dofus-egg" />
+                                    <img src="{{ asset('storage/'.$server->image) }}" alt="" class="dofus-egg" />
                                     <p id="selectText">{{ $server->name }}</p>
                                 </div>
                             @endif
@@ -73,8 +79,7 @@
                             @foreach ($servers as $the_server)
                                 @if ($the_server->map_id == $active_map_id && $the_server->id != $active_server_id)
                                     <li class="options" wire:click="change_server({{ $the_server->id }})">
-                                        <img src="{{ asset('storage//' . $the_server->image) }}" alt=""
-                                            class="dofus-egg" />
+                                        <img src="{{ asset('storage/'.$the_server->image) }}" alt="" class="dofus-egg" />
                                         <p>{{ $the_server->name }}</p>
                                     </li>
                                 @endif
@@ -238,7 +243,7 @@
             <div>{{ $currency_symb }} {{ $total_with_fees }}</div>
         </div>
         <a href="Javascript:;" wire:click="confirm_first_step()">
-            <div class="main-btn mt-3">Confirmer et Payer</div>
+            <div class="main-btn mt-3">Suivant</div>
         </a>
 
         @if ($step == 'A')
@@ -275,8 +280,13 @@
         </div>
 
         @auth
+        
             <a wire:loading.remove href="Javascript:;" wire:click="save_order()" class="w-25">
-                <div class="main-btn mt-3">Confirmer et Payer</div>
+                @if ( in_array($payment->svg_name, ['bancontact','ideal', 'giropay','visa', 'mastercard', 'revolute', 'lydia' ,'stripe']) == true )
+                    <div class="main-btn mt-3">Redirection vers Stripe</div>
+                @else
+                    <div class="main-btn mt-3">J'ai effectué le paiement</div>
+                @endif
             </a>
 
             <a wire:loading wire:target="save_order" href="Javascript:;" class="w-25">
