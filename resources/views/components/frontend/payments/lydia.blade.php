@@ -5,8 +5,7 @@
         </div>
         <div class="step-content">
             Veuillez envoyer le montant <span> {{ $total_with_fees }} </span> Euro ( <span>frais inclus</span> )
-            <span>clique
-                ici</span> pour voir les information
+            <span role="button" data-bs-toggle="modal" data-bs-target="#infoModal">clique ici</span> pour voir les information
             bancaire
         </div>
     </div>
@@ -24,19 +23,19 @@
 
 
 {{-- Model --}}
-<div class="modal" tabindex="-1">
+<div class="modal" tabindex="-1" id="infoModal" aria-labelledby="infoModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+                <h5 class="modal-title">{{ $payment_name }} détails</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Modal body text goes here.</p>
+                <p>Lydia email : <span>{{ setting('methodes-de-payement-infos.lydia-email') }}</span></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                
             </div>
         </div>
     </div>

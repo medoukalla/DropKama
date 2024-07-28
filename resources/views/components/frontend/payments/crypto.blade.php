@@ -18,7 +18,7 @@
         <div class="step-content">
             Veuillez envoyer le montant <span>{{ $total_with_fees }} euro</span> ( <span>frais inclus</span> ) En
             Bitcoin , Il suffit de mettre notre adresse de
-            retrait <span>Clique ici</span> pour voir l'adresse et de nous envoyer le montant, avec le taux que vous
+            retrait <span role="button" data-bs-toggle="modal" data-bs-target="#infoModal">clique ici</span> pour voir l'adresse et de nous envoyer le montant, avec le taux que vous
             avez vu sur le
             site de conversion
         </div>
@@ -33,3 +33,23 @@
         </div>
     </div>
 </div>
+
+
+{{-- Model --}}
+<div class="modal" tabindex="-1" id="infoModal" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ $payment_name }} détails</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Adresse de bitcoin : <span>{{ setting('methodes-de-payement-infos.btc-address') }}</span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
