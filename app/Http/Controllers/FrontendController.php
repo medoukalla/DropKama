@@ -121,15 +121,16 @@ class FrontendController extends Controller
 
     // Order details
     public function order_details( $ref ) {
+
         $order = Order::where('reference', $ref);
         if ( !$order->exists() ) {
             abort(404);
         }
         $order = $order->first();
 
-
         // if session payment exists
-        if ( Session::has('order_reference') && Session::has('payment_success') && $ref == Session::get('order_reference') ) {
+        if ( Session::has('order_reference') && Session::has('payment_success') && Session::get('payment_success') == 'true' && $ref == Session::get('order_reference') ) {
+
             $order->payed = true;
             $order->payment_verified = true;
             

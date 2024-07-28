@@ -54,8 +54,9 @@ class StripeController extends Controller
                 ],
             ],
             'mode' => 'payment',
-            'success_url' => $this->success( $order->reference ),
-            'cancel_url'  => route('frontend.order.details', ['ref'=>$order->reference]),
+            // 'success_url' => $this->success( $order->reference ),
+            'success_url' => route($this->success( $order->reference ), $order->reference),
+            'cancel_url'  => route('payment_cancelled', $order->reference ),
         ]);
 
         return redirect()->away($session->url);
@@ -64,6 +65,11 @@ class StripeController extends Controller
     }
 
 
+    public function payment_cancelled( $ref ) {
+        Session::forget('order_rederence');
+        Session::forget('payment_success');
+        return redirect()->route('frontend.order.details', ['ref' => $ref]);
+    }
 
     public function success($ref) {
 
@@ -74,8 +80,9 @@ class StripeController extends Controller
         Session::put('payment_success', 'true');
 
         //return the route url
-        $url = route('frontend.order.details', ['ref' => $ref]);
-        return $url;
+        // $url = route('frontend.order.details', ['ref' => $ref]);
+        // return $url;
+        return 'frontend.order.details';
     }
 
 }

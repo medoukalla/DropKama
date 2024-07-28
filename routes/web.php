@@ -82,6 +82,11 @@ Route::middleware('auth')->group(function () {
     // stripe checkout
     Route::get('stripe_checkout/{ref}', [StripeController::class, 'checkout'])->name('frontend.stripe.checkout');
 
+    Route::get('stripe_checking', [StripeController::class, 'checking'])->name('frontend.stripe.checking');
+
+    // payment cancelled 
+    Route::get('payment_cancelled/{ref}', [StripeController::class, 'payment_cancelled'])->name('payment_cancelled');
+
 });
 
 require __DIR__.'/auth.php';
