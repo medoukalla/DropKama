@@ -141,7 +141,7 @@
 
     <div class="container @if ($echange_status == false) d-none @endif">
         <div class="row">
-            <div class="col-12 col-md-8 offset-md-2 ">
+            <div class="col-12 col-md-8 offset-md-2" id="echangeAlert">
                 @if (!is_null($exchange))
                     <div class="kamas-settings after-echange w-100 sticky-top">
                         <h3 class="mb-2"><span style="color: #e74c3c">Attention :</span> vigilance
@@ -191,4 +191,14 @@
             </div>
         </div>
     </div>
+
+    @if ( $echange_status == true )    
+        <script>
+            $(document).ready(function() {
+                $('html, body').animate({
+                    scrollTop: $("div#echangeAlert").offset().top
+                }, 250);
+            })
+        </script>
+    @endif
 </section>
