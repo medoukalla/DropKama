@@ -16,7 +16,7 @@
                 <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
-                    <h6 class="fw-normal mb-2">Total {{ App\Models\User::where('role_id', $role->id)->count()  }} users</h6>
+                    <h6 class="fw-normal mb-2">Total {{ App\Models\User::where('role_id', $role->id)->count()  }} utilisateurs</h6>
                     <ul class="list-unstyled d-flex align-items-center avatar-group mb-0">
                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" title="Vinnie Mostowy" class="avatar avatar-sm pull-up">
                         <img class="rounded-circle" src="../../assets/img/avatars/5.png" alt="Avatar">
@@ -38,7 +38,6 @@
                     <div class="d-flex justify-content-between align-items-end mt-1">
                     <div class="role-heading">
                         <h4 class="mb-1">{{ $role->display_name }}</h4>
-                        <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#addRoleModal" class="role-edit-modal"><span>Edit Role</span></a>
                     </div>
                     </div>
                 </div>
@@ -57,8 +56,8 @@
                 </div>
                 <div class="col-sm-7">
                 <div class="card-body text-sm-end text-center ps-sm-0">
-                    <button data-bs-target="#addRoleModal" data-bs-toggle="modal" class="btn btn-primary mb-2 text-nowrap add-new-role">Add New Role</button>
-                    <p class="mb-0 mt-1">Add role, if it does not exist</p>
+                    <button data-bs-target="#addRoleModal" data-bs-toggle="modal" class="btn btn-primary mb-2 text-nowrap add-new-role">Ajouter un nouveau rôle</button>
+                    <button data-bs-target="#editRoleModal" data-bs-toggle="modal" class="btn btn-basic mb-2 text-nowrap">Modifier les rôles</button>
                 </div>
                 </div>
             </div>
@@ -75,8 +74,8 @@
         <button type="button" class="btn-close btn-pinned" data-bs-dismiss="modal" aria-label="Close"></button>
         <div class="modal-body">
             <div class="text-center mb-4">
-            <h3 class="role-title mb-2">Add New Role</h3>
-            <p class="text-muted">Set role permissions</p>
+            <h3 class="role-title mb-2">Ajouter un nouveau rôle</h3>
+            <p class="text-muted">Définir les autorisations de rôle</p>
             </div>
             <!-- Add role form -->
             <form @if(isset($dataTypeContent->id)){{ route('voyager.'.$dataType->slug.'.update', $dataTypeContent->id) }}@else{{ route('voyager.'.$dataType->slug.'.store') }}@endif method="POST" enctype="multipart/form-data" id="addRoleForm" class="row g-3" >
@@ -97,12 +96,12 @@
                 
                 <div class="form-floating">
                     <input type="text" class="form-control" required="" id="floatingInput" name="name" placeholder="Name" aria-describedby="floatingInputHelp" value="">
-                        <label for="floatingInput">name</label>
+                        <label for="floatingInput">Nom de rôle</label>
                 </div>
 
                 <div class="form-floating">
                     <input type="text" class="form-control" required="" id="floatingInput" name="display_name" placeholder="Display Name" aria-describedby="floatingInputHelp" value="">
-                    <label for="floatingInput">display_name</label>
+                    <label for="floatingInput">Afficher un nom</label>
                 </div>
 
                 
@@ -153,5 +152,8 @@
     </div>
     </div>
     <!-- / Add Role Modal -->
+
+
+    @livewire('edit-rules')
 
 @stop

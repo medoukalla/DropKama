@@ -98,28 +98,52 @@
                             <p>
                                 Prix par million : <span class="text-danger">{{ $server->cih_price }} DH</span>
                             </p>
-                            <p>Montant total : <span class="text-danger">{{ $quantity * $server->cih_price }} DH</span></p>
+                            <p>Montant total : <span class="text-danger">
+                                @if ( $quantity > 0 )
+                                    {{ $quantity * $server->cih_price }} DH
+                                @else
+                                    {{ 0 }} DH                               
+                                @endif
+                            </span></p>
                         </div>
                     @elseif ( $payment->svg_name == 'paypal' )
                         <div class="">
                             <p>
                                 Prix par million : <span class="text-danger">{{ $server->paypal_price }} €</span>
                             </p>
-                            <p>Montant total : <span class="text-danger">{{ $quantity * $server->paypal_price }} €</span></p>
+                            <p>Montant total : <span class="text-danger">
+                                @if ( $quantity > 0)
+                                    {{ $quantity * $server->paypal_price }} €
+                                @else                                
+                                    0 €
+                                @endif
+                            </span></p>
                         </div>
                     @elseif ( $payment->svg_name == 'skrill' )
                         <div class="">
                             <p>
                                 Prix par million : <span class="text-danger">{{ $server->skrill_price }} $</span>
                             </p>
-                            <p>Montant total : <span class="text-danger">{{ $quantity * $server->skrill_price }} $</span></p>
+                            <p>Montant total : <span class="text-danger">
+                                @if ($quantity > 0 ) 
+                                    {{ $quantity * $server->skrill_price }} $
+                                @else
+                                    0 $
+                                @endif
+                                </span></p>
                         </div>
                     @else
                         <div class="">
                             <p>
                                 Prix par million : <span class="text-danger">{{ $server->price }} $</span>
                             </p>
-                            <p>Montant total : <span class="text-danger">{{ $quantity * $server->price }} $</span></p>
+                            <p>Montant total : <span class="text-danger">
+                                @if ($quantity > 0 ) 
+                                {{ $quantity * $server->price }} $
+                                @else
+                                0 $
+                                @endif
+                                </span></p>
                         </div>
                     @endif
 
