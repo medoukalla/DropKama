@@ -187,7 +187,10 @@ class AchatQuantity extends Component
     public function calculate_total() {
 
         if ( $this->quantity < 1 ) {
-            return $this->addError('quantity', 'Quantity requiried');
+            $this->quantity = 0;
+            $this->total = 0;
+            $this->total_with_fees = 0;
+            return $this->addError('quantity', 'Le champ quantité est obligatoire.');
         }
 
         // if payment is cih 
@@ -215,6 +218,7 @@ class AchatQuantity extends Component
         // do the logic here 
         $validatedData = $this->validate([
             'nom_dans_jeu' => 'required',
+            'quantity' => 'required|numeric|min:1'
         ]);
         // show the next step 
         $this->step = 'A';
