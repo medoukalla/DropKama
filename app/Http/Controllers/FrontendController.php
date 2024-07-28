@@ -163,7 +163,7 @@ class FrontendController extends Controller
 
     // CGU
     public function cgu() {
-        $title = "Les conditions générales d'utilisation";
+        $title = "CONDITIONS GÉNÉRAL D'UTILISATION";
         $message = 'Bonjour, Passez votre commande maintenant pour sécuriser votre achat !';
         return view('frontend.cgu',[
             'title' => $title,
@@ -175,15 +175,6 @@ class FrontendController extends Controller
         $title = 'CONDITIONS GÉNÉRALES DE VENTE';
         $message = 'Bonjour, Passez votre commande maintenant pour sécuriser votre achat !';
         return view('frontend.cgv',[
-            'title' => $title,
-            'message' => $message
-        ]);
-    }
-    // politique 
-    public function politique() {
-        $title = 'POLITIQUE DE CONFIDENTIALITÉ';
-        $message = 'Bonjour, Passez votre commande maintenant pour sécuriser votre achat !';
-        return view('frontend.politique',[
             'title' => $title,
             'message' => $message
         ]);
