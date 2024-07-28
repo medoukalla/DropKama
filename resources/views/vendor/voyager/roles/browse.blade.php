@@ -38,9 +38,8 @@
                     <div class="d-flex justify-content-between align-items-end mt-1">
                     <div class="role-heading">
                         <h4 class="mb-1">{{ $role->display_name }}</h4>
-                        {{-- <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#addRoleModal" class="role-edit-modal"><span>Edit Role</span></a> --}}
+                        <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#addRoleModal" class="role-edit-modal"><span>Edit Role</span></a>
                     </div>
-                    {{-- <a href="javascript:void(0);" class="text-muted"><i class="ti ti-copy ti-md"></i></a> --}}
                     </div>
                 </div>
                 </div>
@@ -71,7 +70,7 @@
 
     <!-- Add Role Modal -->
     <div class="modal fade" id="addRoleModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered modal-add-new-role">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-add-new-role">
         <div class="modal-content p-3 p-md-5">
         <button type="button" class="btn-close btn-pinned" data-bs-dismiss="modal" aria-label="Close"></button>
         <div class="modal-body">
@@ -125,7 +124,7 @@
                                     <td>
                                         <div class="d-flex">
                                             @foreach($permission as $perm)
-                                                <div class="form-check me-3 me-lg-5">
+                                                <div class="form-check me-3 me-lg-2">
                                                     <input class="form-check-input" type="checkbox"  id="permission-{{$perm->id}}" name="permissions[{{$perm->id}}]" value="{{$perm->id}}"  />
                                                     <label class="form-check-label" for="permission-{{$perm->id}}" >
                                                         {{\Illuminate\Support\Str::title(str_replace('_', ' ', $perm->key))}}
