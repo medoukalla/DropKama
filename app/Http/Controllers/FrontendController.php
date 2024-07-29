@@ -152,6 +152,10 @@ class FrontendController extends Controller
         }
         $order = $order->first();
 
+        if ( Auth::user()->id != $order->user_id ) {
+            abort(403);
+        }
+
         // if session payment exists
         if ( Session::has('order_reference') && Session::has('payment_success') && Session::get('payment_success') == 'true' && $ref == Session::get('order_reference') ) {
 
