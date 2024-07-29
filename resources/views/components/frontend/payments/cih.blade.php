@@ -30,8 +30,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Nom du compte : <span>{{ setting('methodes-de-payement-infos.bank-compte-name') }}</span></p>
-                <p>Numéro de compte : <span>{{ setting('methodes-de-payement-infos.bank-compte-number') }}</span></p>
+                <p>BENEFICIAIRE : <span>{{ setting('methodes-de-payement-infos.bank-compte-name') }}</span></p>
+                <p>IBAN : <span>{{ setting('methodes-de-payement-infos.bank-compte-number') }}</span></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>

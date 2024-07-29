@@ -45,7 +45,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Adresse de l'USDT : <span>{{ setting('methodes-de-payement-infos.usdt-address') }}</span></p>
+                <p>Network : <span>{{ setting('methodes-de-payement-infos.usdt-network') }}</span></p>
+                <p>Adresse : <span>{{ setting('methodes-de-payement-infos.usdt-address') }}</span></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
