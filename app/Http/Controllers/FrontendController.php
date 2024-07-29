@@ -31,7 +31,7 @@ class FrontendController extends Controller
     public function vendre() {
         $title = 'Vendre Kamas';
         if ( Auth::check() == true ) {
-            $message = 'Salut, '.Auth::user()->name.'. Merci de remplir les champs ci-dessous.';
+            $message = 'Salut, <span>'.Auth::user()->name.'.</span> Merci de remplir les champs ci-dessous.';
         }else {
             $message = 'Bonjour, pour acheter, vendre ou echange des kamas vous devez <span><a href="/login">se connecter</a></span> ou bien <span><a href="/register">créer un compte</a></span>';
         }
@@ -47,7 +47,7 @@ class FrontendController extends Controller
     public function echange() {
         $title = 'Echange Kamas';
         if ( Auth::check() == true ) {
-            $message = 'Salut, '.Auth::user()->name.'.Veuillez vérifier les détails de votre echange commande ci-dessous. Si tout est correct, cliquez sur "Échangez la demande".';
+            $message = 'Salut, <span>'.Auth::user()->name.'.</span>Veuillez vérifier les détails de votre echange commande ci-dessous. Si tout est correct, cliquez sur "Échangez la demande".';
         }else {
             $message = 'Bonjour, pour acheter, vendre ou echange des kamas vous devez <span><a href="/login">se connecter</a></span> ou bien <span><a href="/register">créer un compte</a></span>';
         }
@@ -62,7 +62,7 @@ class FrontendController extends Controller
     public function achat() {
         $title = 'Acheter Kamas';
         if ( Auth::check() == true ) {
-            $message = 'Salut, '.Auth::user()->name.'. Veuillez sélectionner le serveur sur lequel vous souhaitez acheter des Kamas.';
+            $message = 'Salut, <span>'.Auth::user()->name.'.</span> Veuillez sélectionner le serveur sur lequel vous souhaitez acheter des Kamas.';
         }else {
             $message = 'Bonjour, pour acheter, vendre ou echange des kamas vous devez <span><a href="/login">se connecter</a></span> ou bien <span><a href="/register">créer un compte</a></span>';
         }
@@ -77,7 +77,7 @@ class FrontendController extends Controller
     public function achat_classique() {
         $title = 'Acheter Kamas';
         if ( Auth::check() == true ) {
-            $message = 'Salut, '.Auth::user()->name.'. Veuillez sélectionner le serveur sur lequel vous souhaitez acheter des Kamas.';
+            $message = 'Salut, <span>'.Auth::user()->name.'.</span> Veuillez sélectionner le serveur sur lequel vous souhaitez acheter des Kamas.';
         }else {
             $message = 'Bonjour, pour acheter, vendre ou echange des kamas vous devez <span><a href="/login">se connecter</a></span> ou bien <span><a href="/register">créer un compte</a></span>';
         }
@@ -92,7 +92,7 @@ class FrontendController extends Controller
     public function achat_touch() {
         $title = 'Acheter Kamas';
         if ( Auth::check() == true ) {
-            $message = 'Salut, '.Auth::user()->name.'. Veuillez sélectionner le serveur sur lequel vous souhaitez acheter des Kamas.';
+            $message = 'Salut, <span>'.Auth::user()->name.'.</span> Veuillez sélectionner le serveur sur lequel vous souhaitez acheter des Kamas.';
         }else {
             $message = 'Bonjour, pour acheter, vendre ou echange des kamas vous devez <span><a href="/login">se connecter</a></span> ou bien <span><a href="/register">créer un compte</a></span>';
         }
@@ -107,7 +107,7 @@ class FrontendController extends Controller
     public function achat_retro() {
         $title = 'Acheter Kamas';
         if ( Auth::check() == true ) {
-            $message = 'Salut, '.Auth::user()->name.'. Veuillez sélectionner le serveur sur lequel vous souhaitez acheter des Kamas.';
+            $message = 'Salut, <span>'.Auth::user()->name.'.</span> Veuillez sélectionner le serveur sur lequel vous souhaitez acheter des Kamas.';
         }else {
             $message = 'Bonjour, pour acheter, vendre ou echange des kamas vous devez <span><a href="/login">se connecter</a></span> ou bien <span><a href="/register">créer un compte</a></span>';
         }

@@ -54,7 +54,7 @@ class Echange extends Component
 
         // change title and description on steps 
         if ( $this->echange_status == true ) {
-            $this->message = 'Salut '.Auth::user()->name.', Veuillez lire attentivement ce qui est écrit ci-dessous.';
+            $this->message = 'Salut <span>'.Auth::user()->name.'</span>, Veuillez lire attentivement ce qui est écrit ci-dessous.';
         }
 
         return view('livewire.frontend.echange');

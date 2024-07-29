@@ -64,7 +64,7 @@ class Vendre extends Component
 
         // change title and description on steps 
         if ( $this->vendre_status == true ) {
-            $this->message = 'Salut '.Auth::user()->name.', Veuillez lire ces étapes attentivement et cliquer sur \'Confirmer.\'';
+            $this->message = 'Salut <span>'.Auth::user()->name.'</span>, Veuillez lire ces étapes attentivement et cliquer sur \'Confirmer.\'';
         }
 
         return view('livewire.frontend.vendre');

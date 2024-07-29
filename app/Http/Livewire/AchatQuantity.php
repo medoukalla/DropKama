@@ -101,11 +101,11 @@ class AchatQuantity extends Component
 
         // change title and description on steps 
         if ( $this->step == 'quantity') {
-            $this->message = 'Salut '.Auth::user()->name.', Veuillez remplir le champ ci-dessous et choisir la quantité de kamas souhaiter.';
+            $this->message = 'Salut <span>'.Auth::user()->name.'</span>, Veuillez remplir le champ ci-dessous et choisir la quantité de kamas souhaiter.';
         }elseif ( $this->step == 'A' ) {
-            $this->message = 'Salut '.Auth::user()->name.',  Veuillez vérifier les détails de votre commande ci-dessous. Si tout est correct, cliquez sur "Suivant".';
+            $this->message = 'Salut <span>'.Auth::user()->name.'</span>,  Veuillez vérifier les détails de votre commande ci-dessous. Si tout est correct, cliquez sur "Suivant".';
         }elseif ( $this->step == 'B' ) {
-            $this->message = 'Salut '.Auth::user()->name.',  Veuillez lire attentivement ces étapes et continuer.';
+            $this->message = 'Salut <span>'.Auth::user()->name.'</span>,  Veuillez lire attentivement ces étapes et continuer.';
         }
         
         $this->calculate_total();
