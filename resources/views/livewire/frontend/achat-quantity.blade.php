@@ -131,8 +131,13 @@
                             {{-- @foreach ($payments as $payment) --}}
                             @if ($payment->id == $active_payment_id)
                                 <div class="d-flex align-items-center gap-3">
-                                    <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}"
-                                        alt="" class="currency ps-2" />
+                                    @if ( $payment->svg_name == 'cih' )
+                                        <img src="{{ asset('frontend/images/payments/bank-transfer.svg') }}"
+                                        alt="" class="currency" />
+                                    @else
+                                        <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}"
+                                            alt="" class="currency ps-2" />
+                                    @endif
                                     <p id="selectText">{{ $payment->name }}</p>
                                 </div>
                             @endif
