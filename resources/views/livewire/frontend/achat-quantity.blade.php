@@ -218,9 +218,16 @@
                 </div>
                 <div class="chosen-payment d-flex align-items-center justify-content-between">
                     <div class="chosen-method gap-3">
-                        <img class="chosen-payment-img"
+                        @if ( $payment->svg_name == 'cih' )
+                            <img class="chosen-payment-img"
+                            src="{{ asset('frontend/images/payments/bank-transfer.svg') }}"
+                            alt="Paypal" height="30" />
+                        @else
+                            <img class="chosen-payment-img"
                             src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}"
                             alt="Paypal" height="30" />
+                        @endif
+                        
                     </div>
                     <div class="payment-fees">{{ $fees }}% frais</div>
                 </div>
@@ -298,8 +305,14 @@
                     <span class="method">Retour</span>
                 </div>
                 <div class="payment-fees d-flex align-items-center gap-2">
-                    <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}" alt=""
+                    @if ( $payment->svg_name == 'cih' )
+                        <img src="{{ asset('frontend/images/payments/bank-transfer.svg') }}" alt=""
                         height="40" style="border-radius: 10px; border: 1px solid #0000001f" />
+                    @else
+                        <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}" alt=""
+                        height="40" style="border-radius: 10px; border: 1px solid #0000001f" />
+                    @endif
+                    
                 </div>
             </div>
 
