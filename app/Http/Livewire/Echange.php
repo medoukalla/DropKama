@@ -66,7 +66,7 @@ class Echange extends Component
         $this->bonus_quantity = ( $this->quantite_a_recevoir * $this->bonus ) / 100 ;
         $this->quantite_a_recevoir = $this->quantite_a_recevoir + $this->bonus_quantity;
 
-        $this->quantite_a_recevoir = number_format($this->quantite_a_recevoir, 3);
+        $this->quantite_a_recevoir = number_format($this->quantite_a_recevoir, 2);
     }
 
     // function to change server ( FROM )
@@ -103,13 +103,13 @@ class Echange extends Component
          * 2 -> if server_from price < server_to price
          * 3 -> if server_from price = server_to price
         */
-        if ( $this->server_from->price > $this->server_to->price ) {
+        if ( $this->server_from->price < $this->server_to->price ) {
 
             $res = ( 1 / $this->server_from->price_buy ) * $this->server_to->price;
             $quantity = $this->quantite_a_donner / $res;
             $this->quantite_a_recevoir = $quantity;
 
-        }elseif ( $this->server_from->price < $this->server_to->price ) {
+        }elseif ( $this->server_from->price > $this->server_to->price ) {
 
             $res = $this->server_from->price_buy / $this->server_to->price;
             $quantity = $this->quantite_a_donner * $res;
