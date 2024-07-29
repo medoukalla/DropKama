@@ -38,6 +38,7 @@
                     <div class="d-flex justify-content-between align-items-end mt-1">
                     <div class="role-heading">
                         <h4 class="mb-1">{{ $role->display_name }}</h4>
+                        <a href="{{ route('voyager.roles.edit', $role->id) }}" class="">Modifier</a>
                     </div>
                     </div>
                 </div>
@@ -57,8 +58,7 @@
                 <div class="col-sm-7">
                 <div class="card-body text-sm-end text-center ps-sm-0">
                     <button data-bs-target="#addRoleModal" data-bs-toggle="modal" class="btn btn-primary mb-2 text-nowrap add-new-role">Ajouter un nouveau rôle</button>
-                    <button data-bs-target="#editRoleModal" data-bs-toggle="modal" class="btn btn-basic mb-2 text-nowrap">Modifier les rôles</button>
-                </div>
+                    </div>
                 </div>
             </div>
             </div>
@@ -74,8 +74,8 @@
         <button type="button" class="btn-close btn-pinned" data-bs-dismiss="modal" aria-label="Close"></button>
         <div class="modal-body">
             <div class="text-center mb-4">
-            <h3 class="role-title mb-2">Ajouter un nouveau rôle</h3>
-            <p class="text-muted">Définir les autorisations de rôle</p>
+                <h3 class="role-title mb-2">Ajouter un nouveau rôle</h3>
+                <p class="text-muted">Définir les autorisations de rôle</p>
             </div>
             <!-- Add role form -->
             <form @if(isset($dataTypeContent->id)){{ route('voyager.'.$dataType->slug.'.update', $dataTypeContent->id) }}@else{{ route('voyager.'.$dataType->slug.'.store') }}@endif method="POST" enctype="multipart/form-data" id="addRoleForm" class="row g-3" >

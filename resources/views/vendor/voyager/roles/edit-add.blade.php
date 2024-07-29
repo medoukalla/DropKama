@@ -53,65 +53,36 @@
 
                                 </div>
                             @endforeach
-
+                            <br>
                             <label for="permission">{{ __('voyager::generic.permissions') }}</label><br>
-                            <a href="#" class="permission-select-all">{{ __('voyager::generic.select_all') }}</a> / <a href="#"  class="permission-deselect-all">{{ __('voyager::generic.deselect_all') }}</a>
-                            <ul class="permissions checkbox">
-                                <?php
-                                    $role_permissions = (isset($dataTypeContent)) ? $dataTypeContent->permissions->pluck('key')->toArray() : [];
-                                ?>
-                                @foreach(Voyager::model('Permission')->all()->groupBy('table_name') as $table => $permission)
-                                    <li>
-                                        <input type="checkbox" id="{{$table}}" class="permission-group">
-                                        <label for="{{$table}}"><strong>{{\Illuminate\Support\Str::title(str_replace('_',' ', $table))}}</strong></label>
-                                        <ul>
-                                            @foreach($permission as $perm)
-                                                <li>
-                                                    <input type="checkbox" id="permission-{{$perm->id}}" name="permissions[{{$perm->id}}]" class="the-permission" value="{{$perm->id}}" @if(in_array($perm->key, $role_permissions)) checked @endif>
-                                                    <label for="permission-{{$perm->id}}">{{\Illuminate\Support\Str::title(str_replace('_', ' ', $perm->key))}}</label>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </li>
-                                @endforeach
-                            </ul>
-
-                            <div class="col-12 ">
-                                <h5>Role Permissions</h5>
-                                <!-- Permission table -->
-                                <div class="table-responsive">
-                                <table class="table table-flush-spacing">
-                                    <tbody>
-                                    
-                                        <?php
-                                            // dd( $dataTypeContent );
-                                            // $role_permissions = (isset($dataTypeContent)) ? $dataTypeContent->permissions->pluck('key')->toArray() : [];
-                                        ?>
-                                        @foreach(Voyager::model('Permission')->all()->groupBy('table_name') as $table => $permission)
-            
-                                            <tr>
-                                                <td class="text-nowrap fw-medium">{{\Illuminate\Support\Str::title(str_replace('_',' ', $table))}}</td>
-                                                <td>
-                                                    <div class="d-flex">
-                                                        @foreach($permission as $perm)
-                                                            <div class="form-check me-3 me-lg-2">
-                                                                <input class="form-check-input" type="checkbox"  id="permission-{{$perm->id}}" name="permissions[{{$perm->id}}]" value="{{$perm->id}}"  />
-                                                                <label class="form-check-label" for="permission-{{$perm->id}}" >
-                                                                    {{\Illuminate\Support\Str::title(str_replace('_', ' ', $perm->key))}}
-                                                                </label>
-                                                            </div>
-                                                        @endforeach
-                                                    </div>
-                                                </td>
-                                            </tr>
-            
-                                        @endforeach
-                                    
-                                    </tbody>
-                                </table>
-                                </div>
-                                <!-- Permission table -->
-                            </div>
+                            <table class="table table-flush-spacing mb-3">
+                                <tbody>
+                                
+                                    <?php
+                                        $role_permissions = (isset($dataTypeContent)) ? $dataTypeContent->permissions->pluck('key')->toArray() : [];
+                                    ?>
+                                    @foreach(Voyager::model('Permission')->all()->groupBy('table_name') as $table => $permission)
+        
+                                        <tr>
+                                            <td class="text-nowrap fw-medium">{{\Illuminate\Support\Str::title(str_replace('_',' ', $table))}}</td>
+                                            <td>
+                                                <div class="d-flex justify-content-between">
+                                                    @foreach($permission as $perm)
+                                                        <div class="form-check me-3 me-lg-2">
+                                                            <input class="form-check-input" @if(in_array($perm->key, $role_permissions)) checked @endif type="checkbox"  id="permission-{{$perm->id}}" name="permissions[{{$perm->id}}]" value="{{$perm->id}}"  />
+                                                            <label class="form-check-label" for="permission-{{$perm->id}}" >
+                                                                {{\Illuminate\Support\Str::title(str_replace('_', ' ', $perm->key))}}
+                                                            </label>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </td>
+                                        </tr>
+        
+                                    @endforeach
+                                
+                                </tbody>
+                            </table>
                         </div><!-- panel-body -->
                         <div class="panel-footer">
                             <button type="submit" class="btn btn-primary">{{ __('voyager::generic.submit') }}</button>
