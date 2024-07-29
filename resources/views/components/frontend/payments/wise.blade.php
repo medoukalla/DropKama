@@ -29,7 +29,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Wise email : <span>{{ setting('methodes-de-payement-infos.wise-email')  }}</span></p>
+                <p>Wise bénéficiaire : <span>{{ setting('methodes-de-payement-infos.wise-email')  }}</span></p>
+                <p>Wise IBAN : <span>{{ setting('methodes-de-payement-infos.wise-iban')  }}</span></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>

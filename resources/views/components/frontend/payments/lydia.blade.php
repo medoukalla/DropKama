@@ -31,7 +31,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Lydia email : <span>{{ setting('methodes-de-payement-infos.lydia-email') }}</span></p>
+                <p>Lydia bénéficiaire : <span>{{ setting('methodes-de-payement-infos.lydia-email') }}</span></p>
+                <p>Lydia IBAN : <span>{{ setting('methodes-de-payement-infos.lydia-iban') }}</span></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
