@@ -53,7 +53,11 @@ class FrontendController extends Controller
     // achat 
     public function achat() {
         $title = 'Acheter Kamas';
-        $message = 'Bonjour, pour acheter ou vendre des kamas vous devez se connecter ou bien créer un compte';
+        if ( Auth::check() == true ) {
+            $message = 'Salut, '.Auth::user()->name.'. Veuillez sélectionner le serveur sur lequel vous souhaitez acheter des Kamas.';
+        }else {
+            $message = 'Bonjour, pour acheter, vendre ou echange des kamas vous devez se connecter ou bien créer un compte';
+        }
         return view('frontend.achat',[
             'title' => $title,
             'message' => $message,
@@ -64,7 +68,11 @@ class FrontendController extends Controller
     // achat 
     public function achat_classique() {
         $title = 'Acheter Kamas';
-        $message = 'Bonjour, pour acheter ou vendre des kamas vous devez se connecter ou bien créer un compte';
+        if ( Auth::check() == true ) {
+            $message = 'Salut, '.Auth::user()->name.'. Veuillez sélectionner le serveur sur lequel vous souhaitez acheter des Kamas.';
+        }else {
+            $message = 'Bonjour, pour acheter, vendre ou echange des kamas vous devez se connecter ou bien créer un compte';
+        }
         return view('frontend.achat',[
             'title' => $title,
             'message' => $message,
@@ -75,7 +83,11 @@ class FrontendController extends Controller
     // achat 
     public function achat_touch() {
         $title = 'Acheter Kamas';
-        $message = 'Bonjour, pour acheter ou vendre des kamas vous devez se connecter ou bien créer un compte';
+        if ( Auth::check() == true ) {
+            $message = 'Salut, '.Auth::user()->name.'. Veuillez sélectionner le serveur sur lequel vous souhaitez acheter des Kamas.';
+        }else {
+            $message = 'Bonjour, pour acheter, vendre ou echange des kamas vous devez se connecter ou bien créer un compte';
+        }
         return view('frontend.achat',[
             'title' => $title,
             'message' => $message,
@@ -86,7 +98,11 @@ class FrontendController extends Controller
     // achat 
     public function achat_retro() {
         $title = 'Acheter Kamas';
-        $message = 'Bonjour, pour acheter ou vendre des kamas vous devez se connecter ou bien créer un compte';
+        if ( Auth::check() == true ) {
+            $message = 'Salut, '.Auth::user()->name.'. Veuillez sélectionner le serveur sur lequel vous souhaitez acheter des Kamas.';
+        }else {
+            $message = 'Bonjour, pour acheter, vendre ou echange des kamas vous devez se connecter ou bien créer un compte';
+        }
         return view('frontend.achat',[
             'title' => $title,
             'message' => $message,
@@ -97,7 +113,7 @@ class FrontendController extends Controller
     // achat ( step 2 - Quantity )
     public function achat_quantity( Server $server ) {
         $title = 'Acheter Kamas';
-        $message = 'Bonjour, pour acheter ou vendre des kamas vous devez se connecter ou bien créer un compte';
+        $message = 'Salut '.Auth::user()->name.', Veuillez remplir le champ ci-dessous et choisir la quantité de kamas souhaiter';
         return view('frontend.achat-quantity',[
             'title' => $title,
             'message' => $message,
@@ -152,7 +168,7 @@ class FrontendController extends Controller
 
 
         $title = 'Order details';
-        $message = 'Bonjour, Passez votre commande maintenant pour sécuriser votre achat !';
+        $message = 'Bonjour '.Auth::user()->name.', votre demande est en cours de traitement. !';
         return view('frontend.order-details',[
             'title' => $title,
             'message' => $message,

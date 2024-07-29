@@ -44,6 +44,11 @@ class AchatQuantity extends Component
     public $currency = 'euro';
     public $currency_symb = '€';
 
+
+
+    public $title;
+    public $message;
+
     public function mount() {
         $this->active_map_id = $this->server->map->id;
         $this->active_server_id = $this->server->id;
@@ -70,6 +75,16 @@ class AchatQuantity extends Component
                 $this->currency = "usd";
                 $this->currency_symb = '$';
             }
+        }
+
+
+        // change title and description on steps 
+        if ( $this->step == 'quantity') {
+            $this->message = 'Salut '.Auth::user()->name.', Veuillez remplir le champ ci-dessous et choisir la quantité de kamas souhaiter.';
+        }elseif ( $this->step == 'A' ) {
+            $this->message = 'Salut '.Auth::user()->name.',  Veuillez vérifier les détails de votre commande ci-dessous. Si tout est correct, cliquez sur "Suivant".';
+        }elseif ( $this->step == 'B' ) {
+            $this->message = 'Salut '.Auth::user()->name.',  Veuillez lire attentivement ces étapes et continuer.';
         }
         
         $this->calculate_total();
@@ -187,7 +202,6 @@ class AchatQuantity extends Component
     public function calculate_total() {
 
         if ( $this->quantity < 1 ) {
-            $this->quantity = 0;
             $this->total = 0;
             $this->total_with_fees = 0;
             return $this->addError('quantity', 'Le champ quantité est obligatoire.');
