@@ -202,7 +202,7 @@
         height: 45px;
         max-width: 100%;
     }
-    
+
     .swiper-slide {
         height: 200px;
         width: 400px !important;
@@ -279,6 +279,12 @@
     .authentication .auth-section p {
         font-size: 12px;
     }
+    .info-component {
+        font-size: 14px;
+    }
+    .bg-component-white {
+        padding: 20px !important;
+    }
 }
 /* Min-width 768px */
 @media screen and (min-width: 768px) {
@@ -323,7 +329,7 @@
     .payment-box img {
         max-width: 100%;
     }
-    
+
     .payment-methods .row {
         flex-direction: column-reverse;
         gap: 20px;
@@ -435,6 +441,12 @@
     .all-ventes-tables .kamas-settings .table-content {
         overflow: scroll;
     }
+    .imp-components {
+        flex-direction: column;
+    }
+    .bg-component-white {
+        padding: 20px !important;
+    }
 }
 /* Last steps */
 .product-line {
@@ -508,5 +520,9 @@
     }
     footer .payment-box img {
         height: 30px;
+    }
+    .t-step {
+        font-size: 14px;
+        width: 90%;
     }
 }
