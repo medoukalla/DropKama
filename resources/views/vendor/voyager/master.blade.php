@@ -157,6 +157,24 @@ if (\Illuminate\Support\Str::startsWith(Auth::user()->avatar, 'http://') || \Ill
 
     <script type="text/javascript" src="{{ voyager_asset('js/app.js') }}"></script>
 
+    @if ( Auth::user()->role->id == 2 )
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+            var Tawk_API = Tawk_API || {},
+                Tawk_LoadStart = new Date();
+            (function() {
+                var s1 = document.createElement("script"),
+                    s0 = document.getElementsByTagName("script")[0];
+                s1.async = true;
+                s1.src = 'https://embed.tawk.to/669e98e6becc2fed692906f3/1i3doahae';
+                s1.charset = 'UTF-8';
+                s1.setAttribute('crossorigin', '*');
+                s0.parentNode.insertBefore(s1, s0);
+            })();
+        </script>
+        <!--End of Tawk.to Script-->
+    @endif
+
     <script>
         @if(Session::has('alerts'))
             let alerts = {!! json_encode(Session::get('alerts')) !!};
