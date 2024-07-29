@@ -1,6 +1,6 @@
 <x-frontend.head />
 
-<x-frontend.min-header message='{{ $message }}' title="{{ $title }}" />
+<x-frontend.min-header :message="$message" title="{{ $title }}" />
 
 <x-frontend.game-section />
 

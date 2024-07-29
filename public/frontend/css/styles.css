@@ -642,9 +642,10 @@ header .client-notifs p {
     font-size: 21px;
     width: 90%;
 }
-header .client-notifs span {
+header .client-notifs span, 
+header .client-notifs span a {
     color: var(--orange-clr);
-    text-decoration: underline;
+    text-decoration: underline; 
 }
 .server-section .servers .server {
     position: relative;
