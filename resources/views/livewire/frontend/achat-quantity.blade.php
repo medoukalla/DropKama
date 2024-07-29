@@ -53,7 +53,7 @@
                 <div class="col-12 col-md-6">
                     <div class="kamas-settings">
                         <div class="selector">
-                            <label for="" class="mt-0">Sélectionnez le jeu</label>
+                            <label for="" class="mt-0">Sélectionnez le jeu</label> {{ $order_reference }}
                             <div id="selectField"
                                 onclick="$('ul.mapsList').toggle('slow'); $('.input-arrow-maps').toggleClass('active')">
                                 @foreach ($maps as $map)

@@ -68,7 +68,7 @@ class StripeController extends Controller
     public function payment_cancelled( $ref ) {
         Session::forget('order_rederence');
         Session::forget('payment_success');
-        return redirect()->route('frontend.order.details', ['ref' => $ref]);
+        return redirect()->route('frontend.achat.quantity.order', ['ref' => $ref]);
     }
 
     public function success($ref) {

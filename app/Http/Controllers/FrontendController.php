@@ -129,7 +129,30 @@ class FrontendController extends Controller
             'servers' => Server::servers(),
             'maps' => Map::maps(),
             'payments' => Payment::payments(),
+            'payment_failed' => 'false',
+            'order_reference' => null,
         ]);
+    }
+
+    public function achat_quantity_order( $ref ) {
+        $order = Order::where('reference', $ref)->first();
+        if ( Auth::user()->id != $order->user_id ) {
+            abort(403);
+        }
+
+        $title = 'Acheter Kamas';
+        $message = 'Salut '.Auth::user()->name.', Veuillez remplir le champ ci-dessous et choisir la quantité de kamas souhaiter';
+        return view('frontend.achat-quantity',[
+            'title' => $title,
+            'message' => $message,
+            'server' => $order->server,
+            'servers' => Server::servers(),
+            'maps' => Map::maps(),
+            'payments' => Payment::payments(),
+            'payment_failed' => 'true',
+            'order_reference' => $order->reference,
+        ]);
+
     }
 
     // Achat ( step 3 - Payment )

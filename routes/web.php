@@ -69,6 +69,7 @@ Route::middleware('auth')->group(function () {
 
     // Achat step 2 ( quantity )
     Route::get('achat/{server}/{name}', [FrontendController::class, 'achat_quantity'])->name('frontend.achat.quantity');
+    Route::get('achat/{ref}', [FrontendController::class, 'achat_quantity_order'])->name('frontend.achat.quantity.order');
 
     // Achat step 3 ( Payment )
     Route::get('achat/payment', [FrontendController::class, 'achat_payment'])->name('frontend.achat.payment');

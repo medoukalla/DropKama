@@ -49,14 +49,35 @@ class AchatQuantity extends Component
     public $title;
     public $message;
 
+    public $payment_failed = 'false';
+    public $order_reference = null;
+
     public function mount() {
-        $this->active_map_id = $this->server->map->id;
-        $this->active_server_id = $this->server->id;
-        $this->quantity = $this->server->min;
-        $this->active_payment_id = $this->payments->first()->id;
-        $this->fees = $this->payments->first()->fees;
-        $this->payment_name = $this->payments->first()->name;
-        $this->payment = $this->payments->first();
+
+        if ( $this->payment_failed == 'true' && !is_null( $this->order_reference )) {
+            $order = Order::where('reference', $this->order_reference)->first();
+            $this->active_map_id = $order->server->map->id;
+            $this->active_server_id = $order->server->id;
+            $this->quantity = $order->server->min;
+            $this->active_payment_id = $order->payment->id;
+            $this->fees = $order->payment->fees;
+            $this->payment_name = $order->payment->name;
+            $this->payment = $order->payment;
+            $this->quantity = $order->quantity * 1;
+            $this->nom_dans_jeu = $order->username;
+            $this->total_with_fees = $order->total;
+            
+            $this->step = 'B';
+        }else {
+
+            $this->active_map_id = $this->server->map->id;
+            $this->active_server_id = $this->server->id;
+            $this->quantity = $this->server->min;
+            $this->active_payment_id = $this->payments->first()->id;
+            $this->fees = $this->payments->first()->fees;
+            $this->payment_name = $this->payments->first()->name;
+            $this->payment = $this->payments->first();
+        }
 
         $this->bonus = setting('plus-de-reglages.bonus-achat');
         
@@ -101,39 +122,41 @@ class AchatQuantity extends Component
 
     // function to save the order
     public function save_order() {
-        // save the order in database 
-        $order = new Order();
-        $correct = false;
-        do {
-            $ref = substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 6);
-            if ( Order::where('reference', $ref)->count() == 0 ) {
-                $correct = true;
+
+        if ( $this->payment_failed == 'true' && !is_null( $this->order_reference )) {
+            $order = Order::where('reference', $this->order_reference)->first();
+            $this->check_payment( $order );
+        }else {
+            // save the order in database 
+            $order = new Order();
+            $correct = false;
+            do {
+                $ref = substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 6);
+                if ( Order::where('reference', $ref)->count() == 0 ) {
+                    $correct = true;
+                }
+            } while ( $correct == false );
+
+            $order->reference = $ref;
+
+            $order->quantity = $this->quantity;
+            $order->total = $this->total_with_fees;
+            $order->bonus = $this->bonus_quantity;
+            $order->payment_id = $this->payment->id;
+            $order->server_id = $this->server->id;
+            $order->payed = true;
+            $order->username = $this->nom_dans_jeu;
+
+            $order->user_id = Auth::user()->id;
+
+            $order->currency = $this->currency;
+
+            if ( $order->save() ) {
+                // if client wana pay with stripe
+                $this->check_payment( $order );  
             }
-        } while ( $correct == false );
-
-        $order->reference = $ref;
-
-        $order->quantity = $this->quantity;
-        $order->total = $this->total_with_fees;
-        $order->bonus = $this->bonus_quantity;
-        $order->payment_id = $this->payment->id;
-        $order->server_id = $this->server->id;
-        $order->payed = true;
-        $order->username = $this->nom_dans_jeu;
-
-        $order->user_id = Auth::user()->id;
-
-        $order->currency = $this->currency;
-
-        if ( $order->save() ) {
-
-            // if client wana pay with stripe
-            $this->check_payment( $order ); 
-
-            
         }
 
-        // redirect user to order_details page
     }
 
 
