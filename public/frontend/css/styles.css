@@ -391,6 +391,7 @@ header {
     grid-template-columns: 132px 132px 132px;
     justify-items: center;
     row-gap: 20px;
+    justify-content: center;
     column-gap: 20px;
 }
 .payment-box img {
