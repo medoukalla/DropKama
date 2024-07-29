@@ -1,7 +1,5 @@
 <x-frontend.head />
 
-<x-frontend.min-header message='{{ $message }}' title="{{ $title }}" />
-
-@livewire('vendre', [ 'servers' => $servers,  'payments' => $payments] )
+@livewire('vendre', [ 'servers' => $servers,  'payments' => $payments, 'title' => $title, 'message' => $message] )
 
 <x-frontend.footer />

@@ -35,6 +35,10 @@ class Vendre extends Component
     public $total;
     public $vendre_status = false;
 
+
+    public $title;
+    public $message;
+
     protected $rules = [
         'nom_en_jeu' => 'required',
         'nom_et_prenom' => 'required',
@@ -57,6 +61,12 @@ class Vendre extends Component
 
     public function render()
     {
+
+        // change title and description on steps 
+        if ( $this->vendre_status == true ) {
+            $this->message = 'Salut '.Auth::user()->name.', Veuillez lire ces étapes attentivement et cliquer sur \'Confirmer.\'';
+        }
+
         return view('livewire.frontend.vendre');
     }
 

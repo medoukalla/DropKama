@@ -30,7 +30,11 @@ class FrontendController extends Controller
     // vendre page 
     public function vendre() {
         $title = 'Vendre Kamas';
-        $message = 'Bonjour, pour acheter ou vendre des kamas vous devez se connecter ou bien créer un compte';
+        if ( Auth::check() == true ) {
+            $message = 'Salut, '.Auth::user()->name.'. Merci de remplir les champs ci-dessous.';
+        }else {
+            $message = 'Bonjour, pour acheter, vendre ou echange des kamas vous devez se connecter ou bien créer un compte';
+        }
         return view('frontend.vendre',[
             'title' => $title,
             'message' => $message,
@@ -42,7 +46,11 @@ class FrontendController extends Controller
     // echange page 
     public function echange() {
         $title = 'Echange Kamas';
-        $message = 'Bonjour, pour acheter ou vendre des kamas vous devez se connecter ou bien créer un compte';
+        if ( Auth::check() == true ) {
+            $message = 'Salut, '.Auth::user()->name.'.Veuillez vérifier les détails de votre echange commande ci-dessous. Si tout est correct, cliquez sur "Échangez la demande".';
+        }else {
+            $message = 'Bonjour, pour acheter, vendre ou echange des kamas vous devez se connecter ou bien créer un compte';
+        }
         return view('frontend.echange',[
             'title' => $title,
             'message' => $message,

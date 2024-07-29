@@ -34,6 +34,10 @@ class Echange extends Component
     public $bonus;
     public $bonus_quantity;
 
+
+    public $title;
+    public $message;
+
     public function mount() {
         $servers = $this->servers->toArray();
         $server_from = reset($servers)['id'];
@@ -47,6 +51,12 @@ class Echange extends Component
 
     public function render()
     {
+
+        // change title and description on steps 
+        if ( $this->echange_status == true ) {
+            $this->message = 'Salut '.Auth::user()->name.', Veuillez lire attentivement ce qui est écrit ci-dessous.';
+        }
+
         return view('livewire.frontend.echange');
     }
 
