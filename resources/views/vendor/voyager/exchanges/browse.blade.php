@@ -58,15 +58,13 @@
                     <div class="col ">
                         <button class="btn btn-secondary add-new btn-primary waves-effect waves-light" type="submit" >
                             <span><i class="ti ti-search me-0 me-sm-1 ti-xs"></i></span>
-                        </button>
-                        @if ( Auth::user()->role->id == 2 )    
-                            <a class="btn btn-secondary add-new btn-primary waves-effect waves-light" href="{{ route('frontend.echange') }}" target="_blanck">
-                                <span>
-                                    <i class="ti ti-plus me-0 me-sm-1 ti-xs"></i>
-                                    <span class="d-none d-sm-inline-block">Nouvelle</span>
-                                </span>
-                            </a>
-                        @endif
+                        </button>  
+                        <a class="btn btn-secondary add-new btn-primary waves-effect waves-light" href="{{ route('frontend.echange') }}" target="_blanck">
+                            <span>
+                                <i class="ti ti-plus me-0 me-sm-1 ti-xs"></i>
+                                <span class="d-none d-sm-inline-block">Nouvelle</span>
+                            </span>
+                        </a>
                     </div>
 
                     
