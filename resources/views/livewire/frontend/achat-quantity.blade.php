@@ -167,13 +167,8 @@
                                 {{-- @foreach ($payments as $payment) --}}
                                 @if ($payment->id == $active_payment_id)
                                     <div class="d-flex align-items-center gap-3">
-                                        @if ( $payment->svg_name == 'cih' )
-                                            <img src="{{ asset('frontend/images/payments/bank-transfer.svg') }}"
-                                            alt="" class="currency" />
-                                        @else
-                                            <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}"
-                                                alt="" class="currency ps-2" />
-                                        @endif
+                                        <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}"
+                                            alt="" class="currency ps-2" />
                                         <p id="selectText">{{ $payment->name }}</p>
                                     </div>
                                 @endif
@@ -186,13 +181,8 @@
                                 @foreach ($payments as $paym)
                                     <li class="options @if ($paym->id == $active_payment_id) d-none @endif"
                                         wire:click="change_payment({{ $paym->id }})">
-                                        @if ( $paym->svg_name == 'cih' )
-                                            <img src="{{ asset('frontend/images/payments/bank-transfer.svg') }}"
-                                            alt="" class="currency" />
-                                        @else
                                             <img src="{{ asset('frontend/images/payments/' . $paym->svg_name . '.svg') }}"
                                                 alt="" class="currency" />
-                                                @endif
                                         <p>{{ $paym->name }}</p>
                                     </li>
                                 @endforeach
@@ -212,8 +202,11 @@
                         <hr />
                         <div class="d-flex align-items-center justify-content-between">
                             <span style="font-weight: 700; font-size: 22px">Total</span>
-                            
-                            <span style="font-size: 22px">{{ $currency_symb }}{{ $total_with_fees }}</span>
+                            @if ( $payment->svg_name == 'cih' )
+                                <span style="font-size: 22px">{{ $total_with_fees }} {{ $currency_symb }}</span>
+                            @else
+                                <span style="font-size: 22px">{{ $currency_symb }}{{ $total_with_fees }}</span>
+                            @endif
                         </div>
     
                         @auth
@@ -255,15 +248,10 @@
                     </div>
                     <div class="chosen-payment d-flex align-items-center justify-content-between">
                         <div class="chosen-method gap-3">
-                            @if ( $payment->svg_name == 'cih' )
-                                <img class="chosen-payment-img"
-                                src="{{ asset('frontend/images/payments/bank-transfer.svg') }}"
-                                alt="Paypal" height="30" />
-                            @else
-                                <img class="chosen-payment-img"
-                                src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}"
-                                alt="Paypal" height="30" />
-                            @endif
+                            
+                            <img class="chosen-payment-img"
+                            src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}"
+                            alt="Paypal" height="30" />
                             
                         </div>
                         <div class="payment-fees">{{ $fees }}% frais</div>
@@ -277,18 +265,28 @@
                 <div class="quantities d-flex align-items-center justify-content-between">
                     <p class="chosen-game">Dofus {{ $map->name }}</p>
                     <p class="kamas-quantities">{{ $quantity }} M Kamas</p>
-                    
-                    <p class="kamas-total">{{ $currency_symb }} {{ $total_with_fees }}</p>
+                    @if ( $payment->svg_name == 'cih' )
+                        <p class="kamas-total">{{ $total_with_fees }} {{ $currency_symb }}</p>
+                    @else
+                        <p class="kamas-total">{{ $currency_symb }} {{ $total_with_fees }}</p>
+                    @endif
                 </div>
                 <div class="mt-3">
                     <div class="r-payment d-flex align-items-center justify-content-between">
                         <p class="subtotal">Sous-total</p>
-                        
-                        <p class="result">{{ $currency_symb }} {{ $total }}</p>
+                        @if ( $payment->svg_name == 'cih' )
+                            <p class="result">{{ $total }} {{ $currency_symb }}</p>
+                        @else
+                            <p class="result">{{ $currency_symb }} {{ $total }}</p>
+                        @endif
                     </div>
                     <div class="r-payment d-flex align-items-center justify-content-between mt-2">
                         <p class="fees-subtotal">Frais de paiement</p>
-                        <p class="result">{{ $currency_symb }} {{ $fees_amount }}</p>
+                        @if ( $payment->svg_name == 'cih' )
+                            <p class="result">{{ $fees_amount }} {{ $currency_symb }}</p>
+                        @else
+                            <p class="result">{{ $currency_symb }} {{ $fees_amount }}</p>
+                        @endif
                     </div>
                     <div class="r-payment d-flex align-items-center justify-content-between mt-2">
                         <p class="fees-service">Frais de service</p>
@@ -298,7 +296,12 @@
             </div>
             <div class="payment-total d-flex justify-content-between align-items-center mt-3">
                 <div>Total à payer</div>
-                <div>{{ $currency_symb }} {{ $total_with_fees }}</div>
+                @if ( $payment->svg_name == 'cih' )
+                    <div>{{ $total_with_fees }} {{ $currency_symb }}</div>
+                @else
+                    <div>{{ $currency_symb }} {{ $total_with_fees }}</div>
+                @endif
+                
             </div>
             <a href="Javascript:;" wire:click="confirm_first_step()">
                 <div class="main-btn mt-3">Suivant</div>
@@ -327,13 +330,9 @@
                         <span class="method">Retour</span>
                     </div>
                     <div class="payment-fees d-flex align-items-center gap-2">
-                        @if ( $payment->svg_name == 'cih' )
-                            <img src="{{ asset('frontend/images/payments/bank-transfer.svg') }}" alt=""
-                            height="40" style="border-radius: 10px; border: 1px solid #0000001f" />
-                        @else
-                            <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}" alt=""
-                            height="40" style="border-radius: 10px; border: 1px solid #0000001f" />
-                        @endif
+                        
+                        <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}" alt=""
+                        height="40" style="border-radius: 10px; border: 1px solid #0000001f" />
                         
                     </div>
                 </div>

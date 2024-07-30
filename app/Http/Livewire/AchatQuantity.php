@@ -87,22 +87,15 @@ class AchatQuantity extends Component
 
     public function render()
     {
-        // if ( $this->payment->name == 'Bank transfer' ){
-        //     $this->currency_symb = 'DH';
-        // }else {
-        //     if ( $this->currency == 'euro') {
-        //         $this->currency_symb = '€';
-        //     }else {
-        //         $this->currency = "usd";
-        //         $this->currency_symb = '$';
-        //     }
-        // }
-
-        if ( $this->currency == 'euro') {
-            $this->currency_symb = '€';
+        if ( $this->payment->svg_name == 'cih' ){
+            $this->currency_symb = 'DH';
         }else {
-            $this->currency = "usd";
-            $this->currency_symb = '$';
+            if ( $this->currency == 'euro') {
+                $this->currency_symb = '€';
+            }else {
+                $this->currency = "usd";
+                $this->currency_symb = '$';
+            }
         }
 
 
