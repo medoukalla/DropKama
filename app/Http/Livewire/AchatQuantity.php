@@ -138,8 +138,8 @@ class AchatQuantity extends Component
             } while ( $correct == false );
 
             $order->reference = $ref;
-            
-            $order->quantity = $this->quantity + $this->bonus_quantity;
+
+            $order->quantity = $this->quantity;
             $order->total = $this->total_with_fees;
             $order->bonus = $this->bonus_quantity;
             $order->payment_id = $this->payment->id;
@@ -149,7 +149,11 @@ class AchatQuantity extends Component
 
             $order->user_id = Auth::user()->id;
 
-            $order->currency = $this->currency;
+            if ( $this->payment->svg_name == 'cih' ) {
+                $order->currency = 'DH';
+            }else {
+                $order->currency = $this->currency;
+            }
 
             if ( $order->save() ) {
                 // if client wana pay with stripe
@@ -184,7 +188,9 @@ class AchatQuantity extends Component
 
     // function to calculate and add the bonus to the final quantity 
     public function add_bonus() {
-        $this->bonus_quantity = ( $this->quantity * $this->bonus ) / 100 ;
+        if ( $this->quantity > 0 && $this->bonus > 0 ) {
+            $this->bonus_quantity = ( $this->quantity * $this->bonus ) / 100 ;
+        }
         // $this->quantity = $this->quantity + $this->bonus_quantity;
     }
 
@@ -227,6 +233,7 @@ class AchatQuantity extends Component
         if ( $this->quantity < 1 ) {
             $this->total = 0;
             $this->total_with_fees = 0;
+            $this->bonus_quantity = 0;
             return $this->addError('quantity', 'Le champ quantité est obligatoire.');
         }
 

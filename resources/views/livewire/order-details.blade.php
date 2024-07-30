@@ -329,7 +329,7 @@
                         <div class="info-component">{{ $order->server->name }} {{ $order->quantity * 1 }} M pour :
                             {{ $order->user->username }}</div>
                         <div class="info-component">
-                            {{ $order->total }} {{ strtoupper(Session::get('currency')) }}
+                            {{ $order->total * 1 }} {{ $order->currency }}
                         </div>
                     </div>
                     <div class="d-flex align-items-center justify-content-between mb-3 gap-3 imp-components">
@@ -341,7 +341,7 @@
                     <div class="d-flex align-items-center justify-content-between gap-3 imp-components">
                         <div class="info-component bg-orange">Total</div>
                         <div class="info-component bg-orange">
-                            {{ $order->total }} {{ strtoupper(Session::get('currency')) }}
+                            {{ $order->total * 1 }} {{ $order->currency }}
                         </div>
                     </div>
                 </div>

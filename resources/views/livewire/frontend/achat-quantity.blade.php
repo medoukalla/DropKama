@@ -111,13 +111,11 @@
                             <ul id="list" class="mt-3 serversList">
     
                                 @foreach ($servers as $the_server)
-                                    @if ( $the_server->active == true )    
-                                        @if ($the_server->map_id == $active_map_id && $the_server->id != $active_server_id)
-                                            <li class="options" wire:click="change_server({{ $the_server->id }})">
-                                                <img src="{{ asset('storage/'.$the_server->image) }}" alt="" class="dofus-egg" />
-                                                <p>{{ $the_server->name }}</p>
-                                            </li>
-                                        @endif
+                                    @if ($the_server->map_id == $active_map_id && $the_server->id != $active_server_id)
+                                        <li class="options" wire:click="change_server({{ $the_server->id }})">
+                                            <img src="{{ asset('storage/'.$the_server->image) }}" alt="" class="dofus-egg" />
+                                            <p>{{ $the_server->name }}</p>
+                                        </li>
                                     @endif
                                 @endforeach
     
@@ -127,7 +125,7 @@
                             <label for="">Combien de kamas avez-vous besoin ?</label>
                             <div class="d-flex align-items-center justify-content-start gap-3">
                                 <div id="inputField">
-                                    <input wire:model="quantity" type="number" min="{{ $server->min }}" onkeydown="return /[0-9\-]/i.test(event.key)
+                                    <input wire:model="quantity" type="number" min="{{ $server->min }}"
                                         max="{{ $server->max }}" value="{{ $quantity }}" />
                                     <span>M Kamas</span>
                                 </div>
@@ -168,7 +166,7 @@
                                 @if ($payment->id == $active_payment_id)
                                     <div class="d-flex align-items-center gap-3">
                                         <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}"
-                                            alt="" class="currency ps-2" />
+                                                alt="" class="currency ps-2" />
                                         <p id="selectText">{{ $payment->name }}</p>
                                     </div>
                                 @endif
@@ -181,17 +179,13 @@
                                 @foreach ($payments as $paym)
                                     <li class="options @if ($paym->id == $active_payment_id) d-none @endif"
                                         wire:click="change_payment({{ $paym->id }})">
-                                            <img src="{{ asset('frontend/images/payments/' . $paym->svg_name . '.svg') }}"
+                                        <img src="{{ asset('frontend/images/payments/' . $paym->svg_name . '.svg') }}"
                                                 alt="" class="currency" />
                                         <p>{{ $paym->name }}</p>
                                     </li>
                                 @endforeach
     
                             </ul>
-                            @if ( $payment->svg_name == 'paypal' )
-                                <div class="alert alert-danger">Assurez-vous d'utiliser l'option "Paypal entre proches" Paiement sans description</div>
-                            @endif
-
                             <p class="w-75">
                                 Vous avez sélectionné
                                 <span style="font-weight: 700">{{ $payment_name }}</span> comme méthode de
@@ -248,11 +242,9 @@
                     </div>
                     <div class="chosen-payment d-flex align-items-center justify-content-between">
                         <div class="chosen-method gap-3">
-                            
                             <img class="chosen-payment-img"
-                            src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}"
-                            alt="Paypal" height="30" />
-                            
+                                src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}"
+                                alt="Paypal" height="30" />
                         </div>
                         <div class="payment-fees">{{ $fees }}% frais</div>
                     </div>
@@ -329,11 +321,9 @@
                             alt="arrow-back" height="10" />
                         <span class="method">Retour</span>
                     </div>
-                    <div class="payment-fees d-flex align-items-center gap-2">
-                        
+                    <div class="payment-fees d-flex align-items-center gap-2">  
                         <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}" alt=""
                         height="40" style="border-radius: 10px; border: 1px solid #0000001f" />
-                        
                     </div>
                 </div>
     
