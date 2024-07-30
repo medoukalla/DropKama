@@ -231,20 +231,14 @@ class AchatQuantity extends Component
         }
 
         // if payment is cih 
-        // if ( $this->payment->name == 'Bank transfer' ) {
-        //     $price = $this->server->price_mad;
-        // }else {
-        //     if ( $this->currency == 'usd' ) {
-        //         $price = $this->server->price_usd;
-        //     }else {
-        //         $price = $this->server->price;
-        //     }
-        // }
-
-        if ( $this->currency == 'usd' ) {
-            $price = $this->server->price_usd;
+        if ( $this->payment->svg_name == 'cih' ) {
+            $price = $this->server->price_mad;
         }else {
-            $price = $this->server->price;
+            if ( $this->currency == 'usd' ) {
+                $price = $this->server->price_usd;
+            }else {
+                $price = $this->server->price;
+            }
         }
         
         $quantity = $this->quantity;
