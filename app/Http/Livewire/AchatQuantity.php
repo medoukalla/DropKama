@@ -87,15 +87,22 @@ class AchatQuantity extends Component
 
     public function render()
     {
-        if ( $this->payment->name == 'Bank transfer' ){
-            $this->currency_symb = 'DH';
+        // if ( $this->payment->name == 'Bank transfer' ){
+        //     $this->currency_symb = 'DH';
+        // }else {
+        //     if ( $this->currency == 'euro') {
+        //         $this->currency_symb = '€';
+        //     }else {
+        //         $this->currency = "usd";
+        //         $this->currency_symb = '$';
+        //     }
+        // }
+
+        if ( $this->currency == 'euro') {
+            $this->currency_symb = '€';
         }else {
-            if ( $this->currency == 'euro') {
-                $this->currency_symb = '€';
-            }else {
-                $this->currency = "usd";
-                $this->currency_symb = '$';
-            }
+            $this->currency = "usd";
+            $this->currency_symb = '$';
         }
 
 
@@ -231,14 +238,20 @@ class AchatQuantity extends Component
         }
 
         // if payment is cih 
-        if ( $this->payment->name == 'Bank transfer' ) {
-            $price = $this->server->price_mad;
+        // if ( $this->payment->name == 'Bank transfer' ) {
+        //     $price = $this->server->price_mad;
+        // }else {
+        //     if ( $this->currency == 'usd' ) {
+        //         $price = $this->server->price_usd;
+        //     }else {
+        //         $price = $this->server->price;
+        //     }
+        // }
+
+        if ( $this->currency == 'usd' ) {
+            $price = $this->server->price_usd;
         }else {
-            if ( $this->currency == 'usd' ) {
-                $price = $this->server->price_usd;
-            }else {
-                $price = $this->server->price;
-            }
+            $price = $this->server->price;
         }
         
         $quantity = $this->quantity;
