@@ -111,11 +111,13 @@
                             <ul id="list" class="mt-3 serversList">
     
                                 @foreach ($servers as $the_server)
-                                    @if ($the_server->map_id == $active_map_id && $the_server->id != $active_server_id)
-                                        <li class="options" wire:click="change_server({{ $the_server->id }})">
-                                            <img src="{{ asset('storage/'.$the_server->image) }}" alt="" class="dofus-egg" />
-                                            <p>{{ $the_server->name }}</p>
-                                        </li>
+                                    @if ( $the_server->active == true )    
+                                        @if ($the_server->map_id == $active_map_id && $the_server->id != $active_server_id)
+                                            <li class="options" wire:click="change_server({{ $the_server->id }})">
+                                                <img src="{{ asset('storage/'.$the_server->image) }}" alt="" class="dofus-egg" />
+                                                <p>{{ $the_server->name }}</p>
+                                            </li>
+                                        @endif
                                     @endif
                                 @endforeach
     
