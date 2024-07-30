@@ -9,7 +9,7 @@
                     <th scope="col">Serveur</th>
                     <th scope="col">Nom du personnage</th>
                     <th scope="col">Quantité</th>
-                    <th scope="col">Montant (€)</th>
+                    <th scope="col">Montant</th>
                     <th scope="col">Mode de paiement</th>
 
                     <th scope="col">Statut</th>
@@ -36,7 +36,16 @@
                         <td>{{ $offer->server->map->name.' / '.$offer->server->name }}</td>
                         <td>{{ $offer->game_id }}</td>
                         <td>{{ $offer->quantity }} Millions</td>
-                        <td>{{ $offer->total }}</td>
+                        <td>
+                            {{ $offer->total }}
+                            @if ( $offer->payment->svg_name == 'cih' )
+                                DH
+                            @elseif ( $offer->payment->svg_name == 'usdt' )
+                                $
+                            @else
+                                €
+                            @endif
+                        </td>
                         <td>{{ $offer->payment->name }}</td>
 
                         <td>{!! $offer_status !!}</td>
@@ -44,8 +53,6 @@
                             <button wire:click="open_offer({{ $offer->id }})" class="btn btn-sm btn-label-warning waves-effect  pull-right view">
                                 Afficher
                             </button>
-
-
                         </td>
                     </tr>
                 @endforeach
