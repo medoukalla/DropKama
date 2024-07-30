@@ -267,6 +267,10 @@
                             @enderror
                         </div>
     
+                        <div class="alert alert-info mt-2">
+                            Le paiement de vos commandes de vente kamas est instantané
+                        </div>
+
                         @auth
                             <div wire:loading.remove wire:click="save_order()" class="main-btn mt-3 py-4"
                                 style="cursor: pointer">Suivant</div>
@@ -280,8 +284,8 @@
                         @endauth
                         @guest
                             <div class="alert alert-warning mt-2">
-                                Veuillez vous <a href="{{ route('login') }}">connecter</a> ou <a
-                                    href="{{ route('register') }}">créer un compte</a> pour vendre vos kamas immédiatement!
+                                Veuillez vous <a href="{{ route('login') }}">connecter</a> pour lancer une demande de vente. <br>
+                                Si vous n'êtes pas inscrit, veuillez <a href="{{ route('register') }}">créer un compte</a> avant de pouvoir passer vos demandes de vente.
                             </div>
                         @endguest
                     </div>
