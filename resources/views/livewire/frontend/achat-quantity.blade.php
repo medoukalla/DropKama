@@ -125,7 +125,7 @@
                             <label for="">Combien de kamas avez-vous besoin ?</label>
                             <div class="d-flex align-items-center justify-content-start gap-3">
                                 <div id="inputField">
-                                    <input wire:model="quantity" type="number" min="{{ $server->min }}"
+                                    <input wire:model="quantity" type="number" min="{{ $server->min }}" onkeydown="return /[0-9\-]/i.test(event.key)
                                         max="{{ $server->max }}" value="{{ $quantity }}" />
                                     <span>M Kamas</span>
                                 </div>

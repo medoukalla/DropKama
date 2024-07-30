@@ -138,8 +138,8 @@ class AchatQuantity extends Component
             } while ( $correct == false );
 
             $order->reference = $ref;
-
-            $order->quantity = $this->quantity;
+            
+            $order->quantity = $this->quantity + $this->bonus_quantity;
             $order->total = $this->total_with_fees;
             $order->bonus = $this->bonus_quantity;
             $order->payment_id = $this->payment->id;
@@ -185,7 +185,7 @@ class AchatQuantity extends Component
     // function to calculate and add the bonus to the final quantity 
     public function add_bonus() {
         $this->bonus_quantity = ( $this->quantity * $this->bonus ) / 100 ;
-        $this->quantity = $this->quantity + $this->bonus_quantity;
+        // $this->quantity = $this->quantity + $this->bonus_quantity;
     }
 
     // function to change maps 
