@@ -40,7 +40,16 @@
                         <td>{{ $order->reference }}</td>
                         <td>{{ $order->server->map->name }} / {{ $order->server->name }}</td>
                         <td>{{ $order->quantity / 1 }} M</td>
-                        <td>{{ $order->total }} $</td>
+                        <td>
+                            {{ $order->total }}
+                            @if ( $order->currency == 'usd' )
+                                $
+                            @elseif ( $order->currency == 'DH' )
+                                DH
+                            @elseif ( $order->currency == 'euro' )
+                                €
+                            @endif
+                        </td>
                         <td>{{ $order->username }}</td>
                         <td>{{ $order->payment->name }}</td>
                         <td>{!! $status !!}</td>
