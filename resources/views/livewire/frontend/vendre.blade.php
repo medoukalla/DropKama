@@ -160,13 +160,13 @@
                         @elseif ( $payment->svg_name == 'skrill' )
                             <div class="">
                                 <p>
-                                    Prix par million : <span class="text-danger">{{ $server->skrill_price }} $</span>
+                                    Prix par million : <span class="text-danger">{{ $server->skrill_price }} €</span>
                                 </p>
                                 <p>Montant total : <span class="text-danger">
                                     @if ($quantity > 0 ) 
-                                        {{ $quantity * $server->skrill_price }} $
+                                        {{ $quantity * $server->skrill_price }} €
                                     @else
-                                        0 $
+                                        0 €
                                     @endif
                                     </span></p>
                             </div>
@@ -404,7 +404,7 @@
                                         <tr style="cursor:pointer;" wire:click="change_server({{ $server->id }})" onclick="$('html, body').animate({scrollTop: $('div#formule').offset().top}, 50);" >
                                             <th scope="row">{{ $server->name }} </th>
                                             <td>{{ $server->paypal_price }}€</td>
-                                            <td>{{ $server->skrill_price }}$</td>
+                                            <td>{{ $server->skrill_price }}€</td>
                                             <td>{{ $server->cih_price }}dh</td>
                                             @if ( $server->active == true )
                                                 <td class="incomplet">Incomplet</td>
@@ -441,7 +441,7 @@
                                         <tr style="cursor:pointer;" wire:click="change_server({{ $server->id }})" onclick="$('html, body').animate({scrollTop: $('div#formule').offset().top}, 50);" >
                                             <th scope="row">{{ $server->name }} </th>
                                             <td>{{ $server->paypal_price }}€</td>
-                                            <td>{{ $server->skrill_price }}$</td>
+                                            <td>{{ $server->skrill_price }}€</td>
                                             <td>{{ $server->cih_price }}dh</td>
                                             @if ( $server->active == true )
                                                 <td class="incomplet">Incomplet</td>
@@ -478,7 +478,7 @@
                                         <tr style="cursor:pointer;" wire:click="change_server({{ $server->id }})" onclick="$('html, body').animate({scrollTop: $('div#formule').offset().top}, 50);" >
                                             <th scope="row">{{ $server->name }} </th>
                                             <td>{{ $server->paypal_price }}€</td>
-                                            <td>{{ $server->skrill_price }}$</td>
+                                            <td>{{ $server->skrill_price }}€</td>
                                             <td>{{ $server->cih_price }}dh</td>
                                             @if ( $server->active == true )
                                                 <td class="incomplet">Incomplet</td>
