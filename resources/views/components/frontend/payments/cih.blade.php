@@ -16,7 +16,6 @@
         <div class="step-content">
             Une fois le paiement terminé, veuillez cliquer sur le bouton ci-dessous. Un de nos agents examinera votre
             paiement et traitera votre commande, merci.
-            J'ai effectué le paiement
         </div>
     </div>
 </div>
