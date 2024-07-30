@@ -8,8 +8,7 @@
     <ul class="dropdown-menu dropdown-menu-end py-0">
       <li class="dropdown-menu-header border-bottom">
         <div class="dropdown-header d-flex align-items-center py-3">
-          <h5 class="text-body mb-0 me-auto">Notification</h5>
-          <a href="javascript:void(0)" class="dropdown-notifications-all text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="Mark all as read"><i class="ti ti-mail-opened fs-4"></i></a>
+          <h5 class="text-body mb-0 me-auto">Notifications</h5>
         </div>
       </li>
       <li class="dropdown-notifications-list scrollable-container">
@@ -38,9 +37,6 @@
                             <small class="text-muted">{{ $notification->created_at->diffForHumans() }}</small>
                           </a>
                         </div>
-                        <div class="flex-shrink-0 ">
-                          <a wire:click="mark_as_read({{ $notification->id }})" href="javascript:void(0)" class="dropdown-notifications-archive"><span class="ti ti-x"></span></a>
-                        </div>
                       </div>
                   </li>
 
@@ -60,9 +56,6 @@
                             <p class="mb-0">Référence : {{ $notification_data->order_ref }}</p>
                             <small class="text-muted">{{ $notification->created_at->diffForHumans() }}</small>
                           </a>
-                        </div>
-                        <div class="flex-shrink-0 ">
-                          <a wire:click="mark_as_read({{ $notification->id }})"  href="javascript:void(0)" class="dropdown-notifications-archive"><span class="ti ti-x"></span></a>
                         </div>
                       </div>
                   </li>
@@ -84,9 +77,6 @@
                             <small class="text-muted">{{ $notification->created_at->diffForHumans() }}</small>
                           </a>
                         </div>
-                        <div class="flex-shrink-0 ">
-                          <a wire:click="mark_as_read({{ $notification->id }})"  href="javascript:void(0)" class="dropdown-notifications-archive"><span class="ti ti-x"></span></a>
-                        </div>
                       </div>
                   </li>
 
@@ -106,9 +96,6 @@
                             <p class="mb-0">{{ $notification_data->notification }}</p>
                             <small class="text-muted">{{ $notification->created_at->diffForHumans() }}</small>
                           </a>
-                        </div>
-                        <div class="flex-shrink-0 ">
-                          <a  wire:click="mark_as_read({{ $notification->id }})" href="javascript:void(0)" class="dropdown-notifications-archive"><span class="ti ti-x"></span></a>
                         </div>
                       </div>
                   </li>
