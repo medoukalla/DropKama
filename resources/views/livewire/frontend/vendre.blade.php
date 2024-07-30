@@ -53,12 +53,14 @@
                             <ul id="list" class="mt-3 serversList">
     
                                 @foreach ($servers as $the_server)
-                                    <li class="options @if ($the_server->id == $server->id) d-none @endif"
-                                        wire:click="change_server({{ $the_server->id }})">
-                                        <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt=""
-                                            class="dofus-egg" />
-                                        <p>{{ $the_server->name }} - ( {{ $the_server->map->name }} )</p>
-                                    </li>
+                                    @if ( $the_server->active == true )     
+                                        <li class="options @if ($the_server->id == $server->id) d-none @endif"
+                                            wire:click="change_server({{ $the_server->id }})">
+                                            <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt=""
+                                                class="dofus-egg" />
+                                            <p>{{ $the_server->name }} - ( {{ $the_server->map->name }} )</p>
+                                        </li>
+                                    @endif
                                 @endforeach
     
                             </ul>
@@ -396,16 +398,16 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Server</th>
+                                        <th scope="col">Serveur</th>
                                         <th scope="col">Paypal</th>
                                         <th scope="col">Skrill</th>
                                         <th scope="col">Mad</th>
-                                        <th scope="col">Status</th>
+                                        <th scope="col">Statut</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ( $servers->where('map_id', 1) as $server )    
-                                        <tr style="cursor:pointer;" wire:click="change_server({{ $server->id }})" onclick="$('html, body').animate({scrollTop: $('div#formule').offset().top}, 50);" >
+                                        <tr @if ( $server->active == true ) style="cursor:pointer;" wire:click="change_server({{ $server->id }})" onclick="$('html, body').animate({scrollTop: $('div#formule').offset().top}, 50);" @endif >
                                             <th scope="row">{{ $server->name }} </th>
                                             <td>{{ $server->paypal_price }}€</td>
                                             <td>{{ $server->skrill_price }}€</td>
@@ -433,16 +435,16 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Server</th>
+                                        <th scope="col">Serveur</th>
                                         <th scope="col">Paypal</th>
                                         <th scope="col">Skrill</th>
                                         <th scope="col">Mad</th>
-                                        <th scope="col">Status</th>
+                                        <th scope="col">Statut</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ( $servers->where('map_id', 2) as $server )    
-                                        <tr style="cursor:pointer;" wire:click="change_server({{ $server->id }})" onclick="$('html, body').animate({scrollTop: $('div#formule').offset().top}, 50);" >
+                                        <tr @if ( $server->active == true ) style="cursor:pointer;" wire:click="change_server({{ $server->id }})" onclick="$('html, body').animate({scrollTop: $('div#formule').offset().top}, 50);" @endif >
                                             <th scope="row">{{ $server->name }} </th>
                                             <td>{{ $server->paypal_price }}€</td>
                                             <td>{{ $server->skrill_price }}€</td>
@@ -470,16 +472,16 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Server</th>
+                                        <th scope="col">Serveur</th>
                                         <th scope="col">Paypal</th>
                                         <th scope="col">Skrill</th>
                                         <th scope="col">Mad</th>
-                                        <th scope="col">Status</th>
+                                        <th scope="col">Statut</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ( $servers->where('map_id', 3) as $server )    
-                                        <tr style="cursor:pointer;" wire:click="change_server({{ $server->id }})" onclick="$('html, body').animate({scrollTop: $('div#formule').offset().top}, 50);" >
+                                        <tr @if ( $server->active == true ) style="cursor:pointer;" wire:click="change_server({{ $server->id }})" onclick="$('html, body').animate({scrollTop: $('div#formule').offset().top}, 50);" @endif >
                                             <th scope="row">{{ $server->name }} </th>
                                             <td>{{ $server->paypal_price }}€</td>
                                             <td>{{ $server->skrill_price }}€</td>
