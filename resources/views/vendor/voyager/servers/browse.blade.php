@@ -16,7 +16,7 @@
                     <div class="content-left">
                     <span>{{ $dataType->getTranslatedAttribute('display_name_plural') }}</span>
                     <div class="d-flex align-items-center my-2">
-                        <h3 class="mb-0 me-2">{{ $dataTypeContent->count() }}</h3>
+                        <h3 class="mb-0 me-2">{{ \App\Models\Server::count() }}</h3>
                     </div>
                     <p class="mb-0">Total {{ $dataType->getTranslatedAttribute('display_name_plural') }}</p>
                     </div>

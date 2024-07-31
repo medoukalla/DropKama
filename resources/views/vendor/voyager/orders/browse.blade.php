@@ -16,7 +16,11 @@
                     <div class="content-left">
                     <span>Session</span>
                     <div class="d-flex align-items-center my-2">
-                        <h3 class="mb-0 me-2">{{ $dataTypeContent->where('user_id', Auth::user()->id)->count() }}</h3>
+                        @if ( Auth::user()->role->id == 2 )
+                            <h3 class="mb-0 me-2">{{ $dataTypeContent->where('user_id', Auth::user()->id)->count() }}</h3>
+                        @else
+                            <h3 class="mb-0 me-2">{{ \App\Models\Order::count() }}</h3>
+                        @endif
                     </div>
                     <p class="mb-0">Total {{ $dataType->getTranslatedAttribute('display_name_plural') }}</p>
                     </div>
