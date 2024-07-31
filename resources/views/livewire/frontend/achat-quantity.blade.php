@@ -186,6 +186,11 @@
                                 @endforeach
     
                             </ul>
+
+                            @if ( $payment_name == 'Paypal' )
+                                <div class="alert alert-danger">Assurez-vous d'utiliser l'option "Paypal entre proches" Paiement sans description</div>
+                            @endif
+                            
                             <p class="w-75">
                                 Vous avez sélectionné
                                 <span style="font-weight: 700">{{ $payment_name }}</span> comme méthode de
