@@ -3,9 +3,12 @@
 namespace App\Http\Livewire;
 
 use App\Models\Offer;
+use App\Models\User;
+use App\Notifications\admin\NewOffer as AdminNewOffer;
 use App\Notifications\NewOffer;
 use Livewire\Component;
 use Auth;
+use Notification;
 
 class Vendre extends Component
 {
@@ -178,6 +181,10 @@ class Vendre extends Component
 
             try {
                 Auth::user()->notify( new NewOffer($offer));
+
+                $admin = User::where('role_id', 1)->orderBy('id', 'asc')->first();
+                Notification::send($admin, new AdminNewOffer($offer) );
+
             } catch (\Throwable $th) {
                 // throw $th;
             }  

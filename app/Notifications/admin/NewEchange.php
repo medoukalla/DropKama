@@ -44,11 +44,10 @@ class NewEchange extends Notification
     {
         return (new MailMessage)
                     ->subject('Vous avez un nouvel échange')
-                    ->line('Client email : '.$this->order->user->email)
+                    ->line('Courriel du client : '.$this->order->user->email)
                     ->line('Quantité à donner : '.$this->order->quantity * 1000000)
                     ->line('Quantité à recevoir : '.$this->order->quantity_get * 1000000)
-                    ->line('Quantité à recevoir : '.$this->order->quantity_get * 1000000)
-                    ->action('Aller au tableau de bord', route('echanges.index'));
+                    ->action('Aller au tableau de bord', route('voyager.exchanges.index'));
     }
 
     /**

@@ -51,14 +51,14 @@ class NewOffer extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject("Vous avez une nouvelle offre de : ".$this->user->name)
-                    ->line('User name : '.$this->user->name)
-                    ->line('User email : '.$this->user->email)
-                    ->line('Reference : '.$this->offer->orderId)
-                    ->line('Server name : '.$this->serverName)
-                    ->line('Quantity : '.$this->offer->quantity.'.000.000')
-                    ->line('Currency : '.$this->currency)
-                    ->action('Aller au tableau de bord', route('voyager.offers.index'));
+            ->subject("Vous avez une nouvelle offre de : ".$this->user->name)
+            ->line('Nom d\'utilisateur : '.$this->user->name)
+            ->line('E-mail de l\'utilisateur : '.$this->user->email)
+            ->line('Référence : '.$this->offer->orderId)
+            ->line('Nom du serveur : '.$this->serverName)
+            ->line('Quantité : '.$this->offer->quantity.'.000.000')
+            ->line('Currency : '.$this->currency)
+            ->action('Aller au tableau de bord', route('voyager.offers.index'));
     }
 
     /**

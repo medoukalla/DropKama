@@ -58,14 +58,14 @@ class NewOrder extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject("Vous avez une nouvelle commande de : ".$this->user->name)
-                    ->line('User name : '.$this->user->name)
-                    ->line('User email : '.$this->user->email)
-                    ->line('Reference : '.$this->order->reference)
-                    ->line('Server name : '.$this->serverName)
-                    ->line('Quantity : '.$this->order->quantity')
-                    ->line('Currency : '.$this->currency)
-                    ->action('Aller au tableau de bord', route('orders.index'));
+                ->subject("Vous avez une nouvelle command de : ".$this->user->name)
+                ->line('Nom d\'utilisateur : '.$this->user->name)
+                ->line('E-mail de l\'utilisateur : '.$this->user->email)
+                ->line('Référence : '.$this->order->reference)
+                ->line('Nom du serveur : '.$this->serverName)
+                ->line('Quantité : '.$this->order->quantity.'.000.000')
+                ->line('Currency : '.$this->currency)
+                ->action('Aller au tableau de bord', route('voyager.orders.index'));
     }
 
     /**
@@ -80,4 +80,5 @@ class NewOrder extends Notification
             //
         ];
     }
+
 }

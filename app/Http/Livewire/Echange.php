@@ -4,10 +4,13 @@ namespace App\Http\Livewire;
 
 use App\Models\Exchange;
 use App\Models\Server;
+use App\Models\User;
+use App\Notifications\admin\NewEchange;
 use Livewire\Component;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Auth;
+use Notification;
 
 class Echange extends Component
 {
@@ -156,6 +159,13 @@ class Echange extends Component
         $echange->orderId = $ref;
 
         if ( $echange->save() ) {
+
+            try {
+                $admin = User::where('role_id', 1)->orderBy('id', 'asc')->first();
+                Notification::send($admin, new NewEchange($echange) );
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
             $this->exchange = $echange;
             $this->echange_status = true;
             $this->reset_form();

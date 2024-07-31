@@ -4,11 +4,14 @@ namespace App\Http\Livewire;
 
 use App\Models\Order;
 use App\Models\Server;
+use App\Models\User;
+use App\Notifications\admin\NewOrder as AdminNewOrder;
 use App\Notifications\NewFreshOrder;
 use Auth;
 use Error;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
+use Notification;
 
 class AchatQuantity extends Component
 {
@@ -178,6 +181,10 @@ class AchatQuantity extends Component
             // send email to client 
             try {
                 Auth::user()->notify( new NewFreshOrder($order));
+
+                $admin = User::where('role_id', 1)->orderBy('id', 'asc')->first();
+                Notification::send($admin, new AdminNewOrder($order) );
+                
             } catch (\Throwable $th) {
                 // throw $th;
             } 
