@@ -357,7 +357,7 @@
                                 <p>
                                     Dans le cas où vous n’avez pas reçu un message sur le jeu,
                                     contacter nous via le Live Chat ou bien rejoignez le Discord
-                                    <a href="https://discord.gg/egvJGknPHT" target="_blank"><span>Dropkamas</span></a> et
+                                    <a href="{{ setting('site.discord') }}" target="_blank"><span>Dropkamas</span></a> et
                                     ouvrir un
                                     ticket au salon Support et envoyer un message avec le numéro de votre commande.
                                 </p>
