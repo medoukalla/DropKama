@@ -30,6 +30,7 @@ class Vendre extends Component
     public $usdt_adresse;
     public $bank_nom;
     public $bank_numero;
+    public $cih_rib;
 
 
     public $total;
@@ -91,31 +92,38 @@ class Vendre extends Component
 
         // validate the inputs based on payment method 
         // Validate paypal 
-        if ( $this->payment->name == 'Paypal') {
+        if ( $this->payment->svg_name == 'paypal') {
             $validatedData = $this->validate([
                 'paypal_email' => 'required|email|max:100',
             ]);
         }
 
         // Validate Skrill 
-        if ( $this->payment->name == 'Skrill') {
+        if ( $this->payment->svg_name == 'skrill') {
             $validatedData = $this->validate([
                 'skrill_email' => 'required|email|max:100',
             ]);
         }
 
         // Validate Usdt 
-        if ( $this->payment->name == 'Usdt') {
+        if ( $this->payment->svg_name == 'usdt') {
             $validatedData = $this->validate([
                 'usdt_adresse' => 'required|max:250',
             ]);
         }
 
         // Validate bank transfer 
-        if ( $this->payment->name == 'Bank transfer') {
+        if ( $this->payment->svg_name == 'bank-transfer') {
             $validatedData = $this->validate([
                 'bank_nom' => 'required|max:50',
                 'bank_numero' => 'required'
+            ]);
+        }
+
+        // Validate cih 
+        if ( $this->payment->svg_name == 'cih' ) {
+            $validatedData = $this->validate([
+                'cih_rib' => 'required'
             ]);
         }
 
@@ -124,13 +132,33 @@ class Vendre extends Component
         $offer->user_id = Auth::user()->id;
         $offer->server_id = $this->server->id;
         $offer->quantity = $this->quantity;
-        $offer->total = $this->quantity * $this->server->price;
         $offer->game_id = $this->nom_en_jeu;
         $offer->payment_id = $this->payment->id;
         $offer->name = $this->nom_et_prenom;
         $offer->email = $this->email;
         $offer->discord = 'none'; // not using it for now
         
+
+        if ( $this->payment->svg_name == 'paypal' ) {
+            $offer->total = $this->quantity * $this->server->paypal_price;
+            $offer->payment_info = $this->paypal_email;
+        }elseif ( $this->payment->svg_name == 'skrill' ) {
+            $offer->total = $this->quantity * $this->server->skrill_price;
+            $offer->payment_info = $this->skrill_email;
+        }elseif ( $this->payment->svg_name == 'usdt' ) {
+            $offer->total = $this->quantity * $this->server->price;
+            $offer->payment_info = $this->usdt_adresse;
+        }elseif ( $this->payment->svg_name == 'bank-transfer' ) {
+            $offer->total = $this->quantity * $this->server->skrill_price;
+            $offer->payment_info = $this->bank_nom;
+            $offer->payment_info_b = $this->bank_numero;
+        }elseif ( $this->payment->svg_name == 'cih' ) {
+            $offer->total = $this->quantity * $this->server->cih_price;
+            $offer->payment_info = $this->cih_rib;
+        }else {
+            $offer->total = $this->quantity * $this->server->skrill_price;
+        }
+
         // generate id 
         $correct = false;
         do {
@@ -142,17 +170,7 @@ class Vendre extends Component
 
         $offer->orderId = $ref;
 
-        // payment info 
-        if ( $this->payment->name == 'Paypal') {
-            $offer->payment_info = $this->paypal_email;
-        }elseif ( $this->payment->name == 'Skrill' ) {
-            $offer->payment_info = $this->skrill_email;
-        }elseif ( $this->payment->name == "usdt" ) {
-            $offer->payment_info = $this->usdt_adresse;
-        }elseif ( $this->payment->name == "Bank transfer" || $this->payment->name == 'cih' ) {
-            $offer->payment_info = $this->bank_nom;
-            $offer->payment_info_b = $this->bank_numero;
-        }
+        
 
         if ( $offer->save() ) {
             $this->vendre_status = true;

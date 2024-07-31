@@ -17,7 +17,7 @@ class Payment extends Model
     // function to get method payments for vendre system 
     static function vendre_payments() {
         // allowed payment methods for vendre system 
-        $allowed = ['Paypal', 'Bank transfer', 'Usdt', 'Skrill'];
-        return Payment::whereIn('name', $allowed)->get();
+        $allowed = ['paypal', 'bank-transfer', 'usdt', 'skrill', 'cih'];
+        return Payment::whereIn('svg_name', $allowed)->get();
     }
 }

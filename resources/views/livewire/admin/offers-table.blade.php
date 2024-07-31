@@ -35,9 +35,9 @@
                         <td>{{ $offer->email }}</td>
                         <td>{{ $offer->server->map->name.' / '.$offer->server->name }}</td>
                         <td>{{ $offer->game_id }}</td>
-                        <td>{{ $offer->quantity }} Millions</td>
+                        <td>{{ $offer->quantity * 1 }} Millions</td>
                         <td>
-                            {{ $offer->total }}
+                            {{ $offer->total * 1 }}
                             @if ( $offer->payment->svg_name == 'cih' )
                                 DH
                             @elseif ( $offer->payment->svg_name == 'usdt' )
@@ -78,11 +78,22 @@
                 <h5>Adresse email : {{ $selected_offer->email }}</h5>
                 <h5>Game id : {{ $selected_offer->game_id }}</h5>
                 <h5>Map / Serveur : {{ $selected_offer->server->map->name.' / '.$selected_offer->server->name }}</h5>
-                <h5>Quantité : {{ $selected_offer->quantity }} M</h5>
+                <h5>Quantité : {{ $selected_offer->quantity * 1 }} M</h5>
                 <h5>Discord : {{ $selected_offer->discrod }}</h5>
                 <h5>Mode de paiement : {{ $selected_offer->payment->name }}</h5>
-                <h5>Paiement info : {{ $selected_offer->payment_info }}</h5>
-                                
+                
+                <h5 class="@if( is_null($selected_offer->payment_info ) ) d-none @endif" >Paiement info : {{ $selected_offer->payment_info }}</h5>
+                <h5 class="@if( is_null($selected_offer->payment_info_b ) ) d-none @endif" >Paiement info : {{ $selected_offer->payment_info_b }}</h5>
+
+                <h5>Montant à payer : {{ $selected_offer->total * 1 }}
+                    @if ( $selected_offer->payment->svg_name == 'cih' )
+                        DH
+                    @elseif ( $selected_offer->payment->svg_name == 'usdt' )
+                        $
+                    @else
+                        €
+                    @endif
+                </h5>
                 <hr>
 
 

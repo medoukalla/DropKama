@@ -159,6 +159,19 @@
                                     @endif
                                 </span></p>
                             </div>
+                        @elseif ( $payment->svg_name == 'usdt' )
+                            <div class="">
+                                <p>
+                                    Prix par million : <span class="text-danger">{{ $server->price }} $</span>
+                                </p>
+                                <p>Montant total : <span class="text-danger">
+                                    @if ( $quantity > 0)
+                                        {{ $quantity * $server->price }} $
+                                    @else                                
+                                        0 $
+                                    @endif
+                                </span></p>
+                            </div>
                         @elseif ( $payment->svg_name == 'skrill' )
                             <div class="">
                                 <p>
@@ -175,13 +188,13 @@
                         @else
                             <div class="">
                                 <p>
-                                    Prix par million : <span class="text-danger">{{ $server->price }} $</span>
+                                    Prix par million : <span class="text-danger">{{ $server->skrill_price }} €</span>
                                 </p>
                                 <p>Montant total : <span class="text-danger">
                                     @if ($quantity > 0 ) 
-                                    {{ $quantity * $server->price }} $
+                                    {{ $quantity * $server->skrill_price }} €
                                     @else
-                                    0 $
+                                    0 €
                                     @endif
                                     </span></p>
                             </div>
@@ -213,7 +226,7 @@
                         </div>
     
                         {{-- paypal  --}}
-                        <div class="input @if ($payment->name != 'Paypal') d-none @endif">
+                        <div class="input @if ($payment->svg_name != 'paypal') d-none @endif">
                             <label for="">Adresse e-mail Paypal :</label>
                             <div class="d-flex align-items-center justify-content-between">
                                 <input wire:model="paypal_email" type="text" id="normalInput"
@@ -225,7 +238,7 @@
                         </div>
     
                         {{-- Skrill  --}}
-                        <div class="input @if ($payment->name != 'Skrill') d-none @endif">
+                        <div class="input @if ($payment->svg_name != 'skrill') d-none @endif">
                             <label for="">Adresse e-mail Skrill :</label>
                             <div class="d-flex align-items-center justify-content-between">
                                 <input wire:model="skrill_email" type="text" id="normalInput"
@@ -237,7 +250,7 @@
                         </div>
     
                         {{-- Usdt  --}}
-                        <div class="input @if ($payment->name != 'Usdt') d-none @endif">
+                        <div class="input @if ($payment->svg_name != 'usdt') d-none @endif">
                             <label for="">Adresse usdt (TRX) :</label>
                             <div class="d-flex align-items-center justify-content-between">
                                 <input wire:model="usdt_adresse" type="text" id="normalInput"
@@ -249,7 +262,7 @@
                         </div>
     
                         {{-- Virment bancaire --}}
-                        <div class="input @if ($payment->name != 'Bank transfer') d-none @endif">
+                        <div class="input @if ($payment->svg_name != 'bank-transfer') d-none @endif">
                             <label for="">Le nom de votre banque :</label>
                             <div class="d-flex align-items-center justify-content-between">
                                 <input wire:model="bank_nom" type="text" id="normalInput"
@@ -265,6 +278,19 @@
                                     placeholder="Numéro de compte ..." />
                             </div>
                             @error('bank_numero')
+                                <div class="alert alert-danger mt-2 rounded-4">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        {{-- Cih --}}
+                        <div class="input @if ($payment->svg_name != 'cih') d-none @endif">
+                            
+                            <label for="">Votre numéro de compte cih (RIB) :</label>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <input wire:model="cih_rib" type="number" id="normalInput"
+                                    placeholder="Numéro de compte ..." />
+                            </div>
+                            @error('cih_rib')
                                 <div class="alert alert-danger mt-2 rounded-4">{{ $message }}</div>
                             @enderror
                         </div>
