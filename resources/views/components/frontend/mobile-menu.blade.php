@@ -29,7 +29,7 @@
             <li><a href="{{ route('frontend.vendre') }}">Vendre Kamas</a></li>
             <li><a href="{{ route('frontend.echange') }}">Echanger Kamas</a></li>
             <li><a href="{{ route('frontend.index') }}#procedure">Procedure</a></li>
-            <li><a href="{{ route('frontend.index') }}#faq">FAQ</a></li>
+            <li><a href="{{ route('frontend.index') }}#faq" onclick="$('.mobile-menu-overlay').slideUp(500)">FAQ</a></li>
         </ul>
     </nav>
     <div class="mobile-auth">

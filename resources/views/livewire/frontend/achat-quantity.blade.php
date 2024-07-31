@@ -260,7 +260,7 @@
                     <p>Récapitulatif de commande</p>
                 </div>
                 <div class="quantities d-flex align-items-center justify-content-between">
-                    <p class="chosen-game">Dofus {{ $map->name }}</p>
+                    <p class="chosen-game">Dofus {{ $server->map->name }}</p>
                     <p class="kamas-quantities">{{ $quantity }} M Kamas</p>
                     @if ( $payment->svg_name == 'cih' )
                         <p class="kamas-total">{{ $total_with_fees }} {{ $currency_symb }}</p>
