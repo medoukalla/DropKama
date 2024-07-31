@@ -177,6 +177,7 @@ header {
 }
 .shine-light img {
     height: 40rem;
+    max-width: 100vw;
 }
 /* Menu styles */
 .mobile-menu {
@@ -1165,6 +1166,9 @@ header .client-notifs span a {
 }
 .all-ventes-tables .kamas-settings {
     width: 100%;
+}
+.kamas-settings .table-content {
+    overflow: scroll;
 }
 .all-ventes-tables .kamas-settings .table .incomplet {
     color: var(--green-dark-clr);
