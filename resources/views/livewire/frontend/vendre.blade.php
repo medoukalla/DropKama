@@ -85,11 +85,8 @@
                                 <div class="d-flex align-items-center gap-3">
                                     <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}"
                                         alt="" class="currency ps-2" />
-                                    @if ( $payment->svg_name == 'cih'  ) 
-                                        <p id="selectText">CIH</p>
-                                    @else
+                                    
                                         <p id="selectText">{{ $payment->name }}</p>
-                                    @endif
                                 </div>
                                 <img src="{{ asset('frontend/images/svg/input-arrow.svg') }}" alt="Arrow"
                                     class="input-arrow input-arrow-payments" />
@@ -102,11 +99,7 @@
                                         wire:click="change_payment({{ $paym->id }})">
                                         <img src="{{ asset('frontend/images/payments/' . $paym->svg_name . '.svg') }}"
                                             alt="" class="currency" />
-                                        @if ( $paym->svg_name == 'cih'  ) 
-                                            <p>CIH</p>
-                                        @else
                                             <p>{{ $paym->name }}</p>
-                                        @endif
                                     </li>
                                 @endforeach
     
@@ -285,7 +278,7 @@
                         {{-- Cih --}}
                         <div class="input @if ($payment->svg_name != 'cih') d-none @endif">
                             
-                            <label for="">Votre numéro de compte cih (RIB) :</label>
+                            <label for="">Votre numéro de compte bancaire Marocaine (RIB) :</label>
                             <div class="d-flex align-items-center justify-content-between">
                                 <input wire:model="cih_rib" type="number" id="normalInput"
                                     placeholder="Numéro de compte ..." />
