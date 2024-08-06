@@ -31,7 +31,7 @@
                         </div>
                       </div>
                       <div class="flex-grow-1">
-                          <a class="text-light" href="{{ route('voyager.orders.index') }}" >
+                          <a class="text-light" wire:click="mark_as_read('{{ $notification->id() }}')" href="Javascript:;" >
                             <h6 class="mb-1">Vous avez une nouvelle commande</h6>
                             <p class="mb-0">Référence : {{ $notification_data->order_ref }}</p>
                             <small class="text-muted">{{ $notification->created_at->diffForHumans() }}</small>
@@ -51,7 +51,7 @@
                         </div>
                       </div>
                       <div class="flex-grow-1">
-                          <a class="text-light" href="{{ route('voyager.offers.index') }}" >
+                          <a class="text-light" wire:click="mark_as_read('{{ $notification->id() }}')" href="Javascript:;" >
                             <h6 class="mb-1">Vous avez une nouvelle offre</h6>
                             <p class="mb-0">Référence : {{ $notification_data->order_ref }}</p>
                             <small class="text-muted">{{ $notification->created_at->diffForHumans() }}</small>
@@ -71,7 +71,7 @@
                         </div>
                       </div>
                       <div class="flex-grow-1">
-                          <a class="text-light" href="{{ route('voyager.exchanges.index') }}" >
+                          <a class="text-light" wire:click="mark_as_read('{{ $notification->id() }}')" href="Javascript:;" >
                             <h6 class="mb-1">Vous avez une nouvelle echange</h6>
                             <p class="mb-0">Référence : {{ $notification_data->order_ref }}</p>
                             <small class="text-muted">{{ $notification->created_at->diffForHumans() }}</small>

@@ -13,4 +13,9 @@ class Notification extends Model
     protected $fillable = [
         'read_at',
     ];
+
+
+    public function id() {
+        return $this->getRawOriginal('id');
+    }
 }

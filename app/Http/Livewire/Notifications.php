@@ -22,13 +22,10 @@ class Notifications extends Component
         // if is client or other 
         if ( Auth::user()->role->id == 2 ) {
             $notifs = Notification::where([
-                ['notifiable_id', Auth::user()->id],
                 ['read_at', null],
             ])->orderBy('created_at', 'desc')->limit(10)->get();
-            // $notifs = Notification::where( )->where();
         }else {
             $notifs = Notification::where([
-                ['notifiable_id', '!=', Auth::user()->id],
                 ['read_at', null]
             ])->orderBy('created_at', 'desc')->limit(10)->get();
         }
@@ -43,8 +40,16 @@ class Notifications extends Component
         $notif = Notification::where('id', $id)->first();
         $notif->read_at = now();
         $notif->save();
-        // $notif->read_at = Carbon::now();
-        // $notif->save();
-        // dd($notif);
+
+        $notification_data = json_decode($notif->data);
+        if ( $notification_data->type == 'Achat' ) {
+            return redirect()->route('voyager.orders.index');
+        }elseif ( $notification_data->type == 'Vendre' ) {
+            return redirect()->route('voyager.offers.index');
+        }elseif ( $notification_data->type == 'Echange' ) {
+            return redirect()->route('voyager.exchanges.index');
+        }else {
+            return redirect($notification_data->route);
+        }
     }
 }

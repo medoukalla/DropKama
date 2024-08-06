@@ -31,7 +31,7 @@ class NewEchange extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail','database'];
     }
 
     /**
@@ -59,7 +59,11 @@ class NewEchange extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'order_ref' => $this->order->orderId,
+            'total'     => $this->order->total,
+            'type'      => 'Echange',
+            'date'      => $this->order->created_at,
+            'status'    => 'En attente'
         ];
     }
 }
