@@ -17,7 +17,7 @@
                                 @endif
 
                             </div>
-                            <div class="t-step ">
+                            <div class="t-step">
                                 Traitement du paiement en attente
                             </div>
                         </div>

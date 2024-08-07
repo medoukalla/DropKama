@@ -12,6 +12,9 @@ class Notifications extends Component
 
     public $unreded_notifications = 0;
 
+
+    public $now;
+
     public function mount() {
         // dd( Auth::user()->unreadNotifications );
         $this->unreded_notifications = Auth::user()->unreadNotifications->count();
@@ -30,6 +33,7 @@ class Notifications extends Component
             ])->orderBy('created_at', 'desc')->limit(10)->get();
         }
 
+        $this->now = Carbon::now();
         return view('livewire.notifications',[
             'notifications' => $notifs
         ]);
