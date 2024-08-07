@@ -14,6 +14,11 @@ class Payment extends Model
         return Payment::all();
     }
 
+    // function to get all active method payments 
+    static function active_payments() {
+        return Payment::where('active', true)->get();
+    }
+
     // function to get method payments for vendre system 
     static function vendre_payments() {
         // allowed payment methods for vendre system 

@@ -128,7 +128,7 @@ class FrontendController extends Controller
             'server' => $server,
             'servers' => Server::servers(),
             'maps' => Map::maps(),
-            'payments' => Payment::payments(),
+            'payments' => Payment::active_payments(),
             'payment_failed' => 'false',
             'order_reference' => null,
         ]);
@@ -148,7 +148,7 @@ class FrontendController extends Controller
             'server' => $order->server,
             'servers' => Server::servers(),
             'maps' => Map::maps(),
-            'payments' => Payment::payments(),
+            'payments' => Payment::active_payments(),
             'payment_failed' => 'true',
             'order_reference' => $order->reference,
         ]);
