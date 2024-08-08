@@ -619,6 +619,7 @@ class ComposerStaticInita5a59de1a24a9ddeea17929c55dce4c7
         'App\\Http\\Livewire\\Admin\\OffersTable' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/OffersTable.php',
         'App\\Http\\Livewire\\Admin\\OrdersTable' => __DIR__ . '/../..' . '/app/Http/Livewire/Admin/OrdersTable.php',
         'App\\Http\\Livewire\\Echange' => __DIR__ . '/../..' . '/app/Http/Livewire/Echange.php',
+        'App\\Http\\Livewire\\EditRules' => __DIR__ . '/../..' . '/app/Http/Livewire/EditRules.php',
         'App\\Http\\Livewire\\GetServers' => __DIR__ . '/../..' . '/app/Http/Livewire/GetServers.php',
         'App\\Http\\Livewire\\Newsletter' => __DIR__ . '/../..' . '/app/Http/Livewire/Newsletter.php',
         'App\\Http\\Livewire\\Notifications' => __DIR__ . '/../..' . '/app/Http/Livewire/Notifications.php',

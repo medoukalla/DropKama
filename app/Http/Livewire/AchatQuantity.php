@@ -247,6 +247,35 @@ class AchatQuantity extends Component
         // if payment is cih 
         if ( $this->payment->svg_name == 'cih' ) {
             $price = $this->server->price_mad;
+
+        }elseif ( $this->payment->svg_name == 'paypal' ) {
+            if ( $this->currency == 'usd' ) {
+                if ( $this->server->price_paypal_usd > 0 ) {
+                    $price = $this->server->price_paypal_usd;
+                }else {
+                    $price = $this->server->price_usd;
+                }
+            }else {
+                if ( $this->server->price_paypal_euro > 0 ) {
+                    $price = $this->server->price_paypal_euro;
+                }else {
+                    $price = $this->server->price;
+                }
+            }
+        }elseif ( $this->payment->svg_name == 'skrill' ) {
+            if ( $this->currency == 'usd' ) {
+                if ( $this->server->price_skrill_usd > 0 ) {
+                    $price = $this->server->price_skrill_usd;
+                }else {
+                    $price = $this->server->price_usd;
+                }
+            }else {
+                if ( $this->server->price_skrill_euro > 0 ) {
+                    $price = $this->server->price_skrill_euro;
+                }else {
+                    $price = $this->server->price;
+                }
+            }
         }else {
             if ( $this->currency == 'usd' ) {
                 $price = $this->server->price_usd;

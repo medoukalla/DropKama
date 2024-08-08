@@ -33,6 +33,7 @@ return array(
     'App\\Http\\Livewire\\Admin\\OffersTable' => $baseDir . '/app/Http/Livewire/Admin/OffersTable.php',
     'App\\Http\\Livewire\\Admin\\OrdersTable' => $baseDir . '/app/Http/Livewire/Admin/OrdersTable.php',
     'App\\Http\\Livewire\\Echange' => $baseDir . '/app/Http/Livewire/Echange.php',
+    'App\\Http\\Livewire\\EditRules' => $baseDir . '/app/Http/Livewire/EditRules.php',
     'App\\Http\\Livewire\\GetServers' => $baseDir . '/app/Http/Livewire/GetServers.php',
     'App\\Http\\Livewire\\Newsletter' => $baseDir . '/app/Http/Livewire/Newsletter.php',
     'App\\Http\\Livewire\\Notifications' => $baseDir . '/app/Http/Livewire/Notifications.php',
