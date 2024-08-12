@@ -16,9 +16,11 @@
         <div class="row align-items-center" style="z-index: 100">
           <div class="col-12 col-md-6">
             <div class="headline mb-3">
-              <span>Acheter et vendre</span>
-              des <br />
-              <span> kamas rapidement </span>.
+              <h1>
+                <span>Acheter et vendre</span>
+                des <br />
+                <span> kamas rapidement </span>.
+              </h1>
             </div>
             <p class="subline mb-4">
               Acheter et vendre des kamas en toute sécurité rapidement.
@@ -37,7 +39,7 @@
           </div>
           <div class="col-12 col-md-6 hero-background">
             <div class="hero-background-box">
-              <img src="{{ asset('frontend/images/svg/hero-background.svg') }}" alt="" />
+              <img src="{{ asset('frontend/images/svg/hero-background.svg') }}" alt="Dofus hero" />
             </div>
           </div>
         </div>

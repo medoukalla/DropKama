@@ -7,7 +7,9 @@
 
             <div class="col-12 col-md-4">
                 <div class="links">
-                    <div class="links-title">Liens utiles</div>
+                    <div class="links-title">
+                        <h2>Liens utiles</h2>
+                    </div>
                     <ul class="p-0">
                         <li><a href="{{ route('frontend.index') }}">Accueil</a></li>
                         <li><a href="{{ route('frontend.achat') }}">Acheter Kamas</a></li>

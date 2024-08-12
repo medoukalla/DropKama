@@ -1,7 +1,7 @@
 <div class="menu d-flex justify-content-between align-items-center mt-5">
     <a href="{{ route('frontend.index') }}">
         <div class="logo">
-            <img src="{{ asset('frontend/images/logo.png') }}" alt="Logo" />
+            <img src="{{ asset('frontend/images/logo.png') }}" alt="DropKamas Logo" />
         </div>
     </a>
     <nav>
@@ -19,13 +19,13 @@
           
         <a href="{{ route('register') }}">
           <div class="sign-up">
-            <img src="{{ asset('frontend/images/svg/signup.svg') }}" alt="" />
+            <img src="{{ asset('frontend/images/svg/signup.svg') }}" alt="DropKamas Signup" />
             S'inscrire
           </div>
         </a>
         <a href="{{ route('login') }}">
           <div class="login">
-            <img src="{{ asset('frontend/images/svg/login.svg') }}" alt="" />
+            <img src="{{ asset('frontend/images/svg/login.svg') }}" alt="DropKamas Login" />
             Connexion
           </div>
         </a>

@@ -16,7 +16,7 @@
             <div class="row hero-banner align-items-star" style="z-index: 100">
                 <div class="col-12 col-md-6">
                     <div class="page-title">
-                        {{ $title }}
+                        <h1>{{ $title }}</h1>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">

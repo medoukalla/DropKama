@@ -44,7 +44,7 @@
                                 onclick="$('ul.serversList').toggle('slow'); $('.input-arrow-servers').toggleClass('active')">
     
                                 <div class="d-flex align-items-center gap-3">
-                                    <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt="" class="dofus-egg" />
+                                    <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt="DropKamas dofus egg" class="dofus-egg" />
                                     <p id="selectText">{{ $server->name }} - ( {{ $server->map->name }} )</p>
                                 </div>
                                 <img src="{{ asset('frontend/images/svg/input-arrow.svg') }}" alt="Arrow"
@@ -56,7 +56,7 @@
                                     @if ( $the_server->active == true )     
                                         <li class="options @if ($the_server->id == $server->id) d-none @endif"
                                             wire:click="change_server({{ $the_server->id }})">
-                                            <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt=""
+                                            <img src="{{ asset('frontend/images/svg/dofus-egg.svg') }}" alt="DropKamas dofus egg"
                                                 class="dofus-egg" />
                                             <p>{{ $the_server->name }} - ( {{ $the_server->map->name }} )</p>
                                         </li>
@@ -84,7 +84,7 @@
                                 onclick="$('ul.paymentsList').toggle('slow'); $('.input-arrow-payments').toggleClass('active')">
                                 <div class="d-flex align-items-center gap-3">
                                     <img src="{{ asset('frontend/images/payments/' . $payment->svg_name . '.svg') }}"
-                                        alt="" class="currency ps-2" />
+                                        alt="{{ $payment->name }}" class="currency ps-2" />
                                     
                                         <p id="selectText">{{ $payment->name }}</p>
                                 </div>
@@ -98,7 +98,7 @@
                                     <li class="options @if ($paym->id == $active_payment_id) d-none @endif"
                                         wire:click="change_payment({{ $paym->id }})">
                                         <img src="{{ asset('frontend/images/payments/' . $paym->svg_name . '.svg') }}"
-                                            alt="" class="currency" />
+                                            alt="{{ $paym->name }}" class="currency" />
                                             <p>{{ $paym->name }}</p>
                                     </li>
                                 @endforeach

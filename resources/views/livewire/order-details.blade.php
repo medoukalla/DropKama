@@ -9,10 +9,10 @@
                             <div class="i-step">
 
                                 @if (!is_null($order->deleted_at))
-                                    <img src="{{ asset('frontend/images/svg/reject-icon.svg') }}" alt=""
+                                    <img src="{{ asset('frontend/images/svg/reject-icon.svg') }}" alt="Reject"
                                         height="30" class="rejecting">
                                 @else
-                                    <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt=""
+                                    <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="Checked"
                                         height="30" class="ready">
                                 @endif
 
@@ -25,14 +25,14 @@
                             class="h-step @if (!is_null($order->deleted_at)) rejected @endif @if ($order->payed == true && $order->payment_verified == true) active @endif">
                             <div class="i-step">
                                 @if (!is_null($order->deleted_at))
-                                    <img src="{{ asset('frontend/images/svg/reject-icon.svg') }}" alt=""
+                                    <img src="{{ asset('frontend/images/svg/reject-icon.svg') }}" alt="Reject"
                                         height="30" class="rejecting">
                                 @else
                                     @if ($order->payed == true && $order->payment_verified == false)
-                                        <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt=""
+                                        <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt="Not ready"
                                             height="30" class="not-ready">
                                     @elseif ($order->payed == true && $order->payment_verified == true)
-                                        <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt=""
+                                        <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="Checked"
                                             height="30" class="ready">
                                     @endif
                                 @endif
@@ -45,14 +45,14 @@
                             class="h-step @if (!is_null($order->deleted_at)) rejected @endif @if ($order->payment_verified == true && $order->facturer == true) active @endif">
                             <div class="i-step">
                                 @if (!is_null($order->deleted_at))
-                                    <img src="{{ asset('frontend/images/svg/reject-icon.svg') }}" alt=""
+                                    <img src="{{ asset('frontend/images/svg/reject-icon.svg') }}" alt="Reject"
                                         height="30" class="rejecting">
                                 @else
                                     @if (($order->payment_verified == true && $order->facturer == false) || $order->payment_verified == false)
-                                        <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt=""
+                                        <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt="Not ready"
                                             height="30" class="not-ready">
                                     @elseif ($order->payment_verified == true && $order->facturer == true)
-                                        <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt=""
+                                        <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="Checked"
                                             height="30" class="ready">
                                     @endif
                                 @endif
@@ -65,14 +65,14 @@
                             class="h-step @if (!is_null($order->deleted_at)) rejected @endif @if ($order->facturer == true && $order->liviser == true) active @endif">
                             <div class="i-step">
                                 @if (!is_null($order->deleted_at))
-                                    <img src="{{ asset('frontend/images/svg/reject-icon.svg') }}" alt=""
+                                    <img src="{{ asset('frontend/images/svg/reject-icon.svg') }}" alt="Reject"
                                         height="30" class="rejecting">
                                 @else
                                     @if (($order->facturer == true && $order->liviser == false) || $order->facturer == false)
-                                        <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt=""
+                                        <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt="Not ready"
                                             height="30" class="not-ready">
                                     @elseif ($order->facturer == true && $order->liviser == true)
-                                        <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt=""
+                                        <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="Checked"
                                             height="30" class="ready">
                                     @endif
                                 @endif
@@ -85,14 +85,14 @@
                             class="h-step @if (!is_null($order->deleted_at)) rejected @endif @if ($order->liviser == true && $order->delivered == true) active @endif">
                             <div class="i-step">
                                 @if (!is_null($order->deleted_at))
-                                    <img src="{{ asset('frontend/images/svg/reject-icon.svg') }}" alt=""
+                                    <img src="{{ asset('frontend/images/svg/reject-icon.svg') }}" alt="Reject"
                                         height="30" class="rejecting">
                                 @else
                                     @if (($order->liviser == true && $order->delivered == false) || $order->liviser == false)
-                                        <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt=""
+                                        <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt="Not ready"
                                             height="30" class="not-ready">
                                     @elseif ($order->liviser == true && $order->delivered == true)
-                                        <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt=""
+                                        <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="Checked"
                                             height="30" class="ready">
                                     @endif
                                 @endif
@@ -105,14 +105,14 @@
                             class="h-step @if (!is_null($order->deleted_at)) rejected @endif @if ($order->delivered == true) active @endif">
                             <div class="i-step">
                                 @if (!is_null($order->deleted_at))
-                                    <img src="{{ asset('frontend/images/svg/reject-icon.svg') }}" alt=""
+                                    <img src="{{ asset('frontend/images/svg/reject-icon.svg') }}" alt="Reject"
                                         height="30" class="rejecting">
                                 @else
                                     @if ($order->delivered == false)
-                                        <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt=""
+                                        <img src="{{ asset('frontend/images/svg/not-ready.svg') }}" alt="Not ready"
                                             height="30" class="not-ready">
                                     @elseif ($order->delivered == true)
-                                        <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt=""
+                                        <img src="{{ asset('frontend/images/svg/checked.svg') }}" alt="Checked"
                                             height="30" class="ready">
                                     @endif
                                 @endif
@@ -131,7 +131,7 @@
                 <div
                     class="bg-component-white mb-3 @if (!is_null($order->deleted_at)) lock-step @endif @if ($order->payed == true && $order->payment_verified == false) @else lock-step @endif">
                     <div class="d-flex align-items-center justify-content-center gap-3">
-                        <img src="{{ asset('frontend/images/svg/payment-verify.svg') }}" alt=""
+                        <img src="{{ asset('frontend/images/svg/payment-verify.svg') }}" alt="Vérification du paiement"
                             height="30" />
                         <h5>Vérification du paiement</h5>
                     </div>
@@ -147,7 +147,7 @@
                         vérification, veuillez communiquer votre numéro de commande,
                         'numéro de commande', au support disponible via le chat en
                         direct situé en bas à droite de la page.
-                        <img src="{{ asset('frontend/images/svg/question-acheter.svg') }}" alt=""
+                        <img src="{{ asset('frontend/images/svg/question-acheter.svg') }}" alt="question acheter"
                             height="50" />
                     </p>
                 </div>
@@ -157,7 +157,7 @@
                 <div
                     class="step-heading bg-component-white mb-3 @if (!is_null($order->deleted_at)) lock-step @endif @if ($order->payment_verified == true && $order->facturer == false) @else lock-step @endif">
                     <div class="d-flex align-items-center justify-content-center gap-3">
-                        <img src="{{ asset('frontend/images/svg/facturation.svg') }}" alt=""
+                        <img src="{{ asset('frontend/images/svg/facturation.svg') }}" alt="Coordonnées de facturation"
                             height="30" />
                         <h5>Coordonnées de facturation</h5>
                     </div>
@@ -271,7 +271,7 @@
                 <div
                     class="step-heading bg-component-white mb-3 @if (!is_null($order->deleted_at)) lock-step @endif @if ($order->facturer == true && $order->liviser == false) @else lock-step @endif">
                     <div class="d-flex align-items-center justify-content-center gap-3">
-                        <img src="{{ asset('frontend/images/svg/infos.svg') }}" alt="" height="30" />
+                        <img src="{{ asset('frontend/images/svg/infos.svg') }}" alt="Détails de livraison" height="30" />
                         <h5>Détails de livraison</h5>
                     </div>
                 </div>
@@ -301,7 +301,7 @@
                 <!-- Détails de la commande -->
                 <div class="step-heading bg-component-white mb-3">
                     <div class="d-flex align-items-center justify-content-center gap-3">
-                        <img src="{{ asset('frontend/images/svg/details.svg') }}" alt="" height="20" />
+                        <img src="{{ asset('frontend/images/svg/details.svg') }}" alt="Détails de la commande" height="20" />
                         <h5>Détails de la commande</h5>
                     </div>
                 </div>

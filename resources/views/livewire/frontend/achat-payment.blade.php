@@ -57,7 +57,7 @@
                     <span class="method">Retour</span>
                 </div>
                 <div class="payment-fees d-flex align-items-center gap-2">
-                    <img src="{{ asset('frontend/images/svg/logos_paypal.svg') }}" alt="" height="20" />
+                    <img src="{{ asset('frontend/images/svg/logos_paypal.svg') }}" alt="paypal logo" height="20" />
                     Paypal
                 </div>
             </div>

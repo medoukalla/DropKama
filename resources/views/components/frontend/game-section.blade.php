@@ -8,7 +8,7 @@
       <a href="{{ route('frontend.achat.classique') }}">
         <div class="game">
           <div class="g-img-box mb-4">
-            <img src="{{ asset('frontend/images/classice_servers.png') }}" alt="Game image" />
+            <img src="{{ asset('frontend/images/classice_servers.png') }}" alt="Dofus touch classique image" />
           </div>
           <a href="{{ route('frontend.achat.classique') }}">
             <div class="main-btn w-75 m-auto">Acheter maintenant</div>
@@ -18,7 +18,7 @@
       <a href="{{ route('frontend.achat.touch') }}">
         <div class="game">
           <div class="g-img-box mb-4">
-            <img src="{{ asset('frontend/images/touche_servers.png') }}" alt="Game image" />
+            <img src="{{ asset('frontend/images/touche_servers.png') }}" alt="Dofus touch touch image" />
           </div>
           <a href="{{ route('frontend.achat.touch') }}">
             <div class="main-btn w-75 m-auto">Acheter maintenant</div>
@@ -28,7 +28,7 @@
       <a href="{{ route('frontend.achat.retro') }}">
         <div class="game">
           <div class="g-img-box mb-4">
-            <img src="{{ asset('frontend/images/retro_servers.png') }}" alt="Game image" />
+            <img src="{{ asset('frontend/images/retro_servers.png') }}" alt="Dofus touch retro image" />
           </div>
           <a href="{{ route('frontend.achat.retro') }}">
             <div class="main-btn w-75 m-auto">Acheter maintenant</div>

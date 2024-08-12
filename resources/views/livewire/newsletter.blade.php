@@ -1,7 +1,7 @@
 <div class="col-12 col-md-4">
     <div class="logo-col">
       <div class="footer-logo">
-        <img src="{{ asset('frontend/images/logo.png') }}" alt="Footer logo" class="w-100" />
+        <img src="{{ asset('frontend/images/logo.png') }}" alt="DropKamas logo" class="w-100" />
       </div>
       <data class="input d-flex position-relative">
         <input wire:model="email" type="email" class="email-sub" placeholder="Écrivez votre email ici" />

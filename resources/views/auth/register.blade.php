@@ -10,7 +10,7 @@
 
                 <div class="auth-logo">
                     <a href="{{ route('frontend.index') }}">
-                        <img src="{{ asset('frontend/images/logo.png') }}" alt="" />
+                        <img src="{{ asset('frontend/images/logo.png') }}" alt="DropKamas logo" />
                     </a>
                 </div>
 

@@ -108,7 +108,7 @@
                 <br>
 
                 <div wire:loading class="text-center" style=" margin-top: -30px; margin-bottom: 15px; " >
-                    <img style=" max-width: 20%; text-align: center; " src="{{ asset('loading.gif')}}" alt="">
+                    <img style=" max-width: 20%; text-align: center; " src="{{ asset('loading.gif')}}" alt="Loading">
                 </div>
 
                 @if ( Auth::user()->role->id != 2 )

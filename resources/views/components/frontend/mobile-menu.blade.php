@@ -1,7 +1,7 @@
 <div class="mobile-menu">
     <a href="{{ route('frontend.index') }}">
         <div class="mobile-logo">
-            <img src="{{ asset('frontend/images/logo.png') }}" alt="Mobile logo" />
+            <img src="{{ asset('frontend/images/logo.png') }}" alt="DropKamas logo" />
         </div>
     </a>
     <div class="mobile-nav" onclick="$('.mobile-menu-overlay').slideDown(500)" >
@@ -19,7 +19,7 @@
     </div>
     <div class="overlay-mobile-logo">
             <a href="{{ route('frontend.index') }}">
-            <img src="{{ asset('frontend/images/logo.png') }}" alt="Mobile logo" />
+            <img src="{{ asset('frontend/images/logo.png') }}" alt="DropKamas logo" />
         </a>
     </div>
     <nav>

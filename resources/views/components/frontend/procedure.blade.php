@@ -36,7 +36,7 @@
           <div
             class="procedure-img-box d-flex align-items-center justify-content-end"
           >
-            <img src="{{ asset('frontend/images/procedure-image.png') }}" alt="" />
+            <img src="{{ asset('frontend/images/procedure-image.png') }}" alt="DropKamas procedure image" />
           </div>
         </div>
       </div>

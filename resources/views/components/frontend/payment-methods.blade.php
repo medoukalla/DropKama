@@ -27,7 +27,9 @@
         <div class="col-12 col-md-6">
           <div class="payment-content">
             <div class="section-headline mb-2">
-              Choisissez votre solution de <span>paiement</span>
+              <h2>
+                Choisissez votre solution de <span>paiement</span>
+              </h2>
             </div>
             <p class="section-subline">
               Choisissez parmi des dizaines de solutions de paiements partout
