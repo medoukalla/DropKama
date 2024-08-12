@@ -72,11 +72,13 @@
     <title>{{ $page_title }}</title>
     
     <meta name="description" content="{{ setting('site.description') }}" />
-    <meta name="keywords" content="setting('site.keywords')" />
+    <meta name="keywords" content="{{ setting('site.keywords') }}" />
 
     @livewireStyles
 
     <a href="{{ route('frontend.index') }}" rel="canonical"></a>
+
+    @include('seo::seo')
     
   </head>  
 
