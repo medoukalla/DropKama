@@ -18,30 +18,9 @@ use Illuminate\Support\Facades\Session;
 |
 */
 
-// index page
-route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
-
-// vendre page 
-Route::get('vendre', [FrontendController::class, 'vendre'])->name('frontend.vendre');
-
-// Echange 
-Route::get('echange', [FrontendController::class, 'echange'])->name('frontend.echange');
-
-// Achat 
-Route::get('achat', [FrontendController::class, 'achat'])->name('frontend.achat');
-Route::get('achat-classique', [FrontendController::class, 'achat_classique'])->name('frontend.achat.classique');
-Route::get('achat-touch', [FrontendController::class, 'achat_touch'])->name('frontend.achat.touch');
-Route::get('achat-retro', [FrontendController::class, 'achat_retro'])->name('frontend.achat.retro');
-
-
-// CONDITIONS GÉNÉRAL D'UTILISATION
-Route::get('conditions_general_utilisation', [FrontendController::class, 'cgu'])->name('frontend.cgu');
-// CONDITIONS GÉNÉRALES DE VENTE
-Route::get('conditions_general_de_vente', [FrontendController::class, 'cgv'])->name('frontend.cgv');
-// POLITIQUE DE CONFIDENTIALITÉ
-// Route::get('politique_de_confidentialite', [FrontendController::class, 'politique'])->name('frontend.politique');
-
-
+Route::get('/', function () {
+    return view('welcome');
+})->name('frontend.index');
 Route::group(['prefix' => 'dashboard'], function () {
     
     Voyager::routes();
@@ -55,55 +34,3 @@ Route::group(['prefix' => 'dashboard'], function () {
 
 });
 
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-//     // return redirect()->route('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-
-    // Achat step 2 ( quantity )
-    Route::get('achat/{server}/{name}', [FrontendController::class, 'achat_quantity'])->name('frontend.achat.quantity');
-    Route::get('achat/{ref}', [FrontendController::class, 'achat_quantity_order'])->name('frontend.achat.quantity.order');
-
-    // Achat step 3 ( Payment )
-    Route::get('achat/payment', [FrontendController::class, 'achat_payment'])->name('frontend.achat.payment');
-
-    // Order details 
-    Route::get('order_details/{ref}', [FrontendController::class, 'order_details'])->name('frontend.order.details');
-
-    //stripe success
-    Route::get('stripe_success/{ref}', [StripeController::class, 'success'])->name('frontend.stripe.success');
-
-    // stripe checkout
-    Route::get('stripe_checkout/{ref}', [StripeController::class, 'checkout'])->name('frontend.stripe.checkout');
-
-    Route::get('stripe_checking', [StripeController::class, 'checking'])->name('frontend.stripe.checking');
-
-    // payment cancelled 
-    Route::get('payment_cancelled/{ref}', [StripeController::class, 'payment_cancelled'])->name('payment_cancelled');
-
-});
-
-require __DIR__.'/auth.php';
-
-Route::get('admin', function() {
-    return redirect('dashboard');
-});
-
-
-// route to change  currency to usd
-Route::get('usd', function(){
-    Session::forget('currency');
-    Session::put('currency', 'usd');
-});
-// route to change  currency to euro
-Route::get('euro', function(){
-    Session::forget('currency');
-    Session::put('currency', 'euro');
-});

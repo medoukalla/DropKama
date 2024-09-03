@@ -9,7 +9,13 @@
         <a href="{{ route('voyager.dashboard') }}" class="app-brand-link">
             <span class="app-brand-logo">
               
-                <img src="{{ asset('assets/img/dk-1-logo.png') }}" alt="Logo Icon" style="max-width: 250px !important;">
+                {{-- <img src="{{ asset('assets/img/dk-1-logo.png') }}" alt="Logo Icon" style="max-width: 250px !important;"> --}}
+                <?php $admin_logo_img = Voyager::setting('admin.icon_image', ''); ?>
+                @if($admin_logo_img == '')
+                    <img src="{{ voyager_asset('images/logo-icon-light.png') }}" alt="Logo Icon" style="max-width: 250px !important;">
+                @else
+                    <img src="{{ Voyager::image($admin_logo_img) }}" alt="Logo Icon" style="max-width: 250px !important;">
+                @endif
               
             </span>
         </a>

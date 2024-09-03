@@ -25,7 +25,7 @@
      
         <!-- Notification -->
         @if ( Auth::user()->role->id == 1 )
-          @livewire('notifications')
+          {{-- @livewire('notifications') --}}
         @endif
         <!--/ Notification -->
 
