@@ -33,7 +33,11 @@
         <li class="nav-item navbar-dropdown dropdown-user dropdown">
           <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
             <div class="avatar avatar-online">
-              <img src="{{ asset('storage/'.Voyager::setting('admin.icon_image')) }}" alt class="h-auto rounded-circle">
+              @if ( is_null( Voyager::setting('admin.icon_image') ))
+                  <img src="{{ voyager_asset('images/logo-icon-light.png') }}" class="h-auto rounded-circle">
+              @else
+                  <img src="{{ asset('storage/'.Voyager::setting('admin.icon_image')) }}" class="h-auto rounded-circle">
+              @endif
             </div>
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
@@ -42,7 +46,12 @@
                 <div class="d-flex">
                   <div class="flex-shrink-0 me-3">
                     <div class="avatar avatar-online">
-                      <img src="{{ asset('storage/'.Voyager::setting('admin.icon_image')) }}" alt class="h-auto rounded-circle">
+
+                      @if ( is_null( Voyager::setting('admin.icon_image') ))
+                          <img src="{{ voyager_asset('images/logo-icon-light.png') }}" alt class="h-auto rounded-circle">
+                      @else
+                          <img src="{{ asset('storage/'.Voyager::setting('admin.icon_image')) }}" alt class="h-auto rounded-circle">
+                      @endif
                     </div>
                   </div>
                   <div class="flex-grow-1">
