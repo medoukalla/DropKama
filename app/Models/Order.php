@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
 
     // get appartement by id 
     public function appartement( int $id) {

@@ -16,8 +16,6 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
 
-            $table->string('reference', 50)->nullable();
-
             $table->string('name', 50);
             $table->string('prenom', 50);
             $table->string('nom_de_famille', 50);
