@@ -17,6 +17,7 @@
 
             </p>
             <h2 class="text-center">Blog</h2>
+            
         </div>
     </div>
     <!-- Qui sommes end -->
