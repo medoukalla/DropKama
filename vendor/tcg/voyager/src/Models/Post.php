@@ -18,6 +18,8 @@ class Post extends Model
 
     public const PUBLISHED = 'PUBLISHED';
 
+    protected $fillable = ['image'];
+
     protected $guarded = [];
 
     public function save(array $options = [])

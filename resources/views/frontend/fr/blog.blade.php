@@ -23,7 +23,6 @@
 </div>
 <!-- wrapper end  -->
 
-
 <!-- Derniers articles start  -->
 <div class="DerniersArticles">
     <div class="container">
@@ -35,31 +34,32 @@
                 <h4 class="soon-warning">Bientôt: Soyez prêts!</h4>
             @else
 
-            @foreach ($posts as $post)
-                <div class="col-sm-4 col-md-6 col-lg-4">
-                    <!-- single item start  -->
-                    <div class="BlogSliderItem mb-5">
-                        <a href="{{ route('frontend.post', $post) }}" class="d-block">
-                            <img src="{{ asset('storage' . '/' . $post->image) }}" alt=" img"
-                                class="img-fluid blogImg">
-                            <span class="box d-block">
-                                <h4>{{ $post->title }}</h4>
-                                <p>{{ $post->excerpt }} ...</p>
-                                <span class="d-flex justify-content-between flex-wrap mt-4">
-                                    <span class="date">
-                                        {{ $post->created_at->format('d/m/y') }}
-                                    </span>
-                                    <span class="ReadMore">
-                                        <span>Consulter l’article</span> <img src="{{ asset('img/arrowRgiht0.svg') }}"
-                                            alt="img" class="img-fluid">
+            
+                @foreach ($posts as $post)
+                    <div class="col-sm-4 col-md-6 col-lg-4">
+                        <!-- single item start  -->
+                        <div class="BlogSliderItem mb-5">
+                            <a href="{{ route('frontend.post', $post) }}" class="d-block">
+                                <img src="{{ asset('storage/'.$post->image) }}" alt=" img"
+                                    class="img-fluid blogImg">
+                                <span class="box d-block">
+                                    <h4>{{ $post->title }}</h4>
+                                    <p>{{ $post->excerpt }} ...</p>
+                                    <span class="d-flex justify-content-between flex-wrap mt-4">
+                                        <span class="date">
+                                            {{ $post->created_at->format('d/m/y') }}
+                                        </span>
+                                        <span class="ReadMore">
+                                            <span>Consulter l’article</span> <img src="{{ asset('img/arrowRgiht0.svg') }}"
+                                                alt="img" class="img-fluid">
+                                        </span>
                                     </span>
                                 </span>
-                            </span>
-                        </a>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <!-- single item end  -->
-            @endforeach
+                    <!-- single item end  -->
+                @endforeach
 
             @endif
 

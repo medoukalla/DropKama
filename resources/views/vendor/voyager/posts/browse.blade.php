@@ -21,8 +21,8 @@
                         <div class="d-flex align-items-center">
                            <div class="badge rounded-pill bg-label-primary me-3 p-2"><i class="ti ti-chart-pie-2 ti-sm"></i></div>
                            <div class="card-info">
-                              <h5 class="mb-0">{{ \TCG\Voyager\Models\Page::count() }}</h5>
-                              <small>Nombre total de pages</small>
+                              <h5 class="mb-0">{{ \TCG\Voyager\Models\Post::count() }}</h5>
+                              <small>Nombre total d'acticles</small>
                            </div>
                         </div>
                      </div>
@@ -30,8 +30,8 @@
                         <div class="d-flex align-items-center">
                            <div class="badge rounded-pill bg-label-danger me-3 p-2"><i class="ti ti-access-point-off ti-sm"></i></div>
                            <div class="card-info">
-                              <h5 class="mb-0">{{ \TCG\Voyager\Models\Page::where('active', false)->count() }}</h5>
-                              <small>Pages inactives</small>
+                              <h5 class="mb-0">{{ \TCG\Voyager\Models\Post::where('status', false)->count() }}</h5>
+                              <small>Articles inactives</small>
                            </div>
                         </div>
                      </div>
@@ -39,8 +39,8 @@
                         <div class="d-flex align-items-center">
                            <div class="badge rounded-pill bg-label-success me-3 p-2"><i class="ti ti-access-point ti-sm"></i></div>
                            <div class="card-info">
-                              <h5 class="mb-0">{{ \TCG\Voyager\Models\Page::where('active', true)->count() }}</h5>
-                              <small>Pages actives</small>
+                              <h5 class="mb-0">{{ \TCG\Voyager\Models\Post::where('status', true)->count() }}</h5>
+                              <small>Articles actives</small>
                            </div>
                         </div>
                      </div>
@@ -57,15 +57,15 @@
               <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
                 <div class="card-header flex-column flex-md-row">
                   <div class="head-label text-center">
-                    <h5 class="card-title mb-0">Pages </h5>
+                    <h5 class="card-title mb-0">Blog Articles </h5>
                   </div>
                   <div class="dt-action-buttons text-end pt-3 pt-md-0">
                     <div class="dt-buttons btn-group flex-wrap">
                       <button class="btn btn-secondary create-new btn-primary waves-effect waves-light" tabindex="0" aria-controls="DataTables_Table_0" type="button">
-                        <a class="text-white" href="{{ route('voyager.pages.create') }}">
+                        <a class="text-white" href="{{ route('voyager.posts.create') }}">
                            <span>
                              <i class="ti ti-plus me-sm-1"></i>
-                             <span class="d-none d-sm-inline-block">Créer une nouvelle page</span>
+                             <span class="d-none d-sm-inline-block">Créer un nouvel article</span>
                            </span>
                         </a>
                       </button>
@@ -85,22 +85,22 @@
 
                   </thead>
                   <tbody>
-                     @foreach ( $dataTypeContent as $page )    
+                     @foreach ( $dataTypeContent as $post )    
                         <tr class="odd">
                             <td class="  control" tabindex="0" style="display: none;"></td>
                             
                             <td>
                                 <div class="d-flex justify-content-start align-items-center user-name">
                                     <div class="d-flex flex-column">
-                                    <span class="emp_name text-truncate">{{ $page->title }}</span>
+                                    <span class="emp_name text-truncate">{{ $post->title }}</span>
                                     </div>
                                 </div>
                             </td>
                             <td>
-                                {{ $page->slug }}
+                                {{ $post->slug }}
                             </td>
                             <td>
-                            @switch( $page->active )
+                            @switch( $post->active )
                                 @case(true)
                                     <span class="badge  bg-label-success">Actif</span>
                                     @break
@@ -112,7 +112,7 @@
                             @endswitch
                             </td>
                             <td>
-                            <a href="{{ route('voyager.pages.edit', $page) }}" class="btn btn-sm btn-icon item-edit">
+                            <a href="{{ route('voyager.posts.edit', $post) }}" class="btn btn-sm btn-icon item-edit">
                                 <i class="text-primary ti ti-pencil"></i>
                             </a>
                             </td>

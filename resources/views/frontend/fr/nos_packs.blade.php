@@ -55,16 +55,12 @@
                 <div class="row">
                     @php $i = 0 @endphp
                     @foreach ($packs as $pack)
-                        @php
-                            $i++;
-                            $image = '../immigration' . '/' . $pack->image;
-                        @endphp
                         <!-- single item start  -->
                         <div class="col-lg-4  col-md-6 mb-4">
                             <div class="itemBoxInner shadow">
 
                                 <div class="itembox1"
-                                    style="background:linear-gradient(1deg, #000000, transparent), url('{{ $image }}'); background-size:cover; ">
+                                    style="background:linear-gradient(1deg, #000000, transparent), url('{{ asset('storage/'.$pack->image) }}'); background-size:cover; ">
                                     <h4>{{ $pack->title }}</h4>
                                     <div class="d-flex justify-content-between flex-wrap">
                                         <div class="TextLeft">
