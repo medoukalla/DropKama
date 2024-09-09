@@ -37,7 +37,7 @@
                     <div class="itemLeft">
                         <!-- en espagne start  -->
                         <div class="enEspagne">
-                            <img src="{{ asset('immigration' . '/' . $post->image) }}" alt="img"
+                            <img src="{{ asset('storage' . '/' . $post->image) }}" alt="img"
                                 class="img-fluid mainImg">
                             <div class="box">
                                 <img src="{{ asset('img/FolderIconOrange.png') }}" alt="img" class="img-fluid">

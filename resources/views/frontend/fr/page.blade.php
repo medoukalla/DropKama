@@ -37,11 +37,21 @@
                         <div class="img-wrapper">
                             <div class="main-title">{{ $page->title }}</div>
                             <div class="main-img">
-                                <img src="{{ asset('immigration' . '/' . $page->image) }}" alt="{{ $page->title }}" />
+                                <img src="{{ asset('storage' . '/' . $page->image) }}" alt="{{ $page->title }}" />
                             </div>
                         </div>
 
-                        {!! $page->body !!}
+                        <!-- en espagne end  -->
+                        <div class="wrppText wrppText2">
+                            {{ $page->excerpt }}
+                        </div>
+                        <!-- wrppText end -->
+                        
+                        <!-- en espagne end  -->
+                        <div class="wrppText wrppText2">
+                            {!! $page->body !!}
+                        </div>
+                        <!-- wrppText end -->
 
                     </div>
                 </div>

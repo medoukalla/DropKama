@@ -51,7 +51,7 @@
                                         <div class="col-lg-6 mb-4">
                                             <div class="itemInner shadow">
                                                 <div class="boxTop"
-                                                    style="background-image:linear-gradient(1deg, #000000, transparent), url({{ asset('immigration' . '/' . $lings->image) }})">
+                                                    style="background-image:linear-gradient(1deg, #000000, transparent), url({{ asset('storage' . '/' . $lings->image) }})">
                                                     <div class="d-flex justify-content-between">
                                                         @php $date = strtotime($lings->year);  @endphp
                                                         <span class="yearsText">{{ date('Y', $date) }}</span>
@@ -89,7 +89,7 @@
                                         <div class="col-lg-6 mb-3">
                                             <div class="itemInner shadow">
                                                 <div class="boxTop"
-                                                    style="background-image:linear-gradient(1deg, #000000, transparent), url({{ asset('immigration' . '/' . $lings->image) }})">
+                                                    style="background-image:linear-gradient(1deg, #000000, transparent), url({{ asset('storage' . '/' . $lings->image) }})">
                                                     <div class="d-flex justify-content-between">
                                                         @php $date = strtotime($lings->year);  @endphp
                                                         <span class="yearsText">{{ date('Y', $date) }}</span>
@@ -128,7 +128,7 @@
                                         <div class="col-lg-6 mb-3">
                                             <div class="itemInner shadow">
                                                 <div class="boxTop"
-                                                    style="background-image:linear-gradient(1deg, #000000, transparent), url({{ asset('immigration' . '/' . $lings->image) }})">
+                                                    style="background-image:linear-gradient(1deg, #000000, transparent), url({{ asset('storage' . '/' . $lings->image) }})">
                                                     <div class="d-flex justify-content-between">
                                                         @php $date = strtotime($lings->year);  @endphp
                                                         <span class="yearsText">{{ date('Y', $date) }}</span>
@@ -168,7 +168,7 @@
                                         <div class="col-lg-6 mb-3">
                                             <div class="itemInner shadow">
                                                 <div class="boxTop"
-                                                    style="background-image:linear-gradient(1deg, #000000, transparent), url({{ asset('immigration' . '/' . $lings->image) }})">
+                                                    style="background-image:linear-gradient(1deg, #000000, transparent), url({{ asset('storage' . '/' . $lings->image) }})">
                                                     <div class="d-flex justify-content-between">
                                                         @php $date = strtotime($lings->year);  @endphp
                                                         <span class="yearsText">{{ date('Y', $date) }}</span>
@@ -212,7 +212,7 @@
                                         <div class="col-lg-6 mb-3">
                                             <div class="itemInner shadow">
                                                 <div class="boxTop"
-                                                    style="background-image:linear-gradient(1deg, #000000, transparent), url({{ asset('immigration' . '/' . $lings->image) }})">
+                                                    style="background-image:linear-gradient(1deg, #000000, transparent), url({{ asset('storage' . '/' . $lings->image) }})">
                                                     <div class="d-flex justify-content-between">
                                                         @php $date = strtotime($lings->year);  @endphp
                                                         <span class="yearsText">{{ date('Y', $date) }}</span>

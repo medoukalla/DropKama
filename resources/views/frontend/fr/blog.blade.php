@@ -40,7 +40,7 @@
                     <!-- single item start  -->
                     <div class="BlogSliderItem mb-5">
                         <a href="{{ route('frontend.post', $post) }}" class="d-block">
-                            <img src="{{ asset('immigration' . '/' . $post->image) }}" alt=" img"
+                            <img src="{{ asset('storage' . '/' . $post->image) }}" alt=" img"
                                 class="img-fluid blogImg">
                             <span class="box d-block">
                                 <h4>{{ $post->title }}</h4>

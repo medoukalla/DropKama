@@ -61,7 +61,7 @@
 
                                     @foreach (json_decode($appartement->images) as $image)
                                         <div class="sliderImg">
-                                            <img src="{{ asset('immigration') . '/' . $image }}" alt="img"
+                                            <img src="{{ asset('storage') . '/' . $image }}" alt="img"
                                                 class="img-fluid">
                                         </div>
                                     @endforeach
@@ -542,7 +542,7 @@
                                     <!-- Plans d'étage start  -->
                                     <div class="PlansDetage">
                                         <h4>Plans d'étage</h4>
-                                        <img src="{{ asset('immigration' . '/' . $appartement->plans_etage) }}"
+                                        <img src="{{ asset('storage' . '/' . $appartement->plans_etage) }}"
                                             alt="img" class="img-fluid">
                                     </div>
                                     <!-- Plans d'étage end  -->

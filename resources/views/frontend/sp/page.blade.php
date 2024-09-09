@@ -34,16 +34,24 @@
                     <div class="itemLeft">
                         <!-- en espagne start  -->
                         <div class="enEspagne">
-                            <img src="{{ asset('immigration' . '/' . $page->image) }}" alt="img"
+                            <img src="{{ asset('storage' . '/' . $page->image) }}" alt="img"
                                 class="img-fluid mainImg">
                             <div class="box">
                                 @if ($page->icon != '[]')
-                                    <img src="{{ asset('immigration' . '/' . json_decode($page->icon)[0]->download_link) }}"
+                                    <img src="{{ asset('storage' . '/' . json_decode($page->icon)[0]->download_link) }}"
                                         alt="img" class="img-fluid">
                                 @endif
                                 <p>{{ $page->title }}</p>
                             </div>
                         </div>
+
+
+                        <!-- en espagne end  -->
+                        <div class="wrppText wrppText2">
+                            {{ $page->excerpt }}
+                        </div>
+                        <!-- wrppText end -->
+                        
                         <!-- en espagne end  -->
                         <div class="wrppText wrppText2">
                             {!! $page->body !!}

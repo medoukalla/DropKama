@@ -11,8 +11,8 @@
             <div class="card h-100">
                <div class="card-header">
                   <div class="d-flex justify-content-between mb-3">
-                     <h5 class="card-title mb-0">Statistics</h5>
-                     <small class="text-muted">Updated 1 min ago</small>
+                     <h5 class="card-title mb-0">Statistiques</h5>
+                     <small class="text-muted">Mis à jour il y a 5 secondes</small>
                   </div>
                </div>
                <div class="card-body">
@@ -21,26 +21,26 @@
                         <div class="d-flex align-items-center">
                            <div class="badge rounded-pill bg-label-primary me-3 p-2"><i class="ti ti-chart-pie-2 ti-sm"></i></div>
                            <div class="card-info">
-                              <h5 class="mb-0">{{ count( $dataTypeContent ) }}</h5>
-                              <small>Total coupons</small>
+                              <h5 class="mb-0">{{ \TCG\Voyager\Models\Page::count() }}</h5>
+                              <small>Nombre total de pages</small>
                            </div>
                         </div>
                      </div>
                      <div class="col-md-3 col-6">
                         <div class="d-flex align-items-center">
-                           <div class="badge rounded-pill bg-label-danger me-3 p-2"><i class="ti ti-shopping-cart ti-sm"></i></div>
+                           <div class="badge rounded-pill bg-label-danger me-3 p-2"><i class="ti ti-access-point-off ti-sm"></i></div>
                            <div class="card-info">
                               <h5 class="mb-0">{{ \TCG\Voyager\Models\Page::where('active', false)->count() }}</h5>
-                              <small>Inactive pages</small>
+                              <small>Pages inactives</small>
                            </div>
                         </div>
                      </div>
                      <div class="col-md-3 col-6">
                         <div class="d-flex align-items-center">
-                           <div class="badge rounded-pill bg-label-success me-3 p-2"><i class="ti ti-currency-dollar ti-sm"></i></div>
+                           <div class="badge rounded-pill bg-label-success me-3 p-2"><i class="ti ti-access-point ti-sm"></i></div>
                            <div class="card-info">
                               <h5 class="mb-0">{{ \TCG\Voyager\Models\Page::where('active', true)->count() }}</h5>
-                              <small>Active pages</small>
+                              <small>Pages actives</small>
                            </div>
                         </div>
                      </div>

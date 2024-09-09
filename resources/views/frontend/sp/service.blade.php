@@ -37,10 +37,10 @@
                     <div class="itemLeft">
                         <!-- en espagne start  -->
                         <div class="enEspagne">
-                            <img src="{{ asset('immigration' . '/' . $service->image) }}" alt="img"
+                            <img src="{{ asset('storage' . '/' . $service->image) }}" alt="img"
                                 class="img-fluid mainImg">
                             <div class="box">
-                                <img src="{{ asset('immigration' . '/' . $service->icon) }}" alt="img"
+                                <img src="{{ asset('storage' . '/' . $service->icon) }}" alt="img"
                                     class="img-fluid">
                                 <p>{{ $service->title }}</p>
                             </div>

@@ -72,7 +72,7 @@
 
                 @foreach ($sliders as $slider)
                     @php
-                        $image = asset('immigration') . '/' . $slider->image;
+                        $image = asset('storage') . '/' . $slider->image;
                     @endphp
                     <div class="carousel-item" style="background-image: url({{ $image }})">
                     </div>
@@ -654,7 +654,7 @@
                     <!-- single item start  -->
                     <div class="BlogSliderItem">
                         <a href="{{ route('frontend.sp.post', $post) }}" class="d-block m-3 ">
-                            <img src="{{ asset('immigration' . '/' . $post->image) }}" alt=" img"
+                            <img src="{{ asset('storage' . '/' . $post->image) }}" alt=" img"
                                 class="img-fluid blogImg">
                             <span class="box d-block">
                                 <h4>{{ $post->title }}</h4>
